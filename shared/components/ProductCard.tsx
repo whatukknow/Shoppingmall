@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { ShoppingCart } from 'lucide-react';
 import { Button } from './ui/button';
@@ -7,6 +8,7 @@ type ProductCardProps = {
   name: string;
   price: number;
   href: string;
+  imageUrl?: string;
   onAddToCart: () => void;
 };
 
@@ -15,6 +17,7 @@ export function ProductCard({
   name,
   price,
   href,
+  imageUrl,
   onAddToCart,
 }: ProductCardProps) {
   return (
@@ -22,6 +25,23 @@ export function ProductCard({
       aria-label={`${name} 상품`}
       className="text-foreground relative flex w-[252px] flex-col gap-2 font-sans"
     >
+      <Link
+        href={href}
+        className="bg-card relative block aspect-square w-full overflow-hidden"
+      >
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt={name}
+            fill
+            sizes="252px"
+            className="object-cover"
+          />
+        ) : (
+          <span className="sr-only">{name} 이미지 준비 중</span>
+        )}
+      </Link>
+
       <div className="flex items-center justify-between">
         <h3 className="text-[14px] leading-[1.45] font-bold">
           <Link href={href}>{name}</Link>
@@ -41,3 +61,6 @@ export function ProductCard({
     </article>
   );
 }
+
+
+// 중복 관련 기능 제거 완료
