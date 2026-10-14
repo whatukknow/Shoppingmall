@@ -1,8 +1,15 @@
 import { useState } from 'react';
 import { Button } from './ui/button';
 
+interface Slide {
+  eyebrow: string;
+  title: string;
+  description: string;
+}
+
 /*자동 전환은 메인페이지 개인작업하면서 구현할 예정 */
-export function CurationCarousel() {
+// Sangdon05: error 표시만 나오지 않도록 수정하였습니다. 이어서 구현 바랍니다.
+export function CurationCarousel(slides: Slide[]) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slide = slides[currentSlide];
 
