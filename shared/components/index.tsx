@@ -45,4 +45,4 @@ export {
 } from './ui/dialog';
 
 export { Masthead } from './masthead';
-export { MainNavigation } from './main-navigation';
+export { MainNavigation } from './MainNavigation';
