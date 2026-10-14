@@ -44,5 +44,5 @@ export {
   DialogTrigger,
 } from './ui/dialog';
 
-export { Masthead } from './masthead';
+export { Masthead } from './Masthead';
 export { MainNavigation } from './MainNavigation';
