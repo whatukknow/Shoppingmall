@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Dialog as DialogPrimitive } from '@base-ui/react/dialog';
-import { cn } from 'cn';
+import { cn } from '@/shared/utils/cn';
 
 import { Button } from '@/shared/components/ui/button';
 import { XIcon } from 'lucide-react';
@@ -71,7 +71,7 @@ function DialogContent({
             }
           >
             <XIcon />
-            <span className="sr-only">Close</span>
+            <span className="sr-only">닫기</span>
           </DialogPrimitive.Close>
         )}
       </DialogPrimitive.Popup>
@@ -109,7 +109,7 @@ function DialogFooter({
       {children}
       {showCloseButton && (
         <DialogPrimitive.Close render={<Button variant="outline" />}>
-          Close
+          닫기
         </DialogPrimitive.Close>
       )}
     </div>
@@ -156,4 +156,4 @@ export {
   DialogPortal,
   DialogTitle,
   DialogTrigger,
-};
+} from './ui/dialog';
