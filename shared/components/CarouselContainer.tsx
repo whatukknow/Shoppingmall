@@ -1,7 +1,8 @@
 'use client';
 
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState, type Key, type ReactNode } from 'react';
+import type { Key, ReactNode } from 'react';
+import { useState } from 'react';
 
 type CarouselContainerProps<T> = {
   items: T[];
@@ -17,9 +18,10 @@ export function CarouselContainer<T>({
   renderItem,
 }: CarouselContainerProps<T>) {
   const [currentPage, setCurrentPage] = useState(0);
-  const pageSize = Number.isFinite(itemsPerSlide)
-    ? Math.max(1, Math.floor(itemsPerSlide))
-    : 1;
+  const pageSize =
+    Number.isFinite(itemsPerSlide) && itemsPerSlide > 0
+      ? Math.max(1, Math.floor(itemsPerSlide))
+      : 1;
   const pageCount = Math.ceil(items.length / pageSize);
 
   if (items.length === 0) return null;
@@ -49,13 +51,16 @@ export function CarouselContainer<T>({
       </div>
 
       {pageCount > 1 && (
-        <div className="mt-4 flex justify-end gap-2">
+        <nav
+          aria-label="상품 캐러셀 탐색"
+          className="mt-4 flex justify-end gap-2"
+        >
           <button
             type="button"
             aria-label="이전 상품 보기"
             className="text-foreground border-border hover:bg-muted flex size-9 items-center justify-center rounded-full border disabled:cursor-not-allowed disabled:opacity-50"
             disabled={activePage === 0}
-            onClick={() => setCurrentPage(activePage - 1)}
+            onClick={() => setCurrentPage((page) => Math.max(0, page - 1))}
           >
             <ChevronLeft aria-hidden="true" size={18} />
           </button>
@@ -64,11 +69,13 @@ export function CarouselContainer<T>({
             aria-label="다음 상품 보기"
             className="text-foreground border-border hover:bg-muted flex size-9 items-center justify-center rounded-full border disabled:cursor-not-allowed disabled:opacity-50"
             disabled={activePage === pageCount - 1}
-            onClick={() => setCurrentPage(activePage + 1)}
+            onClick={() =>
+              setCurrentPage((page) => Math.min(pageCount - 1, page + 1))
+            }
           >
             <ChevronRight aria-hidden="true" size={18} />
           </button>
-        </div>
+        </nav>
       )}
     </section>
   );
