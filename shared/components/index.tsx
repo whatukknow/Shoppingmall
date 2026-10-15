@@ -47,3 +47,5 @@ export {
 export { Masthead } from './Masthead';
 export { MainNavigation } from './MainNavigation';
 export { default as Footer } from './Footer';
+export { default as CategoryMenuContainer } from './CategoryMenuContainer';
+export { CategoryMenuView } from './CategoryMenuView';
