@@ -1,6 +1,6 @@
 'use client'; // 함수(renderItem)를 캐러셀에 넘겨야 해서 클라이언트 경계가 필요
 
-import { CarouselContainer } from '@/domains/portion-market/components/CarouselContainer';
+import { CarouselContainer } from '@/shared/components/CarouselContainer';
 import { PortionMarketProductCard } from '@/domains/portion-market/components/PortionMarketProductCard';
 import type { PortionMarketProduct } from '@/domains/portion-market/portionMarket.types';
 

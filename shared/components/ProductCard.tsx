@@ -58,6 +58,7 @@ export function ProductCard({
       <p className="text-[17px] leading-[1.45] font-bold whitespace-nowrap">
         {formatPrice(price)}
       </p>
+      <p className="px-20"></p>
     </article>
   );
 }

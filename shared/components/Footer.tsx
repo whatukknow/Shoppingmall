@@ -11,7 +11,7 @@ export default function Footer() {
     case '/':
       return <MainFooter />;
 
-    case '/market':
+    case '/portion-market':
       return <MainFooter returnUrl="/" returnLabel="홈으로 돌아가기" />;
 
     case '/product-list':
