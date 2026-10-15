@@ -46,3 +46,4 @@ export {
 
 export { Masthead } from './Masthead';
 export { MainNavigation } from './MainNavigation';
+export { default as Footer } from './Footer';
