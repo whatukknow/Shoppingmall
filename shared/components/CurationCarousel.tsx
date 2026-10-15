@@ -46,6 +46,7 @@ export function CurationCarousel({ slides }: CurationCarouselProps) {
       </div>
 
       <div
+        role="group"
         aria-label="배너 선택"
         className="flex h-10 w-[1080px] items-center justify-center gap-2"
       >
