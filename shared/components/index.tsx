@@ -44,7 +44,7 @@ export {
   DialogTrigger,
 } from './ui/dialog';
 
-export { Masthead } from './Masthead';
+export { MastHead } from './MastHead';
 export { MainNavigation } from './MainNavigation';
 export { default as Footer } from './Footer';
 export { default as CategoryMenuContainer } from './CategoryMenuContainer';
