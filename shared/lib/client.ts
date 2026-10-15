@@ -1,10 +1,13 @@
 import fetchMockup from './mockup/fetchMockup';
 
-// TODO: API Error Code 정의 필요. 현재는 구분 없이 0으로 고정
+export type ApiErrorCode =
+  'MOCKUP_NOT_FOUND' | 'INVALID_RESPONSE' | 'INTERNAL_ERROR';
+
 export class ApiError extends Error {
   constructor(
     public status: number,
-    public message: string,
+    public code: ApiErrorCode,
+    message: string,
     public data?: unknown,
   ) {
     super(message);
@@ -34,19 +37,17 @@ function buildUrl(path: string, params?: QueryParams): string {
 }
 
 function buildMockupUrl(path: string, params?: QueryParams): string {
-  let url = path;
+  if (!params) return path;
 
-  if (params) {
-    let querys = '';
-    Object.entries(params).forEach(([key, value]) => {
-      if (key) {
-        querys += `${key}=${String(value)}`;
-      }
-    });
-    url = `${url}?${querys}`;
-  }
+  const query = Object.entries(params)
+    .filter(([key]) => key.length > 0)
+    .map(
+      ([key, value]) =>
+        `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`,
+    )
+    .join('&');
 
-  return url;
+  return query ? `${path}?${query}` : path;
 }
 
 async function request<T>(
@@ -60,21 +61,43 @@ async function request<T>(
     const jsonBody: string | undefined =
       body !== undefined ? JSON.stringify(body) : undefined;
 
-    const data = fetchMockup(method, buildMockupUrl(path, params), jsonBody);
-    const json = data && JSON.parse(data);
+    const mockupUrl = buildMockupUrl(path, params);
+    const data = fetchMockup(method, mockupUrl, jsonBody);
 
-    if (!json) {
-      throw new ApiError(0, 'JSON 없음');
+    if (data === undefined) {
+      throw new ApiError(
+        404,
+        'MOCKUP_NOT_FOUND',
+        `목데이터를 찾을 수 없습니다: ${method} ${path}`,
+      );
+    }
+
+    let json: unknown;
+    try {
+      json = JSON.parse(data);
+    } catch {
+      throw new ApiError(
+        502,
+        'INVALID_RESPONSE',
+        '목데이터 JSON 형식이 올바르지 않습니다.',
+        data,
+      );
     }
 
     return json as T;
   } catch (e) {
-    // TODO: 오류 객체에 대해 확인 하여 내부 정의한 오류를 발생시켜야한다.
+    if (e instanceof ApiError) throw e;
+
     if (e instanceof Error) {
-      throw new ApiError(0, e.message);
+      throw new ApiError(500, 'INTERNAL_ERROR', e.message, e);
     }
 
-    throw new ApiError(0, `공통 오류 확인 필요 ${e}`);
+    throw new ApiError(
+      500,
+      'INTERNAL_ERROR',
+      `공통 오류 확인 필요: ${String(e)}`,
+      e,
+    );
   }
 }
 
@@ -84,9 +107,9 @@ export const apiClient = {
   post: <T>(path: string, body?: unknown, options?: RequestOptions) =>
     request<T>('POST', path, body, options),
   put: <T>(path: string, body?: unknown, options?: RequestOptions) =>
-    request<T>('POST', path, body, options),
+    request<T>('PUT', path, body, options),
   patch: <T>(path: string, body?: unknown, options?: RequestOptions) =>
-    request<T>('POST', path, body, options),
+    request<T>('PATCH', path, body, options),
   delete: <T>(path: string, options?: RequestOptions) =>
     request<T>('DELETE', path, undefined, options),
 };
