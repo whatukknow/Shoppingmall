@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { BBH_Hegarty, Noto_Sans_KR, Geist_Mono } from 'next/font/google';
+import { Footer } from "@/shared/components/Footer";
 
 const notoSansKr = Noto_Sans_KR({
   variable: '--font-noto-sans-kr',
@@ -31,7 +32,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       lang="ko"
       className={`${notoSansKr.variable} ${geistMono.variable} ${bbhHegarty.variable} h-full antialiased`}
     >
+
       <body className="flex min-h-full flex-col">{children}</body>
+      <Footer/>
     </html>
   );
 }
