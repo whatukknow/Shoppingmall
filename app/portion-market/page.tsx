@@ -3,7 +3,7 @@ import { getPortionMarketDetail } from '@/domains/portion-market/portionMarket.a
 import { toPortionMarketPage } from '@/domains/portion-market/portionMarket.mapper';
 import { PortionMarketHero } from '@/domains/portion-market/components/PortionMarketHero';
 import { PortionMarketKitSteps } from '@/domains/portion-market/components/PortionMarketKitSteps';
-import PortionMarketCarouselContainer from './PortionMarketCarouselContainer';
+import PortionMarketCarouselContainer from '../../domains/portion-market/components/PortionMarketCarouselContainer';
 
 // 'use client'가 없으므로 서버 컴포넌트
 // 데이터를 받아서 부품을 순서대로 놓기만 함
