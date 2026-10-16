@@ -5,19 +5,22 @@ import { Menu as MenuPrimitive } from '@base-ui/react/menu';
 import { cn } from '@/shared/utils/cn';
 import { ChevronRightIcon, CheckIcon } from 'lucide-react';
 
-/* 참고  */
+/** 드롭다운 열림 상태를 관리하는 메뉴 루트입니다. */
 function DropdownMenu({ ...props }: MenuPrimitive.Root.Props) {
   return <MenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
 }
 
+/** 메뉴 콘텐츠를 페이지 포털에 렌더링합니다. */
 function DropdownMenuPortal({ ...props }: MenuPrimitive.Portal.Props) {
   return <MenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />;
 }
 
+/** 드롭다운을 열고 닫는 트리거입니다. */
 function DropdownMenuTrigger({ ...props }: MenuPrimitive.Trigger.Props) {
   return <MenuPrimitive.Trigger data-slot="dropdown-menu-trigger" {...props} />;
 }
 
+/** 위치 설정과 스크롤 가능한 메뉴 패널을 제공합니다. */
 function DropdownMenuContent({
   align = 'start',
   alignOffset = 0,
@@ -52,10 +55,12 @@ function DropdownMenuContent({
   );
 }
 
+/** 연관된 메뉴 항목을 하나의 그룹으로 묶습니다. */
 function DropdownMenuGroup({ ...props }: MenuPrimitive.Group.Props) {
   return <MenuPrimitive.Group data-slot="dropdown-menu-group" {...props} />;
 }
 
+/** 메뉴 그룹의 제목을 표시합니다. */
 function DropdownMenuLabel({
   className,
   inset,
@@ -76,6 +81,7 @@ function DropdownMenuLabel({
   );
 }
 
+/** 기본 또는 파괴적 스타일의 선택 항목입니다. */
 function DropdownMenuItem({
   className,
   inset,
@@ -99,10 +105,12 @@ function DropdownMenuItem({
   );
 }
 
+/** 하위 메뉴의 열림 상태를 관리합니다. */
 function DropdownMenuSub({ ...props }: MenuPrimitive.SubmenuRoot.Props) {
   return <MenuPrimitive.SubmenuRoot data-slot="dropdown-menu-sub" {...props} />;
 }
 
+/** 하위 메뉴를 여는 항목과 방향 아이콘입니다. */
 function DropdownMenuSubTrigger({
   className,
   inset,
@@ -127,6 +135,7 @@ function DropdownMenuSubTrigger({
   );
 }
 
+/** 하위 메뉴 항목을 배치할 위치 지정 패널입니다. */
 function DropdownMenuSubContent({
   align = 'start',
   alignOffset = -3,
@@ -151,6 +160,7 @@ function DropdownMenuSubContent({
   );
 }
 
+/** 체크 상태를 전환할 수 있는 메뉴 항목입니다. */
 function DropdownMenuCheckboxItem({
   className,
   children,
@@ -184,6 +194,7 @@ function DropdownMenuCheckboxItem({
   );
 }
 
+/** 라디오 메뉴 항목의 단일 선택 값을 관리합니다. */
 function DropdownMenuRadioGroup({ ...props }: MenuPrimitive.RadioGroup.Props) {
   return (
     <MenuPrimitive.RadioGroup
@@ -193,6 +204,7 @@ function DropdownMenuRadioGroup({ ...props }: MenuPrimitive.RadioGroup.Props) {
   );
 }
 
+/** 라디오 그룹에서 선택할 수 있는 메뉴 항목입니다. */
 function DropdownMenuRadioItem({
   className,
   children,
@@ -224,6 +236,7 @@ function DropdownMenuRadioItem({
   );
 }
 
+/** 메뉴 항목 사이에 시각적 구분선을 표시합니다. */
 function DropdownMenuSeparator({
   className,
   ...props
@@ -237,6 +250,7 @@ function DropdownMenuSeparator({
   );
 }
 
+/** 메뉴 항목 오른쪽에 단축키 안내를 표시합니다. */
 function DropdownMenuShortcut({
   className,
   ...props

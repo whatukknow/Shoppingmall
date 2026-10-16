@@ -3,14 +3,16 @@
 import type { Key, ReactNode } from 'react';
 import { useState } from 'react';
 
+/** 캐러셀 데이터, 화면별 표시 개수, 키와 렌더 함수를 지정합니다. */
 type CarouselContainerProps<Item> = {
   items: Item[];
   itemsPerSlide: number;
   getItemKey: (item: Item) => Key;
-  renderItem: (item: Item) => ReactNode;
+  renderItem: (item: Item, index: number) => ReactNode;
   ariaLabel?: string;
 };
 
+/** 지정한 개수만큼 상품을 나눠 보여주고 이전·다음 슬라이드 이동을 제공합니다. */
 export function CarouselContainer<Item>({
   items,
   itemsPerSlide,
@@ -35,8 +37,8 @@ export function CarouselContainer<Item>({
           className="grid gap-6"
           style={{ gridTemplateColumns: `repeat(${pageSize}, minmax(0, 1fr))` }}
         >
-          {visibleItems.map((item) => (
-            <div key={getItemKey(item)}>{renderItem(item)}</div>
+          {visibleItems.map((item, index) => (
+            <div key={getItemKey(item)}>{renderItem(item, startIndex + index)}</div>
           ))}
         </div>
 
