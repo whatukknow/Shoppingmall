@@ -41,7 +41,6 @@ export default function ProductListPage() {
         aria-label="전체 상품 목록"
         className="mx-auto mt-14 w-full max-w-[1080px]"
       >
-        {/* 다음 단계에서 38개 상품 그리드를 넣을 위치 */}
       </section>
     </main>
   );
