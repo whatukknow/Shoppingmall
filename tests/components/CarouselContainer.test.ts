@@ -24,7 +24,7 @@ describe('CarouselContainer', () => {
     assert.equal((markup.match(/data-product-id=/g) ?? []).length, 3);
     assert.match(markup, /Product 3/);
     assert.doesNotMatch(markup, /Product 4/);
-    assert.match(markup, /aria-label="다음 슬라이드"/);
+    assert.match(markup, /aria-label="다음 상품 보기"/);
   });
 
   it('renders nothing when there are no items', () => {
