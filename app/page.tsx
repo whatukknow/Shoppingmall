@@ -1,11 +1,9 @@
 import { MainNavigation, MastHead } from '@/shared/components';
-import {
-  FreshPickCardContainer,
-  MainBannerCuration,
-  PortionMarket,
-  StoryCardsContainer,
-  YourPantryContainer,
-} from '@/domains/Home/components';
+import { FreshPickCardContainer } from '@/domains/Home/components/FreshPickCardContainer';
+import { MainBannerCuration } from '@/domains/Home/components/MainBannerCuration';
+import { PortionMarket } from '@/domains/Home/components/PortionMarket';
+import { StoryCardsContainer } from '@/domains/Home/components/StoryCardsContainer';
+import { YourPantryContainer } from '@/domains/Home/components/YourPantryContainer';
 
 export default function Home() {
   return (

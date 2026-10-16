@@ -46,7 +46,15 @@ export default function Footer() {
     case '/portion-market':
       return <MainFooter returnUrl="/" returnLabel="홈으로 돌아가기" />;
 
-    // TODO: Curation 페이지 제거 시 관련 분기 삭제
+    case '/product-list':
+    case '/products':
+      return <SubFooter returnUrl="/" returnLabel="홈으로 돌아가기" />;
+
+    case '/product-detail':
+      return (
+        <SubFooter returnUrl="/product-list" returnLabel="목록으로 돌아가기" />
+      );
+
     case '/curation-details':
       return (
         <SubFooter returnUrl="/curation" returnLabel="목록으로 돌아가기" />

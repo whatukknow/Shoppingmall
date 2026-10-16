@@ -1,24 +1,33 @@
+import { FreshPickCard } from './FreshPickCard';
+
 const freshPicks = [
-  { title: '제철의 향기', description: '지금 가장 맛있는 계절의 재료' },
-  { title: '한 끼의 여유', description: '오늘을 위한 산뜻한 한 접시' },
-  { title: '작은 즐거움', description: '식탁에 더하는 새로운 맛' },
+  {
+    title: '한 줌의 초록',
+    tags: ['와플', '브런치', '주말아침'],
+  },
+  {
+    title: '토마토가 맛있는 한 끼',
+    tags: ['산뜻한맛', '원디쉬'],
+  },
+  {
+    title: '조금씩 담는 채소',
+    tags: ['브런치', '고소한맛'],
+  },
 ];
 
 export function FreshPickCardContainer() {
   return (
     <section
-      aria-labelledby="fresh-picks-heading"
-      className="mx-auto mt-16 w-full max-w-[1080px] px-4"
+      aria-label="신선한 재료"
+      className="mx-auto mt-10 w-full max-w-[1080px] px-4"
     >
-      <h2 id="fresh-picks-heading" className="mb-6 text-2xl font-bold">
-        Fresh Picks
-      </h2>
-      <div className="grid gap-4 sm:grid-cols-3">
-        {freshPicks.map((pick) => (
-          <article key={pick.title} className="bg-card min-h-48 p-6">
-            <h3 className="text-lg font-bold">{pick.title}</h3>
-            <p className="mt-2 text-sm">{pick.description}</p>
-          </article>
+      <p className="text-foreground font-heading mb-4 text-[14px] font-bold">
+        01 / FRESH PICKS
+      </p>
+
+      <div className="grid grid-cols-3 gap-6">
+        {freshPicks.map((item) => (
+          <FreshPickCard key={item.title} title={item.title} tags={item.tags} />
         ))}
       </div>
     </section>

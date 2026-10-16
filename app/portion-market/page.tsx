@@ -43,19 +43,6 @@ export default async function PortionMarketPage() {
           ① 원하는 재료 찾기 → ② 필요한 양 살펴보기 → ③ 나눔 방식 확인하기
         </p>
       </section>
-
-      {/* 마무리 문구 */}
-      <section className="mt-16 text-right">
-        <p className="font-heading text-primary text-[32px] uppercase">
-          Good food. Small table.
-        </p>
-        <p className="mt-1 text-[13px]">한두 사람의 식탁에, 취향은 가득.</p>
-      </section>
-
-      {/* 메인으로 돌아가기 */}
-      <Link href="/" className="mt-10 inline-block text-[13px] font-bold">
-        메인으로 돌아가기 ↗
-      </Link>
     </main>
   );
 }
