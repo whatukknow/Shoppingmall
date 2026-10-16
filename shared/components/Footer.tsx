@@ -15,6 +15,7 @@ export default function Footer() {
       return <MainFooter returnUrl="/" returnLabel="홈으로 돌아가기" />;
 
     case '/product-list':
+    case '/products':
       return <SubFooter returnUrl="/" returnLabel="홈으로 돌아가기" />;
 
     case '/product-detail':
@@ -51,18 +52,20 @@ type FooterProps = {
 // 구조: 좌측 이동 링크 / 우측 영문·국문 슬로건
 function MainFooter({ returnUrl, returnLabel }: FooterProps) {
   return (
-    <footer className="bg-background text-foreground flex w-full items-end justify-between px-6 py-10">
-      <div>
-        {returnUrl && (
-          <Link href={returnUrl} className="text-primary text-base">
-            ← {returnLabel}
-          </Link>
-        )}
-      </div>
+    <footer className="bg-background w-full pb-[250px]">
+      <div className="text-foreground mx-auto flex w-full max-w-[1080px] items-end justify-between px-4 py-10">
+        <div>
+          {returnUrl && (
+            <Link href={returnUrl} className="text-primary text-base">
+              ← {returnLabel}
+            </Link>
+          )}
+        </div>
 
-      <div className="text-right">
-        <p className="font-heading text-3xl">Just enough, always fresh</p>
-        <p className="mt-2 text-sm">필요한 만큼 언제나 신선하게</p>
+        <div className="text-right">
+          <p className="font-heading text-3xl">Just enough, always fresh</p>
+          <p className="mt-2 text-sm">필요한 만큼 언제나 신선하게</p>
+        </div>
       </div>
     </footer>
   );
@@ -73,24 +76,26 @@ function MainFooter({ returnUrl, returnLabel }: FooterProps) {
 // 구조: 상단 구분선 / 좌측 로고·국문 슬로건 / 우측 이동 링크
 function SubFooter({ returnUrl, returnLabel }: FooterProps) {
   return (
-    <footer className="bg-background w-full px-6 py-10">
-      <hr className="border-foreground/30 mb-6 w-full border-t" />
+    <footer className="bg-background w-full pb-[250px]">
+      <div className="mx-auto w-full max-w-[1080px] px-4 py-10">
+        <hr className="border-foreground/30 mb-6 w-full border-t" />
 
-      <div className="flex items-end justify-between">
-        <div>
-          <p className="font-heading text-primary text-[32px]">
-            Little portions
-          </p>
-          <p className="text-foreground mt-2 text-sm">
-            필요한 만큼 언제나 신선하게
-          </p>
+        <div className="flex items-end justify-between">
+          <div>
+            <p className="font-heading text-primary text-[32px]">
+              Little portions
+            </p>
+            <p className="text-foreground mt-2 text-sm">
+              필요한 만큼 언제나 신선하게
+            </p>
+          </div>
+
+          {returnUrl && (
+            <Link href={returnUrl} className="text-primary text-base">
+              ← {returnLabel}
+            </Link>
+          )}
         </div>
-
-        {returnUrl && (
-          <Link href={returnUrl} className="text-primary text-base">
-            ← {returnLabel}
-          </Link>
-        )}
       </div>
     </footer>
   );
