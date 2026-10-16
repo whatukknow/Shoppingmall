@@ -7,7 +7,7 @@ import { CarouselContainer } from '../../shared/components/CarouselContainer';
 describe('CarouselContainer', () => {
   it('renders only the first slide and provides navigation controls', () => {
     const html = renderToStaticMarkup(
-      createElement(CarouselContainer, {
+      createElement(CarouselContainer<string>, {
         items: ['first', 'second', 'third', 'fourth'],
         itemsPerSlide: 3,
         getItemKey: (item) => item,
@@ -19,13 +19,13 @@ describe('CarouselContainer', () => {
     assert.match(html, /second/);
     assert.match(html, /third/);
     assert.doesNotMatch(html, /fourth/);
-    assert.match(html, /aria-label="다음 상품"/);
-    assert.match(html, />1 \/ 2</);
+    assert.match(html, /aria-label="상품 캐러셀 탐색"/);
+    assert.match(html, /aria-label="다음 상품 보기"/);
   });
 
   it('renders an empty collection without failing', () => {
     const html = renderToStaticMarkup(
-      createElement(CarouselContainer, {
+      createElement(CarouselContainer<string>, {
         items: [],
         itemsPerSlide: 3,
         getItemKey: (item: string) => item,
@@ -33,6 +33,6 @@ describe('CarouselContainer', () => {
       }),
     );
 
-    assert.match(html, />0 \/ 0</);
+    assert.equal(html, '');
   });
 });

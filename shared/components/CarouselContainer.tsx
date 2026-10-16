@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Key, ReactNode } from 'react';
+import { useState } from 'react';
 
 type CarouselContainerProps<T> = {
   items: T[];
@@ -16,51 +17,66 @@ export function CarouselContainer<T>({
   getItemKey,
   renderItem,
 }: CarouselContainerProps<T>) {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slideSize = Math.max(1, Math.floor(itemsPerSlide) || 1);
-  const slideCount = Math.ceil(items.length / slideSize);
-  const activeSlide = Math.min(currentSlide, Math.max(0, slideCount - 1));
+  const [currentPage, setCurrentPage] = useState(0);
+  const pageSize =
+    Number.isFinite(itemsPerSlide) && itemsPerSlide > 0
+      ? Math.max(1, Math.floor(itemsPerSlide))
+      : 1;
+  const pageCount = Math.ceil(items.length / pageSize);
+
+  if (items.length === 0) return null;
+
+  const activePage = Math.min(currentPage, pageCount - 1);
   const visibleItems = items.slice(
-    activeSlide * slideSize,
-    (activeSlide + 1) * slideSize,
+    activePage * pageSize,
+    (activePage + 1) * pageSize,
   );
 
   return (
-    <div>
+    <section
+      aria-label="상품 캐러셀"
+      aria-roledescription="carousel"
+      className="w-full"
+    >
       <div
+        aria-live="polite"
         className="grid gap-4"
-        style={{ gridTemplateColumns: `repeat(${slideSize}, minmax(0, 1fr))` }}
+        style={{
+          gridTemplateColumns: `repeat(${visibleItems.length}, minmax(0, 1fr))`,
+        }}
       >
         {visibleItems.map((item) => (
           <div key={getItemKey(item)}>{renderItem(item)}</div>
         ))}
       </div>
 
-      <div
-        role="group"
-        aria-label="상품 페이지 선택"
-        className="mt-4 flex items-center justify-center gap-4"
-      >
-        <button
-          type="button"
-          aria-label="이전 상품"
-          disabled={activeSlide === 0}
-          onClick={() => setCurrentSlide(activeSlide - 1)}
+      {pageCount > 1 && (
+        <nav
+          aria-label="상품 캐러셀 탐색"
+          className="mt-4 flex justify-end gap-2"
         >
-          이전
-        </button>
-        <span aria-live="polite">
-          {slideCount === 0 ? 0 : activeSlide + 1} / {slideCount}
-        </span>
-        <button
-          type="button"
-          aria-label="다음 상품"
-          disabled={activeSlide >= slideCount - 1}
-          onClick={() => setCurrentSlide(activeSlide + 1)}
-        >
-          다음
-        </button>
-      </div>
-    </div>
+          <button
+            type="button"
+            aria-label="이전 상품 보기"
+            className="text-foreground border-border hover:bg-muted flex size-9 items-center justify-center rounded-full border disabled:cursor-not-allowed disabled:opacity-50"
+            disabled={activePage === 0}
+            onClick={() => setCurrentPage((page) => Math.max(0, page - 1))}
+          >
+            <ChevronLeft aria-hidden="true" size={18} />
+          </button>
+          <button
+            type="button"
+            aria-label="다음 상품 보기"
+            className="text-foreground border-border hover:bg-muted flex size-9 items-center justify-center rounded-full border disabled:cursor-not-allowed disabled:opacity-50"
+            disabled={activePage === pageCount - 1}
+            onClick={() =>
+              setCurrentPage((page) => Math.min(pageCount - 1, page + 1))
+            }
+          >
+            <ChevronRight aria-hidden="true" size={18} />
+          </button>
+        </nav>
+      )}
+    </section>
   );
 }

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import type { ProductListItem } from '@/domains/product-list/productList.types';
 
@@ -8,32 +7,25 @@ type YourPantryContainerProps = {
 
 export function YourPantryContainer({ products }: YourPantryContainerProps) {
   return (
-    <section className="mx-auto mt-16 w-full max-w-[1080px] px-4">
-      <h2 className="text-[24px] font-bold">취향을 담는 장바구니</h2>
-      <p className="mt-2 text-[14px]">필요한 만큼 골라 나만의 식탁을 채워요.</p>
+    <section
+      aria-labelledby="your-pantry-heading"
+      className="mx-auto mt-16 w-full max-w-[1080px] px-4"
+    >
+      <h2 id="your-pantry-heading" className="mb-6 text-2xl font-bold">
+        Your Pantry
+      </h2>
       {products.length > 0 ? (
-        <ul className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+        <ul className="grid gap-4 sm:grid-cols-3">
           {products.map((product) => (
-            <li key={product.id}>
-              <Link href={product.href} className="block">
-                {product.imageUrl ? (
-                  <Image
-                    src={product.imageUrl}
-                    alt={product.name}
-                    width={252}
-                    height={252}
-                    className="aspect-square w-full object-cover"
-                  />
-                ) : (
-                  <span className="bg-card block aspect-square" />
-                )}
-                <span className="mt-2 block font-bold">{product.name}</span>
+            <li key={product.id} className="bg-card p-6">
+              <Link href={product.href} className="font-bold hover:underline">
+                {product.name}
               </Link>
             </li>
           ))}
         </ul>
       ) : (
-        <p className="mt-6 text-[14px]">상품을 준비하고 있어요.</p>
+        <p>상품을 준비하고 있어요.</p>
       )}
     </section>
   );
