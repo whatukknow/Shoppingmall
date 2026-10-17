@@ -1,7 +1,10 @@
 import './globals.css';
-import { BBH_Hegarty, Noto_Sans_KR, Geist_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
+import { Noto_Sans_KR, Geist_Mono } from 'next/font/google';
 import type { Metadata, Viewport } from 'next';
 import Footer from '@/shared/components/Footer';
+import { MastHead } from '@/shared/components/MastHead';
+import { ButterBackground } from '@/shared/components/ButterBackground';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -15,10 +18,10 @@ const notoSansKr = Noto_Sans_KR({
   display: 'swap',
 });
 
-const bbhHegarty = BBH_Hegarty({
+const bbhHegarty = localFont({
+  src: './fonts/BBHHegarty-Regular.ttf',
   variable: '--font-bbh-hegarty',
   weight: '400',
-  subsets: ['latin'],
   display: 'swap',
 });
 
@@ -39,8 +42,18 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       className={`${notoSansKr.variable} ${geistMono.variable} ${bbhHegarty.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        {children}
-        <Footer />
+        <MastHead variant="header" />
+        <ButterBackground>{children}</ButterBackground>
+        <Footer
+          companyName="리틀포션즈"
+          representative="정은"
+          businessRegistrationNumber="000-00-00000"
+          ecommerceRegistrationNumber="제0000-서울구로-0000호"
+          address="서울특별시 구로구 디지털로33길 48"
+          customerService="0000-0000"
+          termsUrl="/terms"
+          privacyUrl="/privacy"
+        />
       </body>
     </html>
   );

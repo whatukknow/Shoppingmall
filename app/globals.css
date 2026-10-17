@@ -6,6 +6,7 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-butter: var(--butter);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-noto-sans-kr);
   --font-heading: var(--font-bbh-hegarty);
@@ -78,9 +79,10 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --background: #f1ebd6; /*background 이하*/
+  --background: #fff8d6; /* 전 페이지 공통 버터 배경 */
+  --butter: #fff8d6;
   --foreground: #48131b;
-  --card: #f1ebd6;
+  --card: transparent;
   --card-foreground: #48131b;
   --popover: #f1ebd6;
   --popover-foreground: #48131b;
@@ -88,6 +90,7 @@
 
 .dark {
   --background: oklch(0.145 0 0);
+  --butter: oklch(0.25 0.035 90);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -129,5 +132,11 @@
   }
   html {
     @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .butter-background {
+    background-color: var(--butter, #fff8d6);
   }
 }

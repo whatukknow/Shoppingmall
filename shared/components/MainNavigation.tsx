@@ -1,18 +1,50 @@
-import CategoryMenuContainer from './CategoryMenuContainer';
+'use client';
 
-export function MainNavigation() {
+import { usePathname } from 'next/navigation';
+import { NavigationAction, type NavigationTarget } from './NavigationAction';
+import { cn } from '@/shared/utils/cn';
+
+/** 주요 메뉴별 링크 또는 클릭 동작과 추가 스타일을 전달합니다. */
+export type MainNavigationProps = {
+  products?: NavigationTarget;
+  recommendation?: NavigationTarget;
+  about?: NavigationTarget;
+  className?: string;
+};
+
+/** 연결된 대상만 활성화해 주요 메뉴를 표시합니다. */
+export function MainNavigation({
+  products = { href: '/products' },
+  recommendation,
+  about,
+  className,
+}: MainNavigationProps) {
+  const pathname = usePathname();
+  // 메뉴 데이터와 NavigationAction 렌더링을 분리해 항목 구성을 한곳에서 관리합니다.
+  const items = [
+    { label: '소분마켓', target: products },
+    { label: '취향 찾기', target: recommendation ?? { href: '/#find-your-taste' } },
+    { label: '브랜드 이야기', target: about ?? { href: '/#brand-story' } },
+  ];
   return (
     <nav
       aria-label="주요 메뉴"
-      className="relative mx-auto mt-5 w-full max-w-[1080px] px-4"
+      className={cn(
+        'text-foreground mx-auto w-full max-w-[1440px] px-2 py-2 sm:px-4 sm:py-3',
+        className,
+      )}
     >
-      <ul className="text-foreground flex items-center justify-center gap-[180px] font-sans text-[22px] leading-[1.45] font-bold whitespace-nowrap">
-        <li>
-          <CategoryMenuContainer />
-        </li>
-        <li>많이 찾는 맛</li>
-        <li>이번 주 혜택</li>
-        <li>나눠 담는 마켓</li>
+      <ul className="grid grid-cols-3 gap-1 text-center sm:gap-4">
+        {items.map(({ label, target }) => (
+          <li key={label} className="min-w-0">
+            <NavigationAction
+              label={label}
+              target={target}
+              current={!!target?.href && pathname === target.href}
+              className="w-full px-1 text-xs sm:px-2 sm:text-sm"
+            />
+          </li>
+        ))}
       </ul>
     </nav>
   );

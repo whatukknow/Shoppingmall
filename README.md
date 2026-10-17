@@ -18,7 +18,22 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Fonts
+
+The English brand wordmark and display headings use the locally hosted **BBH Hegarty** font through [`next/font/local`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts).
+
+- Font file: `app/fonts/BBHHegarty-Regular.ttf`
+- License: `app/fonts/OFL.txt` (SIL Open Font License)
+- Loader and CSS variable: `app/layout.tsx` registers `--font-bbh-hegarty`.
+- Shared Tailwind font token: `font-heading`, mapped in `app/globals.css`.
+
+Use `className="font-heading"` for English display text, for example:
+
+```tsx
+<h1 className="font-heading">Little Portions</h1>
+```
+
+Korean text uses the Noto Sans KR body font and fallback because BBH Hegarty is intended for the English display style. Keep the font file and its license together if moving or replacing the font.
 
 ## Learn More
 

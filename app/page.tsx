@@ -1,24 +1,20 @@
-import { MainNavigation, MastHead } from '@/shared/components';
-import { FreshPickCardContainer } from '@/domains/Home/components/FreshPickCardContainer';
-import { MainBannerCuration } from '@/domains/Home/components/MainBannerCuration';
-import { PortionMarket } from '@/domains/Home/components/PortionMarket';
-import { StoryCardsContainer } from '@/domains/Home/components/StoryCardsContainer';
-import { YourPantryContainer } from '@/domains/Home/components/YourPantryContainer';
+import { BrandStorySection } from '@/domains/home/components/BrandStorySection';
+import { HomeHero } from '@/domains/home/components/HomeHero';
+import { HowItWorksSection } from '@/domains/home/components/HowItWorksSection';
+import { PopularProductsCarousel } from '@/domains/home/components/PopularProductsCarousel';
+import { ShareProductsCarousel } from '@/domains/home/components/ShareProductsCarousel';
+import { TasteFinderSection } from '@/domains/home/components/TasteFinderSection';
 
-export default function Home() {
+/** Next.js 홈 경로에서 새 시안의 섹션을 순서대로 조합합니다. */
+export default function HomePage() {
   return (
-    <main className="bg-background min-h-screen">
-      <MastHead />
-      <MainBannerCuration />
-      <MainNavigation />
-      <StoryCardsContainer />
-      {/* 오늘의 식탁, 어디로 떠나볼까요? */}
-      <FreshPickCardContainer />
-      {/* 01 Fresh Picks */}
-      <YourPantryContainer products={[]} />
-      {/* 취향을 담는 장바구니: 실제 상품·장바구니 연결 전 */}
-      <PortionMarket href="/portion-market" />
-      {/* 소분 마켓 */}
+    <main className="min-h-screen text-[#242821]">
+      <HomeHero />
+      <HowItWorksSection />
+      <ShareProductsCarousel />
+      <PopularProductsCarousel />
+      <BrandStorySection />
+      <TasteFinderSection />
     </main>
   );
 }
