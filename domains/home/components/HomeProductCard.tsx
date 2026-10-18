@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { HomeProduct } from '../data/homeProducts';
 import { HomeProductIllustration } from './HomeProductIllustration';
 
+/** 홈 캐러셀 두 곳에서 재사용하는 시안 상품 카드입니다. */
 export function HomeProductCard({ product, rank }: { product: HomeProduct; rank?: number }) {
   return (
     <Link href="/products" className="block min-w-0 transition-opacity hover:opacity-75">
