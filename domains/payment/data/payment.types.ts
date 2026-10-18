@@ -8,7 +8,6 @@ export type DeliveryInfos = {
   recipientAddressDetail: string; // 상세주소
   saveAsDefaultAddress: boolean; // 기본 배송지 저장 여부
   entranceInstructions: string; // 공동현관 출입 방법
-  deliveryRequest: string; // 배송 요청사항
 };
 
 // 입력 항목별 오류 메시지
@@ -18,5 +17,18 @@ export type DeliveryErrors = {
   recipientAddress?: string;
   recipientAddressDetail?: string;
   entranceInstructions?: string;
-  deliveryRequest?: string;
+};
+
+// 결제 수단별 타입
+export type PaymentMethods =
+  | ''
+  | 'card'
+  | 'naverpay'
+  | 'kakaopay'
+  | 'tosspay';
+
+// 결제 오류
+export type PaymentErrors = {
+  privacyConsent?: string;
+  paymentMethod?: string;
 };

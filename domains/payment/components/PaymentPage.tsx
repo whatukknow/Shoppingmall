@@ -7,7 +7,12 @@ import { Button } from '@/shared/components';
 import DeliveryForm from './DeliveryForm';
 
 import { validateDelivery } from '../data/payment.validation';
-import type { DeliveryInfos, DeliveryErrors } from '../data/payment.types';
+import type {
+  DeliveryInfos,
+  DeliveryErrors,
+  PaymentMethods,
+  PaymentErrors,
+} from '../data/payment.types';
 
 // 배송 정보 초기값
 const initialDelivery: DeliveryInfos = {
@@ -18,14 +23,16 @@ const initialDelivery: DeliveryInfos = {
   recipientAddressDetail: '',
   saveAsDefaultAddress: false, // 처음에는 체크하지 않음
   entranceInstructions: '',
-  deliveryRequest: '',
 };
 
 export default function PaymentPage() {
   // 1. 상태: 입력값과 오류 메시지
   const [delivery, setDelivery] = useState<DeliveryInfos>(initialDelivery);
-
   const [errors, setErrors] = useState<DeliveryErrors>({});
+
+  const [privacyConsent, setPrivacyConsent] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethods>('');
+  const [paymentErrors, setPaymentErrors] = useState<PaymentMethods>({});
 
   // 2. 입력 처리: 변경된 이름 저장
   function handleRecipientNameChange(value: string) {
@@ -44,20 +51,66 @@ export default function PaymentPage() {
     }));
   }
 
+  function handleAddressSelect(postalCode: string, address: string) {
+    setDelivery((previous) => ({
+      ...previous,
+      postalCode,
+      recipientAddress: address,
+      recipientAddressDetail: '',
+    }));
+
+    setErrors((previous) => ({ ...previous, recipientAddress: undefined }));
+
+    document.getElementById('recipientAddressDetail')?.focus();
+  }
+
+  function handleAddressDetailChange(value: string) {
+    setDelivery((previous) => ({
+      ...previous,
+      recipientAddressDetail: value,
+    }));
+  }
+
+  function handleSaveAsDefaultAddressChange(checked: boolean) {
+    setDelivery((previous) => ({
+      ...previous,
+      saveAsDefaultAddress: checked,
+    }));
+  }
+
+  function handleEntranceInstructionsChange(value: string) {
+    setDelivery((previous) => ({
+      ...previous,
+      entranceInstructions: value,
+    }));
+  }
+
   // 3. 제출 처리: 입력 검사 후 오류 표시
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const nextErrors = validateDelivery(delivery);
     setErrors(nextErrors);
+    const nextPaymentErrors: PaymentErrors = {};
 
-    // 현재 구현된 이름 항목의 오류 확인
-    if (nextErrors.recipientName) {
-      document.getElementById('recipientName')?.focus();
+    if (!paymentMethod) {
+        nextPaymentErrors.paymentMethod = '결제수단을 선택해 주세요.';
+    }
+
+    if (!privacyConsent) {
+        nextPaymentErrors.privacyConsent = '필수 동의의 항목을 확인해 주세요.';
     }
 
     // 다른 항목의 오류가 있어도 제출 중단
-    if (Object.keys(nextErrors).length > 0) {
+    if ((Object.keys(nextErrors).length > 0) || (Object.keys(nextPaymentErrors).length > 0 )) {
+      if (nextErrors.recipientName) {
+        document.getElementById('recipientName')?.focus();
+      } else if (nextErrors.recipientPhone) {
+        document.getElementById('recipientPhone')?.focus();
+      } else if (nextErrors.recipientAddress) {
+        document.getElementById('recipientAddress')?.focus();
+      }
+
       return;
     }
 
@@ -82,6 +135,10 @@ export default function PaymentPage() {
           errors={errors}
           onRecipientNameChange={handleRecipientNameChange}
           onRecipientPhoneChange={handleRecipientPhoneChange}
+          onAddressSelect={handleAddressSelect}
+          onAddressDetailChange={handleAddressDetailChange}
+          onSaveAsDefaultAddressChange={handleSaveAsDefaultAddressChange}
+          onEntranceInstructionsChange={handleEntranceInstructionsChange}
         />
 
         <aside className="flex flex-col gap-4 min-[1260px]:sticky min-[1260px]:top-24">
