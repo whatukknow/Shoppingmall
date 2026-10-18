@@ -2,10 +2,11 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-
-import { Button } from '@/shared/components';
 import DeliveryForm from './DeliveryForm';
 import PaymentMethod from './PaymentMethod';
+import PaymentOrderItems from './PaymentOrderItems';
+import PaymentSummary from './PaymentSummary';
+import { paymentMockItems } from '../data/payment.mock';
 
 import { validateDelivery } from '../data/payment.validation';
 import type {
@@ -34,6 +35,18 @@ export default function PaymentPage() {
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethods>('');
   const [paymentErrors, setPaymentErrors] = useState<PaymentErrors>({});
+
+  const orderItems = paymentMockItems;
+
+  // 각 상품의 (단가*수량)을 모두 더함
+  const subtotal = orderItems.reduce(
+    (sum, item) => sum + item.unitPrice * item.quantity,
+    0,
+  );
+
+  // 화면 확인용 금액: 실제 배송 정책은 서버 계산 결과로 대체!!! (확인필요)
+  const shippingFee = orderItems.length > 0 ? 3000 : 0;
+  const discount = 0;
 
   // 2. 입력 처리: 변경된 이름 저장
   function handleRecipientNameChange(value: string) {
@@ -151,7 +164,8 @@ export default function PaymentPage() {
         onSubmit={handleSubmit}
         className="grid grid-cols-1 items-start gap-8 min-[1260px]:grid-cols-[minmax(0,1fr)_320px]"
       >
-        <div className="flex flex-col gap-8">
+        <div className="flex min-w-0 flex-col gap-10">
+          {orderItems.length > 0 && <PaymentOrderItems items={orderItems} />}
           <DeliveryForm
             infos={delivery}
             errors={errors}
@@ -169,16 +183,16 @@ export default function PaymentPage() {
           />
         </div>
 
-        <aside className="flex flex-col gap-4 min-[1260px]:sticky min-[1260px]:top-24">
-          <h2 className="text-xl font-bold">입력 확인</h2>
-
-          <p className="text-sm">
-            현재는 입력값만 확인하며 실제 결제는 진행되지 않습니다.
-          </p>
-
-          <Button type="submit" size="touch">
-            입력값 확인하기
-          </Button>
+        <aside className="min-[1260px]:sticky min-[1260px]:top-24">
+          <PaymentSummary
+            subtotal={subtotal}
+            shippingFee={shippingFee}
+            discount={discount}
+            privacyConsent={privacyConsent}
+            onPrivacyConsentChange={setPrivacyConsent}
+            privacyError={paymentErrors.privacyConsent}
+            hasItems={orderItems.length > 0}
+          />
         </aside>
       </form>
     </main>

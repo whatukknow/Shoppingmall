@@ -32,3 +32,13 @@ export type PaymentErrors = {
   privacyConsent?: string;
   paymentMethod?: string;
 };
+
+// 결제 대상으로 선택한 팟 한 건
+export type PaymentOrderItem = {
+  podId: string;
+  productName: string;
+  optionLabel: string;
+  quantity: number;
+  unitPrice: number; // 1개 가격
+  imageUrl: string | null;
+};
