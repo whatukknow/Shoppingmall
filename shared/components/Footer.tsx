@@ -100,9 +100,7 @@ function CompanyInformation({
   termsUrl,
   privacyUrl,
 }: CompanyInformationProps) {
-  // 브랜드 정보는 확정된 프로젝트 표시명이며, 법적 회사 정보는 실제 값이 입력될 때까지 미확인으로 표시합니다.
   const fields = [
-    ['브랜드명', 'Little Portions'],
     ['회사명', companyName],
     ['대표자', representative],
     ['사업자등록번호', businessRegistrationNumber],
@@ -116,39 +114,29 @@ function CompanyInformation({
       aria-label="회사 정보 및 이용 안내"
       className="border-foreground/20 mt-8 border-t pt-6"
     >
-      <div className="grid gap-8 md:grid-cols-[minmax(220px,0.8fr)_minmax(0,1.6fr)]">
-        <div>
-          <h2 className="text-primary text-2xl"><BrandLogo /></h2>
-          <p className="mt-2 text-sm">필요한 만큼, 함께 나누는 신선함</p>
-          <p className="text-muted-foreground mt-4 text-xs">회사 정보 및 고객 문의</p>
-        </div>
-
-        <div>
-          <h3 className="mb-3 text-sm font-semibold">회사 정보</h3>
-          <dl className="grid grid-cols-1 gap-x-6 gap-y-2 text-sm sm:grid-cols-2">
-            {fields.map(([label, value]) => (
-              <div key={label} className="flex flex-wrap gap-x-3 gap-y-1">
-                <dt className="font-medium">{label}</dt>
-                <dd className={value ? 'text-foreground/70' : 'text-muted-foreground'}>
-                  {value?.trim() || '정보 입력 예정'}
-                </dd>
-              </div>
-            ))}
-          </dl>
-          <nav aria-label="이용 정책" className="border-foreground/15 mt-5 flex flex-wrap gap-x-6 gap-y-2 border-t pt-4 text-sm">
-            {termsUrl ? (
-              <Link href={termsUrl} className="underline underline-offset-4">이용약관</Link>
-            ) : (
-              <span>이용약관 <span className="text-muted-foreground">(주소 연결 예정)</span></span>
-            )}
-            {privacyUrl ? (
-              <Link href={privacyUrl} className="underline underline-offset-4">개인정보처리방침</Link>
-            ) : (
-              <span>개인정보처리방침 <span className="text-muted-foreground">(주소 연결 예정)</span></span>
-            )}
-          </nav>
-        </div>
-      </div>
+      <h3 className="mb-3 text-sm font-semibold">회사 정보</h3>
+      <dl className="grid grid-cols-1 gap-x-6 gap-y-2 text-sm sm:grid-cols-2">
+        {fields.map(([label, value]) => (
+          <div key={label} className="flex flex-wrap gap-x-3 gap-y-1">
+            <dt className="font-medium">{label}</dt>
+            <dd className={value ? 'text-foreground/70' : 'text-muted-foreground'}>
+              {value?.trim() || '정보 입력 예정'}
+            </dd>
+          </div>
+        ))}
+      </dl>
+      <nav aria-label="이용 정책" className="border-foreground/15 mt-5 flex flex-wrap gap-x-6 gap-y-2 border-t pt-4 text-sm">
+        {termsUrl ? (
+          <Link href={termsUrl} className="underline underline-offset-4">이용약관</Link>
+        ) : (
+          <span>이용약관 <span className="text-muted-foreground">(주소 연결 예정)</span></span>
+        )}
+        {privacyUrl ? (
+          <Link href={privacyUrl} className="underline underline-offset-4">개인정보처리방침</Link>
+        ) : (
+          <span>개인정보처리방침 <span className="text-muted-foreground">(주소 연결 예정)</span></span>
+        )}
+      </nav>
     </section>
   );
 }
