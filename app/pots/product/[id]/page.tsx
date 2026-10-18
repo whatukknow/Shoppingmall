@@ -3,13 +3,13 @@ import PotItem from '@/domains/pots/PotItem';
 import PotForm from '@/domains/pots/PotForm';
 
 interface PotPageProps {
-  params: Promise<{ productId: string }>;
+  params: Promise<{ id: string }>;
 }
 
 export default async function PotPage({
   params,
 }: PotPageProps): Promise<React.JSX.Element> {
-  const { productId } = await params;
+  const { id } = await params;
 
   // TODO: productId로 제품 정보 및 Pot 정보 가져오기
 
@@ -40,7 +40,7 @@ export default async function PotPage({
           </ul>
         </div>
         <div className="bg-card pd-[calc(1rem+env(safe-area-inset-bottom))] sticky bottom-0 z-10 p-3 md:flex md:flex-1">
-          <PotForm productId={productId} myPotPageHref="url" />
+          <PotForm productId={id} myPotPageHref="url" />
         </div>
       </div>
     </div>
