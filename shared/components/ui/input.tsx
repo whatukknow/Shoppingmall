@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Input as InputPrimitive } from '@base-ui/react/input';
 import { cn } from '@/shared/utils/cn';
 
-/** Base UI 입력 요소에 공통 모양을 적용하고 기본 input 속성을 전달합니다. */
 function Input({ className, type, ...props }: React.ComponentProps<'input'>) {
   return (
     <InputPrimitive

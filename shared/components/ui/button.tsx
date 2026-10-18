@@ -43,7 +43,6 @@ const buttonVariants = cva(
   },
 );
 
-/** Base UI 버튼에 선택한 스타일 변형을 적용합니다. */
 function Button({
   className,
   variant = 'default',

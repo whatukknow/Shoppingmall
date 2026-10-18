@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { Button } from './ui/button';
 import { formatPrice } from '@/shared/utils/formatPrice';
 
-/** 상품 카드에 필요한 데이터와 장바구니 추가 동작입니다. */
 type ProductCardProps = {
   name: string;
   price: number;
@@ -12,7 +11,6 @@ type ProductCardProps = {
   onAddToCart: () => void;
 };
 
-/** 정사각 상품 이미지, 상세 링크, 가격과 담기 버튼을 표시합니다. */
 export function ProductCard({
   name,
   price,

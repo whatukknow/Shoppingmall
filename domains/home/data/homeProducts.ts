@@ -1,4 +1,3 @@
-/** 홈의 함께 나눌 품목 캐러셀에 쓰는 시안 데이터입니다. */
 export const shareProducts = [
   {
     name: '참외',
@@ -166,5 +165,15 @@ export const popularProducts = [
   },
 ] as const;
 
+/** 상품 목록 연결 전 홈 화면에 표시할 시안용 팬트리 상품입니다. */
+export const pantryProducts = [
+  { id: 'brioche-toast-kit', name: '브리오슈 프렌치토스트 키트', price: 8900, image: '/uploads/images/original-home/pantry-plating.png' },
+  { id: 'basil-pesto', name: '홈메이드 바질페스토 150g', price: 14000, image: '/uploads/images/original-home/pantry-pesto.png' },
+  { id: 'ragu-pasta-kit', name: '원디쉬 라구 파스타 키트', price: 9800, image: '/uploads/images/original-home/pantry-editorial.png' },
+  { id: 'italian-selection', name: '이탈리아 식품 셀렉션', price: 5800, image: '/uploads/images/original-home/pantry-grocery.png' },
+] as const;
+
 export type HomeProduct =
   (typeof shareProducts)[number] | (typeof popularProducts)[number];
+
+export type PantryProduct = (typeof pantryProducts)[number];

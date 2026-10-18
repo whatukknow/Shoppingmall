@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { cn } from '@/shared/utils/cn';
 
-/** 카드 전체 컨테이너와 크기별 내부 간격을 제공합니다. */
 function Card({
   className,
   size = 'default',
@@ -20,7 +19,6 @@ function Card({
   );
 }
 
-/** 카드 제목·설명·액션을 담는 상단 영역입니다. */
 function CardHeader({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
@@ -34,7 +32,6 @@ function CardHeader({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
-/** 카드 제목의 글꼴과 계층을 표시합니다. */
 function CardTitle({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
@@ -48,7 +45,6 @@ function CardTitle({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
-/** 카드 제목을 보충하는 설명 영역입니다. */
 function CardDescription({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
@@ -59,7 +55,6 @@ function CardDescription({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
-/** 카드 헤더의 보조 액션을 배치합니다. */
 function CardAction({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
@@ -73,7 +68,6 @@ function CardAction({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
-/** 카드 본문에 공통 좌우 여백을 적용합니다. */
 function CardContent({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
@@ -84,7 +78,6 @@ function CardContent({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
-/** 구분선과 배경을 포함한 카드 하단 영역입니다. */
 function CardFooter({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div

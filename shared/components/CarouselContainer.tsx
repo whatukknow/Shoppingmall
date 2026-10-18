@@ -3,7 +3,6 @@
 import type { Key, ReactNode } from 'react';
 import { useState } from 'react';
 
-/** 캐러셀 데이터, 화면별 표시 개수, 키와 렌더 함수를 지정합니다. */
 type CarouselContainerProps<Item> = {
   items: Item[];
   itemsPerSlide: number;
@@ -12,7 +11,6 @@ type CarouselContainerProps<Item> = {
   ariaLabel?: string;
 };
 
-/** 지정한 개수만큼 상품을 나눠 보여주고 이전·다음 슬라이드 이동을 제공합니다. */
 export function CarouselContainer<Item>({
   items,
   itemsPerSlide,
