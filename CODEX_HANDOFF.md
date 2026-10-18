@@ -285,3 +285,13 @@ VS Code에서 이어갈 때: “CODEX_HANDOFF.md와 shared/components/README.md�
 - Verification: focused ESLint passed; Prettier file-info confirms generated dialog ignored; eight image paths checked against local media and route allowlist; diff whitespace check passed. No new browser pass, full build or automated test run in this isolated checkout.
 - Team decisions: a blanket prohibition on generated UI edits and future project-task granularity remain team discussion items; this PR does not assert agreement. Local media must be provisioned separately in other environments.
 - Audit/report: PR #46 and PR #49 on whatukknow/Shoppingmall; new PR URL returned after publication.
+
+
+## 2026-10-18 14:41 KST — Include the requested 1 AM design in PR #51
+
+- User command tags: none; explicit request to publish the local 1 AM design together with Sangdon review responses.
+- Supersedes: the previous small-PR-only scope for #51.
+- Changes: restore the active local homepage composition, full-width video hero, overlay masthead, butter background/footer styling, share/popular carousels and existing catalog card layout. Remove the alternate editorial-only components absent from the active local design. Keep inherited API client use, product ID routes, server-compatible StatusBadge and fixed dialog width. Keep generated UI excluded from Prettier and uploads excluded from Git.
+- Verification: local design/API source parity checked for 17 files; focused ESLint passed; diff whitespace check passed. Type check reports missing generated LayoutProps and pre-existing shared/types/schema. No full build, automated test run or new browser verification in the isolated PR checkout. Previous local browser observations do not establish full PR runtime validation.
+- Media: binaries remain local in the root uploads directory and must be provided separately to collaborators.
+- Audit/report: https://github.com/whatukknow/Shoppingmall/pull/51

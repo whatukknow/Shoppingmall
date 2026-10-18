@@ -1,52 +1,42 @@
 import Link from 'next/link';
 
+/** 홈 상단 전체 폭 영상 히어로입니다. 로고와 메뉴는 app/layout의 MastHead가 겹쳐 표시합니다. */
 export function HomeHero() {
   return (
-    <section className="mx-auto w-full max-w-[1080px] px-5 md:px-0">
-      <div className="grid gap-8 md:grid-cols-[620fr_434fr] md:items-center md:gap-[26px]">
-        <div className="relative aspect-[620/376] overflow-hidden bg-[#fffdf7]">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            poster="/uploads/videos/home-header-poster.jpg"
-            aria-hidden="true"
-            className="absolute inset-0 size-full object-cover"
-          >
-            <source src="/uploads/videos/home-header.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="md:pl-0">
-          <p className="font-sans text-[10px] font-bold tracking-[0.08em] text-[#48131b]">
-            THE SUNDAY EDIT
-          </p>
-          <h2 className="mt-4 text-[28px] leading-[1.5] font-bold tracking-[-0.03em] sm:text-[34px]">
-            한 접시만큼의 수고.
-            <br />
-            일요일만큼의 여유.
-          </h2>
-          <p className="mt-4 max-w-[434px] text-[13px] leading-[1.7] text-[#77766f]">
-            바쁜 평일을 지나, 나를 위한 한 끼.
-            <br />
-            한두 사람의 브런치와 원디쉬를 골라보세요.
-          </p>
-          <Link
-            href="/products"
-            className="mt-5 inline-flex min-h-10 w-full items-center justify-center bg-[#650f20] px-4 text-[12px] font-medium text-white transition-colors hover:bg-[#4d0b19] md:w-auto md:min-w-[280px]"
-          >
-            이번 주 한 접시 보기 <span aria-hidden="true" className="ml-2">↗</span>
-          </Link>
-        </div>
-      </div>
-      <div aria-label="메인 비주얼 1 of 4" className="mt-4 flex justify-center gap-2" role="img">
-        {[0, 1, 2, 3].map((index) => (
-          <span
-            key={index}
-            className={`size-2 rounded-full ${index === 0 ? 'bg-[#650f20]' : 'bg-[#d8c9aa]'}`}
-          />
-        ))}
+    <section className="relative flex min-h-[min(736px,100svh)] w-full items-center justify-center overflow-hidden bg-black px-6 pt-12 text-white md:px-12 xl:px-[90px]">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        poster="/uploads/videos/home-header-poster.jpg"
+        aria-label="Little Portions 메인 소개 영상"
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src="/uploads/videos/home-header.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-black/35" aria-hidden="true" />
+      <div className="relative z-10 mx-auto w-full max-w-[1260px]">
+        <p className="font-sans text-[11px] font-medium tracking-[0.08em] text-white/90">
+          TOGETHER, IN THE RIGHT PORTION
+        </p>
+        <h1 className="mt-8 text-[32px] leading-[1.42] font-bold tracking-[-0.04em] sm:text-[38px]">
+          필요한 만큼,
+          <br />
+          함께 나누는 장보기
+        </h1>
+        <p className="mt-5 text-[13px] leading-6 text-white/90 sm:text-[15px]">
+          마음에 드는 식재료를 발견하고 소분 팟에 참여해요.
+          <br className="hidden sm:block" />
+          모집 조건이 채워지면 결제가 열리고, 함께 나눌 준비가 시작됩니다.
+        </p>
+        <Link
+          href="/products"
+          className="mt-8 inline-flex h-12 items-center justify-center bg-[#650f20] px-[13px] text-[13px] font-medium text-white transition-colors hover:bg-[#4d0b19]"
+        >
+          함께 나눌 소분마켓 둘러보기 <span aria-hidden="true" className="ml-1">→</span>
+        </Link>
       </div>
     </section>
   );

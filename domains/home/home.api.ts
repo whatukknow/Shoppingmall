@@ -1,16 +1,16 @@
 import { apiClient } from '@/shared/lib/client';
-import type { HomeProduct, PantryProduct } from './data/homeProducts';
+import type { HomeProduct } from './data/homeProducts';
 
 const ENDPOINTS = {
   shareProducts: 'home/share-products',
-  pantryProducts: 'home/pantry-products',
+  popularProducts: 'home/popular-products',
 } as const;
 
 export async function getHomeProducts() {
-  const [shareProducts, pantryProducts] = await Promise.all([
+  const [shareProducts, popularProducts] = await Promise.all([
     apiClient.get<HomeProduct[]>(ENDPOINTS.shareProducts),
-    apiClient.get<PantryProduct[]>(ENDPOINTS.pantryProducts),
+    apiClient.get<HomeProduct[]>(ENDPOINTS.popularProducts),
   ]);
 
-  return { shareProducts, pantryProducts };
+  return { shareProducts, popularProducts };
 }

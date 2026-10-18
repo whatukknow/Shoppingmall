@@ -4,11 +4,8 @@ import { CarouselContainer } from '@/shared/components/CarouselContainer';
 import type { HomeProduct } from '../data/homeProducts';
 import { HomeProductCard } from './HomeProductCard';
 
-export function PopularProductsCarousel({
-  products,
-}: {
-  products: HomeProduct[];
-}) {
+/** 인기 상품 예시 10개를 TOP 순위와 함께 5개씩 두 장에 보여줍니다. */
+export function PopularProductsCarousel({ products }: { products: HomeProduct[] }) {
   return (
     <section className="mx-auto w-full max-w-[1260px] px-6 pt-14 md:px-0">
       <p className="font-sans text-[11px] font-medium tracking-[0.08em] text-[#650f20]">

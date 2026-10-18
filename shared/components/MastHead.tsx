@@ -6,6 +6,7 @@ import { MainNavigation, type MainNavigationProps } from './MainNavigation';
 import { BrandLogo } from './BrandLogo';
 import { NavigationAction, type NavigationTarget } from './NavigationAction';
 
+/** 브랜드 표시 또는 상단 헤더, 계정 동작, 메뉴 설정입니다. */
 export type MastHeadProps = {
   variant?: 'brand' | 'header';
   user?: { name: string } | null;
@@ -14,6 +15,7 @@ export type MastHeadProps = {
   navigation?: MainNavigationProps;
 };
 
+/** 브랜드형 헤더와 내비게이션이 포함된 상단 헤더를 제공합니다. */
 export function MastHead({
   variant = 'brand',
   user = null,
@@ -37,13 +39,12 @@ export function MastHead({
       </div>
     );
   }
-
-  if (isHome) return null;
-
   return (
     <header
       aria-label="상점 헤더"
-      className="bg-background/95 text-foreground border-foreground/15 sticky top-0 z-40 w-full border-b pt-[env(safe-area-inset-top)] backdrop-blur-sm"
+      className={isHome
+        ? 'absolute top-0 left-0 z-40 w-full pt-[env(safe-area-inset-top)] text-white'
+        : 'bg-background/95 text-foreground border-foreground/15 sticky top-0 z-40 w-full border-b pt-[env(safe-area-inset-top)] backdrop-blur-sm'}
     >
       <div className="mx-auto flex min-h-14 w-full max-w-[1440px] flex-wrap items-center gap-x-2 gap-y-1 px-3 py-1 sm:min-h-20 sm:flex-nowrap sm:gap-6 sm:px-6 lg:px-12">
         <Link
