@@ -4,6 +4,18 @@ import { join } from 'node:path';
 const UPLOADS_ROOT = join(process.cwd(), 'uploads');
 
 const ASSET_CONTENT_TYPES = new Map<string, string>([
+  ['images/original-home/banner-table.png', 'image/jpeg'],
+  ['images/original-home/fresh-pick-tomatoes.png', 'image/jpeg'],
+  ['images/original-home/fresh-pick-vegetables.png', 'image/jpeg'],
+  ['images/original-home/pantry-editorial.png', 'image/png'],
+  ['images/original-home/pantry-grocery.png', 'image/png'],
+  ['images/original-home/pantry-pesto.png', 'image/jpeg'],
+  ['images/original-home/pantry-plating.png', 'image/jpeg'],
+  ['images/original-home/portion-market.png', 'image/png'],
+  ['images/original-home/story-brunch.png', 'image/jpeg'],
+  ['images/original-home/story-pasta.png', 'image/jpeg'],
+  ['images/original-home/story-picnic-sandwich.png', 'image/jpeg'],
+  ['images/original-home/story-waffle.png', 'image/jpeg'],
   ['images/home/products/brussels-sprouts.png', 'image/png'],
   ['images/home/products/cabbage.png', 'image/png'],
   ['images/home/products/grapes.png', 'image/png'],

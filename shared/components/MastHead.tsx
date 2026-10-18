@@ -37,12 +37,13 @@ export function MastHead({
       </div>
     );
   }
+
+  if (isHome) return null;
+
   return (
     <header
       aria-label="상점 헤더"
-      className={isHome
-        ? 'absolute top-0 left-0 z-40 w-full pt-[env(safe-area-inset-top)] text-white'
-        : 'bg-background/95 text-foreground border-foreground/15 sticky top-0 z-40 w-full border-b pt-[env(safe-area-inset-top)] backdrop-blur-sm'}
+      className="bg-background/95 text-foreground border-foreground/15 sticky top-0 z-40 w-full border-b pt-[env(safe-area-inset-top)] backdrop-blur-sm"
     >
       <div className="mx-auto flex min-h-14 w-full max-w-[1440px] flex-wrap items-center gap-x-2 gap-y-1 px-3 py-1 sm:min-h-20 sm:flex-nowrap sm:gap-6 sm:px-6 lg:px-12">
         <Link

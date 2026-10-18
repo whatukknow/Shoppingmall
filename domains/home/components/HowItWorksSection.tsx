@@ -1,56 +1,61 @@
-const steps = [
-  {
-    number: '01',
-    title: '품목을 둘러봐요',
-    description: '관심 있는 식재료와 상품 상세에서 함께 나눌 조건을 확인해요.',
-  },
-  {
-    number: '02',
-    title: '소분 팟에 참여해요',
-    description: '원하는 팟에 신청하고 모집이 채워질 때까지 기다려요.',
-  },
-  {
-    number: '03',
-    title: '모집 완료 후 결제해요',
-    description: '조건이 충족되면 결제가 열려요. 결제 완료 후 나눔이 진행됩니다.',
-  },
-];
+import Link from 'next/link';
+import type { HomeProduct } from '../data/homeProducts';
+import { HomeEditorialImage } from './HomeEditorialImage';
 
-export function HowItWorksSection() {
+const tableStories = [
+  {
+    illustration: 'friedEgg',
+    image: '/uploads/images/original-home/story-brunch.png',
+    title: '우리 집이 좋아하는 카페.',
+    description: '빵과 달걀을 곁들여, 느긋하게 차리는 한 접시.',
+  },
+  {
+    illustration: 'tomatoes',
+    image: '/uploads/images/original-home/story-pasta.png',
+    title: '오늘은, 파스타가 있는 식탁.',
+    description: '따뜻한 파스타부터 산뜻한 한 접시까지.',
+  },
+  {
+    illustration: 'grapes',
+    image: '/uploads/images/original-home/story-picnic-sandwich.png',
+    title: '들고, 한강으로.',
+    description: '샌드위치 하나 챙겨, 강바람이 있는 자리로.',
+  },
+] as const;
+
+export function HowItWorksSection({ products }: { products: HomeProduct[] }) {
   return (
-    <section
-      id="how-it-works"
-      className="mx-auto mt-5 w-full max-w-[1260px] px-6 md:px-0"
-    >
-      <p className="font-sans text-[11px] font-medium tracking-[0.08em] text-[#650f20]">
-        HOW IT WORKS
-      </p>
-      <h2 className="mt-2 text-[26px] leading-tight font-bold sm:text-[30px]">
-        소분은 이렇게 시작해요
-      </h2>
-      <p className="mt-2 text-sm text-[#77766f]">
-        참여부터 결제까지, 필요한 순간을 차근차근 안내합니다.
-      </p>
+    <section id="todays-table" className="mx-auto mt-14 w-full max-w-[1080px] px-5 md:mt-[88px] md:px-0">
+      <div className="flex items-end justify-between gap-4">
+        <div>
+          <h2 className="text-[24px] leading-[1.3] font-bold sm:text-[30px]">
+            오늘의 식탁, 어디로 떠나볼까요?
+          </h2>
+          <p className="mt-2 text-[12px] leading-5 text-[#77766f]">
+            집에서 즐기는 카페 한 접시부터, 한강으로 들고 나가는 샌드위치까지.
+          </p>
+        </div>
+        <Link className="shrink-0 pb-1 text-xs underline underline-offset-4" href="/products">
+          더보기 &gt;
+        </Link>
+      </div>
+      <div className="mt-7 grid gap-7 sm:grid-cols-2 md:mt-10 md:grid-cols-3 md:gap-6">
+        {tableStories.map((story) => {
+          const product = products.find((item) => item.illustration === story.illustration);
+          if (!product) return null;
 
-      <div className="mt-8 border-y border-[#e0ded6] py-7">
-        <ol className="grid gap-8 md:grid-cols-3 md:gap-0">
-          {steps.map((step, index) => (
-            <li
-              key={step.number}
-              className={`min-h-[120px] ${index > 0 ? 'md:border-l md:border-[#e0ded6] md:pl-[30px]' : ''} ${index === 0 ? 'md:pr-[30px]' : ''}`}
-            >
-              <p className="font-sans text-[13px] font-medium text-[#650f20]">
-                {step.number}
-              </p>
-              <h3 className="mt-3 text-[19px] leading-7 font-bold sm:text-[21px]">
-                {step.title}
+          return (
+            <Link key={story.title} href="/products" className="group block">
+              <div className="aspect-[344/250] overflow-hidden bg-[#fffdf7]">
+                <HomeEditorialImage src={story.image} alt={product.name} />
+              </div>
+              <h3 className="mt-4 text-base leading-6 font-bold md:text-[17px]">
+                {story.title}
               </h3>
-              <p className="mt-3 max-w-[360px] text-[13px] leading-6 text-[#77766f]">
-                {step.description}
-              </p>
-            </li>
-          ))}
-        </ol>
+              <p className="mt-1 text-xs leading-5 text-[#77766f]">{story.description}</p>
+            </Link>
+          );
+        })}
       </div>
     </section>
   );

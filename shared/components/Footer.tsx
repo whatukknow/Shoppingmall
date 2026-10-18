@@ -42,8 +42,8 @@ export default function Footer(props: FooterComponentProps = {}) {
 // 메인 Footer: 홈에서 브랜드 슬로건과 회사 정보를 표시합니다.
 function MainFooter({ returnUrl, returnLabel, ...companyInfo }: FooterProps & CompanyInformationProps) {
   return (
-    <div className="mt-auto pb-6" style={{ backgroundColor: 'var(--butter, #fff8d6)' }}>
-      <footer className="text-foreground mx-auto w-full max-w-[1440px] px-6 py-10">
+    <div className="mt-auto pb-6" style={{ backgroundColor: '#f1ebd6' }}>
+      <footer className="text-foreground mx-auto w-full max-w-[1080px] px-5 py-10 md:px-0">
         <div className="flex flex-row items-end justify-between gap-6">
           {returnUrl && (
             <Link href={returnUrl} className="text-primary text-base">
@@ -51,9 +51,13 @@ function MainFooter({ returnUrl, returnLabel, ...companyInfo }: FooterProps & Co
             </Link>
           )}
 
-          <div className="ml-auto text-right">
-            <p className="font-heading text-3xl">Just enough, always fresh</p>
-            <p className="mt-2 text-sm">필요한 만큼 언제나 신선하게</p>
+          <div className="text-left">
+            <p className="font-heading text-left text-[clamp(2.5rem,5vw,3.125rem)] leading-[1.25]">
+              Just Enough,
+              <br />
+              Always Fresh.
+            </p>
+            <p className="mt-3 text-left text-sm">필요한 만큼 언제나 신선하게.</p>
           </div>
         </div>
         <CompanyInformation {...companyInfo} />
