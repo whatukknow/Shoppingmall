@@ -16,7 +16,6 @@ const steps = [
   },
 ];
 
-/** 참여부터 결제까지 소분 이용 단계를 안내합니다. */
 export function HowItWorksSection() {
   return (
     <section

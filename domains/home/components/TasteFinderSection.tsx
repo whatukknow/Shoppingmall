@@ -1,6 +1,5 @@
 const tasteQuestions = ['좋아하는 식재료', '선호하는 맛', '장보기 준비 방식'];
 
-/** 취향 탐색에 사용할 질문을 미리 보여주는 소개 섹션입니다. */
 export function TasteFinderSection() {
   return (
     <section

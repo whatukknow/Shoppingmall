@@ -1,10 +1,11 @@
-/*전체 상품 리스트 */
 
 import Link from 'next/link';
 import { ProductCatalogCard } from '@/domains/products/components/ProductCatalogCard';
-import { productCatalog } from '@/domains/products/data/productCatalog';
+import { getProductCatalog } from '@/domains/products/products.api';
 
-export default function ProductListPage() {
+export default async function ProductListPage() {
+  const productCatalog = await getProductCatalog();
+
   return (
     <main className="bg-background flex-1 pb-24 font-sans">
       <header className="mx-auto w-full max-w-[1440px] px-6 pt-14">
@@ -60,8 +61,9 @@ export default function ProductListPage() {
         aria-label="전체 상품 목록"
         className="mx-auto mt-12 w-full max-w-[1440px] px-6"
       >
-        <p className="mb-8 border-y border-primary/20 py-4 text-sm leading-6 text-foreground/75">
-          시안 확인을 위한 예시 목록입니다. 상품명과 금액은 실제 판매·재고 정보가 아닙니다.
+        <p className="border-primary/20 text-foreground/75 mb-8 border-y py-4 text-sm leading-6">
+          시안 확인을 위한 예시 목록입니다. 상품명과 금액은 실제 판매·재고
+          정보가 아닙니다.
         </p>
         <div className="grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 lg:gap-x-8">
           {productCatalog.map((product) => (

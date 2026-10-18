@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-/** 홈 상단 전체 폭 영상 히어로입니다. 로고와 메뉴는 app/layout의 MastHead가 겹쳐 표시합니다. */
 export function HomeHero() {
   return (
     <section className="relative flex min-h-[min(736px,100svh)] w-full items-center justify-center overflow-hidden bg-black px-6 pt-12 text-white md:px-12 xl:px-[90px]">
@@ -10,11 +9,11 @@ export function HomeHero() {
         muted
         playsInline
         preload="metadata"
-        poster="/videos/home-header-poster.jpg"
+        poster="/uploads/videos/home-header-poster.jpg"
         aria-label="Little Portions 메인 소개 영상"
         className="absolute inset-0 h-full w-full object-cover"
       >
-        <source src="/videos/home-header.mp4" type="video/mp4" />
+        <source src="/uploads/videos/home-header.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/35" aria-hidden="true" />
       <div className="relative z-10 mx-auto w-full max-w-[1260px]">

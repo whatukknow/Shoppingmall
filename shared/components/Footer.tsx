@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { BrandLogo } from './BrandLogo';
 
-/** 푸터의 선택적 이전 페이지 링크를 정의합니다. */
 type FooterProps = {
   returnUrl?: string;
   returnLabel?: string;
@@ -22,10 +21,8 @@ export type CompanyInformationProps = {
   privacyUrl?: string;
 };
 
-/** Optional footer configuration, kept separate from unknown company facts. */
 export type FooterComponentProps = CompanyInformationProps;
 
-/** 현재 URL에 맞는 메인 또는 서브 푸터를 선택합니다. */
 export default function Footer(props: FooterComponentProps = {}) {
   const pathname = usePathname();
 
@@ -43,7 +40,6 @@ export default function Footer(props: FooterComponentProps = {}) {
 }
 
 // 메인 Footer: 홈에서 브랜드 슬로건과 회사 정보를 표시합니다.
-/** 홈과 소분 마켓에서 브랜드 슬로건 및 회사 정보를 표시합니다. */
 function MainFooter({ returnUrl, returnLabel, ...companyInfo }: FooterProps & CompanyInformationProps) {
   return (
     <div className="mt-auto pb-6" style={{ backgroundColor: 'var(--butter, #fff8d6)' }}>
@@ -67,7 +63,6 @@ function MainFooter({ returnUrl, returnLabel, ...companyInfo }: FooterProps & Co
 }
 
 // 서브 Footer: 구분선 아래 브랜드와 회사 정보, 복귀 링크를 표시합니다.
-/** 목록과 상세 화면에서 브랜드, 복귀 링크, 회사 정보를 표시합니다. */
 function SubFooter({ returnUrl, returnLabel, ...companyInfo }: FooterProps & CompanyInformationProps) {
   return (
     <div className="mt-auto pb-6" style={{ backgroundColor: 'var(--butter, #fff8d6)' }}>
@@ -95,7 +90,6 @@ function SubFooter({ returnUrl, returnLabel, ...companyInfo }: FooterProps & Com
 }
 
 // 실제 회사 정보와 정책 주소가 확정되면 이 영역에서 반영합니다.
-/** 회사 정보와 정책 URL이 준비되기 전 확인 상태를 안내합니다. */
 function CompanyInformation({
   companyName,
   representative,

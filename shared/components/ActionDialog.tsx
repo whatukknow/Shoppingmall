@@ -26,7 +26,6 @@ export type ActionDialogProps = {
   onConfirm: () => void | Promise<void>;
 };
 
-/** Shared confirm/cancel dialog with caller-owned action and pending state. */
 export function ActionDialog({
   open,
   onOpenChange,
@@ -62,7 +61,6 @@ export function ActionDialog({
   );
 }
 
-/** Confirmation for cancelling the current user's application; the caller controls eligibility. */
 export type CancellationDialogProps = Omit<ActionDialogProps, 'title' | 'description' | 'detail' | 'confirmLabel' | 'confirmDisabled'> & {
   canCancel: boolean;
   availabilityDescription?: string;
@@ -81,10 +79,8 @@ export function CancellationDialog({ canCancel, availabilityDescription, ...prop
   );
 }
 
-/** Reusable information dialog whose visibility and follow-up action are controlled by the caller. */
 export type NotificationDialogProps = Omit<ActionDialogProps, 'cancelLabel' | 'pending' | 'confirmDisabled'>;
 
-/** Presents a notice and one caller-provided acknowledgement action. */
 export function NotificationDialog(props: NotificationDialogProps) {
   return <ActionDialog {...props} cancelLabel="닫기" />;
 }

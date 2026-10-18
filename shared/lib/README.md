@@ -43,3 +43,15 @@ const ENDPOINTS = {
 
 const response = await apiClient.get<ProductList>(ENDPOINTS.list);
 ```
+
+## 현재 화면에서 사용하는 목업 경로
+
+| 화면 데이터       | Endpoint                | 목업 파일                |
+| ----------------- | ----------------------- | ------------------------ |
+| 홈 함께 나눌 품목 | `home/share-products`   | `datas/home.mock.ts`     |
+| 홈 인기 상품      | `home/popular-products` | `datas/home.mock.ts`     |
+| 상품 목록         | `products/list`         | `datas/products.mock.ts` |
+
+각 화면은 도메인 API 함수를 통해 `apiClient.get`을 호출합니다. `fetchMockup.ts`는
+Endpoint에 맞는 JSON 문자열을 반환하고, `client.ts`가 객체로 파싱합니다. 현재 데이터는
+시안용 정적 목업이며 실제 서버나 DB에 연결되지 않습니다.

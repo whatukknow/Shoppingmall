@@ -1,4 +1,3 @@
-/** 홈의 함께 나눌 품목 캐러셀에 쓰는 시안 데이터입니다. */
 export const shareProducts = [
   {
     name: '참외',

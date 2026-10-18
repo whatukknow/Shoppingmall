@@ -1,4 +1,3 @@
-/** 브랜드가 제안하는 소분 장보기의 가치를 소개합니다. */
 export function BrandStorySection() {
   return (
     <section

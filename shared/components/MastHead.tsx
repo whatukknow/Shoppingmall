@@ -6,7 +6,6 @@ import { MainNavigation, type MainNavigationProps } from './MainNavigation';
 import { BrandLogo } from './BrandLogo';
 import { NavigationAction, type NavigationTarget } from './NavigationAction';
 
-/** 브랜드 표시 또는 상단 헤더, 계정 동작, 메뉴 설정입니다. */
 export type MastHeadProps = {
   variant?: 'brand' | 'header';
   user?: { name: string } | null;
@@ -15,7 +14,6 @@ export type MastHeadProps = {
   navigation?: MainNavigationProps;
 };
 
-/** 브랜드형 헤더와 내비게이션이 포함된 상단 헤더를 제공합니다. */
 export function MastHead({
   variant = 'brand',
   user = null,
