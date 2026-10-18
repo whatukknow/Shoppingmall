@@ -14,7 +14,7 @@ export default async function PotCompletePage({
   return (
     <div className="flex flex-col gap-3 p-10">
       <h1 className="text-4xl font-bold">팟이 매칭되었어요</h1>
-      <div className="flex flex-row gap-10">
+      <div className="flex flex-col gap-10 md:flex-row">
         <div className="bg-accent flex flex-2 flex-col gap-3 p-3">
           <h2 className="text-3xl font-bold">방울토마토 팟 A</h2>
           <ul>
@@ -39,7 +39,7 @@ export default async function PotCompletePage({
             내 신청 팟으로
           </Button>
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col items-center gap-3">
           <Image
             className="shrink-0 border"
             src={''}
@@ -47,7 +47,7 @@ export default async function PotCompletePage({
             width={300}
             height={200}
           />
-          <ul className="bg-accent flex flex-col gap-3 p-3">
+          <ul className="bg-accent flex w-full flex-col gap-3 p-3">
             <li className="text-2xl font-bold">확인할 신청</li>
             <li>방울토마토 · 300g </li>
           </ul>
