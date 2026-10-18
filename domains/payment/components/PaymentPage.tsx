@@ -32,7 +32,7 @@ export default function PaymentPage() {
 
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethods>('');
-  const [paymentErrors, setPaymentErrors] = useState<PaymentMethods>({});
+  const [paymentErrors, setPaymentErrors] = useState<PaymentErrors>({});
 
   // 2. 입력 처리: 변경된 이름 저장
   function handleRecipientNameChange(value: string) {
@@ -90,30 +90,50 @@ export default function PaymentPage() {
     event.preventDefault();
 
     const nextErrors = validateDelivery(delivery);
-    setErrors(nextErrors);
     const nextPaymentErrors: PaymentErrors = {};
 
     if (!paymentMethod) {
-        nextPaymentErrors.paymentMethod = '결제수단을 선택해 주세요.';
+      nextPaymentErrors.paymentMethod = '결제수단을 선택해 주세요.';
     }
 
     if (!privacyConsent) {
-        nextPaymentErrors.privacyConsent = '필수 동의의 항목을 확인해 주세요.';
+      nextPaymentErrors.privacyConsent = '필수 동의의 항목을 확인해 주세요.';
     }
 
+    // 검사 결과 화면에 반영하기
+    setErrors(nextErrors);
+    setPaymentErrors(nextPaymentErrors);
+
     // 다른 항목의 오류가 있어도 제출 중단
-    if ((Object.keys(nextErrors).length > 0) || (Object.keys(nextPaymentErrors).length > 0 )) {
-      if (nextErrors.recipientName) {
-        document.getElementById('recipientName')?.focus();
-      } else if (nextErrors.recipientPhone) {
-        document.getElementById('recipientPhone')?.focus();
-      } else if (nextErrors.recipientAddress) {
-        document.getElementById('recipientAddress')?.focus();
+    // 어디로 이동할지 판단
+    let firstErrorId: string | undefined;
+
+    if (nextErrors.recipientName) {
+      firstErrorId = 'recipientName';
+    } else if (nextErrors.recipientPhone) {
+      firstErrorId = 'recipientPhone';
+    } else if (nextErrors.recipientAddress) {
+      firstErrorId = 'recipientAddress';
+    } else if (nextErrors.recipientAddressDetail) {
+      firstErrorId = 'recipientAddressDetail';
+    } else if (nextErrors.entranceInstructions) {
+      firstErrorId = 'entranceInstructions';
+    } else if (nextPaymentErrors.paymentMethod) {
+      firstErrorId = 'paymentMethod-card';
+    } else if (nextPaymentErrors.privacyConsent) {
+      firstErrorId = 'privacyConsent';
+    }
+
+    if (
+      Object.keys(nextErrors).length > 0 ||
+      Object.keys(nextPaymentErrors).length > 0
+    ) {
+      if (firstErrorId) {
+        document.getElementById(firstErrorId)?.focus();
       }
 
       return;
     }
-
     // 검증 통과 후 결제 요청은 추후 연결
   }
 
