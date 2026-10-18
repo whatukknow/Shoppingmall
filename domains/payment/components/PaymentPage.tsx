@@ -5,6 +5,7 @@ import { useState, type FormEvent } from 'react';
 
 import { Button } from '@/shared/components';
 import DeliveryForm from './DeliveryForm';
+import PaymentMethod from './PaymentMethod';
 
 import { validateDelivery } from '../data/payment.validation';
 import type {
@@ -150,16 +151,23 @@ export default function PaymentPage() {
         onSubmit={handleSubmit}
         className="grid grid-cols-1 items-start gap-8 min-[1260px]:grid-cols-[minmax(0,1fr)_320px]"
       >
-        <DeliveryForm
-          infos={delivery}
-          errors={errors}
-          onRecipientNameChange={handleRecipientNameChange}
-          onRecipientPhoneChange={handleRecipientPhoneChange}
-          onAddressSelect={handleAddressSelect}
-          onAddressDetailChange={handleAddressDetailChange}
-          onSaveAsDefaultAddressChange={handleSaveAsDefaultAddressChange}
-          onEntranceInstructionsChange={handleEntranceInstructionsChange}
-        />
+        <div className="flex flex-col gap-8">
+          <DeliveryForm
+            infos={delivery}
+            errors={errors}
+            onRecipientNameChange={handleRecipientNameChange}
+            onRecipientPhoneChange={handleRecipientPhoneChange}
+            onAddressSelect={handleAddressSelect}
+            onAddressDetailChange={handleAddressDetailChange}
+            onSaveAsDefaultAddressChange={handleSaveAsDefaultAddressChange}
+            onEntranceInstructionsChange={handleEntranceInstructionsChange}
+          />
+          <PaymentMethod
+            value={paymentMethod}
+            error={paymentErrors.paymentMethod}
+            onChange={setPaymentMethod}
+          />
+        </div>
 
         <aside className="flex flex-col gap-4 min-[1260px]:sticky min-[1260px]:top-24">
           <h2 className="text-xl font-bold">입력 확인</h2>

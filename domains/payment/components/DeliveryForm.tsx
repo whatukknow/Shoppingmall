@@ -1,4 +1,4 @@
-// 배송 정보 입력
+// 배송 정보 입력 (선택이 바뀌면 부모에게 알려주는 컴포넌트임)
 import { FormField } from '@/shared/components';
 import { formatPhoneNumber } from '@/domains/payment/data/payment.utils';
 import AddressSearchButton from './AddressSearchButton';
@@ -99,7 +99,7 @@ export default function DeliveryForm({
             onSaveAsDefaultAddressChange(event.target.checked)
           }
         />
-        <p>이 주소를 기본 배송지로 저장하기</p>
+        <span>이 주소를 기본 배송지로 저장하기</span>
       </label>
 
       <FormField
