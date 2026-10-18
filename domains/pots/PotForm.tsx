@@ -12,7 +12,7 @@ export default function PotForm({
   myPotPageHref,
 }: PotFormProps): React.JSX.Element {
   return (
-    <>
+    <div className="flex flex-col gap-3">
       <h2 className="text-2xl font-bold">맞는 팟이 없다면</h2>
       <div>
         <p>새 팟을 신청할 수 있어요.</p>
@@ -36,6 +36,6 @@ export default function PotForm({
       >
         내 신청 팟 보기
       </button>
-    </>
+    </div>
   );
 }

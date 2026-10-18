@@ -18,9 +18,9 @@ export default async function PotPage({
       <h1 className="text-4xl font-bold">함께할 팟을 골라요</h1>
       {/* 제품 정보에서 제품명, 묶음 단위 */}
       <p>방울토마토 · 300g · 매칭 이후 결제</p>
-      <div className="flex flex-row gap-3">
+      <div className="flex flex-col gap-3 md:flex-row">
         <div className="flex flex-2 flex-col gap-3">
-          <div className="flex flex-row gap-3">
+          <div className="flex flex-col gap-3 md:flex-row">
             <FormField className="flex-1" label="상품" />
             <FormField className="flex-1" label="수령 조건" />
           </div>
@@ -39,7 +39,7 @@ export default async function PotPage({
             />
           </ul>
         </div>
-        <div className="bg-card flex flex-1 flex-col gap-3 p-3">
+        <div className="bg-card pd-[calc(1rem+env(safe-area-inset-bottom))] sticky bottom-0 z-10 p-3 md:flex md:flex-1">
           <PotForm productId={productId} myPotPageHref="url" />
         </div>
       </div>
