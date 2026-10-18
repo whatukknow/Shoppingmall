@@ -14,7 +14,7 @@ const productIllustrations: Record<HomeProduct['illustration'], string> = {
   scallion: '/uploads/images/home/products/scallion.png',
   peas: '/uploads/images/home/products/peas.png',
   brusselsSprouts: '/uploads/images/home/products/brussels-sprouts.png',
-  apple: '/uploads/images/products/apple.png',
+  apple: '/uploads/images/home/products/apple.png',
   mandarin: '/uploads/images/products/mandarin.png',
   watermelon: '/uploads/images/home/products/watermelon.png',
   beefSteak: '/uploads/images/home/products/illustration-beef-steak.png',

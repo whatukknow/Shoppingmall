@@ -20,8 +20,8 @@ export const shareProducts = [
     illustration: 'pumpkin',
   },
   {
-    name: '오렌지',
-    description: '상큼한 과즙을 나눠요',
+    name: '홍감자',
+    description: '필요한 만큼 함께 나눠요',
     illustration: 'orange',
   },
   {

@@ -4,6 +4,7 @@ import { join } from 'node:path';
 const UPLOADS_ROOT = join(process.cwd(), 'uploads');
 
 const ASSET_CONTENT_TYPES = new Map<string, string>([
+  ['images/home/products/apple.png', 'image/png'],
   ['images/original-home/banner-table.png', 'image/jpeg'],
   ['images/original-home/fresh-pick-tomatoes.png', 'image/jpeg'],
   ['images/original-home/fresh-pick-vegetables.png', 'image/jpeg'],
