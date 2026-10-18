@@ -8,3 +8,8 @@ const ENDPOINTS = {
 export function getProductCatalog() {
   return apiClient.get<CatalogProduct[]>(ENDPOINTS.list);
 }
+
+export async function getProductById(id: string) {
+  const productCatalog = await getProductCatalog();
+  return productCatalog.find((product) => product.id === id);
+}
