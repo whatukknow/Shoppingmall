@@ -4,7 +4,6 @@ import { usePathname } from 'next/navigation';
 import { NavigationAction, type NavigationTarget } from './NavigationAction';
 import { cn } from '@/shared/utils/cn';
 
-/** 주요 메뉴별 링크 또는 클릭 동작과 추가 스타일을 전달합니다. */
 export type MainNavigationProps = {
   products?: NavigationTarget;
   recommendation?: NavigationTarget;
@@ -12,7 +11,6 @@ export type MainNavigationProps = {
   className?: string;
 };
 
-/** 연결된 대상만 활성화해 주요 메뉴를 표시합니다. */
 export function MainNavigation({
   products = { href: '/products' },
   recommendation,

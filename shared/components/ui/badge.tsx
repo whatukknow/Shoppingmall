@@ -27,7 +27,6 @@ const badgeVariants = cva(
   },
 );
 
-/** 기본 span 또는 전달된 요소에 배지 모양과 상태를 적용합니다. */
 function Badge({
   className,
   variant = 'default',

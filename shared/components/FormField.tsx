@@ -4,7 +4,6 @@ import { useId } from 'react';
 import { cn } from '@/shared/utils/cn';
 import { Input } from './ui/input';
 
-/** Shared input or select field with label and accessible feedback. */
 type CommonProps = {
   label: string;
   id?: string;
@@ -26,17 +25,14 @@ type SelectFieldProps = CommonProps &
 
 const fieldMetaKeys = ['as', 'label', 'id', 'description', 'error', 'required', 'className'] as const;
 
-/** Removes wrapper-only props before forwarding attributes to the native control. */
 function getControlProps(props: FormFieldProps) {
   return Object.fromEntries(
     Object.entries(props).filter(([key]) => !fieldMetaKeys.includes(key as (typeof fieldMetaKeys)[number])),
   );
 }
 
-/** Labels an input/select and associates its help and error text for assistive technology. */
 export type FormFieldProps = InputFieldProps | SelectFieldProps;
 
-/** Renders a consistently spaced field; validation and form state stay with its caller. */
 export function FormField(props: FormFieldProps) {
   const generatedId = useId();
   const id = props.id ?? generatedId;

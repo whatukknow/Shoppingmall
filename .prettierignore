@@ -6,3 +6,6 @@ build
 public
 uploads
 package-lock.json
+
+# Keep generated shadcn/ui source out of bulk formatting.
+shared/components/ui/

@@ -10,11 +10,11 @@ export function HomeHero() {
         muted
         playsInline
         preload="metadata"
-        poster="/videos/home-header-poster.jpg"
+        poster="/uploads/videos/home-header-poster.jpg"
         aria-label="Little Portions 메인 소개 영상"
         className="absolute inset-0 h-full w-full object-cover"
       >
-        <source src="/videos/home-header.mp4" type="video/mp4" />
+        <source src="/uploads/videos/home-header.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/35" aria-hidden="true" />
       <div className="relative z-10 mx-auto w-full max-w-[1260px]">

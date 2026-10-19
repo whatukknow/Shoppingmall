@@ -4,11 +4,9 @@ import Link from 'next/link';
 import { Button } from './ui/button';
 import { cn } from '@/shared/utils/cn';
 
-/** 링크 이동 또는 클릭 동작 중 하나로 메뉴 목적지를 표현합니다. */
 export type NavigationTarget =
   { href: string; onClick?: never } | { href?: never; onClick: () => void };
 
-/** 내비게이션 항목의 문구, 대상, 현재 위치와 스타일입니다. */
 type NavigationActionProps = {
   label: string;
   target?: NavigationTarget;
@@ -16,7 +14,6 @@ type NavigationActionProps = {
   current?: boolean;
 };
 
-/** 링크형 또는 버튼형 메뉴를 만들고 대상이 없으면 비활성화합니다. */
 export function NavigationAction({
   label,
   target,
