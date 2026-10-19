@@ -1,8 +1,8 @@
-# Mockup data 설정
+# Mock data 설정
 
-도메인이 정해지면 datas에 도메인에 해당하는 목데이터를 정리하고, `fetchMockup.ts`에서 도메인에 따라 분기 설정을 진행하세요.
+도메인이 정해지면 datas에 도메인에 해당하는 목데이터를 정리하고, `fetchMock.ts`에서 도메인에 따라 분기 설정을 진행하세요.
 
-## `lib/mockup/datas`
+## `lib/mock/datas`
 
 도메인별 Mock data를 정의하는 폴더입입니다. 각 도메인별로 파일을 생성하시고 Endpoint에 따라 데이터를 분류하세요.
 
@@ -13,7 +13,7 @@
 
 도메인 Mock 데이터 파일 및 객체 생성
 
-> lib/mockup/datas/products.mock.ts
+> lib/mock/datas/products.mock.ts
 
 ```ts
 export const productsData: { [key: string]: string } = {
@@ -21,7 +21,7 @@ export const productsData: { [key: string]: string } = {
 };
 ```
 
-## `lib/mockup/fetchMockup.ts`
+## `lib/mock/fetchMock.ts`
 
 ```ts
 switch (true) {
@@ -52,6 +52,6 @@ const response = await apiClient.get<ProductList>(ENDPOINTS.list);
 | 홈 인기 상품      | `home/popular-products` | `datas/home.mock.ts`     |
 | 상품 목록         | `products/list`         | `datas/products.mock.ts` |
 
-각 화면은 도메인 API 함수를 통해 `apiClient.get`을 호출합니다. `fetchMockup.ts`는
+각 화면은 도메인 API 함수를 통해 `apiClient.get`을 호출합니다. `fetchMock.ts`는
 Endpoint에 맞는 JSON 문자열을 반환하고, `client.ts`가 객체로 파싱합니다. 현재 데이터는
 시안용 정적 목업이며 실제 서버나 DB에 연결되지 않습니다.

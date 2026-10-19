@@ -1,7 +1,7 @@
-import fetchMockup from './mockup/fetchMockup';
+import fetchMock from './mock/fetchMock';
 
 export type ApiErrorCode =
-  'MOCKUP_NOT_FOUND' | 'INVALID_RESPONSE' | 'INTERNAL_ERROR';
+  'MOCK_NOT_FOUND' | 'INVALID_RESPONSE' | 'INTERNAL_ERROR';
 
 export class ApiError extends Error {
   constructor(
@@ -21,7 +21,7 @@ type RequestOptions = Omit<RequestInit, 'body'> & {
   params?: QueryParams;
 };
 
-function buildMockupUrl(path: string, params?: QueryParams): string {
+function buildMockUrl(path: string, params?: QueryParams): string {
   if (!params) return path;
 
   const query = Object.entries(params)
@@ -46,13 +46,13 @@ async function request<T>(
     const jsonBody: string | undefined =
       body !== undefined ? JSON.stringify(body) : undefined;
 
-    const mockupUrl = buildMockupUrl(path, params);
-    const data = fetchMockup(method, mockupUrl, jsonBody);
+    const mockUrl = buildMockUrl(path, params);
+    const data = fetchMock(method, mockUrl, jsonBody);
 
     if (data === undefined) {
       throw new ApiError(
         404,
-        'MOCKUP_NOT_FOUND',
+        'MOCK_NOT_FOUND',
         `목데이터를 찾을 수 없습니다: ${method} ${path}`,
       );
     }

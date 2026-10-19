@@ -10,7 +10,6 @@ import PaymentMethod from './PaymentMethod';
 import PaymentOrderItems from './PaymentOrderItems';
 import PaymentSummary from './PaymentSummary';
 
-import { paymentMockItems } from '../data/payment.mock';
 import { saveSelectedPodIds } from '../data/payment.session';
 import { validateDelivery } from '../data/payment.validation';
 
@@ -19,7 +18,12 @@ import type {
   DeliveryErrors,
   PaymentMethods,
   PaymentErrors,
+  PaymentOrderItem,
 } from '../data/payment.types';
+
+type PaymentPageProps = {
+  items: PaymentOrderItem[];
+};
 
 // 배송 정보 초기값
 const initialDelivery: DeliveryInfos = {
@@ -32,7 +36,7 @@ const initialDelivery: DeliveryInfos = {
   entranceInstructions: '',
 };
 
-export default function PaymentPage() {
+export default function PaymentPage({ items }: PaymentPageProps) {
   const router = useRouter();
 
   // 1. 입력값과 오류 상태
@@ -50,12 +54,12 @@ export default function PaymentPage() {
   const orderLoaded = selectedIds !== null;
 
   // 시연용: 저장된 선택이 없으면 임시 상품을 표시
-  let orderItems = paymentMockItems;
+  let orderItems = items;
 
   if (selectedIds === null) {
     orderItems = [];
   } else if (selectedIds.length > 0) {
-    orderItems = paymentMockItems.filter((item) =>
+    orderItems = items.filter((item) =>
       selectedIds.includes(item.podId),
     );
   }
