@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { Button, FormField } from '@/shared/components';
 import type { FieldErrors, LoginValues } from '../auth.types';

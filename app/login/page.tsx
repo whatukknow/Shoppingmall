@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import LoginContainer from './LoginContainer';
 
@@ -10,19 +11,26 @@ type LoginPageProps = {
 };
 
 // 로그인 후 돌아갈 주소 정하기
-// 우리 사이트 안의 주소('/'로 시작)만 허용하고, 없으면 메인으로
 const getRedirectTo = (next?: string | string[]) => {
   const value = Array.isArray(next) ? next[0] : next;
+
   if (value && value.startsWith('/') && !value.startsWith('//')) {
     return value;
   }
+
   return '/';
 };
 
-// 'use client' 없음: 서버에서 그리는 페이지
-export default async function LoginPage({ searchParams }: LoginPageProps) {
+// 요청마다 달라지는 쿼리 값은 Suspense 안에서 읽기
+async function LoginRedirect({
+  searchParams,
+}: LoginPageProps) {
   const { next } = await searchParams;
 
+  return <LoginContainer redirectTo={getRedirectTo(next)} />;
+}
+
+export default function LoginPage({ searchParams }: LoginPageProps) {
   return (
     <main className="mx-auto grid w-full max-w-[1080px] gap-10 px-4 py-12 md:grid-cols-2 md:items-center md:py-20">
       {/* 왼쪽 소개 (PC에서만 보임) */}
@@ -48,7 +56,9 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
         <p className="text-muted-foreground text-sm md:hidden">
           Little Portions에 로그인해 주세요.
         </p>
-        <LoginContainer redirectTo={getRedirectTo(next)} />
+        <Suspense fallback={null}>
+          <LoginRedirect searchParams={searchParams} />
+        </Suspense>
       </section>
     </main>
   );
