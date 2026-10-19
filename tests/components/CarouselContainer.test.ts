@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, it } from 'node:test';
-import { CarouselContainer } from '../../shared/components/CarouselContainer';
+import { CarouselContainer } from '@/shared/components';
 
 describe('CarouselContainer', () => {
   it('renders the configured number of items and navigation controls', () => {

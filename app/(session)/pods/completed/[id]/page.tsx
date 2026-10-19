@@ -1,13 +1,13 @@
 import { Button } from '@/shared/components';
 import Image from 'next/image';
 
-interface PotCompletePageProps {
+interface PodCompletePageProps {
   params: Promise<{ id: string }>;
 }
 
 export default async function PotCompletePage({
   params,
-}: PotCompletePageProps): Promise<React.JSX.Element> {
+}: PodCompletePageProps): Promise<React.JSX.Element> {
   const { id } = await params;
 
   // TODO: 사용자의 완료된 팟이 있는지 pot id로 API로 확인

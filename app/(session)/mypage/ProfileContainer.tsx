@@ -6,13 +6,13 @@ import type { Member } from '@/domains/auth/auth.types';
 
 type ProfileContainerProps = {
   member: Member;
-  myPotsHref?: string;
+  myPodsHref?: string;
   tasteHref?: string;
 };
 
 export default function ProfileContainer({
   member,
-  myPotsHref,
+  myPodsHref,
   tasteHref,
 }: ProfileContainerProps) {
   const router = useRouter();
@@ -27,7 +27,7 @@ export default function ProfileContainer({
   return (
     <ProfileView
       member={member}
-      myPotsHref={myPotsHref}
+      myPodsHref={myPodsHref}
       tasteHref={tasteHref}
       onLogout={handleLogout}
     />

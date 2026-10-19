@@ -15,7 +15,7 @@ export default async function MyPage() {
       <ProfileContainer
         member={member}
         // 다른 담당자 화면 주소가 정해지면 넣기
-        // myPotsHref="/my-pots"   ← 상돈님 내 신청 팟 목록
+        // myPodsHref="/my-pods"   ← 상돈님 내 신청 팟 목록
         // tasteHref="/taste"      ← 서인님 AI 추천 취향
       />
     </main>
