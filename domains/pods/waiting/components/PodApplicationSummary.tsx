@@ -1,6 +1,5 @@
 // 내 신청 정보와 행동
 // 내가 선택한 옵션,수량,예상금액, 신청 취소와 결제까지.
-import Image from 'next/image';
 import { Button } from '@/shared/components';
 
 type PodApplicationSummaryProps = {

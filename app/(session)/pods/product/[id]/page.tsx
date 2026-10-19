@@ -1,6 +1,6 @@
 import { FormField } from '@/shared/components';
-import PotItem from '@/domains/pots/PotItem';
-import PotForm from '@/domains/pots/PotForm';
+import PodItem from '@/domains/pods/product/components/PodItem';
+import PodForm from '@/domains/pods/product/components/PodForm';
 
 interface PotPageProps {
   params: Promise<{ id: string }>;
@@ -25,13 +25,13 @@ export default async function PotPage({
             <FormField className="flex-1" label="수령 조건" />
           </div>
           <ul className="flex flex-col gap-3">
-            <PotItem
+            <PodItem
               title="방울토마토 팟 A"
               potId="1"
               state="모집 중 · 신청 가능한 팟"
               imageURL="/uploads/images/products/mandarin.png"
             />
-            <PotItem
+            <PodItem
               title="방울토마토 팟 B"
               potId="2"
               state="모집 중 · 신청 가능한 팟"
@@ -40,7 +40,7 @@ export default async function PotPage({
           </ul>
         </div>
         <div className="bg-card pd-[calc(1rem+env(safe-area-inset-bottom))] sticky bottom-0 z-10 p-3 md:flex md:flex-1">
-          <PotForm productId={id} myPotPageHref="url" />
+          <PodForm productId={id} myPotPageHref="url" />
         </div>
       </div>
     </div>

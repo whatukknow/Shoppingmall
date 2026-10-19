@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import PodProgress from './PodProgress';
-import PodStatusCard from './PodStatusCard';
+import PodProgress from '@/domains/pods/waiting/components/PodProgress';
+import PodStatusCard from './PodStatusCard'; 
 import PodApplicationSummary from './PodApplicationSummary';
 import PodNotificationNotice from './PodNotificationNotice';
 

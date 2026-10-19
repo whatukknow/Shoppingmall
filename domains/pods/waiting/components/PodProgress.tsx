@@ -27,5 +27,5 @@ export default function PodProgress({ status }: PodProgressProps) {
         </li>
       ))}
     </ol>
-  );
+  ); 
 }

@@ -10,8 +10,8 @@ export default function PodNotificationNotice() {
       </h2>
 
       <p className="mt-2 text-sm leading-6">
-        모집이 완료되면 결제할 수 있어요.
-        현재 모집 상태는 이 페이지에서 확인해 주세요.
+        모집이 완료되면 결제할 수 있어요. 현재 모집 상태는 이 페이지에서 확인해
+        주세요.
       </p>
     </section>
   );
