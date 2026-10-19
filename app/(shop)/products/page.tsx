@@ -1,7 +1,7 @@
 /*전체 상품 리스트 */
 
 import Link from 'next/link';
-import { ProductCatalogCard } from '@/domains/products/components/ProductCatalogCard';
+import { ProductCatalogGrid } from '@/domains/products/components/ProductCatalogGrid';
 import { getProductCatalog } from '@/domains/products/products.api';
 
 export default async function ProductListPage() {
@@ -10,15 +10,7 @@ export default async function ProductListPage() {
     <main className="bg-background flex-1 pb-24 font-sans">
       <header className="mx-auto w-full max-w-[1440px] px-6 pt-14">
         <div className="border-foreground/15 flex items-end justify-between border-b pb-8">
-          <div>
-            <p className="font-heading text-primary text-[48px] leading-[1.06]">
-              SUNDAY MORNING MARKET
-            </p>
-
-            <p className="text-foreground mt-3 text-[14px] leading-[1.45] font-bold">
-              ISSUE 01 | 느긋하게 차리는, 나의 한 접시
-            </p>
-          </div>
+          <div></div>
 
           <Link
             href="/"
@@ -61,14 +53,11 @@ export default async function ProductListPage() {
         aria-label="전체 상품 목록"
         className="mx-auto mt-12 w-full max-w-[1440px] px-6"
       >
-        <p className="mb-8 border-y border-primary/20 py-4 text-sm leading-6 text-foreground/75">
-          시안 확인을 위한 예시 목록입니다. 상품명과 금액은 실제 판매·재고 정보가 아닙니다.
+        <p className="border-primary/20 text-foreground/75 mb-8 border-y py-4 text-sm leading-6">
+          시안 확인을 위한 예시 목록입니다. 상품명과 금액은 실제 판매·재고
+          정보가 아닙니다.
         </p>
-        <div className="grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 lg:gap-x-8">
-          {productCatalog.map((product) => (
-            <ProductCatalogCard key={product.id} product={product} />
-          ))}
-        </div>
+        <ProductCatalogGrid products={productCatalog} />
       </section>
     </main>
   );

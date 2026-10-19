@@ -5,7 +5,7 @@ export function TasteFinderSection() {
   return (
     <section
       id="find-your-taste"
-      className="mx-auto w-full max-w-[1260px] px-6 pt-[72px] pb-[70px] md:px-0"
+      className="max-w-1260px mx-auto w-full px-6 pt-[72px] pb-[70px] md:px-0"
     >
       <p className="font-sans text-[11px] font-medium tracking-[0.08em] text-[#650f20]">
         FIND YOUR TASTE

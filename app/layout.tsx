@@ -1,10 +1,12 @@
 import './globals.css';
+import { Suspense } from 'react';
 import localFont from 'next/font/local';
 import { Noto_Sans_KR, Geist_Mono } from 'next/font/google';
 import type { Metadata, Viewport } from 'next';
 import Footer from '@/shared/components/Footer';
 import { MastHead } from '@/shared/components/MastHead';
 import { ButterBackground } from '@/shared/components/ButterBackground';
+import { HomeHeroSpacer } from '@/shared/components/HomeHeroSpacer';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -43,6 +45,17 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
     >
       <body className="flex min-h-full flex-col">
         <MastHead variant="header" />
+        <Suspense
+          fallback={
+            <div
+              aria-hidden="true"
+              className="min-h-[min(736px,100svh)] w-full"
+              style={{ backgroundColor: 'var(--butter, #fff8d6)' }}
+            />
+          }
+        >
+          <HomeHeroSpacer />
+        </Suspense>
         <ButterBackground>{children}</ButterBackground>
         <Footer
           companyName="리틀포션즈"

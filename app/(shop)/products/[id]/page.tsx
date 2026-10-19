@@ -1,17 +1,22 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import {
-  getProductById,
-  getProductCatalog,
-} from '@/domains/products/products.api';
+import { Suspense } from 'react';
+import { getProductById } from '@/domains/products/products.api';
 
-export async function generateStaticParams() {
-  const productCatalog = await getProductCatalog();
-  return productCatalog.map(({ id }) => ({ id }));
+export default function ProductDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  return (
+    <Suspense fallback={null}>
+      <ProductDetailContent params={params} />
+    </Suspense>
+  );
 }
 
-export default async function ProductDetailPage({
+async function ProductDetailContent({
   params,
 }: {
   params: Promise<{ id: string }>;

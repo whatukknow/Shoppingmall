@@ -28,6 +28,8 @@ export function CarouselContainer<Item>({
   const firstItemNumber = items.length === 0 ? 0 : startIndex + 1;
   const lastItemNumber = startIndex + visibleItems.length;
 
+  if (items.length === 0) return null;
+
   return (
     <section aria-label={ariaLabel} className="w-full">
       <div className="relative">
@@ -44,7 +46,7 @@ export function CarouselContainer<Item>({
           <>
             <button
               type="button"
-              aria-label="이전 슬라이드"
+              aria-label="이전 상품 보기"
               disabled={visibleSlide === 0}
               onClick={() => setCurrentSlide((slide) => Math.max(slide - 1, 0))}
               className="absolute top-1/2 -left-10 -translate-y-1/2 text-3xl disabled:opacity-30"
@@ -53,7 +55,7 @@ export function CarouselContainer<Item>({
             </button>
             <button
               type="button"
-              aria-label="다음 슬라이드"
+              aria-label="다음 상품 보기"
               disabled={visibleSlide === lastSlide}
               onClick={() =>
                 setCurrentSlide((slide) => Math.min(slide + 1, lastSlide))

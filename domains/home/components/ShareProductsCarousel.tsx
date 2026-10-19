@@ -1,29 +1,68 @@
 'use client';
 
 import { CarouselContainer } from '@/shared/components/CarouselContainer';
+import { useSyncExternalStore } from 'react';
 import type { HomeProduct } from '../data/homeProducts';
+import {
+  HOME_RECOMMENDATIONS_KEY,
+  resolveHomeRecommendations,
+} from '../data/homeRecommendations';
 import { HomeProductCard } from './HomeProductCard';
 
-/** 함께 나눌 품목 22개를 5개씩 나눠 캐러셀로 보여줍니다. */
-export function ShareProductsCarousel({ products }: { products: HomeProduct[] }) {
+const subscribeToRecommendations = () => () => {};
+const getServerRecommendations = () => null;
+const getSavedRecommendations = () =>
+  window.sessionStorage.getItem(HOME_RECOMMENDATIONS_KEY);
+
+/** 게스트에게 무작위 품목 15개를 세 장으로 보여줍니다. */
+export function ShareProductsCarousel({
+  allProducts,
+  guestProducts,
+}: {
+  allProducts: HomeProduct[];
+  guestProducts: HomeProduct[];
+}) {
+  const savedRecommendations = useSyncExternalStore(
+    subscribeToRecommendations,
+    getSavedRecommendations,
+    getServerRecommendations,
+  );
+  const matchedRecommendations = resolveHomeRecommendations(
+    savedRecommendations,
+    allProducts,
+  );
+  const recommendedProducts =
+    matchedRecommendations.length > 0 ? matchedRecommendations : null;
+
+  const visibleProducts = recommendedProducts ?? guestProducts;
+
   return (
-    <section className="mx-auto w-full max-w-[1260px] px-6 pt-14 md:px-0">
+    <section
+      id="share-products"
+      className="max-w-1260px mx-auto w-full scroll-mt-8 px-6 pt-14 md:px-0"
+    >
       <p className="font-sans text-[11px] font-medium tracking-[0.08em] text-[#650f20]">
-        A FEW THINGS TO SHARE
+        PICKS FOR YOU
       </p>
       <h2 className="mt-2 text-[26px] leading-tight font-bold sm:text-[30px]">
-        함께 나눌 품목을 골라보세요
+        {recommendedProducts ? '한 끼 사주 취향 추천' : '오늘의 랜덤 추천'}
       </h2>
       <p className="mt-2 text-[13px] text-[#77766f]">
-        계절에 맞는 식재료를 필요한 만큼 함께 나눠요.
+        {recommendedProducts
+          ? '온보딩에서 선택한 답변에 맞춘 식재료예요.'
+          : '오늘의 추천 상품을 둘러보세요.'}
       </p>
 
       <div className="mt-8 px-10">
         <CarouselContainer
-          items={products}
+          items={visibleProducts}
           itemsPerSlide={5}
           getItemKey={(product) => product.name}
-          ariaLabel="함께 나눌 품목"
+          ariaLabel={
+            recommendedProducts
+              ? '한 끼 사주 취향 추천 상품'
+              : '오늘의 랜덤 추천 상품'
+          }
           renderItem={(product) => <HomeProductCard product={product} />}
         />
       </div>
