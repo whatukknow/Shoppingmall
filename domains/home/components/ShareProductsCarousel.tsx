@@ -1,11 +1,11 @@
 'use client';
 
 import { CarouselContainer } from '@/shared/components/CarouselContainer';
-import { shareProducts } from '../data/homeProducts';
+import type { HomeProduct } from '../data/homeProducts';
 import { HomeProductCard } from './HomeProductCard';
 
 /** 함께 나눌 품목 22개를 5개씩 나눠 캐러셀로 보여줍니다. */
-export function ShareProductsCarousel() {
+export function ShareProductsCarousel({ products }: { products: HomeProduct[] }) {
   return (
     <section className="mx-auto w-full max-w-[1260px] px-6 pt-14 md:px-0">
       <p className="font-sans text-[11px] font-medium tracking-[0.08em] text-[#650f20]">
@@ -20,7 +20,7 @@ export function ShareProductsCarousel() {
 
       <div className="mt-8 px-10">
         <CarouselContainer
-          items={shareProducts}
+          items={products}
           itemsPerSlide={5}
           getItemKey={(product) => product.name}
           ariaLabel="함께 나눌 품목"

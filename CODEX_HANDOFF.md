@@ -273,3 +273,25 @@ VS Code에서 이어갈 때: “CODEX_HANDOFF.md와 shared/components/README.md�
 - Git: 작업 저장소는 로컬 `commen_components` 브랜치이며 `main`/`origin/main`의 동일 기준 커밋에서 시작. 현재 브랜치의 upstream 설정은 없고 기존 변경이 이미 많이 포함되어 있음. 이번 요청에서는 별도 브랜치 생성, 커밋, 푸시를 하지 않음. 다음 Team Git 업로드 전 포함 파일 범위를 먼저 검토해야 함.
 - Verification: 변경 TS/TSX ESLint와 `git diff --check` 통과. 7개 PNG 알파 채널(0–255) 확인, 기존 로컬 홈 응답 확인, 새 이미지 정적 경로 7개 모두 HTTP 200. 브라우저 UI로 슬라이드를 직접 넘기는 확인과 자동 테스트는 미실행.
 - Audit/report link: none.
+
+
+## 2026-10-18 14:25 KST — Small PR following Sangdon review on #46 / #49
+
+- User command tags: none; user requested a small published pull request covering the review.
+- Request summary: carry remaining review follow-up on latest main while preserving the active local design.
+- Base: `e5224af` (merged PR #49); existing API requests, product detail links, server-compatible StatusBadge and dialog width fixes are inherited.
+- Files changed: `.prettierignore`, `app/uploads/[...assetPath]/route.ts`, `domains/home/components/HomeProductIllustration.tsx`, `domains/home/data/homeProducts.ts`, `domains/products/data/productCatalog.ts`, `CODEX_HANDOFF.md`.
+- Applied: exclude generated UI from bulk Prettier; reconnect home/catalog apple to existing local illustration; use eight available image-backed catalog entries with Korean names; correct orange label to user-identified red potato. No JSX layout or className changes. Upload binaries remain excluded from Git.
+- Verification: focused ESLint passed; Prettier file-info confirms generated dialog ignored; eight image paths checked against local media and route allowlist; diff whitespace check passed. No new browser pass, full build or automated test run in this isolated checkout.
+- Team decisions: a blanket prohibition on generated UI edits and future project-task granularity remain team discussion items; this PR does not assert agreement. Local media must be provisioned separately in other environments.
+- Audit/report: PR #46 and PR #49 on whatukknow/Shoppingmall; new PR URL returned after publication.
+
+
+## 2026-10-18 14:41 KST — Include the requested 1 AM design in PR #51
+
+- User command tags: none; explicit request to publish the local 1 AM design together with Sangdon review responses.
+- Supersedes: the previous small-PR-only scope for #51.
+- Changes: restore the active local homepage composition, full-width video hero, overlay masthead, butter background/footer styling, share/popular carousels and existing catalog card layout. Remove the alternate editorial-only components absent from the active local design. Keep inherited API client use, product ID routes, server-compatible StatusBadge and fixed dialog width. Keep generated UI excluded from Prettier and uploads excluded from Git.
+- Verification: local design/API source parity checked for 17 files; focused ESLint passed; diff whitespace check passed. Type check reports missing generated LayoutProps and pre-existing shared/types/schema. No full build, automated test run or new browser verification in the isolated PR checkout. Previous local browser observations do not establish full PR runtime validation.
+- Media: binaries remain local in the root uploads directory and must be provided separately to collaborators.
+- Audit/report: https://github.com/whatukknow/Shoppingmall/pull/51

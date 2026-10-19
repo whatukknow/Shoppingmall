@@ -1,7 +1,6 @@
 import { ProductCard } from './ProductCard';
 import { EmptyState } from './EmptyState';
 
-/** 공통 상품 그리드가 표시하는 최소 상품 정보입니다. */
 type Product = {
   id: string;
   name: string;
@@ -10,7 +9,6 @@ type Product = {
   imageUrl?: string;
 };
 
-/** 그리드 상품 목록과 상품 ID를 전달하는 담기 콜백입니다. */
 type ProductGridProps = {
   products: Product[];
   onAddToCart: (productId: string) => void;
@@ -18,7 +16,6 @@ type ProductGridProps = {
   emptyDescription?: string;
 };
 
-/** 상품 카드를 반응형 그리드로 배치합니다. */
 export default function ProductGrid({
   products,
   onAddToCart,

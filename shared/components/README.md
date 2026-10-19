@@ -49,7 +49,7 @@ import {
 | `HomeProductIllustration.tsx` | 이미지 자료 연결 전 상품 종류별 임시 일러스트 |
 | `../data/homeProducts.ts` | 두 캐러셀에 쓰는 예시 품목 데이터 |
 
-메인 전용 카드는 `shared/components/ProductCard`와 용도가 다릅니다. 상품 API 연동 시 `homeProducts.ts`의 예시 배열을 실제 데이터로 교체하고, 카드/이미지 표시 정책을 화면 담당자와 맞추세요. 히어로 영상은 `public/videos/home-header.mp4`를 사용합니다.
+메인 전용 카드는 `shared/components/ProductCard`와 용도가 다릅니다. 상품 API 연동 시 `homeProducts.ts`의 예시 배열을 실제 데이터로 교체하고, 카드/이미지 표시 정책을 화면 담당자와 맞추세요. 정적 리소스는 저장소 루트 `uploads/`에 보관하고, 히어로 영상은 `uploads/videos/home-header.mp4`에서 `app/uploads/[...assetPath]/route.ts`를 통해 제공합니다.
 
 이전 시안의 `YourPantry*`, `FreshPick*`, `PortionMarket`, `StoryCard*` 홈 조각은 새 메인에서 참조하지 않아 제거했습니다. 새 시안에 필요한 섹션은 위 역할별 파일을 확장합니다.
 

@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import { ProductCatalogCard } from '@/domains/products/components/ProductCatalogCard';
-import { productCatalog } from '@/domains/products/data/productCatalog';
+import { getProductCatalog } from '@/domains/products/products.api';
 
-export default function ProductListPage() {
+export default async function ProductListPage() {
+  const productCatalog = await getProductCatalog();
   return (
     <main className="bg-background flex-1 pb-24 font-sans">
       <header className="mx-auto w-full max-w-[1440px] px-6 pt-14">
