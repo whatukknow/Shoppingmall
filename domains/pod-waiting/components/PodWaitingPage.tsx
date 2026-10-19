@@ -3,16 +3,19 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+import PodProgress from './PodProgress';
 import PodStatusCard from './PodStatusCard';
 import PodApplicationSummary from './PodApplicationSummary';
+import PodNotificationNotice from './PodNotificationNotice';
+
 import { saveSelectedPodIds } from '@/domains/payment/data/payment.session';
 
 export default function PodWaitingPage() {
   const router = useRouter();
   const [paymentError, setPaymentError] = useState('');
 
-  // 화면 확인용 상태: 실제 연동 시 서버에서 받은 값 사용
-  //const [status] = useState<'recruiting' | 'matched'>('recruiting');
+  // 시연용 상태: 'recruiting' 또는 'matched'
+  // 실제 연동 시 서버에서 받은 상태로 대체
   const [status] = useState<'recruiting' | 'matched'>('matched');
 
   const isMatched = status === 'matched';
@@ -24,11 +27,13 @@ export default function PodWaitingPage() {
 
     setPaymentError('');
 
-    // 화면 확인용: 결제 목업의 블루베리 팟 ID
+    // 시연용: 결제 목업의 블루베리 팟 ID
     const saved = saveSelectedPodIds(['pod-1']);
 
     if (!saved) {
-      setPaymentError('선택한 팟을 저장하지 못했어요. 다시 시도해 주세요.');
+      setPaymentError(
+        '선택한 팟을 저장하지 못했어요. 다시 시도해 주세요.',
+      );
       return;
     }
 
@@ -49,9 +54,13 @@ export default function PodWaitingPage() {
             ? '모집이 완료됐어요. 주문 내용을 확인하고 결제해 주세요.'
             : '신청이 완료됐어요. 모집이 끝나면 결제할 수 있어요.'}
         </p>
+
+        <p className="mt-2 text-xs">
+          시연용 모집 현황입니다.
+        </p>
       </header>
 
-      {/* 진행 단계: PodProgress */}
+      <PodProgress status={status} />
 
       <div className="mt-8 grid grid-cols-1 items-start gap-8 min-[1260px]:grid-cols-[minmax(0,1fr)_320px]">
         <section className="min-w-0">
@@ -66,6 +75,12 @@ export default function PodWaitingPage() {
             deadlineLabel="10월 21일 오후 6시 · 예시"
             status={status}
           />
+
+          {!isMatched && (
+            <div className="mt-4">
+              <PodNotificationNotice />
+            </div>
+          )}
         </section>
 
         <aside className="min-[1260px]:sticky min-[1260px]:top-24">
