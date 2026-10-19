@@ -32,7 +32,6 @@ export default function SignupPage() {
           매칭 후 결제해요.
         </p>
 
-        <></>
 
         <div className="border-foreground/20 hidden flex-col gap-3 border p-6 md:flex">
           <h2 className="text-base font-bold">가입 후 할 수 있어요</h2>
