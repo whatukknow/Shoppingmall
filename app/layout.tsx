@@ -46,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         <ButterBackground>{children}</ButterBackground>
         <Footer
           companyName="리틀포션즈"
-          representative="정은"
+          representative="teamG"
           businessRegistrationNumber="000-00-00000"
           ecommerceRegistrationNumber="제0000-서울구로-0000호"
           address="서울특별시 구로구 디지털로33길 48"
