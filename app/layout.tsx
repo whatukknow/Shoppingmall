@@ -19,7 +19,7 @@ const notoSansKr = Noto_Sans_KR({
 });
 
 const bbhHegarty = localFont({
-  src: './fonts/BBHHegarty-Regular.ttf',
+  src: './_fonts/BBHHegarty-Regular.ttf',
   variable: '--font-bbh-hegarty',
   weight: '400',
   display: 'swap',

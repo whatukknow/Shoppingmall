@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import SignupContainer from './SignupContainer';
+import SignupContainer from '@/domains/auth/containers/SignupContainer';
 
 export const metadata: Metadata = {
   title: '회원가입 | Little Portions',
@@ -21,7 +21,9 @@ export default function SignupPage() {
         </h1>
 
         {/* 모바일 문구 */}
-        <p className="text-base leading-7 md:hidden">필요한 만큼 함께 나눠요.</p>
+        <p className="text-base leading-7 md:hidden">
+          필요한 만큼 함께 나눠요.
+        </p>
 
         {/* PC 문구 + 안내 상자 */}
         <p className="hidden text-base leading-7 md:block">
@@ -31,7 +33,6 @@ export default function SignupPage() {
           <br />
           매칭 후 결제해요.
         </p>
-
 
         <div className="border-foreground/20 hidden flex-col gap-3 border p-6 md:flex">
           <h2 className="text-base font-bold">가입 후 할 수 있어요</h2>

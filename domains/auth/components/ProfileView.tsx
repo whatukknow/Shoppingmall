@@ -7,7 +7,7 @@ import type { Member } from '../auth.types';
 
 type ProfileViewProps = {
   member: Member;
-  myPotsHref?: string; // 내 신청 팟 목록 주소 (상돈님 화면, 정해지면 전달)
+  myPodsHref?: string; // 내 신청 팟 목록 주소 (상돈님 화면, 정해지면 전달)
   tasteHref?: string; // AI 추천 취향 주소 (서인님 화면, 정해지면 전달)
   onLogout: () => void;
 };
@@ -30,7 +30,10 @@ function ActionLink({ label, href, primary = false }: ActionLinkProps) {
 
   if (!href) {
     return (
-      <span aria-disabled="true" className={cn(style, 'cursor-not-allowed opacity-50')}>
+      <span
+        aria-disabled="true"
+        className={cn(style, 'cursor-not-allowed opacity-50')}
+      >
         {label} (준비 중)
       </span>
     );
@@ -44,39 +47,58 @@ function ActionLink({ label, href, primary = false }: ActionLinkProps) {
 
 // 회원 정보 화면: 사이드 메뉴(PC) + 기본 정보 + 내 장보기
 // 'use client' 없음. 받은 값대로 그리기만 함
-export function ProfileView({ member, myPotsHref, tasteHref, onLogout }: ProfileViewProps) {
+export function ProfileView({
+  member,
+  myPodsHref: myPotsHref,
+  tasteHref,
+  onLogout,
+}: ProfileViewProps) {
   const infoRows = [
     { label: '이름', value: member.name },
     { label: '이메일', value: member.email },
-    { label: '수령 정보', value: member.deliveryInfo ?? '등록된 수령 정보가 없어요.' },
+    {
+      label: '수령 정보',
+      value: member.deliveryInfo ?? '등록된 수령 정보가 없어요.',
+    },
   ];
 
   return (
     <div className="flex flex-col gap-8">
       {/* 제목 */}
       <div className="flex flex-col gap-2">
-        <h1 className="text-[28px] font-bold md:text-[32px]">{member.name}님, 안녕하세요</h1>
+        <h1 className="text-[28px] font-bold md:text-[32px]">
+          {member.name}님, 안녕하세요
+        </h1>
         <p className="text-base">내 정보와 신청 내역을 확인해요.</p>
       </div>
 
       <div className="grid gap-8 md:grid-cols-[180px_1fr_260px]">
         {/* 왼쪽 사이드 메뉴 (PC에서만) */}
-        <nav aria-label="내 정보 메뉴" className="hidden flex-col gap-3 md:flex">
+        <nav
+          aria-label="내 정보 메뉴"
+          className="hidden flex-col gap-3 md:flex"
+        >
           <p className="font-bold">{member.name}님</p>
           <ul className="flex flex-col gap-2 text-sm">
             <li>
               {myPotsHref ? (
-                <Link href={myPotsHref} className="hover:underline">내 신청 팟</Link>
+                <Link href={myPotsHref} className="hover:underline">
+                  내 신청 팟
+                </Link>
               ) : (
                 <span className="text-muted-foreground">내 신청 팟</span>
               )}
             </li>
             <li>
-              <span aria-current="page" className="font-bold">● 회원 정보</span>
+              <span aria-current="page" className="font-bold">
+                ● 회원 정보
+              </span>
             </li>
             <li>
               {tasteHref ? (
-                <Link href={tasteHref} className="hover:underline">추천 취향</Link>
+                <Link href={tasteHref} className="hover:underline">
+                  추천 취향
+                </Link>
               ) : (
                 <span className="text-muted-foreground">추천 취향</span>
               )}
@@ -95,7 +117,9 @@ export function ProfileView({ member, myPotsHref, tasteHref, onLogout }: Profile
               </div>
             ))}
           </dl>
-          <p className="text-muted-foreground text-sm">정보 수정은 준비 중이에요.</p>
+          <p className="text-muted-foreground text-sm">
+            정보 수정은 준비 중이에요.
+          </p>
         </section>
 
         {/* 오른쪽 내 장보기 */}

@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
-import LoginContainer from './LoginContainer';
+import LoginContainer from '@/domains/auth/containers/LoginContainer';
 
 export const metadata: Metadata = {
   title: '로그인 | Little Portions',
@@ -22,9 +22,7 @@ const getRedirectTo = (next?: string | string[]) => {
 };
 
 // 요청마다 달라지는 쿼리 값은 Suspense 안에서 읽기
-async function LoginRedirect({
-  searchParams,
-}: LoginPageProps) {
+async function LoginRedirect({ searchParams }: LoginPageProps) {
   const { next } = await searchParams;
 
   return <LoginContainer redirectTo={getRedirectTo(next)} />;
