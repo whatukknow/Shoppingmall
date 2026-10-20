@@ -39,7 +39,9 @@ export function ShareProductsCarousel({
     matchedRecommendations.length > 0 ? matchedRecommendations : null;
 
   const visibleProducts = recommendedProducts ?? guestProducts;
-  const showAiCopy = mode ? mode === 'ai' : recommendedProducts !== null;
+  const showAiCopy = mode
+    ? mode === 'ai' || mode === 'needs-taste'
+    : recommendedProducts !== null;
 
   return (
     <section
