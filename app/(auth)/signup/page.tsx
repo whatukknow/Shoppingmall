@@ -1,4 +1,6 @@
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
+import { getRedirectTo } from '@/domains/auth/auth.redirect';  
 import SignupContainer from '@/domains/auth/containers/SignupContainer';
 
 export const metadata: Metadata = {
@@ -8,8 +10,19 @@ export const metadata: Metadata = {
 // 가입 후 할 수 있는 것 (시안 왼쪽 안내 상자)
 const benefits = ['내 신청 팟 확인', '소분 상품 탐색', 'AI 취향 추천'];
 
+type SignupPageProps = {
+  searchParams: Promise<{ next?: string | string[] }>;
+};
+
+// 요청마다 달라지는 쿼리 값은 Suspense 안에서 읽기
+async function SignupRedirect({ searchParams }: SignupPageProps) {
+  const { next } = await searchParams;
+
+  return <SignupContainer redirectTo={getRedirectTo(next)} />;
+}
+
 // 'use client' 없음: 서버에서 그리는 페이지
-export default function SignupPage() {
+export default function SignupPage({ searchParams }: SignupPageProps) {
   return (
     <main className="mx-auto grid w-full max-w-[1080px] gap-10 px-4 py-12 md:grid-cols-2 md:items-start md:py-20">
       {/* 왼쪽 소개 */}
@@ -46,7 +59,9 @@ export default function SignupPage() {
 
       {/* 오른쪽 회원가입 카드 */}
       <section>
-        <SignupContainer />
+        <Suspense fallback={null}>
+          <SignupRedirect searchParams={searchParams} />
+        </Suspense>
       </section>
     </main>
   );

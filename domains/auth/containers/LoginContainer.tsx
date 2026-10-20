@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { LoginForm } from '@/domains/auth/components/LoginForm';
 import { hasErrors, validateLogin } from '@/domains/auth/auth.validate';
+import { withNext } from '@/domains/auth/auth.redirect';
 import type { FieldErrors, LoginValues } from '@/domains/auth/auth.types';
 
 type LoginContainerProps = {
@@ -53,7 +54,7 @@ export default function LoginContainer({ redirectTo }: LoginContainerProps) {
       errors={errors}
       onChange={handleChange}
       onSubmit={handleSubmit}
-      signupHref="/signup"
+      signupHref={withNext('/signup', redirectTo)}
     />
   );
 }
