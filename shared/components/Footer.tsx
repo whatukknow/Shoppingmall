@@ -35,7 +35,7 @@ function MainFooter({
 }: CompanyInformationProps & { hideOnMobile: boolean }) {
   return (
     <div
-      className={`mt-auto pb-6${hideOnMobile ? 'hidden md:block' : ''}`}
+      className={hideOnMobile ? 'mt-auto hidden pb-6 md:block' : 'mt-auto pb-6'}
       style={{ backgroundColor: 'var(--butter, #fff8d6)' }}
     >
       <footer className="text-foreground max-w-1440px mx-auto w-full px-6 py-10">

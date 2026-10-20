@@ -18,7 +18,13 @@ const getOnboardingSnapshot = () => {
 };
 
 /** 설문을 마치지 않은 방문자에게 온보딩 화면을 전체 화면으로 표시합니다. */
-export function HomeEntryGate({ children }: { children: ReactNode }) {
+export function HomeEntryGate({
+  children,
+  template,
+}: {
+  children: ReactNode;
+  template: string;
+}) {
   const router = useRouter();
   const ready = useSyncExternalStore(
     subscribeToSession,
@@ -38,7 +44,7 @@ export function HomeEntryGate({ children }: { children: ReactNode }) {
       <div inert={!ready} aria-hidden={!ready}>
         {children}
       </div>
-      {!ready && <OriginalOnboardingFrame />}
+      {!ready && <OriginalOnboardingFrame template={template} />}
     </>
   );
 }
