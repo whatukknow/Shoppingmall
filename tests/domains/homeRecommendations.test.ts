@@ -1,6 +1,13 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { shareProducts } from '../../domains/home/data/homeProducts';
+import type { HomeProduct } from '../../domains/home/data/homeProducts';
+
+const shareProducts: HomeProduct[] = Array.from({ length: 16 }, (_, index) => ({
+  id: index,
+  name: `product-${index}`,
+  description: '',
+  illustration: index === 15 ? 'apple' : 'melon',
+}));
 import { resolveHomeRecommendations } from '../../domains/home/data/homeRecommendations';
 
 describe('resolveHomeRecommendations', () => {

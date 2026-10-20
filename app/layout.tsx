@@ -44,7 +44,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       className={`${notoSansKr.variable} ${geistMono.variable} ${bbhHegarty.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <MastHead variant="header" />
+        <Suspense fallback={null}>
+          <MastHead variant="header" />
+        </Suspense>
         <Suspense
           fallback={
             <div
@@ -56,14 +58,12 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         >
           <HomeHeroSpacer />
         </Suspense>
-        <ButterBackground>{children}</ButterBackground>
+        <ButterBackground>
+          <Suspense fallback={null}>{children}</Suspense>
+        </ButterBackground>
         <Footer
           companyName="리틀포션즈"
           representative="teamG"
-          businessRegistrationNumber="000-00-00000"
-          ecommerceRegistrationNumber="제0000-서울구로-0000호"
-          address="서울특별시 구로구 디지털로33길 48"
-          customerService="0000-0000"
           termsUrl="/terms"
           privacyUrl="/privacy"
         />

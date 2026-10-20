@@ -12,7 +12,10 @@ type PaymentResultPageProps = {
   items: PaymentOrderItem[];
 };
 
-export default function PaymentResultPage({ status, items: allItems }: PaymentResultPageProps) {
+export default function PaymentResultPage({
+  status,
+  items: allItems,
+}: PaymentResultPageProps) {
   // 훅은 컴포넌트 함수 안에서 호출
   const selectedIds = useSelectedPodIds();
   const loaded = selectedIds !== null;
@@ -49,8 +52,8 @@ export default function PaymentResultPage({ status, items: allItems }: PaymentRe
     0,
   );
 
-  // 화면 확인용: 현재 결제 화면의 임시 금액과 동일
-  const shippingFee = 3000;
+  // 배송비 연동 예정
+  const shippingFee = 0;
   const discount = 0;
   const total = subtotal + shippingFee - discount;
 

@@ -6,7 +6,7 @@ import { cn } from '@/shared/utils/cn';
 import type { Member } from '../auth.types';
 
 type ProfileViewProps = {
-  member: Member;
+  member: Member | null;
   myPodsHref?: string; // 내 신청 팟 목록 주소 (상돈님 화면, 정해지면 전달)
   tasteHref?: string; // AI 추천 취향 주소 (서인님 화면, 정해지면 전달)
   onLogout: () => void;
@@ -54,11 +54,11 @@ export function ProfileView({
   onLogout,
 }: ProfileViewProps) {
   const infoRows = [
-    { label: '이름', value: member.name },
-    { label: '이메일', value: member.email },
+    { label: '이름', value: member?.name ?? '—' },
+    { label: '이메일', value: member?.email ?? '—' },
     {
       label: '수령 정보',
-      value: member.deliveryInfo ?? '등록된 수령 정보가 없어요.',
+      value: member?.deliveryInfo ?? '등록된 수령 정보가 없어요.',
     },
   ];
 
@@ -67,7 +67,7 @@ export function ProfileView({
       {/* 제목 */}
       <div className="flex flex-col gap-2">
         <h1 className="text-[28px] font-bold md:text-[32px]">
-          {member.name}님, 안녕하세요
+          {member ? `${member.name}님, 안녕하세요` : '회원 정보'}
         </h1>
         <p className="text-base">내 정보와 신청 내역을 확인해요.</p>
       </div>
@@ -78,7 +78,7 @@ export function ProfileView({
           aria-label="내 정보 메뉴"
           className="hidden flex-col gap-3 md:flex"
         >
-          <p className="font-bold">{member.name}님</p>
+          <p className="font-bold">{member ? `${member.name}님` : '내 정보'}</p>
           <ul className="flex flex-col gap-2 text-sm">
             <li>
               {myPotsHref ? (

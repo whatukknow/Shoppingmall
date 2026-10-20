@@ -4,7 +4,7 @@ import { CarouselContainer } from '@/shared/components/CarouselContainer';
 import type { HomeProduct } from '../data/homeProducts';
 import { HomeProductCard } from './HomeProductCard';
 
-/** 인기 상품 시안 10개를 5개씩 두 장으로 보여줍니다. */
+/** 전달받은 인기 상품을 표시합니다. */
 export function PopularProductsCarousel({
   products,
 }: {
@@ -19,15 +19,18 @@ export function PopularProductsCarousel({
         지금 가장 인기 있는 소분팟
       </h2>
       <p className="mt-2 text-[13px] text-[#77766f]">
-        인기 소분팟 데이터 연동 전까지는 시안 상품으로 보여줘요.
+        함께 나누는 소분팟을 둘러보세요.
       </p>
 
-      <div className="mt-8 px-10">
+      <div className="mt-8 min-h-48 px-10">
+        {products.length === 0 && (
+          <p className="text-muted-foreground py-12">등록된 소분팟이 없어요.</p>
+        )}
         <CarouselContainer
           items={products}
           itemsPerSlide={5}
           getItemKey={(product) => product.name}
-          ariaLabel="인기 소분팟 시안 상품"
+          ariaLabel="인기 소분팟"
           renderItem={(product, index) => (
             <HomeProductCard product={product} rank={index + 1} />
           )}

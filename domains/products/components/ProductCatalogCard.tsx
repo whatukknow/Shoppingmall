@@ -16,32 +16,31 @@ export function ProductCatalogCard({ product }: { product: CatalogProduct }) {
             className="object-contain p-5"
           />
         ) : (
-          <div className="flex size-full items-center justify-center bg-primary/5 text-sm text-foreground/50">
+          <div className="bg-primary/5 text-foreground/50 flex size-full items-center justify-center text-sm">
             이미지 준비 중
           </div>
         )}
       </div>
       <div className="mt-3 flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="text-xs text-foreground/65">{product.category}</p>
-          <h2 className="mt-1 truncate text-base font-bold text-primary">
+          <p className="text-foreground/65 text-xs">{product.category}</p>
+          <h2 className="text-primary mt-1 truncate text-base font-bold">
             {product.name}
           </h2>
         </div>
-        <p className="shrink-0 text-sm font-semibold text-foreground">
-          {product.samplePrice.toLocaleString('ko-KR')}원
+        <p className="text-foreground shrink-0 text-sm font-semibold">
+          {product.price.toLocaleString('ko-KR')}원
         </p>
       </div>
-      <p className="mt-1 text-[11px] text-foreground/55">시안 예시 금액</p>
     </>
   );
 
   return (
-    <article className="min-w-0 border-t border-primary/20 pt-4">
+    <article className="border-primary/20 min-w-0 border-t pt-4">
       {product.id !== undefined ? (
         <Link
           href={`/products/${encodeURIComponent(String(product.id))}`}
-          className="block text-inherit focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+          className="focus-visible:outline-primary block text-inherit focus-visible:outline-2 focus-visible:outline-offset-4"
         >
           {cardContent}
         </Link>
