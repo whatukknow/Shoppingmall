@@ -53,7 +53,10 @@ export function ShareProductsCarousel({
           : '오늘의 추천 상품을 둘러보세요.'}
       </p>
 
-      <div className="mt-8 px-10">
+      <div className="mt-8 min-h-48 px-10">
+        {visibleProducts.length === 0 && (
+          <p className="text-muted-foreground py-12">추천 상품이 없어요.</p>
+        )}
         <CarouselContainer
           items={visibleProducts}
           itemsPerSlide={5}

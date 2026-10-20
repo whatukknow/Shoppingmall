@@ -20,11 +20,16 @@ export function ProductCarousel({ products }: { products: CatalogProduct[] }) {
         다양한 상품을 둘러보세요.
       </p>
 
-      <div className="mt-8 px-10">
+      <div className="mt-8 min-h-48 px-10">
+        {products.length === 0 && (
+          <p className="text-muted-foreground py-12">등록된 상품이 없어요.</p>
+        )}
         <CarouselContainer
           items={products}
           itemsPerSlide={5}
-          getItemKey={(product) => String(product.id ?? `${product.name}-${product.category}`)}
+          getItemKey={(product) =>
+            String(product.id ?? `${product.name}-${product.category}`)
+          }
           ariaLabel="상품 목록"
           renderItem={(product) => (
             <ProductCardLink id={product.id}>
@@ -60,7 +65,10 @@ function ProductCardLink({
   children: ReactNode;
 }) {
   return id !== undefined ? (
-    <Link href={`/products/${encodeURIComponent(String(id))}`} className="block min-w-0 transition-opacity hover:opacity-75">
+    <Link
+      href={`/products/${encodeURIComponent(String(id))}`}
+      className="block min-w-0 transition-opacity hover:opacity-75"
+    >
       {children}
     </Link>
   ) : (

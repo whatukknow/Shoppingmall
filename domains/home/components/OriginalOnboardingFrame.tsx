@@ -3,10 +3,10 @@
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { HOME_RECOMMENDATIONS_KEY } from '../data/homeRecommendations';
-import { shareProducts } from '../data/homeProducts';
+import type { HomeProduct } from '../data/homeProducts';
 
 // 공유 상품 데이터에 정의된 일러스트 키만 사용합니다.
-type ShareProductIllustration = (typeof shareProducts)[number]['illustration'];
+type ShareProductIllustration = HomeProduct['illustration'];
 
 const recommendationAliases: readonly [string, string][] = [
   ['토마토', 'tomatoes'],
@@ -33,8 +33,13 @@ const recommendationAliases: readonly [string, string][] = [
   ['복숭아', 'peachIllustration'],
 ];
 
-/** 원본 온보딩 HTML을 표시하고 추천 품목 이름만 앱 흐름에 연결합니다. */
-export function OriginalOnboardingFrame() {
+/** 원본 온보딩 디자인과 진입 흐름을 유지합니다.
+ * TODO: 실제 상품 목록을 products로 전달해 추천 연결을 활성화합니다.
+ * 목업 제거 후 현재 기본값은 빈 목록이며, HTML 내부 예시 데이터는 유지합니다.
+ */
+export function OriginalOnboardingFrame({
+  products: shareProducts = [],
+}: { products?: HomeProduct[] } = {}) {
   const frameRef = useRef<HTMLIFrameElement>(null);
   const router = useRouter();
 
@@ -88,7 +93,7 @@ export function OriginalOnboardingFrame() {
 
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, [router]);
+  }, [router, shareProducts]);
 
   return (
     <div

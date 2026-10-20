@@ -79,7 +79,9 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --background: #fff8d6; /* 전 페이지 공통 버터 배경 */
+  /* 공통 배경색: body 및 bg-background를 사용하는 모든 페이지에 적용됩니다. */
+  --background: #fff8d6;
+  /* 버터 배경색: ButterBackground와 Footer에 적용됩니다. 홈 전용 색상이 아닙니다. */
   --butter: #fff8d6;
   --foreground: #48131b;
   --card: transparent;

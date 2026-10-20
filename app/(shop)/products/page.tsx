@@ -44,7 +44,7 @@ export default async function ProductListPage() {
           </div>
 
           <p className="text-foreground/70 pb-1 text-sm">
-            {productCatalog.length}개 상품 예시
+            {productCatalog.length}개 상품
           </p>
         </div>
       </section>
@@ -53,10 +53,6 @@ export default async function ProductListPage() {
         aria-label="전체 상품 목록"
         className="mx-auto mt-12 w-full max-w-[1440px] px-6"
       >
-        <p className="border-primary/20 text-foreground/75 mb-8 border-y py-4 text-sm leading-6">
-          시안 확인을 위한 예시 목록입니다. 상품명과 금액은 실제 판매·재고
-          정보가 아닙니다.
-        </p>
         <ProductCatalogGrid products={productCatalog} />
       </section>
     </main>
