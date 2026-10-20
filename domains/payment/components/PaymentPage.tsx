@@ -53,9 +53,16 @@ export default function PaymentPage({ items }: PaymentPageProps) {
   const selectedIds = useSelectedPodIds();
   const orderLoaded = selectedIds !== null;
 
-  const orderItems = items.filter(
-    (item) => selectedIds?.includes(item.podId) ?? false,
-  );
+  // 시연용: 저장된 선택이 없으면 임시 상품을 표시
+  let orderItems = items;
+
+  if (selectedIds === null) {
+    orderItems = [];
+  } else if (selectedIds.length > 0) {
+    orderItems = items.filter((item) =>
+      selectedIds.includes(item.podId),
+    );
+  }
 
   // 3. 금액 계산 — 실제 연동 시 서버 계산 결과로 대체
   const subtotal = orderItems.reduce(
@@ -63,7 +70,7 @@ export default function PaymentPage({ items }: PaymentPageProps) {
     0,
   );
 
-  const shippingFee = 0; // 배송비 연동 예정
+  const shippingFee = orderItems.length > 0 ? 3000 : 0;
   const discount = 0;
 
   // 4. 배송 정보 변경

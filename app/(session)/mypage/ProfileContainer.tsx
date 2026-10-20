@@ -5,7 +5,7 @@ import { ProfileView } from '@/domains/auth/components/ProfileView';
 import type { Member } from '@/domains/auth/auth.types';
 
 type ProfileContainerProps = {
-  member: Member | null;
+  member: Member;
   myPodsHref?: string;
   tasteHref?: string;
 };

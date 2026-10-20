@@ -1,6 +1,8 @@
+import { apiClient } from '@/shared/lib/client';
 import type { PaymentOrderItem } from './data/payment.types';
 
-/** 목업 주문을 제거하고 조회 함수 형태만 유지합니다. TODO: 선택한 팟의 실제 주문 조회를 연결합니다. */
+// 결제 대상 주문 상품 목록 가져오기
+// TODO: Supabase 전환 시 이 함수 내부만 교체
 export async function getPaymentItems(): Promise<PaymentOrderItem[]> {
-  return [];
+  return apiClient.get<PaymentOrderItem[]>('payment/items');
 }
