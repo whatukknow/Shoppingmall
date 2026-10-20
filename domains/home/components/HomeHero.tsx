@@ -17,7 +17,7 @@ export function HomeHero() {
         <source src="/uploads/videos/home-header.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/35" aria-hidden="true" />
-      <div className="relative z-10 mx-auto w-full max-w-[1260px]">
+      <div className="max-w-1260px relative z-10 mx-auto w-full">
         <p className="font-sans text-[11px] font-medium tracking-[0.08em] text-white/90">
           TOGETHER, IN THE RIGHT PORTION
         </p>
@@ -35,7 +35,10 @@ export function HomeHero() {
           href="/products"
           className="mt-8 inline-flex h-12 items-center justify-center bg-[#650f20] px-[13px] text-[13px] font-medium text-white transition-colors hover:bg-[#4d0b19]"
         >
-          함께 나눌 소분마켓 둘러보기 <span aria-hidden="true" className="ml-1">→</span>
+          함께 나눌 소분마켓 둘러보기{' '}
+          <span aria-hidden="true" className="ml-1">
+            →
+          </span>
         </Link>
       </div>
     </section>

@@ -12,7 +12,8 @@ const steps = [
   {
     number: '03',
     title: '모집 완료 후 결제해요',
-    description: '조건이 충족되면 결제가 열려요. 결제 완료 후 나눔이 진행됩니다.',
+    description:
+      '조건이 충족되면 결제가 열려요. 결제 완료 후 나눔이 진행됩니다.',
   },
 ];
 
@@ -21,7 +22,7 @@ export function HowItWorksSection() {
   return (
     <section
       id="how-it-works"
-      className="mx-auto mt-5 w-full max-w-[1260px] px-6 md:px-0"
+      className="max-w-1260px mx-auto mt-5 w-full px-6 md:px-0"
     >
       <p className="font-sans text-[11px] font-medium tracking-[0.08em] text-[#650f20]">
         HOW IT WORKS

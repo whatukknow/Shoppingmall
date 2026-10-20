@@ -32,6 +32,16 @@ export default function LoginContainer({ redirectTo }: LoginContainerProps) {
     setErrors(nextErrors);
     if (hasErrors(nextErrors)) return; // 오류가 있으면 여기서 멈춤
 
+    // 온보딩을 거쳐 로그인한 경우에만 메인 진입 상태를 기록
+    try {
+      if (window.sessionStorage.getItem('little-portions:onboarding-pending-login') === 'yes') {
+        window.sessionStorage.setItem('little-portions:onboarding-complete', 'yes');
+        window.sessionStorage.removeItem('little-portions:onboarding-pending-login');
+      }
+    } catch {
+      // 브라우저 저장소를 사용할 수 없는 환경에서는 기존 로그인 이동만 진행
+    }
+
     // TODO: 인증 API가 생기면 여기서 로그인 요청
     // 지금은 시안 범위(구조 검토용)에 맞춰 이동만 함
     router.push(redirectTo);
