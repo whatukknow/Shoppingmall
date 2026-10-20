@@ -31,14 +31,15 @@ export function ShareProductsCarousel({
     getSavedRecommendations,
     getServerRecommendations,
   );
-  const matchedRecommendations = resolveHomeRecommendations(
-    savedRecommendations,
-    allProducts,
-  );
+  const matchedRecommendations =
+    mode === undefined
+      ? resolveHomeRecommendations(savedRecommendations, allProducts)
+      : [];
   const recommendedProducts =
     matchedRecommendations.length > 0 ? matchedRecommendations : null;
 
   const visibleProducts = recommendedProducts ?? guestProducts;
+  const showAiCopy = mode ? mode === 'ai' : recommendedProducts !== null;
 
   return (
     <section
@@ -49,10 +50,10 @@ export function ShareProductsCarousel({
         PICKS FOR YOU
       </p>
       <h2 className="mt-2 text-[26px] leading-tight font-bold sm:text-[30px]">
-        {recommendedProducts ? '한 끼 사주 취향 추천' : '오늘의 랜덤 추천'}
+        {showAiCopy ? '한 끼 사주 취향 추천' : '오늘의 랜덤 추천'}
       </h2>
       <p className="mt-2 text-[13px] text-[#77766f]">
-        {recommendedProducts
+        {showAiCopy
           ? '온보딩에서 선택한 답변에 맞춘 식재료예요.'
           : '오늘의 추천 상품을 둘러보세요.'}
       </p>
@@ -70,7 +71,7 @@ export function ShareProductsCarousel({
               itemsPerSlide={5}
               getItemKey={(product) => product.name}
               ariaLabel={
-                recommendedProducts
+                showAiCopy
                   ? '한 끼 사주 취향 추천 상품'
                   : '오늘의 랜덤 추천 상품'
               }
