@@ -1,4 +1,3 @@
-import { HomeEntryGate } from '@/domains/home/components/HomeEntryGate';
 import { BrandStorySection } from '@/domains/home/components/BrandStorySection';
 import { HomeHero } from '@/domains/home/components/HomeHero';
 import { HowItWorksSection } from '@/domains/home/components/HowItWorksSection';
@@ -15,19 +14,17 @@ export default async function HomePage() {
   const productCatalog = await getProductCatalog();
 
   return (
-    <HomeEntryGate>
-      <main className="min-h-screen text-[#242821]">
-        <HomeHero />
-        <HowItWorksSection />
-        <ShareProductsCarousel
-          allProducts={shareProducts}
-          guestProducts={shareProducts}
-        />
-        <PopularProductsCarousel products={popularProducts} />
-        <ProductCarousel products={productCatalog} />
-        <BrandStorySection />
-        <TasteFinderSection />
-      </main>
-    </HomeEntryGate>
+    <main className="min-h-screen text-[#242821]">
+      <HomeHero />
+      <HowItWorksSection />
+      <ShareProductsCarousel
+        allProducts={shareProducts}
+        guestProducts={shareProducts}
+      />
+      <PopularProductsCarousel products={popularProducts} />
+      <ProductCarousel products={productCatalog} />
+      <BrandStorySection />
+      <TasteFinderSection />
+    </main>
   );
 }
