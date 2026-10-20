@@ -1,66 +1,50 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
-import { getProductById } from '@/domains/products/products.api';
+import { notFound } from 'next/navigation';
 
-export default function ProductDetailPage({
-  params,
-}: {
+import { getProductById } from '@/domains/products/products.api';
+import ProductDetailView from '@/domains/product-detail/components/ProductDetailPage';
+import type { ProductDetail } from '@/domains/product-detail/data/productDetail.types';
+
+type PageProps = {
   params: Promise<{ id: string }>;
-}) {
+};
+
+export default function Page({ params }: PageProps) {
   return (
-    <Suspense fallback={null}>
+    <Suspense
+      fallback={
+        <p role="status" className="px-6 py-10">
+          상품 정보를 불러오는 중입니다.
+        </p>
+      }
+    >
       <ProductDetailContent params={params} />
     </Suspense>
   );
 }
 
-async function ProductDetailContent({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+async function ProductDetailContent({ params }: PageProps) {
   const { id } = await params;
-  const product = await getProductById(id);
-  if (!product) notFound();
+  const catalogProduct = await getProductById(id);
 
-  return (
-    <main className="bg-background flex-1 pb-24 font-sans">
-      <section className="mx-auto w-full max-w-[1080px] px-6 pt-10">
-        <Link
-          href="/products"
-          className="text-foreground text-sm underline underline-offset-4"
-        >
-          ← 전체 상품
-        </Link>
-        <article className="mt-8 grid gap-8 sm:grid-cols-2 sm:items-start">
-          <div className="relative aspect-square w-full overflow-hidden">
-            {product.image ? (
-              <Image
-                src={product.image}
-                alt={product.name}
-                fill
-                sizes="(max-width: 640px) 100vw, 50vw"
-                className="object-contain p-8"
-              />
-            ) : (
-              <div className="text-foreground/55 flex h-full items-center justify-center text-sm">
-                이미지 준비 중
-              </div>
-            )}
-          </div>
-          <div className="sm:pt-4">
-            <p className="text-foreground/65 text-sm">{product.category}</p>
-            <h1 className="text-primary mt-2 text-3xl font-bold">
-              {product.name}
-            </h1>
-            <p className="text-foreground mt-6 text-xl font-semibold">
-              {product.price.toLocaleString('ko-KR')}원
-            </p>
-          </div>
-        </article>
-      </section>
-    </main>
-  );
+  if (!catalogProduct || catalogProduct.id === undefined) {
+    notFound();
+  }
+
+  const product: ProductDetail = {
+    id: String(catalogProduct.id),
+    name: catalogProduct.name,
+    category: catalogProduct.category,
+
+    images: catalogProduct.image ? [catalogProduct.image] : [],
+
+    price: catalogProduct.price,
+    isSample: true,
+
+    description: {
+      tips: [],
+    },
+  };
+
+  return <ProductDetailView product={product} pods={null} />;
 }
