@@ -12,6 +12,7 @@ import {
   getRecommendationStatus,
 } from '@/domains/home/home.api';
 import { resolveHomeRecommendationMode } from '@/domains/home/data/homeRecommendations';
+import type { HomeProduct } from '@/domains/home/data/homeProducts';
 import { getProductCatalog } from '@/domains/products/products.api';
 
 /** Next.js 홈 경로에서 새 시안의 섹션을 순서대로 조합합니다. */
@@ -20,12 +21,18 @@ export default async function HomePage() {
   const productCatalog = await getProductCatalog();
   const status = await getRecommendationStatus();
   const recommendationMode = resolveHomeRecommendationMode(status);
-  const guestProducts =
-    recommendationMode === 'ai'
-      ? await getAiRecommendations()
-      : recommendationMode === 'random'
-        ? await getRandomRecommendations()
-        : [];
+  let guestProducts: HomeProduct[];
+  switch (recommendationMode) {
+    case 'ai':
+      guestProducts = await getAiRecommendations();
+      break;
+    case 'random':
+      guestProducts = await getRandomRecommendations();
+      break;
+    default:
+      guestProducts = [];
+      break;
+  }
 
   return (
     <main className="min-h-screen text-[#242821]">
