@@ -1,3 +1,5 @@
+'use client';
+
 import { CarouselContainer } from '@/shared/components/CarouselContainer';
 import { TasteFinderPromptCard } from './TasteFinderPromptCard';
 import type { HomeRecommendationMode } from '../data/homeRecommendations';
