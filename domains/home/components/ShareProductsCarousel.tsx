@@ -1,47 +1,19 @@
-'use client';
-
 import { CarouselContainer } from '@/shared/components/CarouselContainer';
-import { useSyncExternalStore } from 'react';
-import type { HomeProduct } from '../data/homeProducts';
-import {
-  HOME_RECOMMENDATIONS_KEY,
-  resolveHomeRecommendations,
-} from '../data/homeRecommendations';
 import { TasteFinderPromptCard } from './TasteFinderPromptCard';
 import type { HomeRecommendationMode } from '../data/homeRecommendations';
+import type { HomeProduct } from '../data/homeProducts';
 import { HomeProductCard } from './HomeProductCard';
 
-const subscribeToRecommendations = () => () => {};
-const getServerRecommendations = () => null;
-const getSavedRecommendations = () =>
-  window.sessionStorage.getItem(HOME_RECOMMENDATIONS_KEY);
-
-/** 게스트에게 무작위 품목 15개를 세 장으로 보여줍니다. */
+/** 추천 모드에 맞는 상품 목록과 취향 유도 카드를 보여줍니다. */
 export function ShareProductsCarousel({
-  allProducts,
-  guestProducts,
+  products,
   mode,
 }: {
-  allProducts: HomeProduct[];
-  guestProducts: HomeProduct[];
-  mode?: HomeRecommendationMode;
+  products: HomeProduct[];
+  mode: HomeRecommendationMode;
 }) {
-  const savedRecommendations = useSyncExternalStore(
-    subscribeToRecommendations,
-    getSavedRecommendations,
-    getServerRecommendations,
-  );
-  const matchedRecommendations =
-    mode === undefined
-      ? resolveHomeRecommendations(savedRecommendations, allProducts)
-      : [];
-  const recommendedProducts =
-    matchedRecommendations.length > 0 ? matchedRecommendations : null;
-
-  const visibleProducts = recommendedProducts ?? guestProducts;
-  const showAiCopy = mode
-    ? mode === 'ai' || mode === 'needs-taste'
-    : recommendedProducts !== null;
+  const visibleProducts = products;
+  const showAiCopy = mode !== 'random';
 
   return (
     <section

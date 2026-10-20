@@ -17,20 +17,20 @@ import { getProductCatalog } from '@/domains/products/products.api';
 
 /** Next.js 홈 경로에서 새 시안의 섹션을 순서대로 조합합니다. */
 export default async function HomePage() {
-  const { shareProducts, popularProducts } = await getHomeProducts();
+  const { popularProducts } = await getHomeProducts();
   const productCatalog = await getProductCatalog();
   const status = await getRecommendationStatus();
   const recommendationMode = resolveHomeRecommendationMode(status);
-  let guestProducts: HomeProduct[];
+  let products: HomeProduct[];
   switch (recommendationMode) {
     case 'ai':
-      guestProducts = await getAiRecommendations();
+      products = await getAiRecommendations();
       break;
     case 'random':
-      guestProducts = await getRandomRecommendations();
+      products = await getRandomRecommendations();
       break;
     default:
-      guestProducts = [];
+      products = [];
       break;
   }
 
@@ -38,11 +38,7 @@ export default async function HomePage() {
     <main className="min-h-screen text-[#242821]">
       <HomeHero />
       <HowItWorksSection />
-      <ShareProductsCarousel
-        allProducts={shareProducts}
-        guestProducts={guestProducts}
-        mode={recommendationMode}
-      />
+      <ShareProductsCarousel products={products} mode={recommendationMode} />
       <PopularProductsCarousel products={popularProducts} />
       <ProductCarousel products={productCatalog} />
       <BrandStorySection />
