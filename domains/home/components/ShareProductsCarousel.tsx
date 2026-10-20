@@ -7,6 +7,8 @@ import {
   HOME_RECOMMENDATIONS_KEY,
   resolveHomeRecommendations,
 } from '../data/homeRecommendations';
+import { TasteFinderPromptCard } from './TasteFinderPromptCard';
+import type { HomeRecommendationMode } from '../data/homeRecommendations';
 import { HomeProductCard } from './HomeProductCard';
 
 const subscribeToRecommendations = () => () => {};
@@ -18,9 +20,11 @@ const getSavedRecommendations = () =>
 export function ShareProductsCarousel({
   allProducts,
   guestProducts,
+  mode,
 }: {
   allProducts: HomeProduct[];
   guestProducts: HomeProduct[];
+  mode?: HomeRecommendationMode;
 }) {
   const savedRecommendations = useSyncExternalStore(
     subscribeToRecommendations,
@@ -54,20 +58,26 @@ export function ShareProductsCarousel({
       </p>
 
       <div className="mt-8 min-h-48 px-10">
-        {visibleProducts.length === 0 && (
-          <p className="text-muted-foreground py-12">추천 상품이 없어요.</p>
+        {mode === 'needs-taste' ? (
+          <TasteFinderPromptCard />
+        ) : (
+          <>
+            {visibleProducts.length === 0 && (
+              <p className="text-muted-foreground py-12">추천 상품이 없어요.</p>
+            )}
+            <CarouselContainer
+              items={visibleProducts}
+              itemsPerSlide={5}
+              getItemKey={(product) => product.name}
+              ariaLabel={
+                recommendedProducts
+                  ? '한 끼 사주 취향 추천 상품'
+                  : '오늘의 랜덤 추천 상품'
+              }
+              renderItem={(product) => <HomeProductCard product={product} />}
+            />
+          </>
         )}
-        <CarouselContainer
-          items={visibleProducts}
-          itemsPerSlide={5}
-          getItemKey={(product) => product.name}
-          ariaLabel={
-            recommendedProducts
-              ? '한 끼 사주 취향 추천 상품'
-              : '오늘의 랜덤 추천 상품'
-          }
-          renderItem={(product) => <HomeProductCard product={product} />}
-        />
       </div>
 
       <hr className="mt-10 border-[#e0ded6]" />
