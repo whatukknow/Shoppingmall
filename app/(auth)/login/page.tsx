@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
+import { getRedirectTo } from '@/domains/auth/auth.redirect';
 import LoginContainer from '@/domains/auth/containers/LoginContainer';
 
 export const metadata: Metadata = {
@@ -8,17 +9,6 @@ export const metadata: Metadata = {
 
 type LoginPageProps = {
   searchParams: Promise<{ next?: string | string[] }>;
-};
-
-// 로그인 후 돌아갈 주소 정하기
-const getRedirectTo = (next?: string | string[]) => {
-  const value = Array.isArray(next) ? next[0] : next;
-
-  if (value && value.startsWith('/') && !value.startsWith('//')) {
-    return value;
-  }
-
-  return '/';
 };
 
 // 요청마다 달라지는 쿼리 값은 Suspense 안에서 읽기

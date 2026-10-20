@@ -1,40 +1,19 @@
-'use client';
-
 import { CarouselContainer } from '@/shared/components/CarouselContainer';
-import { useSyncExternalStore } from 'react';
+import { TasteFinderPromptCard } from './TasteFinderPromptCard';
+import type { HomeRecommendationMode } from '../data/homeRecommendations';
 import type { HomeProduct } from '../data/homeProducts';
-import {
-  HOME_RECOMMENDATIONS_KEY,
-  resolveHomeRecommendations,
-} from '../data/homeRecommendations';
 import { HomeProductCard } from './HomeProductCard';
 
-const subscribeToRecommendations = () => () => {};
-const getServerRecommendations = () => null;
-const getSavedRecommendations = () =>
-  window.sessionStorage.getItem(HOME_RECOMMENDATIONS_KEY);
-
-/** 게스트에게 무작위 품목 15개를 세 장으로 보여줍니다. */
+/** 추천 모드에 맞는 상품 목록과 취향 유도 카드를 보여줍니다. */
 export function ShareProductsCarousel({
-  allProducts,
-  guestProducts,
+  products,
+  mode,
 }: {
-  allProducts: HomeProduct[];
-  guestProducts: HomeProduct[];
+  products: HomeProduct[];
+  mode: HomeRecommendationMode;
 }) {
-  const savedRecommendations = useSyncExternalStore(
-    subscribeToRecommendations,
-    getSavedRecommendations,
-    getServerRecommendations,
-  );
-  const matchedRecommendations = resolveHomeRecommendations(
-    savedRecommendations,
-    allProducts,
-  );
-  const recommendedProducts =
-    matchedRecommendations.length > 0 ? matchedRecommendations : null;
-
-  const visibleProducts = recommendedProducts ?? guestProducts;
+  const visibleProducts = products;
+  const showAiCopy = mode !== 'random';
 
   return (
     <section
@@ -48,26 +27,32 @@ export function ShareProductsCarousel({
         AI가 추천하는 당신의 장바구니
       </h2>
       <p className="mt-2 text-[13px] text-[#77766f]">
-        {recommendedProducts
+        {showAiCopy
           ? '온보딩에서 선택한 답변에 맞춘 식재료예요.'
           : '오늘의 추천 상품을 둘러보세요.'}
       </p>
 
       <div className="mt-8 min-h-48 px-10">
-        {visibleProducts.length === 0 && (
-          <p className="text-muted-foreground py-12">추천 상품이 없어요.</p>
+        {mode === 'needs-taste' ? (
+          <TasteFinderPromptCard />
+        ) : (
+          <>
+            {visibleProducts.length === 0 && (
+              <p className="text-muted-foreground py-12">추천 상품이 없어요.</p>
+            )}
+            <CarouselContainer
+              items={visibleProducts}
+              itemsPerSlide={5}
+              getItemKey={(product) => product.name}
+              ariaLabel={
+                showAiCopy
+                  ? '한 끼 사주 취향 추천 상품'
+                  : '오늘의 랜덤 추천 상품'
+              }
+              renderItem={(product) => <HomeProductCard product={product} />}
+            />
+          </>
         )}
-        <CarouselContainer
-          items={visibleProducts}
-          itemsPerSlide={5}
-          getItemKey={(product) => product.name}
-          ariaLabel={
-            recommendedProducts
-              ? '한 끼 사주 취향 추천 상품'
-              : '오늘의 랜덤 추천 상품'
-          }
-          renderItem={(product) => <HomeProductCard product={product} />}
-        />
       </div>
 
       <hr className="mt-10 border-[#e0ded6]" />
