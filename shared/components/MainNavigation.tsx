@@ -32,7 +32,7 @@ export function MainNavigation({
         className,
       )}
     >
-      <ul className="grid grid-cols-3 gap-1 text-center sm:flex sm:gap-4">
+      <ul className="grid grid-cols-3 gap-2 text-center sm:flex sm:gap-[58px]">
         {items.map(({ label, target }) => (
           <li key={label} className="min-w-0">
             <NavigationAction
