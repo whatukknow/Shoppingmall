@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { SignupForm } from '@/domains/auth/components/SignupForm';
 import { hasErrors, validateSignup } from '@/domains/auth/auth.validate';
 import type { FieldErrors, SignupValues } from '@/domains/auth/auth.types';
+import { withNext } from '@/domains/auth/auth.redirect';
 
 const initialValues: SignupValues = {
   name: '',
@@ -16,7 +17,11 @@ const initialValues: SignupValues = {
   agreeNotification: false,
 };
 
-export default function SignupContainer() {
+type SignupContainerProps = {
+  redirectTo: string; // 로그인 후 이동할 주소
+};
+
+export default function SignupContainer({ redirectTo }: SignupContainerProps) {
   const router = useRouter();
 
   const [values, setValues] = useState<SignupValues>(initialValues);
@@ -36,7 +41,7 @@ export default function SignupContainer() {
 
     // TODO: 회원가입 API가 생기면 여기서 가입 요청
     // 지금은 시안 범위(구조 검토용)에 맞춰 로그인 화면으로 이동만 함
-    router.push('/login');
+    router.push(withNext('/login', redirectTo));
   };
 
   return (

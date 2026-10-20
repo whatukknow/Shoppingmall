@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { MainNavigation, type MainNavigationProps } from './MainNavigation';
 import { BrandLogo } from './BrandLogo';
 import { NavigationAction, type NavigationTarget } from './NavigationAction';
@@ -25,6 +25,20 @@ export function MastHead({
 }: MastHeadProps) {
   const pathname = usePathname();
   const isHome = pathname === '/';
+  const router = useRouter();
+
+  // 로그인 버튼: 지금 보던 주소를 next로 넘겨서 로그인 후 돌아오게 함
+  const loginTarget: NavigationTarget = login ?? {
+    onClick: () => {
+      if (pathname === '/login') return; // 로그인 페이지에서는 그대로
+      if (pathname === '/signup') {
+        router.push(`/login${window.location.search}`); // 회원가입 화면이면 원래 next 그대로 들고 감
+        return;
+      }
+      const current = window.location.pathname + window.location.search;
+      router.push(`/login?next=${encodeURIComponent(current)}`);
+    },
+  };
 
   if (variant === 'brand') {
     return (
@@ -61,7 +75,7 @@ export function MastHead({
         <div className="ml-auto flex min-w-0 items-center gap-1 sm:gap-4">
           <NavigationAction
             label={user ? `${user.name}님` : '로그인'}
-            target={user ? account : login}
+            target={user ? account : loginTarget}
             className="max-w-36 truncate"
           />
           <NavigationAction label="함께 나누기" target={{ href: '/#how-it-works' }} />
