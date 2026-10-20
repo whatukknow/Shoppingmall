@@ -1,3 +1,4 @@
+import { BirthDetailsStep } from '@/domains/home/onboarding/react/BirthDetailsStep';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -5,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function OnboardingPage() {
-  return null;
+  return <BirthDetailsStep />;
 }

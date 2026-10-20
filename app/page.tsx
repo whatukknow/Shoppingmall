@@ -14,7 +14,6 @@ import {
 import { resolveHomeRecommendationMode } from '@/domains/home/data/homeRecommendations';
 import type { HomeProduct } from '@/domains/home/data/homeProducts';
 import { getProductCatalog } from '@/domains/products/products.api';
-import './home.css';
 
 /** Next.js 홈 경로에서 새 시안의 섹션을 순서대로 조합합니다. */
 export default async function HomePage() {

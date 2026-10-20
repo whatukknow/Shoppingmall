@@ -1,8 +1,15 @@
-import { Suspense, type ReactNode } from 'react';
-import { OriginalOnboardingFrame } from '@/domains/home/components/OriginalOnboardingFrame';
-
+import type { ReactNode } from 'react';
+import { Press_Start_2P } from 'next/font/google';
 import { getHomeProducts } from '@/domains/home/home.api';
-import { getOnboardingTemplate } from '@/domains/home/onboarding/onboardingTemplate';
+import { TasteProvider } from '@/domains/home/onboarding/react/TasteProvider';
+import '@/domains/home/onboarding/react/original-design.css';
+
+const pixelFont = Press_Start_2P({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-taste-pixel',
+});
 
 export default async function OnboardingLayout({
   children,
@@ -10,13 +17,9 @@ export default async function OnboardingLayout({
   children: ReactNode;
 }) {
   const { shareProducts } = await getHomeProducts();
-  const template = await getOnboardingTemplate();
   return (
-    <>
-      <Suspense fallback={null}>
-        <OriginalOnboardingFrame products={shareProducts} template={template} />
-      </Suspense>
-      {children}
-    </>
+    <div className={pixelFont.variable}>
+      <TasteProvider products={shareProducts}>{children}</TasteProvider>
+    </div>
   );
 }

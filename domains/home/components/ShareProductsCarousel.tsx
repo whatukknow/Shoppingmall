@@ -20,7 +20,7 @@ export function ShareProductsCarousel({
   return (
     <section
       id="share-products"
-      className="max-w-1260px mx-auto w-full scroll-mt-8 px-6 pt-14 md:px-0"
+      className="max-w-1260px mx-auto w-full scroll-mt-8 px-6 pt-14"
     >
       <p className="font-sans text-[11px] font-medium tracking-[0.08em] text-[#650f20]">
         PICKS FOR YOU
@@ -30,7 +30,7 @@ export function ShareProductsCarousel({
       </h2>
       <p className="mt-2 text-[13px] text-[#77766f]">
         {showAiCopy
-          ? '온보딩에서 선택한 답변에 맞춘 식재료예요.'
+          ? '한 끼 사주에서 선택한 답변에 맞춘 식재료예요.'
           : '오늘의 추천 상품을 둘러보세요.'}
       </p>
 
@@ -43,6 +43,8 @@ export function ShareProductsCarousel({
               <p className="text-muted-foreground py-12">추천 상품이 없어요.</p>
             )}
             <CarouselContainer
+              // 화면 너비에 따라 PC 5개 · 태블릿 3개 · 모바일 2개로 표시합니다.
+              responsive
               items={visibleProducts}
               itemsPerSlide={5}
               getItemKey={(product) => product.name}
