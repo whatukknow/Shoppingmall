@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { AUTH_PREVIEW_SESSION_KEY } from '@/domains/auth/data/authPreviewSession';
 import { LoginForm } from '@/domains/auth/components/LoginForm';
 import { hasErrors, validateLogin } from '@/domains/auth/auth.validate';
 import type { FieldErrors, LoginValues } from '@/domains/auth/auth.types';
@@ -32,8 +33,9 @@ export default function LoginContainer({ redirectTo }: LoginContainerProps) {
     setErrors(nextErrors);
     if (hasErrors(nextErrors)) return; // 오류가 있으면 여기서 멈춤
 
-    // 온보딩을 거쳐 로그인한 경우에만 메인 진입 상태를 기록
+    // 시안용 로그인 상태와 온보딩을 거친 메인 진입 상태를 기록
     try {
+      window.sessionStorage.setItem(AUTH_PREVIEW_SESSION_KEY, 'yes');
       if (window.sessionStorage.getItem('little-portions:onboarding-pending-login') === 'yes') {
         window.sessionStorage.setItem('little-portions:onboarding-complete', 'yes');
         window.sessionStorage.removeItem('little-portions:onboarding-pending-login');

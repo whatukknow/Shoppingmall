@@ -38,7 +38,6 @@ button,input,select{font:inherit;color:inherit}
 .pf{font-family:var(--f-pixel);font-style:normal;font-size:10px;letter-spacing:0;margin-right:6px}
 .app{max-width:var(--w);height:100%;max-height:100%;margin:0 auto;padding-block:18px 120px;min-height:100vh;overflow-y:auto;border-radius:var(--radius-3xl);background:var(--cream);display:flex;flex-direction:column;gap:22px}
 .top{display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:var(--f-word);font-size:20px;color:var(--bur);letter-spacing:-.02em}
 .skip{background:none;border:0;color:var(--muted);font-size:13.5px;cursor:pointer;padding:6px 0}
 .dots{display:flex;justify-content:center;gap:10px;padding-top:2px}
 .dots i{width:10px;height:10px;border-radius:2px;background:var(--line);transition:background .3s,transform .3s}
@@ -80,10 +79,9 @@ select.in.empty{color:var(--muted)}
 .agree{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--bur);font-weight:700;line-height:1.45;cursor:pointer;padding:0 4px}
 .agree input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--bur);flex:none}
 .agree small{display:block;font-weight:400;color:var(--muted);font-size:11.5px;margin-top:2px}
-.sheet-bg{position:fixed;inset:0;background:rgba(72,19,27,.45);z-index:20;display:flex;align-items:flex-end;justify-content:center;opacity:0;transition:opacity .25s}
+.sheet-bg{position:fixed;inset:var(--popup-top,0px) 0 var(--popup-bottom,0px);background:transparent;z-index:20;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;transition:opacity .25s}
 .sheet-bg.show{opacity:1}
-.sheet{width:100%;max-width:var(--w);background:var(--card);border:2px solid var(--bur);border-bottom:0;border-radius:var(--radius-3xl) var(--radius-3xl) 0 0;padding:20px 20px calc(18px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:14px;transform:translateY(100%);transition:transform .35s cubic-bezier(.2,.9,.3,1)}
-.sheet-bg.show .sheet{transform:none}
+.sheet{width:100%;max-width:calc((var(--w) - 40px)*1.35);box-shadow:0 8px 28px rgba(72,19,27,.16);background:var(--card);border:2px solid var(--bur);border-radius:var(--radius-3xl);max-height:calc(100% - 32px);overflow-y:auto;padding:20px 20px calc(18px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:14px}
 .sheet .sh{display:flex;gap:12px;align-items:center}
 .sheet .sh .px{width:52px;height:52px;flex:none}
 .sheet h2{margin:0;font-size:19px;font-weight:900;color:var(--bur);letter-spacing:-.02em;line-height:1.35}
@@ -172,8 +170,13 @@ select.in.empty{color:var(--muted)}
 .why b{color:var(--bur)}
 .foot{font-size:11.5px;color:var(--muted);text-align:center;line-height:1.5;margin:0}
 
-.cta{position:fixed;left:0;right:0;bottom:0;padding:14px max(16px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+.cta{position:fixed;left:0;right:0;bottom: 30px;padding:14px max(16px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
   background:linear-gradient(rgba(255,248,214,0),var(--cream) 32%);display:flex;justify-content:center;z-index:5}
+body:has(#res.on) .app{padding-bottom:24px}
+body:has(#q1.on) .app{min-height:0;padding-bottom:24px}
+body:has(#res.on) .cta,body:has(#q1.on) .cta{position:static;background:var(--cream)}
+body:has(#sheetBg:not([hidden])) .cta{visibility:hidden;pointer-events:none}
+@media (max-width:767px){body:has(#q1.on) .cta{margin-bottom:50px}}
 .cta .wrap{max-width:var(--w);width:100%;display:flex;gap:8px}
 .btn{flex:1;padding:15px;border-radius:var(--radius-lg);border:0;background:var(--bur);color:#fff;font-weight:700;font-size:15.5px;cursor:pointer;transition:opacity .2s}
 .btn:disabled{opacity:.3;cursor:not-allowed}
@@ -234,7 +237,7 @@ select.in.empty{color:var(--muted)}
 </style>
 
 <div class="app">
-  <div class="top"><span class="logo">Little portions</span><span class="hud" id="hud" hidden><span class="hc" id="hCartB" aria-label="장바구니 수량"><svg viewBox="0 0 14 12" shape-rendering="crispEdges" aria-hidden="true"><rect x="0" y="1" width="3" height="1" fill="#5B3B33"/><rect x="2" y="2" width="1" height="6" fill="#5B3B33"/><rect x="3" y="3" width="10" height="4" fill="#C98A58"/><rect x="3" y="3" width="10" height="1" fill="#5B3B33"/><rect x="3" y="7" width="10" height="1" fill="#5B3B33"/><rect x="12" y="3" width="1" height="5" fill="#5B3B33"/><rect x="5" y="4" width="1" height="3" fill="#8B5A3C"/><rect x="8" y="4" width="1" height="3" fill="#8B5A3C"/><rect x="3" y="9" width="2" height="2" fill="#5B3B33"/><rect x="10" y="9" width="2" height="2" fill="#5B3B33"/></svg><b id="hCart">0</b></span><span class="hc cr" id="hCrB" aria-label="크레딧"><i class="coin"></i><b id="hCr">0</b></span></span><button class="skip" id="skip" type="button">건너뛰기</button></div>
+  <div class="top"><span class="hud" id="hud" hidden><span class="hc" id="hCartB" aria-label="장바구니 수량"><svg viewBox="0 0 14 12" shape-rendering="crispEdges" aria-hidden="true"><rect x="0" y="1" width="3" height="1" fill="#5B3B33"/><rect x="2" y="2" width="1" height="6" fill="#5B3B33"/><rect x="3" y="3" width="10" height="4" fill="#C98A58"/><rect x="3" y="3" width="10" height="1" fill="#5B3B33"/><rect x="3" y="7" width="10" height="1" fill="#5B3B33"/><rect x="12" y="3" width="1" height="5" fill="#5B3B33"/><rect x="5" y="4" width="1" height="3" fill="#8B5A3C"/><rect x="8" y="4" width="1" height="3" fill="#8B5A3C"/><rect x="3" y="9" width="2" height="2" fill="#5B3B33"/><rect x="10" y="9" width="2" height="2" fill="#5B3B33"/></svg><b id="hCart">0</b></span><span class="hc cr" id="hCrB" aria-label="크레딧"><i class="coin"></i><b id="hCr">0</b></span></span><button class="skip" id="skip" type="button">건너뛰기</button></div>
   <div class="dots" id="dots" aria-label="진행 단계"><i></i><i></i><i></i></div>
 
   <section class="step on" id="q1">
@@ -273,7 +276,7 @@ select.in.empty{color:var(--muted)}
           <span class="goes-l" id="rGoesL"></span>
         </div>
         <div class="entry" id="entry"></div>
-        <div class="sec walk-sec"><h3>오늘의 장보기 <small>담기를 누르면 출발해요</small></h3><div class="walk" id="walk" aria-label="장바구니를 든 캐릭터가 추천 원물과 키트를 차례로 담는 애니메이션"></div></div>
+        <div class="sec walk-sec"><h3>오늘의 장보기 <small>메인에서 추천 확인을 누르면 출발해요</small></h3><div class="walk" id="walk" aria-label="장바구니를 든 캐릭터가 추천 원물과 키트를 차례로 담는 애니메이션"></div></div>
         <div class="sec"><h3>이번 주 행운의 원물 <small>1인분 소분</small></h3><div class="items" id="rItems"></div></div>
         <div class="sec"><h3>이번 주 키트 <small>한 번에 담기</small></h3><div id="rKit"></div></div>
         <div class="sec" id="rSplit"><h3>나눠사기 <small>4명이 모이면 결제</small></h3><div class="split"><span class="px" data-px="cheese"></span><span>파르미지아노 1kg</span><span class="m"><i></i></span><span>3/4명</span></div></div>
@@ -286,15 +289,13 @@ select.in.empty{color:var(--muted)}
 
 <div class="cta"><div class="wrap"><button class="btn ghost" id="back" type="button" hidden>이전</button><button class="btn" id="next" type="button">다음</button></div></div>
 <div class="sheet-bg" id="sheetBg" hidden><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="shT">
-  <div class="sh"><span class="px" data-px="sparkle"></span><h2 id="shT">식운 추천을 로그인 후 메인에서 확인할까요?<small>추천 품목은 메인 첫 번째 캐러셀에 반영돼요</small></h2></div>
+  <div class="sh"><span class="px" data-px="sparkle"></span><h2 id="shT">식운 추천을 메인 화면에서 확인할까요?<small>추천 품목은 메인 첫 번째 블록 'AI가 추천하는 당신의 장바구니'에 반영돼요</small></h2></div>
   <div class="bens">
-    <div class="ben prize"><span class="px" data-px="kit"></span><div><b id="shPrize"></b><small>로그인 후 메인 첫 번째 캐러셀에서 확인해요</small></div></div>
-    <button type="button" class="ben pick" id="shPref" aria-pressed="false"><span class="px" data-px="ani:돼지" id="shAni"></span><div><b>이 취향을 메인 화면에 반영</b><small>메인 첫 번째 캐러셀에 추천 품목을 보여줘요</small></div><i class="ck" aria-hidden="true"></i></button>
+    <button type="button" class="ben pick" id="shPref" aria-pressed="false"><span class="px" data-px="ani:돼지" id="shAni"></span><div><b>이 취향을 메인 화면에 반영</b><small>메인 첫 번째 블록 'AI가 추천하는 당신의 장바구니'에서 보여줘요.</small></div><i class="ck" aria-hidden="true"></i></button>
   </div>
   <label class="nickin"><span>닉네임 <small style="font-weight:500;color:var(--muted)">결과 화면에서만 사용해요</small></span><input class="in" id="shNick" maxlength="10" placeholder="예) 늦잠러" autocomplete="off"></label>
-  <p class="what"><b>체크 시 전달</b> 추천 품목 이름<br><b>목적</b> 메인 첫 번째 캐러셀 구성 · <b>보관</b> 브라우저 세션 동안만 유지<br>생년월일·성별·닉네임은 저장하거나 전송하지 않아요</p>
-  <button class="yes" id="shYes" type="button">로그인하고 추천 상품 보기</button>
-  <button class="no" id="shNo" type="button">로그인 후 추천 상품만 보기</button>
+  <p class="what"><b>체크 시 전달</b> 추천 품목 이름<br><b>목적</b> 메인 첫 번째 블록 'AI가 추천하는 당신의 장바구니' 구성 · <b>보관</b> 브라우저 세션 동안만 유지<br>생년월일·성별·닉네임은 저장하거나 전송하지 않아요</p>
+  <button class="yes" id="shYes" type="button">추천 상품 보기</button>
 </div></div>
 <div class="toast" id="toast" role="status"></div>
 
@@ -552,6 +553,7 @@ function px(n){return CY.px(n)}
   var SUN_W={b:'늦잠 후 브런치',p:'한강 피크닉',n:'넷플릭스와 야식',c:'시장 구경 후 요리'};
   var FRI_W={empty:'냉장고가 비어 있어 <b>기본 원물부터</b> 골랐어요.',sauce:'소스는 충분하니 <b>소스는 빼고 메인 재료만</b> 골랐어요.',banchan:'반찬이 있으니 <b>메인 하나만 더</b>하면 돼요.',wilted:'시드는 채소가 있으니 <b>새 채소는 빼고</b> 골랐어요.'};
 
+  var POPUP=new URLSearchParams(location.search).get('view')==='popup',routeDriven=false;
   var S={nick:'',y:null,m:null,d:null,g:'n',sun:null,fridge:null,cart:0,cr:0},step=0;
   function save(){}
 
@@ -596,7 +598,6 @@ function px(n){return CY.px(n)}
   var LAST=null,SENT=false,CHOSE=false;
   /* 추천 상품 이름만 앱에 전달하고, 원본 설문 답변은 저장하거나 전송하지 않아요. */
   var GEN={f:'여성',m:'남성',n:'선택 안 함'};
-  document.getElementById('shPrize').textContent='이번 주 식탁 추천 품목';
   function sendRecommendationsToParent(r,includeRecommendations){
     if(window.parent!==window){var message={type:'little-portions:onboarding-complete'};
       if(includeRecommendations)message.productNames=r.items.concat([r.kit]).map(function(p){return p[0]});
@@ -618,7 +619,7 @@ function px(n){return CY.px(n)}
     document.getElementById('rWhy').innerHTML='<b>'+r.z.el+'('+e.h+')의 기운</b>에 어울리는 재료 중 <b>'+SUN_W[S.sun||'b']+'</b>에 맞는 것으로 골랐어요. '+FRI_W[S.fridge||'empty'];
     burst(e);HERO.build(r);
     document.getElementById('shAni').innerHTML=px(r.z.ae);
-    clearTimeout(window._sh);window._sh=setTimeout(openSheet,2300);}
+    clearTimeout(window._sh);}
 
   function burst(e){var b=document.getElementById('burst'),ring=document.getElementById('ring'),c=document.getElementById('card');
     c.classList.remove('pop');ring.classList.remove('go');b.innerHTML='';void c.offsetWidth;c.classList.add('pop');ring.classList.add('go');
@@ -732,7 +733,7 @@ function px(n){return CY.px(n)}
         ic.animate([{transform:'translate(0,0) scale(1)'},{transform:'translate('+dx*.5+'px,'+(dy-34)+'px) scale(.85)',offset:.5},{transform:'translate('+dx+'px,'+dy+'px) scale(.42)'}],{duration:360,easing:'cubic-bezier(.3,.6,.4,1)',fill:'forwards'})
           .onfinish=function(){g.style.visibility='hidden';bin.appendChild(mini);mini.animate([{transform:'scale(1.6)'},{transform:'scale(1)'}],{duration:200})}}
       if(RM){gis.forEach(grab);wk.style.left=(w.clientWidth-110)+'px';done&&done(total);return}
-      running=true;wk.classList.remove('idle');var W0=w.clientWidth,x0=4,x1=W0-112,t0=null,dur=3000,last=0,fr=0,i=0;
+      running=true;wk.classList.remove('idle');var W0=w.clientWidth,x0=4,x1=W0-112,t0=null,dur=4500,last=0,fr=0,i=0;
       function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/dur),x=x0+(x1-x0)*p;wk.style.left=x+'px';wk.style.bottom=(20+Math.abs(Math.sin(p*Math.PI*10))*3)+'%';
         if(ts-last>130){fr^=1;wk.classList.toggle('alt',fr===1);last=ts}
         while(i<gis.length&&x+46>=gis[i].offsetLeft-4){grab(gis[i]);i++}
@@ -745,9 +746,9 @@ function px(n){return CY.px(n)}
   var steps=['q1','q2','q3','res'],next=document.getElementById('next'),back=document.getElementById('back'),load=document.getElementById('load');
   function ui(){[].forEach.call(document.querySelectorAll('#dots i'),function(x,i){x.classList.toggle('on',i===step);x.classList.toggle('done',i<step||step===3)});
     document.getElementById('dots').hidden=step===3;back.hidden=step===0;document.getElementById('skip').hidden=step===3||step===0;document.getElementById('hud').hidden=step!==3;HUD.set();
-    if(step===3){next.textContent='원물 + 키트 한 번에 담기';next.disabled=false;back.textContent='다시 하기'}
+    if(step===3){next.textContent='메인에서 추천 확인';next.disabled=false;back.textContent='다시 하기'}
     else{back.textContent='이전';next.textContent=step===2?'내 식운 보기':'다음';next.disabled=(step===1&&!S.sun)||(step===2&&!S.fridge);next.classList.toggle('soft',step===0&&check0(false).length>0)}}
-  function show(i){step=i;steps.forEach(function(id,k){document.getElementById(id).classList.toggle('on',k===step)});ui();window.scrollTo({top:0,behavior:'smooth'})}
+  function show(i){step=i;steps.forEach(function(id,k){document.getElementById(id).classList.toggle('on',k===step)});ui();window.scrollTo({top:0,behavior:'smooth'});if(!POPUP&&!routeDriven&&window.parent!==window)window.parent.postMessage({type:'little-portions:onboarding-step',step:step},'*')}
   function go(i){i=Math.max(0,Math.min(3,i));
     if(i===3&&step!==3){steps.forEach(function(id){document.getElementById(id).classList.remove('on')});load.classList.add('on');document.querySelector('.cta').style.visibility='hidden';
       var L=['crystal','ani:쥐','ani:호랑이','ani:토끼','ani:용','ani:말','ani:돼지','el:목','el:화','el:수'],k=0,ld=document.getElementById('ldE');ld.innerHTML=px(L[0]);var iv=setInterval(function(){ld.innerHTML=px(L[k++%L.length])},120);
@@ -760,21 +761,50 @@ function px(n){return CY.px(n)}
   function choose(ok){if(CHOSE)return;CHOSE=true;closeSheet();if(!LAST)return;
     sendRecommendationsToParent(LAST,PREF).then(function(){SENT=true;toast(ok?'추천 상품을 준비했어요':'추천 상품만 확인해요')})
       .catch(function(){toast('추천 상품을 열지 못했어요. 다시 시도해 주세요.')})}
-  document.getElementById('shYes').onclick=function(){var ni=document.getElementById('shNick'),v=ni.value.trim();
+  document.getElementById('shYes').onclick=function(){if(POPUP){choose(true);return}var ni=document.getElementById('shNick'),v=ni.value.trim();
     if(!v){v=(LAST?LAST.z.el+LAST.z.animal:'한끼')+Math.floor(10+Math.random()*90);ni.value=v} /* 비우면 자동 닉네임을 만들어요 */
     ni.parentNode.classList.remove('err');S.nick=v;save();
     var en=document.getElementById('entry');en.textContent='추천 상품을 준비했어요 · 로그인 후 확인할 수 있어요';en.classList.add('on');
     document.getElementById('rTitle').textContent=v+'님의 이번 주는 '+EL[LAST.z.el].t;choose(true)};
-  document.getElementById('shNo').onclick=function(){choose(false)};
   next.onclick=function(){if(step===0){var bad=check0(true);if(bad.length){var f=bad[0].closest('.fld');f.classList.remove('shake');void f.offsetWidth;f.classList.add('shake');bad[0].focus();toast('닉네임과 생년월일을 입력해 주세요');return}}
     if(step!==3){go(step+1);return}
-    var n=document.querySelectorAll('#rItems .it').length;SND.unlock();clearTimeout(window._sh);next.disabled=true;
-    HERO.run(function(){next.disabled=false;next.textContent='한 번 더 담아 보기';(function(){var q=HERO.last()||{n:0,why:''},lf=LEDGER.left();toast(q.n?('크레딧 +'+q.n+' · 오늘 '+lf.day+' 남음 (주 '+lf.week+')'):(q.why==='same'?'이미 크레딧을 받은 결과예요 · 답을 바꾸면 새로 적립':(q.why==='day'?'오늘 적립 한도 '+POLICY.daily+' 도달 · 내일 다시':'이번 주 적립 한도 '+POLICY.weekly+' 도달')))})();if(!CHOSE)setTimeout(openSheet,700)})};
+
+    var n=document.querySelectorAll('#rItems .it').length;SND.unlock();clearTimeout(window._sh);next.disabled=true;back.disabled=true;
+    HERO.run(function(){next.disabled=false;back.disabled=false;(function(){var q=HERO.last()||{n:0,why:''},lf=LEDGER.left();toast(q.n?('크레딧 +'+q.n+' · 오늘 '+lf.day+' 남음 (주 '+lf.week+')'):(q.why==='same'?'이미 크레딧을 받은 결과예요 · 답을 바꾸면 새로 적립':(q.why==='day'?'오늘 적립 한도 '+POLICY.daily+' 도달 · 내일 다시':'이번 주 적립 한도 '+POLICY.weekly+' 도달')))})();if(!CHOSE)window._sh=setTimeout(openSheet,1000)})};
   back.onclick=function(){if(step===3){clearTimeout(window._sh);S.sun=null;S.fridge=null;save();[].forEach.call(document.querySelectorAll('.opt'),function(x){x.setAttribute('aria-pressed',false)});show(0);return}go(step-1)};
   document.getElementById('skip').onclick=function(){if(!S.sun)S.sun='b';if(!S.fridge)S.fridge='empty';go(3)};
   function toast(t){var el=document.getElementById('toast');el.textContent=t;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('show')},1800)}
   [].forEach.call(document.querySelectorAll('[data-px]'),function(el){el.innerHTML=px(el.dataset.px)});
-  show(0);
+  window.addEventListener('message',function(event){
+    if(event.source!==window.parent||!event.data||typeof event.data!=='object')return;
+    var msg=event.data;
+    if(msg.type==='little-portions:onboarding-viewport'&&Number.isFinite(msg.top)&&Number.isFinite(msg.bottom)){
+      document.documentElement.style.setProperty('--popup-top',Math.max(0,msg.top)+'px');
+      document.documentElement.style.setProperty('--popup-bottom',Math.max(0,msg.bottom)+'px');
+      return;
+    }
+    if(POPUP&&msg.type==='little-portions:onboarding-popup-data'&&Array.isArray(msg.productNames)){
+      var names=msg.productNames.filter(function(n){return typeof n==='string'});
+      LAST={items:names.slice(0,-1).map(function(n){return [n]}),kit:[names[names.length-1]]};
+      step=3;openSheet();return;
+    }
+    if(!POPUP&&msg.type==='little-portions:onboarding-route'&&Number.isInteger(msg.step)&&msg.step>=0&&msg.step<=3){
+      var target=msg.step;
+      if(target>0&&(!S.nick||!dobOk()))target=0;
+      if(target>1&&!S.sun)target=1;
+      if(target>2&&!S.fridge)target=2;
+      routeDriven=true;
+      if(target!==step){show(target);if(target===3)render()}
+      routeDriven=false;
+      if(target!==msg.step)window.parent.postMessage({type:'little-portions:onboarding-step',step:target},'*');
+    }
+  });
+  if(POPUP){
+    var style=document.createElement('style');
+    style.textContent='.app,.cta,.toast{display:none!important}html,body{background:transparent!important}.sheet-bg{background:transparent!important}.sheet{max-height:calc(100svh - 32px);overflow-y:auto}';
+    document.head.appendChild(style);
+  }else{show(0)}
+  if(window.parent!==window)window.parent.postMessage({type:'little-portions:onboarding-ready'},'*');
 })();
 </script>
 

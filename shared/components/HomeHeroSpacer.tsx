@@ -6,7 +6,12 @@ import { usePathname } from 'next/navigation';
 export function HomeHeroSpacer() {
   const pathname = usePathname();
 
-  if (pathname === '/') return null;
+  if (
+    pathname === '/' ||
+    pathname === '/onboarding' ||
+    pathname.startsWith('/onboarding/')
+  )
+    return null;
 
   return (
     <div
