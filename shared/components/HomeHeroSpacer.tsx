@@ -16,15 +16,17 @@ export function HomeHeroSpacer() {
 
   if (pathname === '/about') {
     return (
-      <div className="relative h-[min(736px,100svh)] w-full bg-background">
-        <Image
-          src="/images/brand-story/no-more-waste.png"
-          alt="NO MORE WASTE 표지판 뒤에서 두 팔을 든 보라색 옷의 남자"
-          fill
-          priority
-          sizes="100vw"
-          className="object-contain object-bottom"
-        />
+      <div className="h-[min(736px,100svh)] w-full bg-background px-6 py-8">
+        <div className="relative h-full w-full">
+          <Image
+            src="/images/brand-story/no-more-waste.png"
+            alt="NO MORE WASTE 표지판 뒤에서 두 팔을 든 보라색 옷의 남자"
+            fill
+            priority
+            sizes="100vw"
+            className="object-contain"
+          />
+        </div>
       </div>
     );
   }
