@@ -20,14 +20,20 @@ const productIllustrations: Record<HomeProduct['illustration'], string> = {
   beefSteak: '/uploads/images/home/products/illustration-beef-steak.png',
   friedEgg: '/uploads/images/home/products/illustration-fried-egg.png',
   porkSteak: '/uploads/images/home/products/illustration-pork-steak.png',
-  chickenDrumstick: '/uploads/images/home/products/illustration-chicken-drumstick.png',
+  chickenDrumstick:
+    '/uploads/images/home/products/illustration-chicken-drumstick.png',
   blueberries: '/uploads/images/home/products/illustration-blueberries.png',
-  dragonFruitIllustration: '/uploads/images/home/products/illustration-dragon-fruit.png',
+  dragonFruitIllustration:
+    '/uploads/images/home/products/illustration-dragon-fruit.png',
   peachIllustration: '/uploads/images/home/products/illustration-peach.png',
 };
 
 /** 제공받은 투명 배경 식재료 이미지를 공통 크기로 표시합니다. */
-export function HomeProductIllustration({ kind }: { kind: HomeProduct['illustration'] }) {
+export function HomeProductIllustration({
+  kind,
+}: {
+  kind: HomeProduct['illustration'];
+}) {
   return (
     <div className="relative size-[138px] sm:size-[170px]" aria-hidden="true">
       <Image

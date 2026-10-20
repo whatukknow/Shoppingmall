@@ -167,4 +167,7 @@ export const popularProducts = [
 ] as const;
 
 export type HomeProduct =
-  (typeof shareProducts)[number] | (typeof popularProducts)[number];
+  ((typeof shareProducts)[number] | (typeof popularProducts)[number]) & {
+    /** API가 실제 상품 ID를 제공할 때만 상품 경로를 연결합니다. */
+    id?: string | number;
+  };

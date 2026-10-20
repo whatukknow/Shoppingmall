@@ -108,7 +108,7 @@ import {
 
 ### `MainNavigation`, `NavigationAction`
 
-`MainNavigation`은 주요 메뉴 3개를 표시합니다. 기본 링크는 소분마켓 `/products`, 취향 찾기 `/#find-your-taste`, 브랜드 이야기 `/#brand-story`입니다. 현재 경로 표시도 처리합니다.
+`MainNavigation`은 주요 메뉴 3개를 표시합니다. 기본 링크는 소분마켓 `/products`, 취향 찾기 `/#find-your-taste`, 브랜드 이야기 `/about`입니다. 현재 경로 표시도 처리합니다.
 
 `NavigationAction`은 목적지에 따라 링크 또는 버튼을 렌더링합니다.
 

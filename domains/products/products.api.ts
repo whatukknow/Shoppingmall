@@ -11,5 +11,7 @@ export function getProductCatalog() {
 
 export async function getProductById(id: string) {
   const productCatalog = await getProductCatalog();
-  return productCatalog.find((product) => product.id === id);
+  return productCatalog.find(
+    (product) => product.id !== undefined && String(product.id) === id,
+  );
 }

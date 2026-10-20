@@ -3,7 +3,7 @@ export function BrandStorySection() {
   return (
     <section
       id="brand-story"
-      className="mx-auto mt-[52px] flex w-full max-w-[1260px] flex-col gap-5 px-7 py-8 sm:px-10 md:flex-row md:items-center md:justify-between md:py-10"
+      className="mx-auto mt-[52px] flex w-full max-w-1260px flex-col gap-5 px-7 py-8 sm:px-10 md:flex-row md:items-center md:justify-between md:py-10"
     >
       <div>
         <p className="font-sans text-[11px] font-medium tracking-[0.08em] text-[#650f20]">

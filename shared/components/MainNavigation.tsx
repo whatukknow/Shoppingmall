@@ -22,7 +22,7 @@ export function MainNavigation({
   const items = [
     { label: '소분마켓', target: products },
     { label: '취향 찾기', target: recommendation ?? { href: '/#find-your-taste' } },
-    { label: '브랜드 이야기', target: about ?? { href: '/#brand-story' } },
+    { label: '브랜드 이야기', target: about ?? { href: '/about' } },
   ];
   return (
     <nav
