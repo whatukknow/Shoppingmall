@@ -1,3 +1,4 @@
+// TODO: 사용되지 않음. 참고용으로 남겨두고 추후 삭제 고려 (피드백 부탁드립니다.)
 'use client';
 
 import { useEffect, useSyncExternalStore, type ReactNode } from 'react';
@@ -27,7 +28,8 @@ export function HomeEntryGate({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (ready) return;
-    const hasPendingLogin = window.sessionStorage.getItem(PENDING_LOGIN_KEY) === 'yes';
+    const hasPendingLogin =
+      window.sessionStorage.getItem(PENDING_LOGIN_KEY) === 'yes';
     if (hasPendingLogin) router.replace('/login?next=%2F%23share-products');
   }, [ready, router]);
 
