@@ -64,6 +64,10 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         <Footer
           companyName="리틀포션즈"
           representative="teamG"
+          businessRegistrationNumber="000-00-00000"
+          ecommerceRegistrationNumber="제0000-서울구로-0000호"
+          address="서울특별시 구로구 디지털로33길 48"
+          customerService="0000-0000"
           termsUrl="/terms"
           privacyUrl="/privacy"
         />
