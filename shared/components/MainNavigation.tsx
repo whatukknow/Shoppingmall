@@ -21,7 +21,7 @@ export function MainNavigation({
   // 메뉴 데이터와 NavigationAction 렌더링을 분리해 항목 구성을 한곳에서 관리합니다.
   const items = [
     { label: '소분마켓', target: products },
-    { label: '취향 찾기', target: recommendation ?? { href: '/#find-your-taste' } },
+    { label: '취향 찾기', target: recommendation ?? { href: '/onboarding' } },
     { label: '브랜드 이야기', target: about ?? { href: '/about' } },
   ];
   return (
