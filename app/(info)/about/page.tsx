@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: '회사 소개 | Little Portions',
@@ -37,15 +36,10 @@ export default function AboutPage() {
 
       {/* 이미지 + 소개 글 */}
       <section className="grid gap-8 md:grid-cols-2 md:items-center">
-        <div className="border-foreground/20 relative aspect-[4/3] w-full border">
-          <Image
-            src="/images/brand-story/no-more-waste.png"
-            alt="NO MORE WASTE 표지판 뒤에서 두 팔을 든 보라색 옷의 남자"
-            fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-contain"
-          />
-        </div>
+        <div
+          aria-hidden="true"
+          className="border-foreground/20 aspect-[4/3] w-full border"
+        />
         <div className="flex flex-col gap-5">
           <h2 className="text-2xl leading-[1.4] font-bold">
             필요한 만큼 고르고,
