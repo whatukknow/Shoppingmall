@@ -3,20 +3,22 @@
 import Link from 'next/link';
 
 import PaymentOrderItems from './PaymentOrderItems';
-import { paymentMockItems } from '../data/payment.mock';
 import { useSelectedPodIds } from '@/shared/hooks/useSelectedPodIds';
+
+import type { PaymentOrderItem } from '../data/payment.types';
 
 type PaymentResultPageProps = {
   status: 'success' | 'failed';
+  items: PaymentOrderItem[];
 };
 
-export default function PaymentResultPage({ status }: PaymentResultPageProps) {
+export default function PaymentResultPage({ status, items: allItems }: PaymentResultPageProps) {
   // 훅은 컴포넌트 함수 안에서 호출
   const selectedIds = useSelectedPodIds();
   const loaded = selectedIds !== null;
 
   // 저장된 ID에 해당하는 상품만 선택
-  const items = paymentMockItems.filter(
+  const items = allItems.filter(
     (item) => selectedIds?.includes(item.podId) ?? false,
   );
 

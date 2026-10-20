@@ -1,5 +1,7 @@
 import PaymentResultPage from '@/domains/payment/components/PaymentResultPage';
+import { getPaymentItems } from '@/domains/payment/payment.api';
 
-export default function Page() {
-  return <PaymentResultPage status="failed" />;
+export default async function Page() {
+  const items = await getPaymentItems();
+  return <PaymentResultPage status="failed" items={items} />;
 }
