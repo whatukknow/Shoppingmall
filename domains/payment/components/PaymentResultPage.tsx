@@ -116,7 +116,7 @@ export default function PaymentResultPage({ status, items: allItems }: PaymentRe
           {!isSuccess && (
             <Link
               href="/payment"
-              className="flex min-h-12 items-center justify-center rounded-lg bg-[#601025] px-8 font-bold text-white"
+              className="flex min-h-12 items-center justify-center rounded-none bg-[#601025] px-8 font-bold text-white"
             >
               다시 결제하기
             </Link>
@@ -124,7 +124,7 @@ export default function PaymentResultPage({ status, items: allItems }: PaymentRe
 
           <Link
             href="/"
-            className="flex min-h-12 items-center justify-center rounded-lg border border-current/30 px-8 font-bold"
+            className="flex min-h-12 items-center justify-center rounded-none border border-current/30 px-8 font-bold"
           >
             홈으로 돌아가기
           </Link>

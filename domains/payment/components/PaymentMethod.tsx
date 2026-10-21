@@ -60,7 +60,7 @@ export default function PaymentMethod({
             />
 
             <span
-              className={`flex h-16 items-center justify-center rounded-xl border border-black/15 px-4 py-3 peer-checked:ring-2 peer-checked:ring-[#601025] peer-checked:ring-offset-2 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 ${option.color} `}
+              className={`flex h-16 items-center justify-center rounded-none border border-black/15 px-4 py-3 peer-checked:ring-2 peer-checked:ring-[#601025] peer-checked:ring-offset-2 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 ${option.color} `}
             >
               {option.logo ? (
                 <Image

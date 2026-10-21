@@ -195,7 +195,7 @@
     background: transparent;
     color: #796252;
     padding: 12px 4px;
-    border-radius: 7px;
+    border-radius: 0;
     font: inherit;
     font-size: 12px;
     cursor: pointer;
@@ -349,17 +349,18 @@
   border-bottom-color: var(--border);
 }
 
-.lp-route-theme .brand-story .storyButton {
-  border-radius: 0;
-}
-
 /* 모든 페이지의 버튼과 버튼형 링크는 직사각형으로 통일합니다. */
 body button,
 body [role='button'],
-body [data-slot='button'],
 body input:is([type='button'], [type='submit'], [type='reset']),
 body a:is([class*='rounded'], .btn, .storyButton),
 body label:has(> input[type='radio']) > span {
+  border-radius: 0;
+}
+
+/* 온보딩 원본 스타일을 보존하고 버튼 모서리만 공통 정책에 맞춥니다. */
+.taste-screen button,
+.taste-screen [role='button'] {
   border-radius: 0 !important;
 }
 
@@ -432,7 +433,7 @@ body label:has(> input[type='radio']) > span {
 .brand-story .scene3d .tip i{display:block;font-style:normal;font-family:var(--font-sans);font-size:.68cqw;color:#D9C2A8;margin-top:.35cqw}
 .brand-story .scene3d .cd.lo .tip{bottom:auto;top:calc(100% + .7cqw)}.brand-story .scene3d .cd.lo .tip::after{top:auto;bottom:100%;border-top-color:transparent;border-bottom-color:var(--ink)}
 .brand-story .scene3d .cd:hover .tip,.brand-story .scene3d .cd .c:focus .tip{opacity:1;transform:translateX(-50%)}
-.brand-story .scene3d .rp{position:absolute;right:1cqw;top:.9cqw;font:inherit;font-size:.8cqw;background:rgba(255,253,246,.9);border:1px solid var(--line);color:var(--bur);border-radius:999px;padding:.3cqw .8cqw;cursor:pointer;z-index:1000}
+.brand-story .scene3d .rp{position:absolute;right:1cqw;top:.9cqw;font:inherit;font-size:.8cqw;background:rgba(255,253,246,.9);border:1px solid var(--line);color:var(--bur);border-radius:0;padding:.3cqw .8cqw;cursor:pointer;z-index:1000}
 .brand-story .scene3d .hint{position:absolute;left:1cqw;bottom:.9cqw;font-size:.75cqw;color:var(--muted);z-index:1000}
 /* phones */
 /* mockup */
