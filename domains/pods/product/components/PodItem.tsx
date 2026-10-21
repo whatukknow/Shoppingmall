@@ -33,7 +33,7 @@ export default function PotItem({
         <Button
           type="button"
           size="touch"
-          className="w-full rounded-full bg-[#650f20] text-[13px] font-medium text-white hover:bg-[#650f20]/90"
+          className="w-full rounded-none bg-[#650f20] text-[13px] font-medium text-white hover:bg-[#650f20]/90"
           onClick={() => {
             // potId를 이용하여 참여 API 호출
           }}

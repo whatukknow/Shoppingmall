@@ -15,7 +15,6 @@ type DeliveryFormProps = {
   onRecipientPhoneChange: (value: string) => void;
   onAddressSelect: (postalCode: string, address: string) => void;
   onAddressDetailChange: (value: string) => void;
-  onSaveAsDefaultAddressChange: (checked: boolean) => void;
   onEntranceInstructionsChange: (value: string) => void;
 };
 
@@ -26,7 +25,6 @@ export default function DeliveryForm({
   onRecipientPhoneChange,
   onAddressSelect,
   onAddressDetailChange,
-  onSaveAsDefaultAddressChange,
   onEntranceInstructionsChange,
 }: DeliveryFormProps) {
   return (

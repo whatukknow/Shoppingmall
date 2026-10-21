@@ -49,7 +49,7 @@ export default function PotForm({
         <Button
           type="button"
           size="touch"
-          className="w-full rounded-full bg-[#650f20] text-[13px] font-medium text-white hover:bg-[#650f20]/90"
+          className="w-full rounded-none bg-[#650f20] text-[13px] font-medium text-white hover:bg-[#650f20]/90"
           onClick={() => {
             // 새 팟 신청
           }}
@@ -60,7 +60,7 @@ export default function PotForm({
           type="button"
           size="touch"
           variant="actionOutline"
-          className="w-full rounded-full border-[#650f20] bg-transparent text-[13px] text-[#650f20]"
+          className="w-full rounded-none border-[#650f20] bg-transparent text-[13px] text-[#650f20]"
           onClick={() => {
             // myPotPageHref 화면으로 이동
           }}

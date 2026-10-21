@@ -32,7 +32,6 @@ const initialDelivery: DeliveryInfos = {
   postalCode: '',
   recipientAddress: '',
   recipientAddressDetail: '',
-  saveAsDefaultAddress: false,
   entranceInstructions: '',
 };
 
@@ -111,13 +110,6 @@ export default function PaymentPage({ items }: PaymentPageProps) {
     setDelivery((previous) => ({
       ...previous,
       recipientAddressDetail: value,
-    }));
-  }
-
-  function handleSaveAsDefaultAddressChange(checked: boolean) {
-    setDelivery((previous) => ({
-      ...previous,
-      saveAsDefaultAddress: checked,
     }));
   }
 
@@ -248,7 +240,6 @@ export default function PaymentPage({ items }: PaymentPageProps) {
               onRecipientPhoneChange={handleRecipientPhoneChange}
               onAddressSelect={handleAddressSelect}
               onAddressDetailChange={handleAddressDetailChange}
-              onSaveAsDefaultAddressChange={handleSaveAsDefaultAddressChange}
               onEntranceInstructionsChange={handleEntranceInstructionsChange}
             />
 

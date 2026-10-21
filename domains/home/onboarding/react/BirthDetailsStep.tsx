@@ -233,9 +233,6 @@ export function BirthDetailsStep() {
             </p>
           </div>
         </div>
-        <p className="note">
-
-        </p>
       </section>
     </TasteFrame>
   );
