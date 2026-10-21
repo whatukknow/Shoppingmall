@@ -47,18 +47,18 @@ export function MastHead({
         className="text-foreground mx-auto flex w-full max-w-[1440px] flex-col items-center gap-4 px-4 py-10 text-center"
       >
         <BrandLogo className="text-primary text-[clamp(2rem,8vw,5rem)] leading-[1.1]" />
-        <p className="text-base leading-6">
-          필요한 만큼, 함께 나누는 신선함
-        </p>
+        <p className="text-base leading-6">필요한 만큼, 함께 나누는 신선함</p>
       </div>
     );
   }
   return (
     <header
       aria-label="상점 헤더"
-      className={isHome
-        ? 'absolute top-0 left-0 z-40 w-full pt-[env(safe-area-inset-top)] text-white'
-        : 'bg-background/95 text-foreground border-foreground/15 sticky top-0 z-40 w-full border-b pt-[env(safe-area-inset-top)] backdrop-blur-sm'}
+      className={
+        isHome
+          ? 'absolute top-0 left-0 z-40 w-full pt-[env(safe-area-inset-top)] text-white'
+          : 'bg-background/95 text-foreground border-foreground/15 sticky top-0 z-40 w-full border-b pt-[env(safe-area-inset-top)] backdrop-blur-sm'
+      }
     >
       <div className="mx-auto flex min-h-14 w-full max-w-[1440px] flex-wrap items-center gap-x-2 gap-y-1 px-3 py-1 sm:min-h-20 sm:flex-nowrap sm:gap-6 sm:px-6 lg:px-12">
         <Link
@@ -70,7 +70,7 @@ export function MastHead({
         </Link>
         <MainNavigation
           {...navigation}
-          className={`order-3 w-full flex-none px-0 py-0 sm:order-none sm:w-auto sm:flex-1 ${isHome ? 'text-white' : ''}`}
+          className={`order-3 w-full flex-none px-0 py-0 sm:order-none sm:mx-0 sm:w-auto ${isHome ? 'text-white' : ''}`}
         />
         <div className="ml-auto flex min-w-0 items-center gap-1 sm:gap-4">
           <NavigationAction
@@ -78,7 +78,7 @@ export function MastHead({
             target={user ? account : loginTarget}
             className="max-w-36 truncate"
           />
-          <NavigationAction label="함께 나누기" target={{ href: '/#how-it-works' }} />
+          {user && <NavigationAction label="로그아웃" />}
         </div>
       </div>
     </header>

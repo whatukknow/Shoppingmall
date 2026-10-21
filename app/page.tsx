@@ -35,7 +35,7 @@ export default async function HomePage() {
   }
 
   return (
-    <main className="min-h-screen text-[#242821]">
+    <main className="lp-home min-h-screen text-[#242821]">
       <HomeHero />
       <HowItWorksSection />
       <ShareProductsCarousel products={products} mode={recommendationMode} />

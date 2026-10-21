@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { BrandLogo } from './BrandLogo';
 
 /** 프로젝트에서 제공하는 회사 정보와 정책 페이지 경로입니다. */
@@ -16,16 +19,23 @@ export type CompanyInformationProps = {
 /** 선택적 푸터 설정으로, 확인되지 않은 회사 정보와 분리해 관리합니다. */
 export type FooterComponentProps = CompanyInformationProps;
 
-/** 모든 페이지에서 메인 페이지와 같은 브랜드 슬로건 중심 푸터를 표시합니다. */
+/** 모바일 취향 찾기를 제외한 페이지에 브랜드 슬로건 중심 푸터를 표시합니다. */
 export default function Footer(props: FooterComponentProps = {}) {
-  return <MainFooter {...props} />;
+  const pathname = usePathname();
+  const hideOnMobile =
+    pathname === '/onboarding' || pathname.startsWith('/onboarding/');
+
+  return <MainFooter {...props} hideOnMobile={hideOnMobile} />;
 }
 
 // 메인 Footer: 브랜드 슬로건과 회사 정보를 표시합니다.
-function MainFooter(companyInfo: CompanyInformationProps) {
+function MainFooter({
+  hideOnMobile,
+  ...companyInfo
+}: CompanyInformationProps & { hideOnMobile: boolean }) {
   return (
     <div
-      className="mt-auto pb-6"
+      className={hideOnMobile ? 'mt-auto hidden pb-6 md:block' : 'mt-auto pb-6'}
       style={{ backgroundColor: 'var(--butter, #fff8d6)' }}
     >
       <footer className="text-foreground max-w-1440px mx-auto w-full px-6 py-10">

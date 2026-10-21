@@ -45,7 +45,11 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
     >
       <body className="flex min-h-full flex-col">
         <Suspense fallback={null}>
-          <MastHead variant="header" />
+          <MastHead
+            variant="header"
+            login={{ href: '/login' }}
+            account={{ href: '/mypage' }}
+          />
         </Suspense>
         <Suspense
           fallback={
@@ -61,16 +65,18 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         <ButterBackground>
           <Suspense fallback={null}>{children}</Suspense>
         </ButterBackground>
-        <Footer
-          companyName="리틀포션즈"
-          representative="teamG"
-          businessRegistrationNumber="000-00-00000"
-          ecommerceRegistrationNumber="제0000-서울구로-0000호"
-          address="서울특별시 구로구 디지털로33길 48"
-          customerService="0000-0000"
-          termsUrl="/terms"
-          privacyUrl="/privacy"
-        />
+        <Suspense fallback={null}>
+          <Footer
+            companyName="리틀포션즈"
+            representative="teamG"
+            businessRegistrationNumber="000-00-00000"
+            ecommerceRegistrationNumber="제0000-서울구로-0000호"
+            address="서울특별시 구로구 디지털로33길 48"
+            customerService="0000-0000"
+            termsUrl="/terms"
+            privacyUrl="/privacy"
+          />
+        </Suspense>
       </body>
     </html>
   );
