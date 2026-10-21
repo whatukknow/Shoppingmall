@@ -26,6 +26,7 @@ export async function getAiRecommendations(): Promise<HomeProduct[]> {
   return apiClient.get<HomeProduct[]>(ENDPOINTS.aiRecommendations);
 }
 
+// TODO(session): 세션(쿠키)의 사용자 정보 hasTasteProfile 로 판정 — proxy.ts 에서 확인한 사용자 기준
 /** 홈 추천 모드 판정에 필요한 로그인·취향 상태를 조회합니다. */
 export async function getRecommendationStatus(): Promise<HomeRecommendationStatus> {
   return apiClient.get<HomeRecommendationStatus>(
