@@ -2,12 +2,9 @@
 // 내가 선택한 옵션,수량,예상금액, 신청 취소와 결제까지.
 import { Button } from '@/shared/components';
 
-type PodApplicationSummaryProps = {
-  productName: string;
-  optionLabel: string;
-  quantity: number;
-  unitPrice: number;
-  status: 'recruiting' | 'matched';
+import type { PodApplication } from '@/domains/pods/pods.types';
+
+type PodApplicationSummaryProps = PodApplication & {
   onPayment: () => void;
 };
 
@@ -61,7 +58,7 @@ export default function PodApplicationsSummary({
           aria-describedby="pod-payment-guide"
           className="w-full disabled:cursor-not-allowed disabled:opacity-40"
         >
-          결제하러 가기
+          바로 결제
         </Button>
 
         <p className="mt-4 text-xs leading-5">

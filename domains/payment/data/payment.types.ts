@@ -23,8 +23,6 @@ export type DeliveryErrors = {
 export type PaymentMethods =
   | ''
   | 'card'
-  | 'naverpay'
-  | 'kakaopay'
   | 'tosspay';
 
 // 결제 오류

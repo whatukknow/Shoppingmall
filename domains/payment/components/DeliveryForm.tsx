@@ -115,18 +115,6 @@ export default function DeliveryForm({
             error={errors.recipientAddressDetail}
           />
 
-          <label className="flex cursor-pointer items-center gap-2">
-            <input
-              type="checkbox"
-              name="saveAsDefaultAddress"
-              checked={infos.saveAsDefaultAddress}
-              onChange={(event) =>
-                onSaveAsDefaultAddressChange(event.target.checked)
-              }
-            />
-            <span>이 주소를 기본 배송지로 저장하기</span>
-          </label>
-
           <FormField
             id="entranceInstructions"
             label="공동현관 출입 방법"

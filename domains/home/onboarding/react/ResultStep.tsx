@@ -236,7 +236,6 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
                   <b>목적</b> 메인 첫 번째 블록 &apos;AI가 추천하는 당신의
                   장바구니&apos; 구성 · <b>보관</b> 브라우저 세션 동안만 유지
                   <br />
-                  생년월일·성별·닉네임은 저장하거나 전송하지 않아요
                 </p>
                 <button
                   ref={modalButton}

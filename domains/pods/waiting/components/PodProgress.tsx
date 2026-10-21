@@ -1,8 +1,8 @@
 // 전체 진행 단계
 // 신청 완료 -> 모집중 -> 모집 완료 -> 결제
-type PodProgressProps = {
-  status: 'recruiting' | 'matched';
-};
+import type { PodRecruitment } from '@/domains/pods/pods.types';
+
+type PodProgressProps = Pick<PodRecruitment, 'status'>;
 
 const steps = ['신청 완료', '모집 중', '모집 완료', '결제'];
 
@@ -27,5 +27,5 @@ export default function PodProgress({ status }: PodProgressProps) {
         </li>
       ))}
     </ol>
-  ); 
+  );
 }

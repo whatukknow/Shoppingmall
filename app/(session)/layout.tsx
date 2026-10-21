@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 export default function SessionLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="w-full lg:mx-[150px] lg:w-[calc(100%_-_300px)]">
+    <div className="lp-route-theme w-full lg:mx-[150px] lg:w-[calc(100%_-_300px)]">
       {children}
     </div>
   );

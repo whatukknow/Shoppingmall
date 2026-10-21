@@ -27,18 +27,6 @@ const paymentOptions: PaymentOption[] = [
     color: 'bg-white text-[#601025]',
   },
   {
-    value: 'naverpay',
-    label: '네이버페이',
-    logo: '/uploads/images/payment/naverpay.svg',
-    color: 'bg-[#03C75A] text-black',
-  },
-  {
-    value: 'kakaopay',
-    label: '카카오페이',
-    logo: '/uploads/images/payment/kakaopay.svg',
-    color: 'bg-[#FEE500] text-black',
-  },
-  {
     value: 'tosspay',
     label: '토스페이',
     logo: '/uploads/images/payment/tosspay.svg',
@@ -57,7 +45,7 @@ export default function PaymentMethod({
         결제 수단
       </legend>
 
-      <div className="grid grid-cols-[repeat(2,140px)] gap-3 min-[768px]:grid-cols-[repeat(4,140px)]">
+      <div className="grid grid-cols-[repeat(2,140px)] gap-3">
         {paymentOptions.map((option) => (
           <label key={option.value} className="min-w-0 cursor-pointer">
             <input
