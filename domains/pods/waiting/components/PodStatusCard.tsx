@@ -1,15 +1,9 @@
 // 팟의 모집 현황
 import Image from 'next/image';
 
-type PodStatusCardProps = {
-  productName: string;
-  imageUrl: string;
-  optionLabel: string;
-  currentCount: number;
-  targetCount: number;
-  deadlineLabel: string;
-  status: 'recruiting' | 'matched';
-};
+import type { PodRecruitment } from '@/domains/pods/pods.types';
+
+type PodStatusCardProps = PodRecruitment;
 
 export default function PodStatusCard({
   productName,

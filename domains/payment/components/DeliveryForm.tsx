@@ -15,7 +15,6 @@ type DeliveryFormProps = {
   onRecipientPhoneChange: (value: string) => void;
   onAddressSelect: (postalCode: string, address: string) => void;
   onAddressDetailChange: (value: string) => void;
-  onSaveAsDefaultAddressChange: (checked: boolean) => void;
   onEntranceInstructionsChange: (value: string) => void;
 };
 
@@ -26,7 +25,6 @@ export default function DeliveryForm({
   onRecipientPhoneChange,
   onAddressSelect,
   onAddressDetailChange,
-  onSaveAsDefaultAddressChange,
   onEntranceInstructionsChange,
 }: DeliveryFormProps) {
   return (
@@ -114,18 +112,6 @@ export default function DeliveryForm({
             onChange={(event) => onAddressDetailChange(event.target.value)}
             error={errors.recipientAddressDetail}
           />
-
-          <label className="flex cursor-pointer items-center gap-2">
-            <input
-              type="checkbox"
-              name="saveAsDefaultAddress"
-              checked={infos.saveAsDefaultAddress}
-              onChange={(event) =>
-                onSaveAsDefaultAddressChange(event.target.checked)
-              }
-            />
-            <span>이 주소를 기본 배송지로 저장하기</span>
-          </label>
 
           <FormField
             id="entranceInstructions"

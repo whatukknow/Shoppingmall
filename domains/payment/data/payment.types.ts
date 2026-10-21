@@ -6,7 +6,6 @@ export type DeliveryInfos = {
   postalCode: string; // 우편번호
   recipientAddress: string; // 주소 검색으로 선택한 기본 주소
   recipientAddressDetail: string; // 상세주소
-  saveAsDefaultAddress: boolean; // 기본 배송지 저장 여부
   entranceInstructions: string; // 공동현관 출입 방법
 };
 
@@ -23,8 +22,6 @@ export type DeliveryErrors = {
 export type PaymentMethods =
   | ''
   | 'card'
-  | 'naverpay'
-  | 'kakaopay'
   | 'tosspay';
 
 // 결제 오류

@@ -295,3 +295,13 @@ VS Code에서 이어갈 때: “CODEX_HANDOFF.md와 shared/components/README.md�
 - Verification: local design/API source parity checked for 17 files; focused ESLint passed; diff whitespace check passed. Type check reports missing generated LayoutProps and pre-existing shared/types/schema. No full build, automated test run or new browser verification in the isolated PR checkout. Previous local browser observations do not establish full PR runtime validation.
 - Media: binaries remain local in the root uploads directory and must be provided separately to collaborators.
 - Audit/report: https://github.com/whatukknow/Shoppingmall/pull/51
+
+
+## Team G CSS authoring policy — 2026-10-21
+
+- Policy ID: `team-g-global-css-only-2026-10-21`.
+- Logged at: 2026-10-21T21:43:15+09:00. Source: explicit user instruction to record, log, and share; scope explicitly restricted to the G-team shopping-mall project.
+- Decision: In this project, write new or additional CSS in `app/globals.css`; do not create separate CSS files. Preserve existing selectors and scope. Do not apply this rule to other projects. Existing unrelated CSS files are not authorized for bulk migration.
+- Agent handoff: All agents working on this project must follow the rule in `AGENTS.md` and include it in subsequent handoffs.
+- Verified implementation: route-theme CSS was moved to `app/globals.css`; the four route-group imports were removed.
+- Delivery: saved in project instructions and this handoff log. No other connected in-scope agent was available in the current agent inventory. External-session acknowledgment/adoption and remote publication are unverified.

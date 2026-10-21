@@ -15,7 +15,18 @@ export default function ProductDescription({
       <section aria-labelledby="crop-story-heading">
         <h3 id="crop-story-heading">작물 이야기</h3>
 
-        {/* 농장 사진은 이후 추가 */}
+        {/* 외부에서 전달받은 농장 이미지 URL이 있을 때만 표시합니다. */}
+        {description?.imageUrl?.trim() && (
+          // 외부 이미지의 도메인과 원본 비율을 그대로 사용합니다.
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={description.imageUrl.trim()}
+            alt={description.farmName ? `${description.farmName} 농장 풍경` : '작물 재배 농장 풍경'}
+            loading="lazy"
+            decoding="async"
+            className="my-4 block h-auto w-full"
+          />
+        )}
         <p>{description?.farmName ?? '농장 정보 준비 중'}</p>
         <p>{description?.farmInfo ?? '농장 소개 준비 중'}</p>
       </section>

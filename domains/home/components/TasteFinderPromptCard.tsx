@@ -11,7 +11,7 @@ export function TasteFinderPromptCard() {
       </p>
       <Link
         href="/onboarding"
-        className="inline-flex items-center justify-center rounded-full bg-[#650f20] px-6 py-3 text-[13px] font-medium text-white hover:opacity-90"
+        className="inline-flex items-center justify-center rounded-none bg-[#650f20] px-6 py-3 text-[13px] font-medium text-white hover:opacity-90"
       >
         취향 찾기
       </Link>

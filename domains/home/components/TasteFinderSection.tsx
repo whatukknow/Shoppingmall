@@ -7,7 +7,7 @@ export function TasteFinderSection() {
       id="find-your-taste"
       className="max-w-1260px mx-auto w-full px-6 pt-[72px] pb-[70px] md:px-0"
     >
-      <p className="font-sans text-[11px] font-medium tracking-[0.08em] text-[#650f20]">
+      <p className="font-sans text-[15.6px] font-bold tracking-[0.08em] md:text-[17.16px] text-[#650f20]">
         FIND YOUR TASTE
       </p>
       <h2 className="mt-2 text-[25px] leading-tight font-bold sm:text-[28px]">

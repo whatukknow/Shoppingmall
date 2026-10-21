@@ -233,10 +233,6 @@ export function BirthDetailsStep() {
             </p>
           </div>
         </div>
-        <p className="note">
-          응답은 식운 결과를 계산할 때만 사용해요. 생년월일과 성별은 저장하거나
-          전송하지 않아요.
-        </p>
       </section>
     </TasteFrame>
   );

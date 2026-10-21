@@ -1,10 +1,15 @@
 'use client';
 
 import { useState } from 'react';
+import type {
+  PodRecruitmentStatus,
+  PodRecruitment,
+  PodApplication,
+} from '@/domains/pods/pods.types';
 import { useRouter } from 'next/navigation';
 
 import PodProgress from '@/domains/pods/waiting/components/PodProgress';
-import PodStatusCard from './PodStatusCard'; 
+import PodStatusCard from './PodStatusCard';
 import PodApplicationSummary from './PodApplicationSummary';
 import PodNotificationNotice from './PodNotificationNotice';
 
@@ -16,9 +21,25 @@ export default function PodWaitingPage() {
 
   // 시연용 상태: 'recruiting' 또는 'matched'
   // 실제 연동 시 서버에서 받은 상태로 대체
-  const [status] = useState<'recruiting' | 'matched'>('matched');
+  const [status] = useState<PodRecruitmentStatus>('matched');
 
   const isMatched = status === 'matched';
+  const recruitment: PodRecruitment = {
+    productName: '용인 블루베리',
+    imageUrl: '/uploads/images/home/products/illustration-blueberries.png',
+    optionLabel: '1팩 · 125g',
+    currentCount: isMatched ? 4 : 3,
+    targetCount: 4,
+    deadlineLabel: '10월 21일 오후 6시 · 예시',
+    status,
+  };
+  const application: PodApplication = {
+    productName: recruitment.productName,
+    optionLabel: recruitment.optionLabel,
+    quantity: 1,
+    unitPrice: 4900,
+    status,
+  };
 
   function handlePayment() {
     if (!isMatched) {
@@ -31,9 +52,7 @@ export default function PodWaitingPage() {
     const saved = saveSelectedPodIds(['pod-1']);
 
     if (!saved) {
-      setPaymentError(
-        '선택한 팟을 저장하지 못했어요. 다시 시도해 주세요.',
-      );
+      setPaymentError('선택한 팟을 저장하지 못했어요. 다시 시도해 주세요.');
       return;
     }
 
@@ -55,9 +74,7 @@ export default function PodWaitingPage() {
             : '신청이 완료됐어요. 모집이 끝나면 결제할 수 있어요.'}
         </p>
 
-        <p className="mt-2 text-xs">
-          시연용 모집 현황입니다.
-        </p>
+        <p className="mt-2 text-xs">시연용 모집 현황입니다.</p>
       </header>
 
       <PodProgress status={status} />
@@ -66,15 +83,7 @@ export default function PodWaitingPage() {
         <section className="min-w-0">
           <h2 className="mb-6 text-2xl font-bold">모집 현황</h2>
 
-          <PodStatusCard
-            productName="용인 블루베리"
-            imageUrl="/uploads/images/home/products/illustration-blueberries.png"
-            optionLabel="1팩 · 125g"
-            currentCount={isMatched ? 4 : 3}
-            targetCount={4}
-            deadlineLabel="10월 21일 오후 6시 · 예시"
-            status={status}
-          />
+          <PodStatusCard {...recruitment} />
 
           {!isMatched && (
             <div className="mt-4">
@@ -87,11 +96,7 @@ export default function PodWaitingPage() {
           <h2 className="mb-6 text-2xl font-bold">내 신청 정보</h2>
 
           <PodApplicationSummary
-            productName="용인 블루베리"
-            optionLabel="1팩 · 125g"
-            quantity={1}
-            unitPrice={4900}
-            status={status}
+            {...application}
             onPayment={handlePayment}
           />
 

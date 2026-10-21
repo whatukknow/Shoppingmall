@@ -27,7 +27,7 @@ export default async function ProductListPage() {
       >
         <div className="flex items-end justify-between gap-8">
           <div>
-            <p className="font-heading text-foreground text-[12px]">
+            <p className="font-sans text-[15.6px] font-bold tracking-[0.08em] text-[#650f20] md:text-[17.16px]">
               02 / YOUR PANTRY
             </p>
 

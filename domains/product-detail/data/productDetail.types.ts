@@ -1,4 +1,4 @@
-import { PotCardProps } from '@/shared/components/PotCard';
+export type { LivePod } from '@/domains/pods/pods.types';
 
 export type ProductTip = {
   id: string;
@@ -50,16 +50,4 @@ export type ProductDetail = {
 export type ProductGalleryProps = {
   name: string;
   images: ProductDetail['images'];
-};
-
-export type LivePod = Pick<
-  PotCardProps,
-  | 'title'
-  | 'cropName'
-  | 'description'
-  | 'status'
-  | 'applicantCount'
-  | 'capacity'
-> & {
-  id: string;
 };

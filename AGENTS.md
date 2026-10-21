@@ -9,6 +9,8 @@
 - 작업 전 Git 상태와 기존 로컬 변경을 확인하고 보존한다. 작업 후 diff에서 디자인과 온보딩 진입 흐름을 변경하지 않았는지 검토한다.
 - 다른 에이전트에게 작업을 인계하거나 위임할 때 이 규칙을 반드시 함께 전달한다. 이 파일에 기록했다는 이유만으로 외부 도구나 다른 대화에 전달 완료했다고 주장하지 않는다.
 
+- G팀 쇼핑몰 프로젝트에서 CSS를 새로 작성하거나 추가할 때는 별도 CSS 파일을 만들지 않고 `app/globals.css`를 사용한다. 기존 선택자와 적용 범위를 유지한다. 이 규칙은 다른 프로젝트에는 적용하지 않는다.
+
 ## Shared context source
 
 - Canonical shared context: https://github.com/axfehlerlee/my-ai-context/blob/main/AI_CONTEXT.md (project display name: `paos`; main dot: `에요`). Read the relevant current sections when project context or all-agent sharing is required; do not substitute local memory for this source.
