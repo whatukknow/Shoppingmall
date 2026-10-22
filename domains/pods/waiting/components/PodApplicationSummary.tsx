@@ -1,39 +1,42 @@
 // 내 신청 정보와 행동
-// 내가 선택한 옵션,수량,예상금액, 신청 취소와 결제까지.
+// 내가 선택한 팟 목록과 합계, 결제까지.
 import { Button } from '@/shared/components';
 
-import type { PodApplication } from '@/domains/pods/pods.types';
+import type { MyPodApplication } from '@/domains/auth/users.types';
 
-type PodApplicationSummaryProps = PodApplication & {
+type PodApplicationSummaryProps = {
+  items: MyPodApplication[];
+  totalPrice: number;
   onPayment: () => void;
 };
 
 export default function PodApplicationsSummary({
-  productName,
-  optionLabel,
-  quantity,
-  unitPrice,
-  status,
+  items,
+  totalPrice,
   onPayment,
 }: PodApplicationSummaryProps) {
-  const totalPrice = unitPrice * quantity;
-  const isMatched = status === 'matched';
+  const hasSelection = items.length > 0;
 
   return (
     <div className="rounded-2xl border border-current/15 bg-white/30 p-5 sm:p-6">
-      {/* 내가 신청한 상품 */}
-      <div>
-        <h3 className="text-lg font-bold">{productName}</h3>
-        <p className="mt-1 text-sm">{optionLabel}</p>
-      </div>
+      {/* 선택한 신청 목록 */}
+      {hasSelection && (
+        <ul className="space-y-3">
+          {items.map((item) => (
+            <li key={item.podId}>
+              <p className="text-lg font-bold">
+                {item.productName} · {item.optionLabel} · {item.quantity}개
+              </p>
+              <p className="mt-1 text-sm">
+                {(item.quantity * item.unitPrice).toLocaleString('ko-KR')}원
+              </p>
+            </li>
+          ))}
+        </ul>
+      )}
 
-      {/* 수량과 금액 */}
+      {/* 금액 */}
       <dl className="mt-6 space-y-3">
-        <div className="flex justify-between gap-4">
-          <dt>신청 수량</dt>
-          <dd>{quantity}개</dd>
-        </div>
-
         <div className="flex justify-between gap-4">
           <dt>예상 상품 금액</dt>
           <dd className="font-bold">{totalPrice.toLocaleString('ko-KR')}원</dd>
@@ -44,21 +47,21 @@ export default function PodApplicationsSummary({
         배송비를 포함한 최종 금액은 결제 화면에서 확인해 주세요.
       </p>
 
-      {/* 모집 상태별 안내 */}
+      {/* 결제 안내 */}
       <div className="mt-6 border-t border-current/15 pt-4">
         <p id="pod-payment-guide" className="mb-3 text-sm">
-          {isMatched ? '모집 완료! 결제해 주세요.' : '모집 완료 후 결제 가능'}
+          모집 완료! 결제해 주세요.
         </p>
 
         <Button
           type="button"
           size="touch"
-          disabled={!isMatched}
+          disabled={!hasSelection}
           onClick={onPayment}
           aria-describedby="pod-payment-guide"
           className="w-full disabled:cursor-not-allowed disabled:opacity-40"
         >
-          바로 결제
+          결제하기
         </Button>
 
         <p className="mt-4 text-xs leading-5">

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Button } from '@/shared/components';
 import Image from 'next/image';
 
@@ -27,6 +28,7 @@ export default async function PotCompletePage({
             variant="default"
             size="touch"
             className="min-h-10 w-full py-2"
+            render={<Link href={`/pods/waiting?id=${id}`} />}
           >
             신청 내역 확인후 결제
           </Button>
