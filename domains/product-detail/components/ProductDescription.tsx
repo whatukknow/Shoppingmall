@@ -21,7 +21,11 @@ export default function ProductDescription({
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={description.imageUrl.trim()}
-            alt={description.farmName ? `${description.farmName} 농장 풍경` : '작물 재배 농장 풍경'}
+            alt={
+              description.farmName
+                ? `${description.farmName} 농장 풍경`
+                : '작물 재배 농장 풍경'
+            }
             loading="lazy"
             decoding="async"
             className="my-4 block h-auto w-full"

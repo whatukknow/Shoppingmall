@@ -23,13 +23,13 @@ import {
 
 ## 먼저 기억할 책임 경계
 
-| 공통 컴포넌트가 담당 | 페이지/기능 담당자가 담당 |
-| --- | --- |
+| 공통 컴포넌트가 담당                                             | 페이지/기능 담당자가 담당                                      |
+| ---------------------------------------------------------------- | -------------------------------------------------------------- |
 | 반복 레이아웃, 텍스트 구조, 버튼/링크 렌더링, 전달받은 상태 표시 | 실제 상품·팟 데이터, 사용자 인증, API 요청, 유효성 검사와 저장 |
-| 버튼을 눌렀을 때 제공된 콜백 호출 | 콜백이 할 일, 성공/실패 처리와 사용자 안내 |
-| 제공된 상태를 정해진 배지 문구로 표현 | 상태를 확정하는 서버 규칙, 신청·취소·결제 가능 조건 |
-| 빈 상태, 로딩 이후 대기/완료 문구의 공통 틀 제공 | 어느 상황에 표시할지, 재시도·목록 이동 동작 |
-| 화면 항목을 지정 개수로 나누고 슬라이드 화살표 제공 | 항목 목록, 한 장에 보일 개수, 카드 모양과 이동할 주소 |
+| 버튼을 눌렀을 때 제공된 콜백 호출                                | 콜백이 할 일, 성공/실패 처리와 사용자 안내                     |
+| 제공된 상태를 정해진 배지 문구로 표현                            | 상태를 확정하는 서버 규칙, 신청·취소·결제 가능 조건            |
+| 빈 상태, 로딩 이후 대기/완료 문구의 공통 틀 제공                 | 어느 상황에 표시할지, 재시도·목록 이동 동작                    |
+| 화면 항목을 지정 개수로 나누고 슬라이드 화살표 제공              | 항목 목록, 한 장에 보일 개수, 카드 모양과 이동할 주소          |
 
 실제 API·계정 상태가 연결되지 않은 화면은 “예시 데이터”, “연결 준비 중”으로 표시하세요. 예시 수량·인기 순위를 실제 서비스 결과처럼 표현하지 않습니다.
 
@@ -37,17 +37,17 @@ import {
 
 `app/page.tsx`는 Next.js가 `/` 주소에 연결하는 라우트 진입점입니다. 파일명은 프레임워크 규칙이므로 유지하고, 메인 화면의 각 콘텐츠는 역할이 드러나는 `domains/home/components/` 파일로 나눠 조합합니다. 상품 목록의 `/products` 라우트인 `app/products/page.tsx`도 같은 이유로 파일명을 유지합니다.
 
-| 파일 | 화면 역할 |
-| --- | --- |
-| `HomeHero.tsx` | 메인 전체 폭 배경 영상과 소개 문구 |
-| `HowItWorksSection.tsx` | 함께 나누는 방식 안내 |
-| `ShareProductsCarousel.tsx` | 함께 나눌 품목 캐러셀 |
-| `PopularProductsCarousel.tsx` | 인기 상품 예시 캐러셀 |
-| `BrandStorySection.tsx` | 브랜드 이야기 영역 |
-| `TasteFinderSection.tsx` | 취향 찾기 영역 |
-| `HomeProductCard.tsx` | 위 두 캐러셀에서 재사용하는 메인 전용 카드 |
+| 파일                          | 화면 역할                                     |
+| ----------------------------- | --------------------------------------------- |
+| `HomeHero.tsx`                | 메인 전체 폭 배경 영상과 소개 문구            |
+| `HowItWorksSection.tsx`       | 함께 나누는 방식 안내                         |
+| `ShareProductsCarousel.tsx`   | 함께 나눌 품목 캐러셀                         |
+| `PopularProductsCarousel.tsx` | 인기 상품 예시 캐러셀                         |
+| `BrandStorySection.tsx`       | 브랜드 이야기 영역                            |
+| `TasteFinderSection.tsx`      | 취향 찾기 영역                                |
+| `HomeProductCard.tsx`         | 위 두 캐러셀에서 재사용하는 메인 전용 카드    |
 | `HomeProductIllustration.tsx` | 이미지 자료 연결 전 상품 종류별 임시 일러스트 |
-| `../data/homeProducts.ts` | 두 캐러셀에 쓰는 예시 품목 데이터 |
+| `../data/homeProducts.ts`     | 두 캐러셀에 쓰는 예시 품목 데이터             |
 
 메인 전용 카드는 `shared/components/ProductCard`와 용도가 다릅니다. 상품 API 연동 시 `homeProducts.ts`의 예시 배열을 실제 데이터로 교체하고, 카드/이미지 표시 정책을 화면 담당자와 맞추세요. 정적 리소스는 저장소 루트 `uploads/`에 보관하고, 히어로 영상은 `uploads/videos/home-header.mp4`에서 `app/uploads/[...assetPath]/route.ts`를 통해 제공합니다.
 
@@ -60,9 +60,7 @@ import {
 `#FFF8D6` 공통 버터색 배경을 적용하는 컨테이너입니다. 현재 `app/layout.tsx`에서 페이지 콘텐츠를 감쌉니다. 공통 배경을 쓰는 별도 영역에도 사용할 수 있습니다.
 
 ```tsx
-<ButterBackground className="px-6 py-8">
-  {children}
-</ButterBackground>
+<ButterBackground className="px-6 py-8">{children}</ButterBackground>
 ```
 
 컴포넌트는 `--butter` CSS 변수를 사용합니다. 박스/카드마다 다른 배경색을 주지 말고 바탕이 이어져야 하는 콘텐츠는 투명 배경으로 둡니다. 버튼, 배지, 일러스트처럼 의미 전달에 필요한 색은 별도로 사용할 수 있습니다.
@@ -72,7 +70,7 @@ import {
 영문 워드마크 `Little Portions`의 대소문자, `font-heading`, 자간을 한 곳에서 통일합니다. 헤더/푸터에 별도 텍스트를 직접 적지 말고 재사용하세요.
 
 ```tsx
-<BrandLogo className="text-[22px] text-primary" />
+<BrandLogo className="text-primary text-[22px]" />
 ```
 
 `className`은 크기·색상·배치만 덮어씁니다. 폰트 계열을 개별 로고마다 바꾸면 공통화가 깨집니다.

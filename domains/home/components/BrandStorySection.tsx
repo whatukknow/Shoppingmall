@@ -3,10 +3,10 @@ export function BrandStorySection() {
   return (
     <section
       id="brand-story"
-      className="mx-auto mt-[52px] flex w-full max-w-1260px flex-col gap-5 px-7 py-8 sm:px-10 md:flex-row md:items-center md:justify-between md:py-10"
+      className="max-w-1260px mx-auto mt-[52px] flex w-full flex-col gap-5 px-7 py-8 sm:px-10 md:flex-row md:items-center md:justify-between md:py-10"
     >
       <div>
-        <p className="font-sans text-[15.6px] font-bold tracking-[0.08em] md:text-[17.16px] text-[#650f20]">
+        <p className="font-sans text-[15.6px] font-bold tracking-[0.08em] text-[#650f20] md:text-[17.16px]">
           A SMALLER, MORE THOUGHTFUL TABLE
         </p>
         <h2 className="mt-3 max-w-[620px] text-xl leading-[1.55] font-bold sm:text-2xl">

@@ -47,7 +47,10 @@ export {
 
 export { MastHead } from './MastHead';
 export { BrandLogo } from './BrandLogo';
-export { ButterBackground, type ButterBackgroundProps } from './ButterBackground';
+export {
+  ButterBackground,
+  type ButterBackgroundProps,
+} from './ButterBackground';
 export { MainNavigation } from './MainNavigation';
 export { default as Footer } from './Footer';
 export type { CompanyInformationProps, FooterComponentProps } from './Footer';

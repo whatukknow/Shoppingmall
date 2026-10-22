@@ -24,7 +24,7 @@ export function HowItWorksSection() {
       id="how-it-works"
       className="max-w-1260px mx-auto mt-5 w-full px-6 md:px-0"
     >
-      <p className="font-sans text-[15.6px] font-bold tracking-[0.08em] md:text-[17.16px] text-[#650f20]">
+      <p className="font-sans text-[15.6px] font-bold tracking-[0.08em] text-[#650f20] md:text-[17.16px]">
         HOW IT WORKS
       </p>
       <h2 className="mt-2 text-[26px] leading-tight font-bold sm:text-[30px]">

@@ -19,10 +19,7 @@ export type DeliveryErrors = {
 };
 
 // 결제 수단별 타입
-export type PaymentMethods =
-  | ''
-  | 'card'
-  | 'tosspay';
+export type PaymentMethods = '' | 'card' | 'tosspay';
 
 // 결제 오류
 export type PaymentErrors = {

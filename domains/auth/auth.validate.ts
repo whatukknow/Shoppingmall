@@ -49,7 +49,8 @@ export function validateSignup(
   }
 
   if (!values.agreeTerms) errors.agreeTerms = '이용약관 확인이 필요해요.';
-  if (!values.agreePrivacy) errors.agreePrivacy = '개인정보 안내 확인이 필요해요.';
+  if (!values.agreePrivacy)
+    errors.agreePrivacy = '개인정보 안내 확인이 필요해요.';
   // agreeNotification(알림 수신)은 선택이라 검사하지 않음
 
   return errors;

@@ -1,5 +1,8 @@
 'use client';
 
+import { useEffect } from 'react';
+import { saveSelectedPodIds } from '@/domains/payment/data/payment.session';
+
 import Link from 'next/link';
 
 import PaymentOrderItems from './PaymentOrderItems';
@@ -32,6 +35,10 @@ export default function PaymentResultPage({
   const items =
     orderItems ??
     allItems.filter((item) => selectedIds?.includes(item.podId) ?? false);
+
+  useEffect(() => {
+    if (status === 'success') saveSelectedPodIds([]); // 결제 완료 → 선택 비우기
+  }, [status]);
 
   if (!loaded) {
     return (

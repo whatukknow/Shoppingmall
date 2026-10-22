@@ -151,7 +151,6 @@ VS Code에서 이어갈 때: “CODEX_HANDOFF.md와 shared/components/README.md�
 - `#how-it-works` 섹션에 `mt-5`를 추가해 20px 상단 간격 적용.
 - 검증: `app/page.tsx` ESLint 및 `git diff --check` 통과. 브라우저 확인은 미수행.
 
-
 ## 2026-10-17 02:50 KST — 현재 작업 상태 저장
 
 ### 작업 위치와 보존 상태
@@ -274,7 +273,6 @@ VS Code에서 이어갈 때: “CODEX_HANDOFF.md와 shared/components/README.md�
 - Verification: 변경 TS/TSX ESLint와 `git diff --check` 통과. 7개 PNG 알파 채널(0–255) 확인, 기존 로컬 홈 응답 확인, 새 이미지 정적 경로 7개 모두 HTTP 200. 브라우저 UI로 슬라이드를 직접 넘기는 확인과 자동 테스트는 미실행.
 - Audit/report link: none.
 
-
 ## 2026-10-18 14:25 KST — Small PR following Sangdon review on #46 / #49
 
 - User command tags: none; user requested a small published pull request covering the review.
@@ -286,7 +284,6 @@ VS Code에서 이어갈 때: “CODEX_HANDOFF.md와 shared/components/README.md�
 - Team decisions: a blanket prohibition on generated UI edits and future project-task granularity remain team discussion items; this PR does not assert agreement. Local media must be provisioned separately in other environments.
 - Audit/report: PR #46 and PR #49 on whatukknow/Shoppingmall; new PR URL returned after publication.
 
-
 ## 2026-10-18 14:41 KST — Include the requested 1 AM design in PR #51
 
 - User command tags: none; explicit request to publish the local 1 AM design together with Sangdon review responses.
@@ -295,7 +292,6 @@ VS Code에서 이어갈 때: “CODEX_HANDOFF.md와 shared/components/README.md�
 - Verification: local design/API source parity checked for 17 files; focused ESLint passed; diff whitespace check passed. Type check reports missing generated LayoutProps and pre-existing shared/types/schema. No full build, automated test run or new browser verification in the isolated PR checkout. Previous local browser observations do not establish full PR runtime validation.
 - Media: binaries remain local in the root uploads directory and must be provided separately to collaborators.
 - Audit/report: https://github.com/whatukknow/Shoppingmall/pull/51
-
 
 ## Team G CSS authoring policy — 2026-10-21
 

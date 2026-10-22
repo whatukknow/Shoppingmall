@@ -18,7 +18,7 @@ export function HomeHero() {
       </video>
       <div className="absolute inset-0 bg-black/35" aria-hidden="true" />
       <div className="max-w-1260px relative z-10 mx-auto w-full">
-        <p className="font-sans text-[15.6px] font-bold tracking-[0.08em] md:text-[17.16px] text-white/90">
+        <p className="font-sans text-[15.6px] font-bold tracking-[0.08em] text-white/90 md:text-[17.16px]">
           TOGETHER, IN THE RIGHT PORTION
         </p>
         <h1 className="mt-8 text-[32px] leading-[1.42] font-bold tracking-[-0.04em] sm:text-[38px]">

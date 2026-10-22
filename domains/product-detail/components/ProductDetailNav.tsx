@@ -2,12 +2,9 @@ import { NavigationAction } from '@/shared/components';
 
 export default function ProductDetailNav() {
   return (
-    <nav
-      aria-label="상품 상세 메뉴"
-      className="w-full border-y border-border"
-    >
+    <nav aria-label="상품 상세 메뉴" className="border-border w-full border-y">
       <ul className="grid grid-cols-2">
-        <li className="min-w-0 border-r border-border">
+        <li className="border-border min-w-0 border-r">
           <NavigationAction
             label="상품 설명"
             target={{ href: '#product-description' }}

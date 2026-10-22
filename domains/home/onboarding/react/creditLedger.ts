@@ -16,17 +16,42 @@ export class CreditLedger {
     const day = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
     date.setDate(date.getDate() - ((date.getDay() + 6) % 7));
     const week = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
-    if (this.day !== day) { this.day = day; this.dailyCredits = 0; }
-    if (this.week !== week) { this.week = week; this.weeklyCredits = 0; }
+    if (this.day !== day) {
+      this.day = day;
+      this.dailyCredits = 0;
+    }
+    if (this.week !== week) {
+      this.week = week;
+      this.weeklyCredits = 0;
+    }
   }
 
   quote(answers: TasteAnswers, count: number): CreditQuote {
     this.refresh();
-    const key = [answers.y, answers.m, answers.d, answers.g, answers.sun ?? 'b', answers.fridge ?? 'empty'].join('|');
+    const key = [
+      answers.y,
+      answers.m,
+      answers.d,
+      answers.g,
+      answers.sun ?? 'b',
+      answers.fridge ?? 'empty',
+    ].join('|');
     if (this.results.has(key)) return { n: 0, why: 'same' };
     this.results.add(key);
-    const n = Math.max(0, Math.min(count, 8 - this.dailyCredits, 20 - this.weeklyCredits));
-    return { n, why: n ? (n < count ? 'cap' : '') : this.dailyCredits >= 8 ? 'day' : 'week' };
+    const n = Math.max(
+      0,
+      Math.min(count, 8 - this.dailyCredits, 20 - this.weeklyCredits),
+    );
+    return {
+      n,
+      why: n
+        ? n < count
+          ? 'cap'
+          : ''
+        : this.dailyCredits >= 8
+          ? 'day'
+          : 'week',
+    };
   }
 
   spend() {

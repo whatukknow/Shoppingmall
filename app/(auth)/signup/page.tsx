@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
-import { getRedirectTo } from '@/domains/auth/auth.redirect';  
+import { getRedirectTo } from '@/domains/auth/auth.redirect';
 import SignupContainer from '@/domains/auth/containers/SignupContainer';
 
 export const metadata: Metadata = {
