@@ -8,6 +8,7 @@ type SignupFormProps = {
   errors: FieldErrors<SignupValues>;
   onChange: (field: keyof SignupValues, value: string | boolean) => void;
   onSubmit: () => void;
+  isPending?: boolean; // 제출 대기 중 (버튼 비활성화)
 };
 
 // 동의 체크박스 한 줄 (이 파일 안에서만 씀)
@@ -19,7 +20,13 @@ type AgreementProps = {
   onChange: (checked: boolean) => void;
 };
 
-function Agreement({ label, required, checked, error, onChange }: AgreementProps) {
+function Agreement({
+  label,
+  required,
+  checked,
+  error,
+  onChange,
+}: AgreementProps) {
   return (
     <div className="flex flex-col gap-1">
       <label className="flex min-h-11 cursor-pointer items-center gap-3 text-sm">
@@ -31,7 +38,11 @@ function Agreement({ label, required, checked, error, onChange }: AgreementProps
           className="accent-primary size-5"
         />
         <span>
-          <span className={required ? 'text-primary font-bold' : 'text-muted-foreground'}>
+          <span
+            className={
+              required ? 'text-primary font-bold' : 'text-muted-foreground'
+            }
+          >
             {required ? '[필수]' : '[선택]'}
           </span>{' '}
           {label}
@@ -47,7 +58,13 @@ function Agreement({ label, required, checked, error, onChange }: AgreementProps
 }
 
 // 회원가입 카드: 이름·이메일·비밀번호·비밀번호 확인 + 동의 3개
-export function SignupForm({ values, errors, onChange, onSubmit }: SignupFormProps) {
+export function SignupForm({
+  values,
+  errors,
+  onChange,
+  onSubmit,
+  isPending = false,
+}: SignupFormProps) {
   return (
     <form
       noValidate
@@ -127,8 +144,14 @@ export function SignupForm({ values, errors, onChange, onSubmit }: SignupFormPro
         />
       </fieldset>
 
-      <Button type="submit" size="touch" className="w-full">
-        가입 완료 후 로그인
+      <Button
+        type="submit"
+        size="touch"
+        className="w-full"
+        disabled={isPending}
+        aria-busy={isPending}
+      >
+        {isPending ? '가입 처리 중…' : '가입 완료 후 로그인'}
       </Button>
     </form>
   );

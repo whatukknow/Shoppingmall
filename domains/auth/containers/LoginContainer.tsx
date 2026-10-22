@@ -1,8 +1,9 @@
 'use client'; // 입력값 기억과 클릭 처리를 하는 경계
 
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import { AUTH_PREVIEW_SESSION_KEY } from '@/domains/auth/data/authPreviewSession';
+import { signIn } from '@/domains/auth/auth.api';
 import { LoginForm } from '@/domains/auth/components/LoginForm';
 import { hasErrors, validateLogin } from '@/domains/auth/auth.validate';
 import { withNext } from '@/domains/auth/auth.redirect';
@@ -21,6 +22,7 @@ export default function LoginContainer({ redirectTo }: LoginContainerProps) {
     password: '',
   });
   const [errors, setErrors] = useState<FieldErrors<LoginValues>>({});
+  const [isPending, startTransition] = useTransition(); // 비동기 대기 중 중복 제출 차단
 
   // 입력칸이 바뀔 때: 값을 바꾸고, 그 칸의 오류는 지움
   const handleChange = (field: keyof LoginValues, value: string) => {
@@ -34,20 +36,41 @@ export default function LoginContainer({ redirectTo }: LoginContainerProps) {
     setErrors(nextErrors);
     if (hasErrors(nextErrors)) return; // 오류가 있으면 여기서 멈춤
 
-    // 시안용 로그인 상태와 온보딩을 거친 메인 진입 상태를 기록
-    try {
-      window.sessionStorage.setItem(AUTH_PREVIEW_SESSION_KEY, 'yes');
-      if (window.sessionStorage.getItem('little-portions:onboarding-pending-login') === 'yes') {
-        window.sessionStorage.setItem('little-portions:onboarding-complete', 'yes');
-        window.sessionStorage.removeItem('little-portions:onboarding-pending-login');
-      }
-    } catch {
-      // 브라우저 저장소를 사용할 수 없는 환경에서는 기존 로그인 이동만 진행
-    }
+    startTransition(async () => {
+      try {
+        const response = await signIn({
+          email: values.email,
+          password: values.password,
+        });
 
-    // TODO: 인증 API가 생기면 여기서 로그인 요청
-    // 지금은 시안 범위(구조 검토용)에 맞춰 이동만 함
-    router.push(redirectTo);
+        // TODO(session): 로그인 응답(response.data)을 세션 쿠키·캐시에 저장 — Supabase 도입 시 proxy.ts(프로젝트 루트)에서 쿠키로 사용자 확인
+        void response; // 세션 구현 전까지 응답 미사용
+
+        // 시안용 로그인 상태와 온보딩을 거친 메인 진입 상태를 기록
+        try {
+          window.sessionStorage.setItem(AUTH_PREVIEW_SESSION_KEY, 'yes');
+          if (
+            window.sessionStorage.getItem(
+              'little-portions:onboarding-pending-login',
+            ) === 'yes'
+          ) {
+            window.sessionStorage.setItem(
+              'little-portions:onboarding-complete',
+              'yes',
+            );
+            window.sessionStorage.removeItem(
+              'little-portions:onboarding-pending-login',
+            );
+          }
+        } catch {
+          // 브라우저 저장소를 사용할 수 없는 환경에서는 기존 로그인 이동만 진행
+        }
+
+        router.push(redirectTo);
+      } catch {
+        // TODO: 로그인 실패 안내 UI
+      }
+    });
   };
 
   return (
@@ -56,6 +79,7 @@ export default function LoginContainer({ redirectTo }: LoginContainerProps) {
       errors={errors}
       onChange={handleChange}
       onSubmit={handleSubmit}
+      isPending={isPending}
       signupHref={withNext('/signup', redirectTo)}
     />
   );

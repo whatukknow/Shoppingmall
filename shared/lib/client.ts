@@ -1,4 +1,5 @@
 import fetchMock from './mock/fetchMock';
+import { waitMockDelay } from './mock/mockDelay';
 
 export type ApiErrorCode =
   'MOCK_NOT_FOUND' | 'INVALID_RESPONSE' | 'INTERNAL_ERROR';
@@ -47,6 +48,7 @@ async function request<T>(
       body !== undefined ? JSON.stringify(body) : undefined;
 
     const mockUrl = buildMockUrl(path, params);
+    await waitMockDelay();
     const data = fetchMock(method, mockUrl, jsonBody);
 
     if (data === undefined) {
