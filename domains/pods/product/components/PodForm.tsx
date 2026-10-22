@@ -1,22 +1,24 @@
-'use client';
-
-import { useState } from 'react';
-import type { PodIdentity, PodCreateValues } from '@/domains/pods/pods.types';
 import { Button, FormField } from '@/shared/components';
+import type { PodCreateValues } from '@/domains/pods/pods.types';
 
-interface PotFormProps extends PodIdentity {
-  myPotPageHref: string;
-}
+type PodCreateErrors = Partial<Record<keyof PodCreateValues, string>>;
 
-export default function PotForm({
-  productId,
-  myPotPageHref,
-}: PotFormProps): React.JSX.Element {
-  const [values, setValues] = useState<PodCreateValues>({
-    targetCount: '',
-    deadline: '',
-  });
+type PodFormProps = {
+  values: PodCreateValues;
+  errors: PodCreateErrors;
+  isPending: boolean;
+  onChange: (field: keyof PodCreateValues, value: string) => void;
+  onSubmit: () => void;
+};
 
+// 'use client' 없음. 받은 값·오류·핸들러대로 그리기만 함 (LoginContainer/LoginForm 패턴)
+export default function PodForm({
+  values,
+  errors,
+  isPending,
+  onChange,
+  onSubmit,
+}: PodFormProps): React.JSX.Element {
   return (
     <div className="flex flex-col gap-6">
       <h2 className="text-2xl font-bold">맞는 팟이 없다면</h2>
@@ -29,32 +31,26 @@ export default function PotForm({
         <FormField
           label="목표 인원"
           value={values.targetCount}
-          onChange={(event) =>
-            setValues((current) => ({
-              ...current,
-              targetCount: event.target.value,
-            }))
-          }
+          error={errors.targetCount}
+          disabled={isPending}
+          onChange={(event) => onChange('targetCount', event.target.value)}
         />
         <FormField
           label="마감 기한"
           value={values.deadline}
-          onChange={(event) =>
-            setValues((current) => ({
-              ...current,
-              deadline: event.target.value,
-            }))
-          }
+          error={errors.deadline}
+          disabled={isPending}
+          onChange={(event) => onChange('deadline', event.target.value)}
         />
         <Button
           type="button"
           size="touch"
           className="w-full rounded-none bg-[#650f20] text-[13px] font-medium text-white hover:bg-[#650f20]/90"
-          onClick={() => {
-            // 새 팟 신청
-          }}
+          disabled={isPending}
+          aria-busy={isPending || undefined}
+          onClick={onSubmit}
         >
-          새 팟 신청
+          {isPending ? '새 팟 신청 중…' : '새 팟 신청'}
         </Button>
         <Button
           type="button"
@@ -62,7 +58,7 @@ export default function PotForm({
           variant="actionOutline"
           className="w-full rounded-none border-[#650f20] bg-transparent text-[13px] text-[#650f20]"
           onClick={() => {
-            // myPotPageHref 화면으로 이동
+            // 내 신청 팟 목록 화면으로 이동
           }}
         >
           내 신청 팟 보기

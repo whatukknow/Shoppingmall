@@ -7,7 +7,8 @@ import { getPods } from '@/domains/pods/pods.api';
 export default async function PopularProductsContainer() {
   const pods = await getPods();
   const products = pods.map((pod) => ({
-    id: pod.id,
+    // 카드 클릭 시 /pods/product/{productId} 로 이동하도록 상품 id 를 씁니다.
+    id: pod.productId,
     name: pod.productName,
     imageUrl: pod.imageUrl,
   }));
