@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Button, FormField } from '@/shared/components';
 import type { PodCreateValues } from '@/domains/pods/pods.types';
 
@@ -52,17 +53,12 @@ export default function PodForm({
         >
           {isPending ? '새 팟 신청 중…' : '새 팟 신청'}
         </Button>
-        <Button
-          type="button"
-          size="touch"
-          variant="actionOutline"
-          className="w-full rounded-none border-[#650f20] bg-transparent text-[13px] text-[#650f20]"
-          onClick={() => {
-            // 내 신청 팟 목록 화면으로 이동
-          }}
+        <Link
+          href="/mypage/pods"
+          className="group/button hover:bg-primary/5 inline-flex min-h-12 w-full shrink-0 items-center justify-center gap-2 rounded-none border border-[#650f20] bg-transparent bg-clip-padding px-4 py-3 text-sm font-medium whitespace-normal whitespace-nowrap text-[#650f20] transition-all outline-none select-none"
         >
           내 신청 팟 보기
-        </Button>
+        </Link>
       </div>
     </div>
   );
