@@ -24,10 +24,11 @@ import type {
 
 type PaymentPageProps = {
   items: PaymentOrderItem[];
+  initialDelivery?: DeliveryInfos; // 로그인 회원의 미리 채운 배송 정보
 };
 
-// 배송 정보 초기값
-const initialDelivery: DeliveryInfos = {
+// 배송 정보 초기값 (미리 채운 값이 없으면 빈 값)
+const emptyDelivery: DeliveryInfos = {
   recipientName: '',
   recipientPhone: '',
   postalCode: '',
@@ -36,9 +37,14 @@ const initialDelivery: DeliveryInfos = {
   entranceInstructions: '',
 };
 
-export default function PaymentPage({ items }: PaymentPageProps) {
+export default function PaymentPage({
+  items,
+  initialDelivery,
+}: PaymentPageProps) {
   // 1. 입력값과 오류 상태
-  const [delivery, setDelivery] = useState<DeliveryInfos>(initialDelivery);
+  const [delivery, setDelivery] = useState<DeliveryInfos>(
+    initialDelivery ?? emptyDelivery,
+  );
   const [errors, setErrors] = useState<DeliveryErrors>({});
 
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethods>('');

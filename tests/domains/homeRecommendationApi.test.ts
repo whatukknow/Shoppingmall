@@ -5,7 +5,8 @@ import {
   getRandomRecommendations,
   getRecommendationStatus,
 } from '../../domains/home/home.api';
-import { HOME_RECOMMENDATION_MOCK_SCENARIO } from '../../shared/lib/mock/datas/home.mock';
+import { MOCK_USER_SCENARIO } from '../../shared/lib/mock/mockScenario';
+import { getMe } from '../../domains/auth/users.api';
 
 describe('home recommendation api (mock)', () => {
   it('returns 15 random recommendation products', async () => {
@@ -31,14 +32,33 @@ describe('home recommendation api (mock)', () => {
     }
   });
 
-  it('returns recommendation status matching the mock scenario', async () => {
-    const status = await getRecommendationStatus();
+  it('returns recommendation status based on the user scenario', async () => {
     const expected = {
       guest: { isLoggedIn: false, hasTasteProfile: false },
       ai: { isLoggedIn: true, hasTasteProfile: true },
       'needs-taste': { isLoggedIn: true, hasTasteProfile: false },
-    }[HOME_RECOMMENDATION_MOCK_SCENARIO];
+    }[MOCK_USER_SCENARIO];
+
+    if (MOCK_USER_SCENARIO === 'guest') {
+      // 401 이면 비회원 상태로 반환한다 (throw 하지 않음)
+      assert.deepEqual(await getRecommendationStatus(), {
+        isLoggedIn: false,
+        hasTasteProfile: false,
+      });
+      return;
+    }
+
+    const status = await getRecommendationStatus();
 
     assert.deepEqual(status, expected);
+  });
+  it('matches getMe based status for the scenario', async () => {
+    if (MOCK_USER_SCENARIO === 'guest') return;
+
+    const user = await getMe();
+    const status = await getRecommendationStatus();
+
+    assert.equal(status.isLoggedIn, true);
+    assert.equal(status.hasTasteProfile, user.hasTasteProfile);
   });
 });

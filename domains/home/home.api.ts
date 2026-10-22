@@ -1,14 +1,14 @@
-import { apiClient } from '@/shared/lib/client';
+import { apiClient, ApiError } from '@/shared/lib/client';
 import type { ApiResponse, ListResponse } from '@/shared/lib/api.types';
 import type { RecommendedProduct } from './home.types';
 import { HOME_LIST_LIMIT } from './home.constants';
 import type { HomeRecommendationStatus } from './data/homeRecommendations';
 import type { HomeProduct } from './data/homeProducts';
+import { getMe } from '@/domains/auth/users.api';
 
 const ENDPOINTS = {
   randomRecommendations: 'products',
   aiRecommendations: 'users/me/product-recommendations',
-  recommendationStatus: 'home/recommendations/status',
 } as const;
 
 /** 랜덤 추천 상품을 조회합니다. */
@@ -31,12 +31,19 @@ export async function getAiRecommendations(
   return response.data.list;
 }
 
-// TODO(session): 세션(쿠키)의 사용자 정보 hasTasteProfile 로 판정 — proxy.ts 에서 확인한 사용자 기준
+// TODO(session): 세션(쿠키)의 사용자 기준으로 조회 — users/me 의 hasTasteProfile 로 판정
 /** 홈 추천 모드 판정에 필요한 로그인·취향 상태를 조회합니다. */
 export async function getRecommendationStatus(): Promise<HomeRecommendationStatus> {
-  return apiClient.get<HomeRecommendationStatus>(
-    ENDPOINTS.recommendationStatus,
-  );
+  const user = await getMe().catch((error: unknown) => {
+    if (error instanceof ApiError && error.status === 401) return null;
+    throw error;
+  });
+
+  if (!user) {
+    return { isLoggedIn: false, hasTasteProfile: false };
+  }
+
+  return { isLoggedIn: true, hasTasteProfile: user.hasTasteProfile };
 }
 
 // 온보딩 레이아웃(app/onboarding/layout.tsx)이 아직 사용하므로 유지합니다.

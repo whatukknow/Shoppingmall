@@ -2,7 +2,7 @@ import fetchMock from './mock/fetchMock';
 import { waitMockDelay } from './mock/mockDelay';
 
 export type ApiErrorCode =
-  'MOCK_NOT_FOUND' | 'INVALID_RESPONSE' | 'INTERNAL_ERROR';
+  'MOCK_NOT_FOUND' | 'MOCK_ERROR' | 'INVALID_RESPONSE' | 'INTERNAL_ERROR';
 
 export class ApiError extends Error {
   constructor(
@@ -68,6 +68,23 @@ async function request<T>(
         'INVALID_RESPONSE',
         '목데이터 JSON 형식이 올바르지 않습니다.',
         data,
+      );
+    }
+
+    // 목업이 에러 마커면 ApiError 로 바꿔 던진다
+    const marker = (
+      json as { __mockError?: { status?: number; message?: string } }
+    ).__mockError;
+    if (
+      marker &&
+      typeof marker === 'object' &&
+      typeof marker.status === 'number'
+    ) {
+      throw new ApiError(
+        marker.status,
+        'MOCK_ERROR',
+        marker.message ?? '목업 오류',
+        json,
       );
     }
 

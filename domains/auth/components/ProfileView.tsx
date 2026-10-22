@@ -2,11 +2,12 @@
 
 import Link from 'next/link';
 import { Button } from '@/shared/components';
+import { MyPageNav } from './MyPageNav';
 import { cn } from '@/shared/utils/cn';
-import type { Member } from '../auth.types';
+import type { User } from '../users.types';
 
 type ProfileViewProps = {
-  member: Member;
+  member: User;
   myPodsHref?: string; // 내 신청 팟 목록 주소 (상돈님 화면, 정해지면 전달)
   tasteHref?: string; // AI 추천 취향 주소 (서인님 화면, 정해지면 전달)
   onLogout: () => void;
@@ -55,12 +56,16 @@ export function ProfileView({
   onLogout,
   isPending = false,
 }: ProfileViewProps) {
+  const deliveryInfo =
+    member.recipientName && member.recipientAddress
+      ? `${member.recipientName} · ${member.recipientPhone} · (${member.postalCode}) ${member.recipientAddress} ${member.recipientAddressDetail}`
+      : undefined;
   const infoRows = [
     { label: '이름', value: member.name },
     { label: '이메일', value: member.email },
     {
       label: '수령 정보',
-      value: member.deliveryInfo ?? '등록된 수령 정보가 없어요.',
+      value: deliveryInfo ?? '등록된 수령 정보가 없어요.',
     },
   ];
 
@@ -76,37 +81,12 @@ export function ProfileView({
 
       <div className="grid gap-8 md:grid-cols-[180px_1fr_260px]">
         {/* 왼쪽 사이드 메뉴 (PC에서만) */}
-        <nav
-          aria-label="내 정보 메뉴"
-          className="hidden flex-col gap-3 md:flex"
-        >
-          <p className="font-bold">{member.name}님</p>
-          <ul className="flex flex-col gap-2 text-sm">
-            <li>
-              {myPotsHref ? (
-                <Link href={myPotsHref} className="hover:underline">
-                  내 신청 팟
-                </Link>
-              ) : (
-                <span className="text-muted-foreground">내 신청 팟</span>
-              )}
-            </li>
-            <li>
-              <span aria-current="page" className="font-bold">
-                ● 회원 정보
-              </span>
-            </li>
-            <li>
-              {tasteHref ? (
-                <Link href={tasteHref} className="hover:underline">
-                  추천 취향
-                </Link>
-              ) : (
-                <span className="text-muted-foreground">추천 취향</span>
-              )}
-            </li>
-          </ul>
-        </nav>
+        <MyPageNav
+          name={member.name}
+          active="profile"
+          myPodsHref={myPotsHref}
+          tasteHref={tasteHref}
+        />
 
         {/* 가운데 기본 정보 */}
         <section className="border-foreground/20 flex flex-col gap-4 border p-6">

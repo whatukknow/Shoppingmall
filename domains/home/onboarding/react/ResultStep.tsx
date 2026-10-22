@@ -7,7 +7,8 @@ import { useTaste } from './TasteProvider';
 import { hasBirthDetails, tasteRoutes } from './answers';
 import { recommend, EL, SUN_W } from './recommendation';
 import { PixelIcon } from './PixelIcon';
-import { hasPreviewLoginSession } from '@/domains/auth/data/authPreviewSession';
+import { saveTasteProfile } from '@/domains/auth/users.api';
+import { buildTasteProfile } from './tasteProfile';
 import { HOME_RECOMMENDATIONS_KEY } from '../../data/homeRecommendations';
 import { matchOnboardingProducts } from '../../data/onboardingSelection';
 import { ShoppingWalk, type ShoppingWalkHandle } from './ShoppingWalk';
@@ -117,7 +118,7 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
       timer.current = setTimeout(() => setModal(true), 1000);
     });
   };
-  const complete = () => {
+  const complete = async () => {
     try {
       if (preference) {
         const names = result.items
@@ -128,18 +129,26 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
           JSON.stringify(matchOnboardingProducts(names, products)),
         );
       } else sessionStorage.removeItem(HOME_RECOMMENDATIONS_KEY);
-      const loggedIn = hasPreviewLoginSession();
-      if (loggedIn) {
-        sessionStorage.setItem('little-portions:onboarding-complete', 'yes');
-        sessionStorage.removeItem('little-portions:onboarding-pending-login');
-      } else
-        sessionStorage.setItem(
-          'little-portions:onboarding-pending-login',
-          'yes',
-        );
-      router.push(
-        loggedIn ? '/#share-products' : '/login?next=%2F%23share-products',
-      );
+      if (preference) {
+        setBusy(true);
+        try {
+          await saveTasteProfile(
+            buildTasteProfile({
+              answers,
+              result,
+              nickname,
+              consent: true,
+            }),
+          );
+        } catch {
+          setBusy(false);
+          setToast('취향을 저장하지 못했어요. 다시 시도해 주세요.');
+          return;
+        }
+        setBusy(false);
+      }
+      sessionStorage.setItem('little-portions:onboarding-complete', 'yes');
+      router.push('/#share-products');
     } catch {
       setToast('추천 상품을 열지 못했어요. 다시 시도해 주세요.');
     }
@@ -243,6 +252,7 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
                   ref={modalButton}
                   className="yes"
                   type="button"
+                  disabled={busy}
                   onClick={complete}
                 >
                   추천 상품 보기

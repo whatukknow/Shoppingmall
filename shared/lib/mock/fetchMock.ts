@@ -3,10 +3,17 @@ import { homeData } from './datas/home.mock';
 import { paymentData } from './datas/payment.mock';
 import { podsData } from './datas/pods.mock';
 import { productsData } from './datas/products.mock';
+import { usersData } from './datas/users.mock';
 
 type MockMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 type MockKey = `${MockMethod} ${string}`;
 type MockRegistry = Record<MockKey, string>;
+
+// 목업으로 스크린 온 상태(401 등)를 흉내 낼 때 표시하는 마커 응답입니다.
+// client.ts 가 마커를 읽어 ApiError(status, 'MOCK_ERROR', message) 로 바꿉니다.
+export function mockError(status: number, message: string): string {
+  return JSON.stringify({ __mockError: { status, message } });
+}
 
 // 등록부 병합: 엔드포인트 키가 중복되면 조용히 덮어쓰지 않고 즉시 실패
 export function mergeRegistries(...registries: MockRegistry[]): MockRegistry {
@@ -32,6 +39,7 @@ const mockRegistry = mergeRegistries(
   podsData,
   paymentData,
   authData,
+  usersData,
 );
 
 // limit·offset 은 페이징 파라미터이므로 키 매칭에서 제외합니다.

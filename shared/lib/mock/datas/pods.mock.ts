@@ -29,6 +29,37 @@ const productSeeds: ProductSeed[] = [
   { id: 'pc-013', num: '013', name: '사과 2입', image: 'apple.png' },
   { id: 'pc-014', num: '014', name: '감귤 팩', image: 'mandarin.png' },
   { id: 'pc-015', num: '015', name: '통수박', image: 'watermelon.png' },
+  // AI 추천 전용 상품
+  {
+    id: 'pc-101',
+    num: '101',
+    name: '스테이크용 소고기',
+    image: 'illustration-beef-steak.png',
+  },
+  {
+    id: 'pc-102',
+    num: '102',
+    name: '유정란 10구',
+    image: 'illustration-fried-egg.png',
+  },
+  {
+    id: 'pc-103',
+    num: '103',
+    name: '돼지 목살',
+    image: 'illustration-pork-steak.png',
+  },
+  {
+    id: 'pc-104',
+    num: '104',
+    name: '닭다리살',
+    image: 'illustration-chicken-drumstick.png',
+  },
+  {
+    id: 'pc-105',
+    num: '105',
+    name: '블루베리 팩',
+    image: 'illustration-blueberries.png',
+  },
 ];
 
 /** 상품 하나에 마감 임박순으로 정렬된 팟 2~4개를 만듭니다 (규칙 기반으로 항상 같은 값). */
