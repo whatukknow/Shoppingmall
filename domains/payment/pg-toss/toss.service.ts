@@ -94,3 +94,51 @@ export async function requestTossPaymentConfirm(
     };
   }
 }
+
+// 승인 전 저장된 주문과 토스 콜백 값 대조 (순수 함수 → 단위 테스트 가능)
+type OrderForVerify = {
+  orderId: string;
+  status: 'PENDING' | 'PAID';
+  amount: number;
+  paymentKey?: string;
+};
+
+export type VerifyResult =
+  | { valid: true; alreadyPaid: boolean }
+  | { valid: false; code: string; message: string };
+
+export function verifyOrderBeforeConfirm(
+  order: OrderForVerify,
+  input: ConfirmPaymentInput,
+): VerifyResult {
+  if (input.orderId !== order.orderId) {
+    return {
+      valid: false,
+      code: 'ORDER_MISMATCH',
+      message: '주문 번호가 일치하지 않습니다.',
+    };
+  }
+
+  // 금액 위·변조 차단
+  if (input.amount !== order.amount) {
+    return {
+      valid: false,
+      code: 'AMOUNT_MISMATCH',
+      message: '결제 금액이 주문 금액과 달라요.',
+    };
+  }
+
+  if (order.status === 'PAID') {
+    // 같은 결제의 새로고침 → 성공 처리 (멱등성)
+    if (order.paymentKey === input.paymentKey) {
+      return { valid: true, alreadyPaid: true };
+    }
+    return {
+      valid: false,
+      code: 'PAYMENT_MISMATCH',
+      message: '기존 결제 정보와 일치하지 않습니다.',
+    };
+  }
+
+  return { valid: true, alreadyPaid: false };
+}

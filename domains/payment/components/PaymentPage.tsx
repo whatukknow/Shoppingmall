@@ -216,6 +216,7 @@ export default function PaymentPage({ items }: PaymentPageProps) {
       // (1) 서버에 가주문 생성 → orderId, 서버가 계산한 금액 받기
       const order = await createPendingOrderAction(
         orderItems.map((item) => item.podId),
+        delivery,
       );
 
       if (!order.success) {

@@ -1,4 +1,4 @@
-import type { PaymentOrderItem } from './payment.types';
+import type { DeliveryInfos, PaymentOrderItem } from '@/domains/payment/data/payment.types';
 
 // 임시 가주문 저장소 (서버 메모리)
 // TODO: Supabase 연동 시 이 파일의 함수 3개 내부만 orders / payments 테이블 쿼리로 교체
@@ -8,6 +8,7 @@ export type MockOrder = {
   podIds: string[];
   items?: PaymentOrderItem[]; // 주문 생성 시 상품 스냅샷
   shippingFee?: number;
+  shippingInfo?: DeliveryInfos;
   amount: number;
   status: 'PENDING' | 'PAID';
   paymentKey?: string;
