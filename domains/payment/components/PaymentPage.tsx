@@ -1,17 +1,18 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import { useRouter } from 'next/navigation';
 
 import { useSelectedPodIds } from '@/shared/hooks/useSelectedPodIds';
 
-import DeliveryForm from './DeliveryForm';
-import PaymentMethod from './PaymentMethod';
-import PaymentOrderItems from './PaymentOrderItems';
-import PaymentSummary from './PaymentSummary';
+import DeliveryForm from '@/domains/payment/components/DeliveryForm';
+import PaymentMethod from '@/domains/payment/components/PaymentMethod';
+import PaymentOrderItems from '@/domains/payment/components/PaymentOrderItems';
+import PaymentSummary from '@/domains/payment/components/PaymentSummary';
 
-import { saveSelectedPodIds } from '../data/payment.session';
-import { validateDelivery } from '../data/payment.validation';
+import { saveSelectedPodIds } from '@/domains/payment/data/payment.session';
+import { validateDelivery } from '@/domains/payment/data/payment.validation';
+import { createPendingOrderAction } from '@/domains/payment/payment.actions';
+import { requestTossPayment } from '@/domains/payment/pg-toss/requestTossPayment';
 
 import type {
   DeliveryInfos,
@@ -19,7 +20,7 @@ import type {
   PaymentMethods,
   PaymentErrors,
   PaymentOrderItem,
-} from '../data/payment.types';
+} from '@/domains/payment/data/payment.types';
 
 type PaymentPageProps = {
   items: PaymentOrderItem[];
@@ -36,8 +37,6 @@ const initialDelivery: DeliveryInfos = {
 };
 
 export default function PaymentPage({ items }: PaymentPageProps) {
-  const router = useRouter();
-
   // 1. 입력값과 오류 상태
   const [delivery, setDelivery] = useState<DeliveryInfos>(initialDelivery);
   const [errors, setErrors] = useState<DeliveryErrors>({});
@@ -47,21 +46,17 @@ export default function PaymentPage({ items }: PaymentPageProps) {
   const [paymentErrors, setPaymentErrors] = useState<PaymentErrors>({});
 
   const [submitNotice, setSubmitNotice] = useState('');
+  const [isPaying, setIsPaying] = useState(false); // 결제 버튼 중복 클릭 방지
 
   // 2. 저장된 팟 목록 확인
   const selectedIds = useSelectedPodIds();
   const orderLoaded = selectedIds !== null;
 
-  // 시연용: 저장된 선택이 없으면 임시 상품을 표시
-  let orderItems = items;
-
-  if (selectedIds === null) {
-    orderItems = [];
-  } else if (selectedIds.length > 0) {
-    orderItems = items.filter((item) =>
-      selectedIds.includes(item.podId),
-    );
-  }
+  // 선택한 팟이 없으면 결제 대상도 비워 둡니다.
+  const orderItems =
+    selectedIds === null
+      ? []
+      : items.filter((item) => selectedIds.includes(item.podId));
 
   // 3. 금액 계산 — 실제 연동 시 서버 계산 결과로 대체
   const subtotal = orderItems.reduce(
@@ -141,12 +136,12 @@ export default function PaymentPage({ items }: PaymentPageProps) {
     }
   }
 
-  // 6. 제출: 입력 검사 → 팟 저장 → 테스트 결과 화면 이동
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  // 6. 제출: 입력 검사 → 팟 저장 → 가주문 생성 → 토스 결제창 열기
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setSubmitNotice('');
 
-    if (!orderLoaded) {
+    if (!orderLoaded || isPaying) {
       return;
     }
 
@@ -210,8 +205,48 @@ export default function PaymentPage({ items }: PaymentPageProps) {
       return;
     }
 
-    // 테스트용 이동: 실제 결제 요청은 추후 연결
-    router.push('/payment/pay-completed');
+    // 결제 수단은 위에서 검사했으므로 빈 값이 아님
+    if (!paymentMethod) {
+      return;
+    }
+
+    setIsPaying(true);
+
+    try {
+      // (1) 서버에 가주문 생성 → orderId, 서버가 계산한 금액 받기
+      const order = await createPendingOrderAction(
+        orderItems.map((item) => item.podId),
+      );
+
+      if (!order.success) {
+        setSubmitNotice(order.message);
+        return;
+      }
+
+      // (2) 토스 결제창 열기 → 성공/실패 시 토스가 해당 URL로 이동시킴
+      await requestTossPayment({
+        method: paymentMethod,
+        orderId: order.orderId,
+        orderName: order.orderName,
+        amount: order.amount,
+        customerName: delivery.recipientName.trim(),
+        customerMobilePhone: delivery.recipientPhone,
+      });
+    } catch (error) {
+      // PC 에서 결제창을 닫으면 여기로 옴 (USER_CANCEL)
+      const code =
+        typeof error === 'object' && error !== null && 'code' in error
+          ? String(error.code)
+          : '';
+
+      setSubmitNotice(
+        code === 'USER_CANCEL'
+          ? '결제를 취소했어요. 다시 시도해 주세요.'
+          : '결제창을 열지 못했어요. 잠시 후 다시 시도해 주세요.',
+      );
+    } finally {
+      setIsPaying(false);
+    }
   }
 
   // 7. 화면 구성
@@ -259,6 +294,7 @@ export default function PaymentPage({ items }: PaymentPageProps) {
               onPrivacyConsentChange={handlePrivacyConsentChange}
               privacyError={paymentErrors.privacyConsent}
               hasItems={orderItems.length > 0}
+              isPaying={isPaying}
             />
 
             {submitNotice && (

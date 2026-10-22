@@ -9,6 +9,7 @@ type PaymentSummmaryProps = {
   onPrivacyConsentChange: (checked: boolean) => void;
   privacyError?: string;
   hasItems: boolean;
+  isPaying?: boolean;
 };
 
 export default function PaymentSummary({
@@ -19,6 +20,7 @@ export default function PaymentSummary({
   onPrivacyConsentChange,
   privacyError,
   hasItems,
+  isPaying = false,
 }: PaymentSummmaryProps) {
   const total = subtotal + shippingFee - discount;
 
@@ -90,14 +92,17 @@ export default function PaymentSummary({
       <Button
         type="submit"
         size="touch"
-        disabled={!hasItems}
+        disabled={!hasItems || isPaying}
+        aria-busy={isPaying}
         className="w-full"
       >
-        {total.toLocaleString('ko-KR')}원 결제하기
+        {isPaying
+          ? '결제창을 준비하고 있습니다…'
+          : `${total.toLocaleString('ko-KR')}원 결제하기`}
       </Button>
 
       <p className="mt-3 text-xs">
-        화면 확인용이며 실제 결제는 진행되지 않습니다.
+        결제하기를 누르면 토스 결제창으로 연결됩니다.
       </p>
     </section>
   );

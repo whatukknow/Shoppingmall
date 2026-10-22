@@ -10,17 +10,28 @@ import type { PaymentOrderItem } from '../data/payment.types';
 type PaymentResultPageProps = {
   status: 'success' | 'failed';
   items: PaymentOrderItem[];
+  orderItems?: PaymentOrderItem[];
+  receiptUrl?: string | null;
+  paidAmount?: number;
+  orderShippingFee?: number;
 };
 
-export default function PaymentResultPage({ status, items: allItems }: PaymentResultPageProps) {
+export default function PaymentResultPage({
+  status,
+  items: allItems,
+  orderItems,
+  receiptUrl,
+  paidAmount,
+  orderShippingFee,
+}: PaymentResultPageProps) {
   // 훅은 컴포넌트 함수 안에서 호출
   const selectedIds = useSelectedPodIds();
-  const loaded = selectedIds !== null;
+  const loaded = orderItems !== undefined || selectedIds !== null;
 
   // 저장된 ID에 해당하는 상품만 선택
-  const items = allItems.filter(
-    (item) => selectedIds?.includes(item.podId) ?? false,
-  );
+  const items =
+    orderItems ??
+    allItems.filter((item) => selectedIds?.includes(item.podId) ?? false);
 
   if (!loaded) {
     return (
@@ -50,14 +61,16 @@ export default function PaymentResultPage({ status, items: allItems }: PaymentRe
   );
 
   // 화면 확인용: 현재 결제 화면의 임시 금액과 동일
-  const shippingFee = 3000;
+  const shippingFee = orderShippingFee ?? 3000;
   const discount = 0;
-  const total = subtotal + shippingFee - discount;
+  const total = paidAmount ?? subtotal + shippingFee - discount;
 
   return (
     <main className="mx-auto w-full max-w-[900px] px-6 py-12">
       <p className="mb-8 text-center text-sm">
-        테스트 화면 · 실제 결제 결과가 아닙니다.
+        {isSuccess
+          ? '결제 승인 결과를 확인했어요.'
+          : '결제가 완료되지 않았습니다.'}
       </p>
 
       <header className="mb-12 text-center">
@@ -113,6 +126,16 @@ export default function PaymentResultPage({ status, items: allItems }: PaymentRe
         </section>
 
         <div className="flex flex-wrap justify-center gap-3">
+          {isSuccess && receiptUrl?.startsWith('https://') && (
+            <a
+              href={receiptUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-12 items-center justify-center border border-current/30 px-8 font-bold"
+            >
+              영수증 보기
+            </a>
+          )}
           {!isSuccess && (
             <Link
               href="/payment"
