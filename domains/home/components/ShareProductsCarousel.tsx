@@ -26,7 +26,7 @@ export function ShareProductsCarousel({
         PICKS FOR YOU
       </p>
       <h2 className="mt-2 text-[26px] leading-tight font-bold sm:text-[30px]">
-        AI가 추천하는 당신의 장바구니
+        {showAiCopy ? 'AI가 추천하는 당신의 장바구니' : '오늘의 랜덤 추천'}
       </h2>
       <p className="mt-2 text-[13px] text-[#77766f]">
         {showAiCopy
