@@ -16,7 +16,7 @@ const memberBase = {
   postalCode: '14984',
   recipientAddress: '경기도 시흥시 정왕로93',
   recipientAddressDetail: '101동 203호',
-  entranceInstructions: '산학다리공원 빌라 옆, 현관 비밀번호 1234',
+  entranceInstructions: '현관 비밀번호 1234',
 };
 
 // 온보딩에서 저장한 예시 취향 프로필 (camelCase)

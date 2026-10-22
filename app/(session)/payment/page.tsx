@@ -17,7 +17,8 @@ export default async function Page() {
   const initialDelivery: DeliveryInfos | undefined = user
     ? {
         recipientName: user.recipientName,
-        recipientPhone: user.recipientPhone,
+        // 결제 폼은 숫자만 보관하고 표시할 때 하이픈을 붙입니다.
+        recipientPhone: user.recipientPhone.replace(/\D/g, ''),
         postalCode: user.postalCode,
         recipientAddress: user.recipientAddress,
         recipientAddressDetail: user.recipientAddressDetail,
