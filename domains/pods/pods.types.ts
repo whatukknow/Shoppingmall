@@ -52,9 +52,37 @@ export type LivePod = {
 /** 홈 인기 소분팟 목록 항목입니다. */
 export type PodSummary = {
   id: string;
+  productId: string;
   productName: string;
   imageUrl: string;
   currentCount: number;
   targetCount: number;
   deadlineLabel: string;
+};
+
+/** 상품별 소분팟 모집 상태입니다. */
+export type PodStatus = 'open' | 'close';
+
+/** 상품별 소분팟 단일 항목입니다. */
+export type Pod = {
+  id: string;
+  productName: string;
+  imageUrl: string;
+  optionLabel: string;
+  currentCount: number;
+  targetCount: number;
+  deadlineLabel: string;
+  status: PodStatus;
+};
+
+/** 상품별 팟 목록 조회 시 status 필터입니다. */
+export type PodStatusFilter = 'all' | 'open' | 'close';
+
+/** 상품별 팟 목록 조회 정렬 기준입니다. deadline 은 마감 임박순입니다. */
+export type PodSort = 'deadline' | 'asc' | 'desc';
+
+/** 새 팟 생성 요청 본문입니다. deadline 은 YYYY-MM-DD 형식입니다. */
+export type PodCreateRequest = {
+  targetCount: number;
+  deadline: string;
 };
