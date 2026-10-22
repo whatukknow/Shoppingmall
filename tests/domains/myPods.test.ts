@@ -67,8 +67,8 @@ describe('getMyPodView', () => {
     assert.deepEqual(view.actions, [
       {
         label: '결제하기',
-        href: '/pods/waiting?id=app-1',
         primary: true,
+        pay: true,
       },
     ]);
   });

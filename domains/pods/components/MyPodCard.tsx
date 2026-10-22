@@ -3,6 +3,7 @@ import { cn } from '@/shared/utils/cn';
 import type { MyPodApplication } from '../../auth/users.types';
 import { getMyPodView, type MyPodAction } from '../data/myPods';
 import MyPodCancelContainer from '../containers/MyPodCancelContainer';
+import MyPodPayContainer from '../containers/MyPodPayContainer';
 
 type MyPodCardProps = {
   application: MyPodApplication;
@@ -40,6 +41,10 @@ function ActionItem({ action, podId }: ActionItemProps) {
   if (action.cancel) {
     // 취소는 링크가 아니라 API 호출 — 취소 컨테이너 사용
     return <MyPodCancelContainer podId={podId} label={action.label} />;
+  }
+  if (action.pay) {
+    // 결제는 선택한 팟을 저장한 뒤 결제 페이지로 이동 — 결제 컨테이너 사용
+    return <MyPodPayContainer podId={podId} label={action.label} />;
   }
   return (
     <CardActionLink

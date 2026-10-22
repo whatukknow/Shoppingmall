@@ -5,12 +5,13 @@ import type { MyPodApplication } from '../../auth/users.types';
 // 탭: 전체 / 모집 중 / 결제 가능
 export type MyPodsTab = 'all' | 'recruiting' | 'payable';
 
-// 카드에 표시할 동작 하나 (href 가 있으면 링크, cancel 면 취소 버튼)
+// 카드에 표시할 동작 하나 (href 가 있으면 링크, cancel 면 취소 버튼, pay 면 결제 이동 버튼)
 export type MyPodAction = {
   label: string;
   href?: string;
   primary?: boolean;
   cancel?: boolean;
+  pay?: boolean;
 };
 
 // 탭별로 신청 목록을 걸러낸다
@@ -46,8 +47,8 @@ export function getMyPodView(app: MyPodApplication): {
       actions: [
         {
           label: '결제하기',
-          href: `/pods/waiting?id=${app.id}`,
           primary: true,
+          pay: true,
         },
       ],
     };
