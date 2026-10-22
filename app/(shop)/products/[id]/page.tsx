@@ -1,7 +1,8 @@
 import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 
-import { getProductById } from '@/domains/products/products.api';
+import { ApiError } from '@/shared/lib/client';
+import { getProductDetail } from '@/domains/products/products.api';
 import ProductDetailView from '@/domains/product-detail/components/ProductDetailPage';
 import type { ProductDetail } from '@/domains/product-detail/data/productDetail.types';
 
@@ -25,24 +26,36 @@ export default function Page({ params }: PageProps) {
 
 async function ProductDetailContent({ params }: PageProps) {
   const { id } = await params;
-  const catalogProduct = await getProductById(id);
 
-  if (!catalogProduct || catalogProduct.id === undefined) {
-    notFound();
+  let detail;
+  try {
+    detail = await getProductDetail(id);
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 404) {
+      notFound();
+    }
+    throw error;
   }
 
+  // 응답의 description(문자열)은 현재 표시 위치가 없어 매핑하지 않습니다.
   const product: ProductDetail = {
-    id: String(catalogProduct.id),
-    name: catalogProduct.name,
-    category: catalogProduct.category,
+    id: detail.id,
+    name: detail.name,
+    category: detail.category,
+    images: detail.images,
 
-    images: catalogProduct.image ? [catalogProduct.image] : [],
-
-    price: catalogProduct.price,
-    isSample: true,
+    price: detail.price,
+    discountRate: detail.discountRate,
+    farmName: detail.farmName,
+    unit: detail.unit,
+    isSample: false,
 
     description: {
-      tips: [],
+      farmName: detail.farmName,
+      farmInfo: detail.farmInfo,
+      imageUrl: detail.farmImageUrl,
+      basicInfo: detail.basicInfo,
+      tips: detail.tips,
     },
   };
 

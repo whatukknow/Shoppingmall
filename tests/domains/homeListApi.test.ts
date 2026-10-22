@@ -22,19 +22,26 @@ describe('home list api (mock)', () => {
   });
 
   it('returns 15 products for the catalog', async () => {
-    const products = await getProducts();
+    const { list, total } = await getProducts();
 
-    assert.equal(products.length, 15);
-    for (const product of products) {
+    assert.equal(list.length, 15);
+    assert.equal(total, 15);
+    for (const product of list) {
       assert.equal(typeof product.id, 'string');
       assert.equal(typeof product.name, 'string');
       assert.equal(typeof product.imageUrl, 'string');
+      assert.equal(typeof product.description, 'string');
+      assert.equal(typeof product.category, 'string');
+      assert.equal(typeof product.price, 'number');
     }
   });
 
   it('distinguishes products?type=random from products?category=all in fetchMock', () => {
     const random = fetchMock('GET', 'products?type=random&limit=15');
-    const catalog = fetchMock('GET', 'products?category=all&limit=15');
+    const catalog = fetchMock(
+      'GET',
+      'products?category=all&sort=latest&limit=15',
+    );
 
     assert.notEqual(random, undefined);
     assert.notEqual(catalog, undefined);

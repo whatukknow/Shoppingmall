@@ -2,10 +2,10 @@
 
 import Link from 'next/link';
 import { ProductCatalogGrid } from '@/domains/products/components/ProductCatalogGrid';
-import { getProductCatalog } from '@/domains/products/products.api';
+import { getProducts } from '@/domains/products/products.api';
 
 export default async function ProductListPage() {
-  const productCatalog = await getProductCatalog();
+  const { list: productCatalog, total } = await getProducts();
   return (
     <main className="bg-background flex-1 pb-24 font-sans">
       <header className="mx-auto w-full max-w-[1440px] px-6 pt-14">
@@ -43,9 +43,7 @@ export default async function ProductListPage() {
             </p>
           </div>
 
-          <p className="text-foreground/70 pb-1 text-sm">
-            {productCatalog.length}개 상품
-          </p>
+          <p className="text-foreground/70 pb-1 text-sm">{total}개 상품</p>
         </div>
       </section>
       <section

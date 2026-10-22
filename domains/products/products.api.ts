@@ -1,28 +1,33 @@
 import { apiClient } from '@/shared/lib/client';
 import type { ApiResponse, ListResponse } from '@/shared/lib/api.types';
 import { HOME_LIST_LIMIT } from '@/domains/home/home.constants';
-import type { CatalogSummary } from './products.types';
-import type { CatalogProduct } from './data/productCatalog';
+import type { ProductListItem, ProductSort } from './products.types';
+import type { ProductDetailResponse } from './products.types';
 
 /** 상품 목록을 조회합니다. category 가 없거나 'all' 이면 전체를 조회합니다. */
 export async function getProducts({
   category = 'all',
+  sort = 'latest',
   limit = HOME_LIST_LIMIT.catalog,
-}: { category?: string; limit?: number } = {}): Promise<CatalogSummary[]> {
+  offset = 0,
+}: {
+  category?: string;
+  sort?: ProductSort;
+  limit?: number;
+  offset?: number;
+} = {}): Promise<ListResponse<ProductListItem>> {
   const response = await apiClient.get<
-    ApiResponse<ListResponse<CatalogSummary>>
-  >('products', { params: { category, limit } });
-  return response.data.list;
+    ApiResponse<ListResponse<ProductListItem>>
+  >('products', { params: { category, sort, limit, offset } });
+  return response.data;
 }
 
-/** 목업 제거 후 목록·상세 화면의 연결 구조만 유지합니다. TODO: 실제 상품 조회를 연결합니다. */
-export async function getProductCatalog(): Promise<CatalogProduct[]> {
-  return [];
-}
-
-export async function getProductById(id: string) {
-  const products = await getProductCatalog();
-  return products.find(
-    (product) => product.id !== undefined && String(product.id) === id,
+/** 상품 상세를 조회합니다. 목업에 없는 id 는 404 ApiError 로 전파됩니다. */
+export async function getProductDetail(
+  id: string,
+): Promise<ProductDetailResponse> {
+  const response = await apiClient.get<ApiResponse<ProductDetailResponse>>(
+    `products/${encodeURIComponent(id)}`,
   );
+  return response.data;
 }
