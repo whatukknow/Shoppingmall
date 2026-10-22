@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { CatalogProduct } from '../data/productCatalog';
+import type { ProductListItem } from '../products.types';
 
 /** 배경이 투명한 농산물 사진과 시안용 상품 정보를 보여주는 카드입니다. */
-export function ProductCatalogCard({ product }: { product: CatalogProduct }) {
+export function ProductCatalogCard({ product }: { product: ProductListItem }) {
   const cardContent = (
     <>
       <div className="relative aspect-square w-full overflow-hidden">
-        {product.image ? (
+        {product.imageUrl ? (
           <Image
-            src={product.image}
+            src={product.imageUrl}
             alt={product.name}
             fill
             sizes="(max-width: 640px) 46vw, (max-width: 1024px) 30vw, 22vw"
@@ -37,16 +37,12 @@ export function ProductCatalogCard({ product }: { product: CatalogProduct }) {
 
   return (
     <article className="border-primary/20 min-w-0 border-t pt-4">
-      {product.id !== undefined ? (
-        <Link
-          href={`/products/${encodeURIComponent(String(product.id))}`}
-          className="focus-visible:outline-primary block text-inherit focus-visible:outline-2 focus-visible:outline-offset-4"
-        >
-          {cardContent}
-        </Link>
-      ) : (
-        <div>{cardContent}</div>
-      )}
+      <Link
+        href={`/products/${encodeURIComponent(product.id)}`}
+        className="focus-visible:outline-primary block text-inherit focus-visible:outline-2 focus-visible:outline-offset-4"
+      >
+        {cardContent}
+      </Link>
     </article>
   );
 }
