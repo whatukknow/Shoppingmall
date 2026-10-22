@@ -16,7 +16,9 @@ export default function BrandStory() {
     <main ref={rootRef} className="brand-story">
       <div id="brand-story-top">
         <section className="storySection intro">
-          <div className="eb storySectionLabel font-sans">{'작게 나누는 좋은 식탁'}</div>
+          <div className="eb storySectionLabel font-sans">
+            {'작게 나누는 좋은 식탁'}
+          </div>
           <h1>
             {'혼자 먹는 식탁에도,'}
             <br />
@@ -38,7 +40,9 @@ export default function BrandStory() {
         </section>
         <section className="storySection split" id="people">
           <div>
-            <div className="eb storySectionLabel font-sans">{'01 / 달라진 생활'}</div>
+            <div className="eb storySectionLabel font-sans">
+              {'01 / 달라진 생활'}
+            </div>
             <h2>
               {'혼자 사는 삶에 맞는'}
               <br />
@@ -192,7 +196,9 @@ export default function BrandStory() {
             <span className="lab">{'1인 가구의 1인용 용량 선호'}</span>
           </div>
           <div>
-            <div className="eb storySectionLabel font-sans">{'02 / 나에게 알맞은 양'}</div>
+            <div className="eb storySectionLabel font-sans">
+              {'02 / 나에게 알맞은 양'}
+            </div>
             <h2>
               {'많이 사는 것보다,'}
               <br />
@@ -213,7 +219,9 @@ export default function BrandStory() {
           </div>
         </section>
         <section className="storySection shoppingBarriers">
-          <div className="eb storySectionLabel font-sans">03 / 장보기 앞에서</div>
+          <div className="eb storySectionLabel font-sans">
+            03 / 장보기 앞에서
+          </div>
           <h2>
             조금만 사고 싶은데,
             <br />
@@ -271,7 +279,9 @@ export default function BrandStory() {
           </div>
         </section>
         <section className="storySection funnelSection slide" id="together">
-          <div className="eb storySectionLabel font-sans">{'04 / 그래서, Little portions'}</div>
+          <div className="eb storySectionLabel font-sans">
+            {'04 / 그래서, Little portions'}
+          </div>
           <h2>
             {'검색에서 취향으로.'}
             <br />
@@ -282,9 +292,7 @@ export default function BrandStory() {
             <br />
             {'작은 선택이 더 자연스럽게 이어지도록 생각했습니다.'}
           </p>
-          <div className="graphicHint">
-            {'장보기 흐름을 비교해보세요'}
-          </div>
+          <div className="graphicHint">{'장보기 흐름을 비교해보세요'}</div>
           <MobileShoppingFlow />
           <div className="s3wrap">
             <div
@@ -314,7 +322,9 @@ export default function BrandStory() {
           </p>
         </section>
         <section className="storySection scale">
-          <div className="eb storySectionLabel font-sans">{'05 / 작은 식탁이 모이면'}</div>
+          <div className="eb storySectionLabel font-sans">
+            {'05 / 작은 식탁이 모이면'}
+          </div>
           <h2>
             {'한 사람의 장보기는'}
             <br />
@@ -342,7 +352,9 @@ export default function BrandStory() {
           </div>
         </section>
         <section className="storySection closing">
-          <div className="eb storySectionLabel">{'JUST ENOUGH, ALWAYS FRESH'}</div>
+          <div className="eb storySectionLabel">
+            {'JUST ENOUGH, ALWAYS FRESH'}
+          </div>
           <h2>
             {'장보기의 크기를'}
             <br />

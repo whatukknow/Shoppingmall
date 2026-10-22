@@ -95,10 +95,7 @@ export default function PodWaitingPage() {
         <aside className="min-[1260px]:sticky min-[1260px]:top-24">
           <h2 className="mb-6 text-2xl font-bold">내 신청 정보</h2>
 
-          <PodApplicationSummary
-            {...application}
-            onPayment={handlePayment}
-          />
+          <PodApplicationSummary {...application} onPayment={handlePayment} />
 
           {paymentError && (
             <p role="alert" className="mt-3 text-sm text-red-600">

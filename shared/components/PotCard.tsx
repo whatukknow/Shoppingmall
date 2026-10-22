@@ -30,18 +30,37 @@ export function PotCard({
   actionDisabled = false,
 }: PotCardProps) {
   return (
-    <article className="border-border flex min-w-0 flex-col gap-4 border p-5" aria-label={`${title} 소분 팟`}>
+    <article
+      className="border-border flex min-w-0 flex-col gap-4 border p-5"
+      aria-label={`${title} 소분 팟`}
+    >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="text-muted-foreground text-sm">{cropName}</p>
-          <h3 className="mt-1 font-semibold">{href ? <Link href={href}>{title}</Link> : title}</h3>
+          <h3 className="mt-1 font-semibold">
+            {href ? <Link href={href}>{title}</Link> : title}
+          </h3>
         </div>
         <StatusBadge status={status} />
       </div>
-      {description && <p className="text-muted-foreground text-sm">{description}</p>}
-      <p className="text-sm">신청 현황 <strong>{applicantCount} / {capacity}명</strong></p>
+      {description && (
+        <p className="text-muted-foreground text-sm">{description}</p>
+      )}
+      <p className="text-sm">
+        신청 현황{' '}
+        <strong>
+          {applicantCount} / {capacity}명
+        </strong>
+      </p>
       {actionLabel && onAction && (
-        <Button type="button" size="touch" disabled={actionDisabled} onClick={onAction}>{actionLabel}</Button>
+        <Button
+          type="button"
+          size="touch"
+          disabled={actionDisabled}
+          onClick={onAction}
+        >
+          {actionLabel}
+        </Button>
       )}
     </article>
   );

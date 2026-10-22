@@ -40,7 +40,10 @@ export function ActionDialog({
   onConfirm,
 }: ActionDialogProps) {
   return (
-    <Dialog open={open} onOpenChange={(nextOpen) => !pending && onOpenChange(nextOpen)}>
+    <Dialog
+      open={open}
+      onOpenChange={(nextOpen) => !pending && onOpenChange(nextOpen)}
+    >
       <DialogContent>
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
@@ -49,10 +52,21 @@ export function ActionDialog({
         {detail}
         {children}
         <DialogFooter className="flex-col-reverse sm:flex-row">
-          <Button type="button" variant="outline" size="touch" disabled={pending} onClick={() => onOpenChange(false)}>
+          <Button
+            type="button"
+            variant="outline"
+            size="touch"
+            disabled={pending}
+            onClick={() => onOpenChange(false)}
+          >
             {cancelLabel}
           </Button>
-          <Button type="button" size="touch" disabled={pending || confirmDisabled} onClick={() => void onConfirm()}>
+          <Button
+            type="button"
+            size="touch"
+            disabled={pending || confirmDisabled}
+            onClick={() => void onConfirm()}
+          >
             {pending ? '처리 중…' : confirmLabel}
           </Button>
         </DialogFooter>
@@ -61,25 +75,38 @@ export function ActionDialog({
   );
 }
 
-export type CancellationDialogProps = Omit<ActionDialogProps, 'title' | 'description' | 'detail' | 'confirmLabel' | 'confirmDisabled'> & {
+export type CancellationDialogProps = Omit<
+  ActionDialogProps,
+  'title' | 'description' | 'detail' | 'confirmLabel' | 'confirmDisabled'
+> & {
   canCancel: boolean;
   availabilityDescription?: string;
 };
 
 /** Shows the agreed reminder that cancelling an application does not remove its pot. */
-export function CancellationDialog({ canCancel, availabilityDescription, ...props }: CancellationDialogProps) {
+export function CancellationDialog({
+  canCancel,
+  availabilityDescription,
+  ...props
+}: CancellationDialogProps) {
   return (
     <ActionDialog
       {...props}
       title="신청을 취소할까요?"
-      description={availabilityDescription ?? '신청을 취소해도 함께 나누는 팟은 유지됩니다.'}
+      description={
+        availabilityDescription ??
+        '신청을 취소해도 함께 나누는 팟은 유지됩니다.'
+      }
       confirmLabel="신청 취소"
       confirmDisabled={!canCancel}
     />
   );
 }
 
-export type NotificationDialogProps = Omit<ActionDialogProps, 'cancelLabel' | 'pending' | 'confirmDisabled'>;
+export type NotificationDialogProps = Omit<
+  ActionDialogProps,
+  'cancelLabel' | 'pending' | 'confirmDisabled'
+>;
 
 export function NotificationDialog(props: NotificationDialogProps) {
   return <ActionDialog {...props} cancelLabel="닫기" />;

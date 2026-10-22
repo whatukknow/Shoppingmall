@@ -23,12 +23,13 @@ export function validateDelivery(infos: DeliveryInfos): DeliveryErrors {
 
   // 받는 분 '수령 주소' 검사
   if (!infos.postalCode || !infos.recipientAddress.trim()) {
-    errors.recipientAddress = '버튼을 눌러 검색한 주소를 선택해 주세요.'
+    errors.recipientAddress = '버튼을 눌러 검색한 주소를 선택해 주세요.';
   }
 
   // 받는 분 '공동현관 출입 방법' 검사
-  if(infos.entranceInstructions.length > 15) {
-    errors.entranceInstructions = '공동현관 출입 방법은 15자 이내로 입력해 주세요.'
+  if (infos.entranceInstructions.length > 15) {
+    errors.entranceInstructions =
+      '공동현관 출입 방법은 15자 이내로 입력해 주세요.';
   }
 
   return errors;

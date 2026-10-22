@@ -23,11 +23,21 @@ type SelectFieldProps = CommonProps &
     as: 'select';
   };
 
-const fieldMetaKeys = ['as', 'label', 'id', 'description', 'error', 'required', 'className'] as const;
+const fieldMetaKeys = [
+  'as',
+  'label',
+  'id',
+  'description',
+  'error',
+  'required',
+  'className',
+] as const;
 
 function getControlProps(props: FormFieldProps) {
   return Object.fromEntries(
-    Object.entries(props).filter(([key]) => !fieldMetaKeys.includes(key as (typeof fieldMetaKeys)[number])),
+    Object.entries(props).filter(
+      ([key]) => !fieldMetaKeys.includes(key as (typeof fieldMetaKeys)[number]),
+    ),
   );
 }
 
@@ -39,9 +49,10 @@ export function FormField(props: FormFieldProps) {
   const { label, description, error, required = false, className } = props;
   const descriptionId = `${id}-description`;
   const errorId = `${id}-error`;
-  const describedBy = [description ? descriptionId : undefined, error ? errorId : undefined]
-    .filter(Boolean)
-    .join(' ') || undefined;
+  const describedBy =
+    [description ? descriptionId : undefined, error ? errorId : undefined]
+      .filter(Boolean)
+      .join(' ') || undefined;
   const fieldAccessibilityProps = {
     id,
     required,
@@ -50,13 +61,27 @@ export function FormField(props: FormFieldProps) {
   };
   const labelNode = (
     <label htmlFor={id} className="text-sm font-medium">
-      {label}{required && <span aria-hidden="true" className="text-destructive"> *</span>}
+      {label}
+      {required && (
+        <span aria-hidden="true" className="text-destructive">
+          {' '}
+          *
+        </span>
+      )}
     </label>
   );
   const feedback = (
     <>
-      {description && <p id={descriptionId} className="text-muted-foreground text-sm">{description}</p>}
-      {error && <p id={errorId} role="alert" className="text-destructive text-sm">{error}</p>}
+      {description && (
+        <p id={descriptionId} className="text-muted-foreground text-sm">
+          {description}
+        </p>
+      )}
+      {error && (
+        <p id={errorId} role="alert" className="text-destructive text-sm">
+          {error}
+        </p>
+      )}
     </>
   );
 
@@ -76,7 +101,11 @@ export function FormField(props: FormFieldProps) {
   return (
     <div className={cn('flex min-w-0 flex-col gap-2', className)}>
       {labelNode}
-      <Input {...getControlProps(props)} {...fieldAccessibilityProps} className="min-h-12" />
+      <Input
+        {...getControlProps(props)}
+        {...fieldAccessibilityProps}
+        className="min-h-12"
+      />
       {feedback}
     </div>
   );

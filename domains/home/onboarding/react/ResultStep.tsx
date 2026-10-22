@@ -137,7 +137,9 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
           'little-portions:onboarding-pending-login',
           'yes',
         );
-      router.push(loggedIn ? '/#share-products' : '/login?next=%2F%23share-products');
+      router.push(
+        loggedIn ? '/#share-products' : '/login?next=%2F%23share-products',
+      );
     } catch {
       setToast('추천 상품을 열지 못했어요. 다시 시도해 주세요.');
     }
