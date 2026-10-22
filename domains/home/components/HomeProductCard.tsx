@@ -5,9 +5,11 @@ import type { HomeCardItem } from '../home.types';
 /** 홈 캐러셀에서 재사용하는 상품 카드입니다. */
 export function HomeProductCard({
   product,
+  href,
   rank,
 }: {
   product: HomeCardItem;
+  href: string; // 카드를 눌렀을 때 이동할 주소
   rank?: number;
 }) {
   const cardContent = (
@@ -42,7 +44,7 @@ export function HomeProductCard({
 
   return (
     <Link
-      href={`/pods/product/${encodeURIComponent(product.id)}`}
+      href={href}
       className="block min-w-0 transition-opacity hover:opacity-75"
     >
       {cardContent}

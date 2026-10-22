@@ -53,7 +53,12 @@ export function ShareProductsCarousel({
                   ? '한 끼 사주 취향 추천 상품'
                   : '오늘의 랜덤 추천 상품'
               }
-              renderItem={(product) => <HomeProductCard product={product} />}
+              renderItem={(product) => (
+                <HomeProductCard
+                  product={product}
+                  href={`/products/${encodeURIComponent(product.id)}`}
+                />
+              )}
             />
           </>
         )}

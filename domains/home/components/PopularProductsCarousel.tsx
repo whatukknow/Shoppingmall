@@ -32,7 +32,11 @@ export function PopularProductsCarousel({
           getItemKey={(product) => product.id}
           ariaLabel="인기 소분팟"
           renderItem={(product, index) => (
-            <HomeProductCard product={product} rank={index + 1} />
+            <HomeProductCard
+              product={product}
+              href={`/pods/product/${encodeURIComponent(product.id)}`}
+              rank={index + 1}
+            />
           )}
         />
       </div>

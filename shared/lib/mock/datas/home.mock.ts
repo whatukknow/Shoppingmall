@@ -19,22 +19,23 @@ const p = (id: string, name: string, image: string): HomeRecommendProduct => ({
 });
 
 // 기존 목업 상품명·일러스트 경로를 재사용합니다.
+// 랜덤 추천은 상품 목록과 같은 상품(id)을 순서만 섞어 보여줍니다.
 const randomProducts: HomeRecommendProduct[] = [
-  p('p-001', '달콤한 참외', 'korean-melon.png'),
-  p('p-002', '방울토마토', 'tomatoes.png'),
-  p('p-003', '노란 멜론', 'honeydew-melon.png'),
-  p('p-004', '늙은 호박', 'pumpkin.png'),
-  p('p-005', '제주 귤', 'orange.png'),
-  p('p-006', '거봉 포도', 'grapes.png'),
-  p('p-007', '딸기 팩', 'strawberry.png'),
-  p('p-008', '양파 3개', 'onion.png'),
-  p('p-009', '양배추', 'cabbage.png'),
-  p('p-010', '대파 다발', 'scallion.png'),
-  p('p-011', '완두콩', 'peas.png'),
-  p('p-012', '방울양배추', 'brussels-sprouts.png'),
-  p('p-013', '사과 2입', 'apple.png'),
-  p('p-014', '감귤 팩', 'mandarin.png'),
-  p('p-015', '통수박', 'watermelon.png'),
+  p('pc-007', '딸기 팩', 'strawberry.png'),
+  p('pc-001', '달콤한 참외', 'korean-melon.png'),
+  p('pc-013', '사과 2입', 'apple.png'),
+  p('pc-010', '대파 다발', 'scallion.png'),
+  p('pc-004', '늙은 호박', 'pumpkin.png'),
+  p('pc-015', '통수박', 'watermelon.png'),
+  p('pc-002', '방울토마토', 'tomatoes.png'),
+  p('pc-011', '완두콩', 'peas.png'),
+  p('pc-005', '제주 귤', 'orange.png'),
+  p('pc-008', '양파 3개', 'onion.png'),
+  p('pc-014', '감귤 팩', 'mandarin.png'),
+  p('pc-003', '노란 멜론', 'honeydew-melon.png'),
+  p('pc-012', '방울양배추', 'brussels-sprouts.png'),
+  p('pc-006', '거봉 포도', 'grapes.png'),
+  p('pc-009', '양배추', 'cabbage.png'),
 ];
 
 const aiProducts: HomeRecommendProduct[] = [
