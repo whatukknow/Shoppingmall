@@ -46,22 +46,9 @@ export default function LoginContainer({ redirectTo }: LoginContainerProps) {
         // TODO(session): 로그인 응답(response.data)을 세션 쿠키·캐시에 저장 — Supabase 도입 시 proxy.ts(프로젝트 루트)에서 쿠키로 사용자 확인
         void response; // 세션 구현 전까지 응답 미사용
 
-        // 시안용 로그인 상태와 온보딩을 거친 메인 진입 상태를 기록
+        // 시안용 로그인 상태를 기록
         try {
           window.sessionStorage.setItem(AUTH_PREVIEW_SESSION_KEY, 'yes');
-          if (
-            window.sessionStorage.getItem(
-              'little-portions:onboarding-pending-login',
-            ) === 'yes'
-          ) {
-            window.sessionStorage.setItem(
-              'little-portions:onboarding-complete',
-              'yes',
-            );
-            window.sessionStorage.removeItem(
-              'little-portions:onboarding-pending-login',
-            );
-          }
         } catch {
           // 브라우저 저장소를 사용할 수 없는 환경에서는 기존 로그인 이동만 진행
         }
