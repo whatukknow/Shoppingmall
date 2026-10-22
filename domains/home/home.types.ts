@@ -1,13 +1,21 @@
-/** 홈 캐러셀·목록에서 쓰는 추천 상품 카드 타입입니다. */
+/** 추천 상품 API(랜덤·사주) 응답 항목입니다. */
 export type RecommendedProduct = {
   id: string;
   name: string;
   imageUrl: string;
 };
 
-/** 홈 목록 조회 개수 제한 (테스트·조정 시 이 값만 바꿉니다). */
-export const HOME_LIST_LIMIT = {
-  recommendations: 15,
-  popularPods: 10,
-  catalog: 15,
-} as const;
+/** 홈 캐러셀 카드의 상품 정보입니다. */
+export type HomeCardItem = {
+  id: string;
+  name: string;
+  imageUrl: string;
+  description?: string;
+};
+
+/** 상품 둘러보기 목록 항목입니다. */
+export type CatalogCardItem = {
+  id: string;
+  name: string;
+  imageUrl: string;
+};

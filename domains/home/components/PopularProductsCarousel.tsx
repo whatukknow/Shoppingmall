@@ -1,14 +1,14 @@
 'use client';
 
 import { CarouselContainer } from '@/shared/components/CarouselContainer';
-import type { HomeProductCardProduct } from './HomeProductCard';
+import type { HomeCardItem } from '../home.types';
 import { HomeProductCard } from './HomeProductCard';
 
 /** 전달받은 인기 소분팟을 표시합니다. */
 export function PopularProductsCarousel({
   products,
 }: {
-  products: HomeProductCardProduct[];
+  products: HomeCardItem[];
 }) {
   return (
     <section className="max-w-1260px mx-auto w-full px-6 pt-14 md:px-0">

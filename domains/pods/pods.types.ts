@@ -48,3 +48,13 @@ export type LivePod = {
   applicantCount: number;
   capacity: number;
 };
+
+/** 홈 인기 소분팟 목록 항목입니다. */
+export type PodSummary = {
+  id: string;
+  productName: string;
+  imageUrl: string;
+  currentCount: number;
+  targetCount: number;
+  deadlineLabel: string;
+};

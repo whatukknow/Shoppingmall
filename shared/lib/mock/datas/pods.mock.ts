@@ -1,11 +1,4 @@
-type PodSummaryItem = {
-  id: string;
-  productName: string;
-  imageUrl: string;
-  currentCount: number;
-  targetCount: number;
-  deadlineLabel: string;
-};
+import type { PodSummary } from '@/domains/pods/pods.types';
 
 const IMAGES = '/uploads/images/home/products';
 
@@ -16,7 +9,7 @@ const pod = (
   currentCount: number,
   targetCount: number,
   deadlineLabel: string,
-): PodSummaryItem => ({
+): PodSummary => ({
   id,
   productName,
   imageUrl: `${IMAGES}/${image}`,
@@ -25,7 +18,7 @@ const pod = (
   deadlineLabel,
 });
 
-const pods: PodSummaryItem[] = [
+const pods: PodSummary[] = [
   pod('pod-001', '달콤한 참외 5kg 소분', 'korean-melon.png', 2, 4, '오늘 마감'),
   pod('pod-002', '방울토마토 2kg 소분', 'tomatoes.png', 3, 5, '오늘 마감'),
   pod('pod-003', '노란 멜론 3입 소분', 'honeydew-melon.png', 1, 4, 'D-1'),

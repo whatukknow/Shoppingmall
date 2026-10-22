@@ -3,7 +3,7 @@
 import { CarouselContainer } from '@/shared/components/CarouselContainer';
 import { TasteFinderPromptCard } from './TasteFinderPromptCard';
 import type { HomeRecommendationMode } from '../data/homeRecommendations';
-import type { HomeProductCardProduct } from './HomeProductCard';
+import type { HomeCardItem } from '../home.types';
 import { HomeProductCard } from './HomeProductCard';
 
 /** 추천 모드에 맞는 상품 목록과 취향 유도 카드를 보여줍니다. */
@@ -11,7 +11,7 @@ export function ShareProductsCarousel({
   products,
   mode,
 }: {
-  products: HomeProductCardProduct[];
+  products: HomeCardItem[];
   mode: HomeRecommendationMode;
 }) {
   const visibleProducts = products;

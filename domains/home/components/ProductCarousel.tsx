@@ -3,20 +3,10 @@
 import { CarouselContainer } from '@/shared/components/CarouselContainer';
 import Image from 'next/image';
 import Link from 'next/link';
-
-/** 상품 둘러보기 목록 항목입니다. */
-export type CatalogCardProduct = {
-  id: string;
-  name: string;
-  imageUrl: string;
-};
+import type { CatalogCardItem } from '../home.types';
 
 /** 상품목록 데이터를 기존 홈 캐러셀과 같은 상품 카드 모양으로 보여줍니다. */
-export function ProductCarousel({
-  products,
-}: {
-  products: CatalogCardProduct[];
-}) {
+export function ProductCarousel({ products }: { products: CatalogCardItem[] }) {
   return (
     <section className="max-w-1260px mx-auto w-full px-6 pt-14 md:px-0">
       <p className="font-sans text-[15.6px] font-bold tracking-[0.08em] text-[#650f20] md:text-[17.16px]">

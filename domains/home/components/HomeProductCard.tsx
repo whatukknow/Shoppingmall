@@ -1,20 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
-/** 홈 캐러셀 카드의 상품 정보입니다. */
-export type HomeProductCardProduct = {
-  id: string;
-  name: string;
-  imageUrl: string;
-  description?: string;
-};
+import type { HomeCardItem } from '../home.types';
 
 /** 홈 캐러셀에서 재사용하는 상품 카드입니다. */
 export function HomeProductCard({
   product,
   rank,
 }: {
-  product: HomeProductCardProduct;
+  product: HomeCardItem;
   rank?: number;
 }) {
   const cardContent = (

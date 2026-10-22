@@ -1,7 +1,7 @@
 import { apiClient } from '@/shared/lib/client';
 import type { ApiResponse, ListResponse } from '@/shared/lib/api.types';
 import type { RecommendedProduct } from './home.types';
-import { HOME_LIST_LIMIT } from './home.types';
+import { HOME_LIST_LIMIT } from './home.constants';
 import type { HomeRecommendationStatus } from './data/homeRecommendations';
 import type { HomeProduct } from './data/homeProducts';
 
