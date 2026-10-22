@@ -3,14 +3,23 @@
 import { CarouselContainer } from '@/shared/components/CarouselContainer';
 import Image from 'next/image';
 import Link from 'next/link';
-import type { ReactNode } from 'react';
-import type { CatalogProduct } from '@/domains/products/data/productCatalog';
+
+/** 상품 둘러보기 목록 항목입니다. */
+export type CatalogCardProduct = {
+  id: string;
+  name: string;
+  imageUrl: string;
+};
 
 /** 상품목록 데이터를 기존 홈 캐러셀과 같은 상품 카드 모양으로 보여줍니다. */
-export function ProductCarousel({ products }: { products: CatalogProduct[] }) {
+export function ProductCarousel({
+  products,
+}: {
+  products: CatalogCardProduct[];
+}) {
   return (
     <section className="max-w-1260px mx-auto w-full px-6 pt-14 md:px-0">
-      <p className="font-sans text-[15.6px] font-bold tracking-[0.08em] md:text-[17.16px] text-[#650f20]">
+      <p className="font-sans text-[15.6px] font-bold tracking-[0.08em] text-[#650f20] md:text-[17.16px]">
         EXPLORE PRODUCTS
       </p>
       <h2 className="mt-2 text-[26px] leading-tight font-bold sm:text-[30px]">
@@ -27,51 +36,32 @@ export function ProductCarousel({ products }: { products: CatalogProduct[] }) {
         <CarouselContainer
           items={products}
           itemsPerSlide={5}
-          getItemKey={(product) =>
-            String(product.id ?? `${product.name}-${product.category}`)
-          }
+          getItemKey={(product) => product.id}
           ariaLabel="상품 목록"
           renderItem={(product) => (
-            <ProductCardLink id={product.id}>
+            <Link
+              href={`/products/${encodeURIComponent(product.id)}`}
+              className="block min-w-0 transition-opacity hover:opacity-75"
+            >
               <div className="flex h-[150px] items-center justify-center sm:h-[190px]">
-                {product.image ? (
-                  <Image
-                    src={product.image}
-                    alt=""
-                    width={170}
-                    height={170}
-                    className="size-[138px] object-contain sm:size-[170px]"
-                  />
-                ) : null}
+                <Image
+                  src={product.imageUrl}
+                  alt=""
+                  width={170}
+                  height={170}
+                  sizes="(max-width: 640px) 138px, 170px"
+                  className="size-[138px] object-contain sm:size-[170px]"
+                />
               </div>
               <div className="pt-3">
                 <h3 className="text-base leading-7 font-bold sm:text-[19px]">
                   {product.name}
                 </h3>
               </div>
-            </ProductCardLink>
+            </Link>
           )}
         />
       </div>
     </section>
-  );
-}
-
-function ProductCardLink({
-  id,
-  children,
-}: {
-  id?: string | number;
-  children: ReactNode;
-}) {
-  return id !== undefined ? (
-    <Link
-      href={`/products/${encodeURIComponent(String(id))}`}
-      className="block min-w-0 transition-opacity hover:opacity-75"
-    >
-      {children}
-    </Link>
-  ) : (
-    <div className="block min-w-0">{children}</div>
   );
 }
