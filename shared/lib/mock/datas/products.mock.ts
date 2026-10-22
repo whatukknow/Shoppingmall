@@ -541,6 +541,177 @@ const seeds: Seed[] = [
 ];
 
 // 등록 역순(최신 등록순)으로 정렬해 노출합니다.
+// AI 추천(users/me/product-recommendations)에만 나오는 상품입니다. 상세만 제공하고 전체 목록에는 넣지 않습니다.
+const recommendationOnlySeeds: Seed[] = [
+  {
+    id: 'pc-101',
+    name: '스테이크용 소고기',
+    image: `${IMAGES}/illustration-beef-steak.png`,
+    description: '두툼하게 썬 스테이크용 소고기입니다.',
+    category: '정육',
+    price: 18900,
+    unit: '300g',
+    discountRate: 10,
+    farmName: '횡성한우목장',
+    farmInfo:
+      '강원 횡성에서 한우를 기르는 목장입니다. 주문을 받은 뒤 정육점에서 두께를 맞춰 손질합니다.',
+    basicInfo: {
+      contentGuide: '소고기 등심 300g(2장)을 진공 포장해 보냅니다.',
+      ingredients: '소고기(국내산) 100%',
+      allergyInfo: '소고기에 민감한 분은 섭취 전 확인해 주세요.',
+      storageMethod: '냉장(0~4℃) 보관하고 받은 날부터 3일 안에 드세요.',
+      shippingInfo: '아이스팩과 함께 냉장 배송으로 출고됩니다.',
+      notice: '부위별로 마블링과 모양은 조금씩 다를 수 있습니다.',
+    },
+    tips: [
+      {
+        id: 'pc-101-tip-1',
+        title: '굽기 전 준비',
+        content: '굽기 30분 전에 꺼내 실온에 두고 소금은 굽기 직전에 뿌리세요.',
+      },
+      {
+        id: 'pc-101-tip-2',
+        title: '굽는 방법',
+        content: '센 불에서 앞뒤로 1~2분씩 굽고 5분 쉬게 한 뒤 썰어 드세요.',
+      },
+    ],
+  },
+  {
+    id: 'pc-102',
+    name: '유정란 10구',
+    image: `${IMAGES}/illustration-fried-egg.png`,
+    description: '넓은 마당에서 키운 닭이 낳은 유정란입니다.',
+    category: '달걀',
+    price: 6900,
+    unit: '10구',
+    discountRate: 0,
+    farmName: '햇살마당농장',
+    farmInfo:
+      '충남 홍성에서 닭을 풀어 키우는 농장입니다. 매일 아침 모은 달걀을 세척해 보냅니다.',
+    basicInfo: {
+      contentGuide: '유정란 10구를 난좌에 담아 보냅니다.',
+      ingredients: '달걀(국내산) 100%',
+      allergyInfo: '달걀에 민감한 분은 섭취 전 확인해 주세요.',
+      storageMethod: '뾰족한 쪽이 아래로 가게 냉장 보관하세요.',
+      shippingInfo: '주문 다음날 출고됩니다.',
+      notice: '달걀 크기와 껍질 색은 조금씩 다를 수 있습니다.',
+    },
+    tips: [
+      {
+        id: 'pc-102-tip-1',
+        title: '반숙 만들기',
+        content:
+          '끓는 물에 넣고 6분 30초 뒤 찬물에 식히면 노른자가 부드럽습니다.',
+      },
+      {
+        id: 'pc-102-tip-2',
+        title: '보관 팁',
+        content: '씻지 않은 채 보관하고 쓰기 직전에 물로 헹구세요.',
+      },
+    ],
+  },
+  {
+    id: 'pc-103',
+    name: '돼지 목살',
+    image: `${IMAGES}/illustration-pork-steak.png`,
+    description: '구이용으로 두껍게 썬 돼지 목살입니다.',
+    category: '정육',
+    price: 11900,
+    unit: '500g',
+    discountRate: 5,
+    farmName: '지리산흑돼지농장',
+    farmInfo:
+      '경남 함양 지리산 자락에서 흑돼지를 기릅니다. 도축 후 바로 손질해 냉장으로 보냅니다.',
+    basicInfo: {
+      contentGuide: '돼지 목살 500g을 구이용 두께로 썰어 진공 포장합니다.',
+      ingredients: '돼지고기(국내산) 100%',
+      allergyInfo: '돼지고기에 민감한 분은 섭취 전 확인해 주세요.',
+      storageMethod: '냉장(0~4℃) 보관하고 받은 날부터 3일 안에 드세요.',
+      shippingInfo: '아이스팩과 함께 냉장 배송으로 출고됩니다.',
+      notice: '지방 분포는 조금씩 다를 수 있습니다.',
+    },
+    tips: [
+      {
+        id: 'pc-103-tip-1',
+        title: '굽는 방법',
+        content:
+          '중불에서 뚜껑을 덮어 속까지 익힌 뒤 센 불로 겉을 노릇하게 구우세요.',
+      },
+      {
+        id: 'pc-103-tip-2',
+        title: '곁들이기',
+        content: '구운 마늘과 쌈채소를 곁들이면 한 끼 식사가 됩니다.',
+      },
+    ],
+  },
+  {
+    id: 'pc-104',
+    name: '닭다리살',
+    image: `${IMAGES}/illustration-chicken-drumstick.png`,
+    description: '뼈를 발라낸 부드러운 닭다리살입니다.',
+    category: '정육',
+    price: 8900,
+    unit: '500g',
+    discountRate: 0,
+    farmName: '청정닭농장',
+    farmInfo:
+      '전북 정읍에서 닭을 기르는 농장입니다. 손질을 마친 닭다리살을 냉장으로 보냅니다.',
+    basicInfo: {
+      contentGuide: '뼈를 바른 닭다리살 500g을 진공 포장해 보냅니다.',
+      ingredients: '닭고기(국내산) 100%',
+      allergyInfo: '닭고기에 민감한 분은 섭취 전 확인해 주세요.',
+      storageMethod: '냉장(0~4℃) 보관하고 받은 날부터 2일 안에 드세요.',
+      shippingInfo: '아이스팩과 함께 냉장 배송으로 출고됩니다.',
+      notice: '조각 크기는 조금씩 다를 수 있습니다.',
+    },
+    tips: [
+      {
+        id: 'pc-104-tip-1',
+        title: '굽는 방법',
+        content: '껍질 쪽부터 팬에 올려 기름이 나올 때까지 중불에서 구우세요.',
+      },
+      {
+        id: 'pc-104-tip-2',
+        title: '활용 방법',
+        content: '한입 크기로 썰어 간장 양념에 볶으면 덮밥이 됩니다.',
+      },
+    ],
+  },
+  {
+    id: 'pc-105',
+    name: '블루베리 팩',
+    image: `${IMAGES}/illustration-blueberries.png`,
+    description: '알이 단단한 생블루베리 한 팩입니다.',
+    category: '과일',
+    price: 9900,
+    unit: '1팩 · 250g',
+    discountRate: 5,
+    farmName: '용인블루베리농원',
+    farmInfo:
+      '경기 용인의 노지 밭에서 블루베리를 재배합니다. 아침에 수확한 열매만 골라 담습니다.',
+    basicInfo: {
+      contentGuide: '블루베리 250g을 투명 용기에 담아 보냅니다.',
+      ingredients: '블루베리(국내산) 100%',
+      allergyInfo: '블루베리에 민감한 분은 섭취 전 소량으로 확인해 주세요.',
+      storageMethod: '씻지 않은 채 냉장 보관하고 받은 날부터 3일 안에 드세요.',
+      shippingInfo: '수확 다음날 출고됩니다.',
+      notice: '수확 시기에 따라 알 크기와 당도가 조금씩 다를 수 있습니다.',
+    },
+    tips: [
+      {
+        id: 'pc-105-tip-1',
+        title: '씻는 요령',
+        content: '먹기 직전에 흐르는 물에 가볍게 헹구고 물기를 빼세요.',
+      },
+      {
+        id: 'pc-105-tip-2',
+        title: '활용 방법',
+        content: '요거트나 시리얼에 올리거나 냉동해 두고 간식으로 드세요.',
+      },
+    ],
+  },
+];
+
 const listItems: ProductListItem[] = [...seeds]
   .reverse()
   .map(({ id, name, image, description, category, price }) => ({
@@ -582,7 +753,7 @@ export const productsData: Record<`GET ${string}`, string> = {
     },
   }),
   ...Object.fromEntries(
-    seeds.map((seed) => [
+    [...seeds, ...recommendationOnlySeeds].map((seed) => [
       `GET products/${seed.id}`,
       JSON.stringify({ data: toDetail(seed) }),
     ]),

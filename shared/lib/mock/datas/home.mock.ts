@@ -29,11 +29,11 @@ const randomProducts: HomeRecommendProduct[] = [
 ];
 
 const aiProducts: HomeRecommendProduct[] = [
-  p('p-101', '스테이크용 소고기', 'illustration-beef-steak.png'),
-  p('p-102', '반숙 계란후라이', 'illustration-fried-egg.png'),
-  p('p-103', '돼지 목살 스테이크', 'illustration-pork-steak.png'),
-  p('p-104', '닭다리살 구이', 'illustration-chicken-drumstick.png'),
-  p('p-105', '블루베리 팩', 'illustration-blueberries.png'),
+  p('pc-101', '스테이크용 소고기', 'illustration-beef-steak.png'),
+  p('pc-102', '유정란 10구', 'illustration-fried-egg.png'),
+  p('pc-103', '돼지 목살', 'illustration-pork-steak.png'),
+  p('pc-104', '닭다리살', 'illustration-chicken-drumstick.png'),
+  p('pc-105', '블루베리 팩', 'illustration-blueberries.png'),
 ];
 
 const randomListResponse = {
