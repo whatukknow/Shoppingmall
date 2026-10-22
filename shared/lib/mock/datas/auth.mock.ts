@@ -1,8 +1,5 @@
-import { myProfileMock } from '@/domains/auth/data/auth.mock';
-
 // 목업 등록부: 'METHOD path' 키에 JSON 문자열 응답 (GET·POST 지원)
 export const authData: Record<`${'GET' | 'POST'} ${string}`, string> = {
-  'GET auth/me': JSON.stringify(myProfileMock),
   'POST auth/signin': JSON.stringify({
     data: {
       id: 'member-1',

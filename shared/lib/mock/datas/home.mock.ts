@@ -1,13 +1,3 @@
-// 테스트 전환용: 값을 바꿔('guest' | 'ai' | 'needs-taste') 홈 추천 모드를 확인한다.
-export const HOME_RECOMMENDATION_MOCK_SCENARIO: 'guest' | 'ai' | 'needs-taste' =
-  'guest';
-
-const statusByScenario = {
-  guest: { isLoggedIn: false, hasTasteProfile: false },
-  ai: { isLoggedIn: true, hasTasteProfile: true },
-  'needs-taste': { isLoggedIn: true, hasTasteProfile: false },
-} as const;
-
 type HomeRecommendProduct = { id: string; name: string; imageUrl: string };
 
 const IMAGES = '/uploads/images/home/products';
@@ -68,7 +58,4 @@ export const homeData: Record<`GET ${string}`, string> = {
   'GET users/me/product-recommendations': JSON.stringify({
     data: aiListResponse,
   }),
-  'GET home/recommendations/status': JSON.stringify(
-    statusByScenario[HOME_RECOMMENDATION_MOCK_SCENARIO],
-  ),
 };
