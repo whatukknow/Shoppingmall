@@ -10,6 +10,7 @@ type ProfileViewProps = {
   myPodsHref?: string; // 내 신청 팟 목록 주소 (상돈님 화면, 정해지면 전달)
   tasteHref?: string; // AI 추천 취향 주소 (서인님 화면, 정해지면 전달)
   onLogout: () => void;
+  isPending?: boolean; // 로그아웃 대기 중 (버튼 비활성화)
 };
 
 // 이동 버튼 하나 (이 파일 안에서만 씀)
@@ -52,6 +53,7 @@ export function ProfileView({
   myPodsHref: myPotsHref,
   tasteHref,
   onLogout,
+  isPending = false,
 }: ProfileViewProps) {
   const infoRows = [
     { label: '이름', value: member.name },
@@ -133,8 +135,10 @@ export function ProfileView({
             size="touch"
             className="w-full"
             onClick={onLogout}
+            disabled={isPending}
+            aria-busy={isPending}
           >
-            로그아웃
+            {isPending ? '로그아웃 중…' : '로그아웃'}
           </Button>
         </section>
       </div>

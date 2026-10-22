@@ -9,6 +9,7 @@ type LoginFormProps = {
   errors: FieldErrors<LoginValues>;
   onChange: (field: keyof LoginValues, value: string) => void;
   onSubmit: () => void;
+  isPending?: boolean; // 제출 대기 중 (버튼 비활성화)
   signupHref: string;
 };
 
@@ -19,6 +20,7 @@ export function LoginForm({
   errors,
   onChange,
   onSubmit,
+  isPending = false,
   signupHref,
 }: LoginFormProps) {
   return (
@@ -54,8 +56,14 @@ export function LoginForm({
         required
       />
 
-      <Button type="submit" size="touch" className="w-full">
-        로그인
+      <Button
+        type="submit"
+        size="touch"
+        className="w-full"
+        disabled={isPending}
+        aria-busy={isPending}
+      >
+        {isPending ? '로그인 중…' : '로그인'}
       </Button>
 
       <Link
