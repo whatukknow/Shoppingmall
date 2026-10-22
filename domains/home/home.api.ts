@@ -1,29 +1,34 @@
 import { apiClient } from '@/shared/lib/client';
-import type { HomeProduct } from './data/homeProducts';
+import type { ApiResponse, ListResponse } from '@/shared/lib/api.types';
+import type { RecommendedProduct } from './home.types';
+import { HOME_LIST_LIMIT } from './home.constants';
 import type { HomeRecommendationStatus } from './data/homeRecommendations';
+import type { HomeProduct } from './data/homeProducts';
 
 const ENDPOINTS = {
-  randomRecommendations: 'home/recommendations/random',
-  aiRecommendations: 'home/recommendations/ai',
+  randomRecommendations: 'products',
+  aiRecommendations: 'users/me/product-recommendations',
   recommendationStatus: 'home/recommendations/status',
 } as const;
 
-/** 목업 제거 후 API 형태만 유지합니다. TODO: 실제 추천·인기 상품 조회를 연결합니다. */
-export async function getHomeProducts(): Promise<{
-  shareProducts: HomeProduct[];
-  popularProducts: HomeProduct[];
-}> {
-  return { shareProducts: [], popularProducts: [] };
-}
-
 /** 랜덤 추천 상품을 조회합니다. */
-export async function getRandomRecommendations(): Promise<HomeProduct[]> {
-  return apiClient.get<HomeProduct[]>(ENDPOINTS.randomRecommendations);
+export async function getRandomRecommendations(
+  limit: number = HOME_LIST_LIMIT.recommendations,
+): Promise<RecommendedProduct[]> {
+  const response = await apiClient.get<
+    ApiResponse<ListResponse<RecommendedProduct>>
+  >(ENDPOINTS.randomRecommendations, { params: { type: 'random', limit } });
+  return response.data.list;
 }
 
 /** 로그인 사용자의 AI 추천 상품을 조회합니다. */
-export async function getAiRecommendations(): Promise<HomeProduct[]> {
-  return apiClient.get<HomeProduct[]>(ENDPOINTS.aiRecommendations);
+export async function getAiRecommendations(
+  limit: number = HOME_LIST_LIMIT.recommendations,
+): Promise<RecommendedProduct[]> {
+  const response = await apiClient.get<
+    ApiResponse<ListResponse<RecommendedProduct>>
+  >(ENDPOINTS.aiRecommendations, { params: { limit } });
+  return response.data.list;
 }
 
 // TODO(session): 세션(쿠키)의 사용자 정보 hasTasteProfile 로 판정 — proxy.ts 에서 확인한 사용자 기준
@@ -32,4 +37,13 @@ export async function getRecommendationStatus(): Promise<HomeRecommendationStatu
   return apiClient.get<HomeRecommendationStatus>(
     ENDPOINTS.recommendationStatus,
   );
+}
+
+// 온보딩 레이아웃(app/onboarding/layout.tsx)이 아직 사용하므로 유지합니다.
+// TODO: 온보딩이 새 API 로 전환되면 삭제합니다.
+export async function getHomeProducts(): Promise<{
+  shareProducts: HomeProduct[];
+  popularProducts: HomeProduct[];
+}> {
+  return { shareProducts: [], popularProducts: [] };
 }

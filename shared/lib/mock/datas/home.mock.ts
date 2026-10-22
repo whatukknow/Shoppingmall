@@ -1,5 +1,3 @@
-import type { HomeProduct } from '@/domains/home/data/homeProducts';
-
 // 테스트 전환용: 값을 바꿔('guest' | 'ai' | 'needs-taste') 홈 추천 모드를 확인한다.
 export const HOME_RECOMMENDATION_MOCK_SCENARIO: 'guest' | 'ai' | 'needs-taste' =
   'guest';
@@ -10,44 +8,66 @@ const statusByScenario = {
   'needs-taste': { isLoggedIn: true, hasTasteProfile: false },
 } as const;
 
-const p = (
-  name: string,
-  description: string,
-  illustration: HomeProduct['illustration'],
-): HomeProduct => ({ name, description, illustration });
+type HomeRecommendProduct = { id: string; name: string; imageUrl: string };
 
-const randomProducts: HomeProduct[] = [
-  p('달콤한 참외', '아침에 먹기 좋은 달큰한 참외', 'koreanMelon'),
-  p('방울토마토', '새콤달콤한 맛의 방울토마토', 'tomatoes'),
-  p('노란 멜론', '부드럽고 향긋한 여름 멜론', 'melon'),
-  p('늙은 호박', '죽과 찜에 어울리는 고소한 호박', 'pumpkin'),
-  p('제주 귤', '제주 햇살의 달콤한 귤', 'orange'),
-  p('거봉 포도', '알맹이가 통통한 거봉', 'grapes'),
-  p('딸기 팩', '향이 진한 방울딸기', 'strawberry'),
-  p('양파 3개', '요리에 빠질 수 없는 기본 양파', 'onion'),
-  p('양배추', '아삭하고 신선한 통양배추', 'cabbage'),
-  p('대파 다발', '국과 볶음에 좋은 대파', 'scallion'),
-  p('완두콩', '달큰한 봄 완두콩', 'peas'),
-  p('방울양배추', '고소하고 담백한 방울양배추', 'brusselsSprouts'),
-  p('사과 2입', '아삭하고 달콤한 가을 사과', 'apple'),
-  p('감귤 팩', '새콤달콤한 제주 감귤', 'mandarin'),
-  p('통수박', '시원하고 달콤한 여름 수박', 'watermelon'),
+const IMAGES = '/uploads/images/home/products';
+
+const p = (id: string, name: string, image: string): HomeRecommendProduct => ({
+  id,
+  name,
+  imageUrl: `${IMAGES}/${image}`,
+});
+
+// 기존 목업 상품명·일러스트 경로를 재사용합니다.
+// 랜덤 추천은 상품 목록과 같은 상품(id)을 순서만 섞어 보여줍니다.
+const randomProducts: HomeRecommendProduct[] = [
+  p('pc-007', '딸기 팩', 'strawberry.png'),
+  p('pc-001', '달콤한 참외', 'korean-melon.png'),
+  p('pc-013', '사과 2입', 'apple.png'),
+  p('pc-010', '대파 다발', 'scallion.png'),
+  p('pc-004', '늙은 호박', 'pumpkin.png'),
+  p('pc-015', '통수박', 'watermelon.png'),
+  p('pc-002', '방울토마토', 'tomatoes.png'),
+  p('pc-011', '완두콩', 'peas.png'),
+  p('pc-005', '제주 귤', 'orange.png'),
+  p('pc-008', '양파 3개', 'onion.png'),
+  p('pc-014', '감귤 팩', 'mandarin.png'),
+  p('pc-003', '노란 멜론', 'honeydew-melon.png'),
+  p('pc-012', '방울양배추', 'brussels-sprouts.png'),
+  p('pc-006', '거봉 포도', 'grapes.png'),
+  p('pc-009', '양배추', 'cabbage.png'),
 ];
 
-const aiProducts: HomeProduct[] = [
-  p('스테이크용 소고기', '집에서 즐기는 두툼한 소고기 스테이크', 'beefSteak'),
-  p('반숙 계란후라이', '고소한 노른자의 계란후라이', 'friedEgg'),
-  p('돼지 목살 스테이크', '육즙이 살아있는 돼지 스테이크', 'porkSteak'),
-  p('닭다리살 구이', '촉촉하게 익은 닭다리살', 'chickenDrumstick'),
-  p('블루베리 팩', '알이 굵은 생블루베리', 'blueberries'),
+const aiProducts: HomeRecommendProduct[] = [
+  p('p-101', '스테이크용 소고기', 'illustration-beef-steak.png'),
+  p('p-102', '반숙 계란후라이', 'illustration-fried-egg.png'),
+  p('p-103', '돼지 목살 스테이크', 'illustration-pork-steak.png'),
+  p('p-104', '닭다리살 구이', 'illustration-chicken-drumstick.png'),
+  p('p-105', '블루베리 팩', 'illustration-blueberries.png'),
 ];
+
+const randomListResponse = {
+  list: randomProducts,
+  total: 15,
+  limit: 15,
+  offset: 0,
+};
+
+const aiListResponse = {
+  list: aiProducts,
+  total: 5,
+  limit: 5,
+  offset: 0,
+};
 
 // 홈 상품 목업: 공통 응답 구조는 유지합니다.
 export const homeData: Record<`GET ${string}`, string> = {
-  'GET home/share-products': JSON.stringify([]),
-  'GET home/popular-products': JSON.stringify([]),
-  'GET home/recommendations/random': JSON.stringify(randomProducts),
-  'GET home/recommendations/ai': JSON.stringify(aiProducts),
+  'GET products?type=random': JSON.stringify({
+    data: randomListResponse,
+  }),
+  'GET users/me/product-recommendations': JSON.stringify({
+    data: aiListResponse,
+  }),
   'GET home/recommendations/status': JSON.stringify(
     statusByScenario[HOME_RECOMMENDATION_MOCK_SCENARIO],
   ),

@@ -7,13 +7,13 @@ import {
   getRecommendationStatus,
 } from '@/domains/home/home.api';
 import { resolveHomeRecommendationMode } from '@/domains/home/data/homeRecommendations';
-import type { HomeProduct } from '@/domains/home/data/homeProducts';
+import type { HomeCardItem } from '@/domains/home/home.types';
 
 /** 추천 상품 섹션: 상태 조회 → 모드 판정 → 모드별 추천 조회 후 캐러셀을 그립니다. */
 export default async function ShareProductsContainer() {
   const status = await getRecommendationStatus();
   const recommendationMode = resolveHomeRecommendationMode(status);
-  let products: HomeProduct[];
+  let products: HomeCardItem[];
   switch (recommendationMode) {
     case 'ai':
       products = await getAiRecommendations();

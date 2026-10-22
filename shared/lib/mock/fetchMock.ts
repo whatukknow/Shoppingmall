@@ -1,6 +1,7 @@
 import { authData } from './datas/auth.mock';
 import { homeData } from './datas/home.mock';
 import { paymentData } from './datas/payment.mock';
+import { podsData } from './datas/pods.mock';
 import { productsData } from './datas/products.mock';
 
 type MockMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
@@ -28,9 +29,28 @@ export function mergeRegistries(...registries: MockRegistry[]): MockRegistry {
 const mockRegistry = mergeRegistries(
   homeData,
   productsData,
+  podsData,
   paymentData,
   authData,
 );
+
+// limit·offset 은 페이징 파라미터이므로 키 매칭에서 제외합니다.
+function toExactKey(method: string, path: string): MockKey {
+  const [rawPath, rawQuery] = path.split('?');
+  const endpoint = `${method.toUpperCase()} ${rawPath}`;
+
+  if (rawQuery === undefined) return endpoint as MockKey;
+
+  const kept = rawQuery
+    .split('&')
+    .filter(Boolean)
+    .filter(
+      (pair) => !pair.startsWith('limit=') && !pair.startsWith('offset='),
+    );
+
+  if (kept.length === 0) return endpoint as MockKey;
+  return `${endpoint}?${kept.join('&')}` as MockKey;
+}
 
 export default function fetchMock(
   method: string,
@@ -39,6 +59,13 @@ export default function fetchMock(
 ): string | undefined {
   void body;
 
+  // (a) 쿼리 포함 키 우선 매칭 (limit·offset 제외)
+  const exactKey = toExactKey(method, path);
+  if (Object.prototype.hasOwnProperty.call(mockRegistry, exactKey)) {
+    return mockRegistry[exactKey];
+  }
+
+  // (b) 기존처럼 쿼리 없는 경로 키 매칭
   const endpoint = `${method.toUpperCase()} ${path.split('?')[0]}` as MockKey;
   return Object.prototype.hasOwnProperty.call(mockRegistry, endpoint)
     ? mockRegistry[endpoint]

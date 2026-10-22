@@ -17,9 +17,6 @@ export type SignupValues = {
   agreeNotification: boolean; // 선택 알림 수신
 };
 
-// API 공통 응답 모양
-export type ApiResponse<T> = { data: T };
-
 // 로그인 API 요청
 export type SignInRequest = {
   email: string;

@@ -1,6 +1,6 @@
 import { apiClient } from '@/shared/lib/client';
+import type { ApiResponse } from '@/shared/lib/api.types';
 import type {
-  ApiResponse,
   Member,
   SignInRequest,
   SignInResponse,

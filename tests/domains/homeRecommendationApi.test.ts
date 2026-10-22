@@ -13,8 +13,10 @@ describe('home recommendation api (mock)', () => {
 
     assert.equal(products.length, 15);
     for (const product of products) {
+      assert.equal(typeof product.id, 'string');
       assert.equal(typeof product.name, 'string');
-      assert.equal(typeof product.description, 'string');
+      assert.equal(typeof product.imageUrl, 'string');
+      assert.ok(product.imageUrl.length > 0);
     }
   });
 
@@ -23,8 +25,9 @@ describe('home recommendation api (mock)', () => {
 
     assert.equal(products.length, 5);
     for (const product of products) {
+      assert.equal(typeof product.id, 'string');
       assert.equal(typeof product.name, 'string');
-      assert.equal(typeof product.description, 'string');
+      assert.equal(typeof product.imageUrl, 'string');
     }
   });
 
