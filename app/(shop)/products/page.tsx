@@ -1,11 +1,13 @@
 /*전체 상품 리스트 */
 
-import Link from 'next/link';
-import { ProductCatalogGrid } from '@/domains/products/components/ProductCatalogGrid';
-import { getProducts } from '@/domains/products/products.api';
+import { Suspense } from 'react';
 
-export default async function ProductListPage() {
-  const { list: productCatalog, total } = await getProducts();
+import Link from 'next/link';
+import ProductCountContainer from '@/domains/products/containers/ProductCountContainer';
+import ProductListContainer from '@/domains/products/containers/ProductListContainer';
+import { ProductGridSkeleton } from '@/domains/products/components/ProductGridSkeleton';
+
+export default function ProductListPage() {
   return (
     <main className="bg-background flex-1 pb-24 font-sans">
       <header className="mx-auto w-full max-w-[1440px] px-6 pt-14">
@@ -43,7 +45,17 @@ export default async function ProductListPage() {
             </p>
           </div>
 
-          <p className="text-foreground/70 pb-1 text-sm">{total}개 상품</p>
+          <Suspense
+            fallback={
+              <div
+                className="mb-1 h-5 w-16 animate-pulse rounded bg-[#e0ded6]"
+                aria-busy="true"
+                aria-label="상품 개수를 불러오는 중이에요."
+              />
+            }
+          >
+            <ProductCountContainer />
+          </Suspense>
         </div>
       </section>
       <section
@@ -51,7 +63,9 @@ export default async function ProductListPage() {
         aria-label="전체 상품 목록"
         className="mx-auto mt-12 w-full max-w-[1440px] px-6"
       >
-        <ProductCatalogGrid products={productCatalog} />
+        <Suspense fallback={<ProductGridSkeleton />}>
+          <ProductListContainer />
+        </Suspense>
       </section>
     </main>
   );
