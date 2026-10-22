@@ -3,10 +3,10 @@
 import Link from 'next/link';
 import { Button } from '@/shared/components';
 import { cn } from '@/shared/utils/cn';
-import type { Member } from '../auth.types';
+import type { User } from '../users.types';
 
 type ProfileViewProps = {
-  member: Member;
+  member: User;
   myPodsHref?: string; // 내 신청 팟 목록 주소 (상돈님 화면, 정해지면 전달)
   tasteHref?: string; // AI 추천 취향 주소 (서인님 화면, 정해지면 전달)
   onLogout: () => void;
@@ -55,12 +55,16 @@ export function ProfileView({
   onLogout,
   isPending = false,
 }: ProfileViewProps) {
+  const deliveryInfo =
+    member.recipientName && member.recipientAddress
+      ? `${member.recipientName} · ${member.recipientPhone} · (${member.postalCode}) ${member.recipientAddress} ${member.recipientAddressDetail}`
+      : undefined;
   const infoRows = [
     { label: '이름', value: member.name },
     { label: '이메일', value: member.email },
     {
       label: '수령 정보',
-      value: member.deliveryInfo ?? '등록된 수령 정보가 없어요.',
+      value: deliveryInfo ?? '등록된 수령 정보가 없어요.',
     },
   ];
 

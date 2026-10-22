@@ -5,10 +5,10 @@ import { useRouter } from 'next/navigation';
 import { signOut } from '@/domains/auth/auth.api';
 import { ProfileView } from '@/domains/auth/components/ProfileView';
 import { AUTH_PREVIEW_SESSION_KEY } from '@/domains/auth/data/authPreviewSession';
-import type { Member } from '@/domains/auth/auth.types';
+import type { User } from '@/domains/auth/users.types';
 
 type ProfileContainerProps = {
-  member: Member;
+  member: User;
   myPodsHref?: string;
   tasteHref?: string;
 };
