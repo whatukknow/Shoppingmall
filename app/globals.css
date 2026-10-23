@@ -1345,3 +1345,16 @@ body label:has(> input[type='radio']) > span {
 .brand-story .eb.font-sans {
   font-family: var(--font-sans);
 }
+
+.peer:checked ~ .payment-method-option {
+  border-color: #0064ff;
+  box-shadow: inset 0 0 0 1px #0064ff;
+}
+
+.payment-method-logo {
+  display: block;
+  width: 72px;
+  height: 54px;
+  max-width: 100%;
+  object-fit: contain;
+}
