@@ -849,8 +849,7 @@ describe('auth.server getMe', () => {
     });
   });
 
-  it('profiles 행이 없으면 관리자 클라이언트로 ensureProfile 로 보정한다', async () => {
-    // getUserUser 에 user_metadata.name 를 채워 보정 이름을 검증한다
+  it('profiles 행이 없으면 관리자 없이 adminUnavailable 폴백 계약 응답을 유지한다', async () => {
     const client = makeFakeClient({
       auth: {
         kind: 'ok',
@@ -861,79 +860,47 @@ describe('auth.server getMe', () => {
       tasteProfiles: [],
       getUserUser: { ...authUser, user_metadata: { name: '보정이름' } },
     });
-    const res = await getMe(client, client);
-    const upserts = client._upserts;
-    assert.deepEqual(
-      upserts.map((u) => [u.table, u.options]),
-      [
-        ['profiles', { onConflict: 'id', ignoreDuplicates: true }],
-        ['auth_users', { onConflict: 'id', ignoreDuplicates: true }],
-      ],
-    );
-    assert.deepEqual(upserts[0]?.payload, {
-      id: 'user-1',
-      display_name: '보정이름',
-      email: 'user@example.com',
-    });
-    assert.deepEqual(upserts[1]?.payload, {
-      id: 'user-1',
-      email: 'user@example.com',
-    });
+    const res = await getMe(client);
+    assert.equal(client._upserts.length, 0, 'auth 서버는 upsert 하지 않는다');
     assert.equal(res.id, 'user-1');
+    assert.equal(res.name, '보정이름');
+    assert.equal(res.email, 'user@example.com');
+    assert.equal(res.recipientName, '');
+    assert.equal(res.defaultAddress, '');
+    assert.equal(res.hasTasteProfile, false);
+  });
+
+  it('auth 경로는 관리자 클라이언트를 만들지 않는다 (signUp·signIn·getMe 공통)', async () => {
+    const client = makeFakeClient({
+      auth: { kind: 'ok', user: authUser, session: authSession },
+      orders: [],
+      tasteProfiles: [],
+      getUserUser: authUser,
+    });
+    await signUp(signupRequest, client);
+    await signIn({ email: 'user@example.com', password: 'pw123456' }, client);
+    await getMe(client);
+    assert.equal(client._upserts.length, 0);
   });
 });
 
-describe('auth.server ensureProfile 보정', () => {
-  it('signUp 성공 시 admin 으로 profiles · auth_users 을 upsert 한다', async () => {
+describe('auth.server 관리자 없는 프로필 계약', () => {
+  it('profiles 행이 있으면 어떤 보정 upsert 도 호출하지 않는다', async () => {
     const client = makeFakeClient({
-      auth: { kind: 'ok', user: authUser, session: authSession },
+      auth: {
+        kind: 'ok',
+        user: { ...authUser, user_metadata: { name: '정은' } },
+        session: authSession,
+      },
+      profiles: [profile('user-1')],
+      orders: [],
+      tasteProfiles: [],
     });
-    await signUp(signupRequest, client, client);
-    const upserts = client._upserts;
-    assert.deepEqual(
-      upserts.map((u) => [u.table, u.options]),
-      [
-        ['profiles', { onConflict: 'id', ignoreDuplicates: true }],
-        ['auth_users', { onConflict: 'id', ignoreDuplicates: true }],
-      ],
-    );
-    assert.deepEqual(upserts[0]?.payload, {
-      id: 'user-1',
-      display_name: '정은',
-      email: 'user@example.com',
-    });
-    assert.deepEqual(upserts[1]?.payload, {
-      id: 'user-1',
-      email: 'user@example.com',
-    });
+    await signIn({ email: 'user@example.com', password: 'pw123456' }, client);
+    assert.equal(client._upserts.length, 0);
   });
 
-  it('보정 upsert 가 실패해도 가입 응답은 성공이고 원문을 로그에 남긴다', async () => {
-    const client = makeFakeClient({
-      auth: { kind: 'ok', user: authUser, session: authSession },
-      upsertError: true,
-    });
-    const logged: unknown[] = [];
-    const originalError = console.error;
-    console.error = (...args: unknown[]) => {
-      logged.push(...args);
-    };
-    try {
-      const res = await signUp(signupRequest, client, client);
-      assert.equal(res.id, 'user-1');
-      assert.equal(res.name, '정은');
-    } finally {
-      console.error = originalError;
-    }
-    assert.ok(client._upserts.length >= 1);
-    assert.equal(client._upserts[0]?.table, 'profiles');
-    const joined = logged.map((a) => String(a)).join(' ');
-    assert.match(joined, /프로필 생성 실패/);
-    assert.match(joined, /upsert failed/);
-    assert.doesNotMatch(joined, /sb_secret_|test-secret/);
-  });
-
-  it('signIn 에서 profiles 행이 없으면 1회 보정 후 name 을 user_metadata 에서 채운다', async () => {
+  it('signIn: profile 없음이면 정상 응답(name 은 user_metadata.name) 을 유지한다', async () => {
     const client = makeFakeClient({
       auth: {
         kind: 'ok',
@@ -946,173 +913,36 @@ describe('auth.server ensureProfile 보정', () => {
     const res = await signIn(
       { email: 'user@example.com', password: 'pw123456' },
       client,
-      client,
     );
-    assert.equal(client._upserts.length, 2);
-    assert.deepEqual(client._upserts[0]?.payload, {
-      id: 'user-1',
-      display_name: '보정이름',
-      email: 'user@example.com',
-    });
     assert.equal(res.id, 'user-1');
-  });
-
-  it('키 미설정으로 관리자 클라이언트를 만들 수 없어도 가입은 성공하고 프로필 생성 실패를 로그로 남긴다', async () => {
-    const prevKey = process.env.SUPABASE_SECRET_KEY;
-    const prevUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    delete process.env.SUPABASE_SECRET_KEY;
-    const logged: unknown[] = [];
-    const originalError = console.error;
-    console.error = (...args: unknown[]) => {
-      logged.push(...args);
-    };
-    try {
-      const client = makeFakeClient({
-        auth: { kind: 'ok', user: authUser, session: authSession },
-      });
-      const res = await signUp(signupRequest, client);
-      assert.equal(res.id, 'user-1');
-      assert.equal(res.name, '정은');
-      assert.equal(client._upserts.length, 0);
-      assert.match(logged.map(String).join(' '), /프로필 생성 실패/);
-      assert.doesNotMatch(logged.map(String).join(' '), /test-secret/);
-    } finally {
-      console.error = originalError;
-      if (prevKey !== undefined) process.env.SUPABASE_SECRET_KEY = prevKey;
-      else delete process.env.SUPABASE_SECRET_KEY;
-      if (prevUrl === undefined) delete process.env.NEXT_PUBLIC_SUPABASE_URL;
-    }
-  });
-
-  it('profiles 행이 있으면 보정 upsert 를 호출하지 않는다', async () => {
-    const client = makeFakeClient({
-      auth: {
-        kind: 'ok',
-        user: { ...authUser, user_metadata: { name: '정은' } },
-        session: authSession,
-      },
-      profiles: [profile('user-1')],
-      orders: [],
-      tasteProfiles: [],
-    });
-    await signIn(
-      { email: 'user@example.com', password: 'pw123456' },
-      client,
-      client,
-    );
+    assert.equal(res.name, '보정이름');
     assert.equal(client._upserts.length, 0);
   });
 
-  describe('관리자 클라이언트 지연 생성 (키 미설정)', () => {
-    const KEY = process.env.SUPABASE_SECRET_KEY;
-
-    function withoutKey(reset: () => void) {
-      return () => {
-        delete process.env.SUPABASE_SECRET_KEY;
-        return reset();
-      };
-    }
-
-    function restoreKey() {
-      if (KEY !== undefined) process.env.SUPABASE_SECRET_KEY = KEY;
-    }
-
-    function captureErrors() {
-      const logged: unknown[] = [];
-      const originalError = console.error;
-      console.error = (...args: unknown[]) => {
-        logged.push(...args);
-      };
-      return {
-        logs: () => logged.map(String).join(' '),
-        restore() {
-          console.error = originalError;
-          restoreKey();
-        },
-      };
-    }
-
-    it(
-      'signIn: profile 없음 + 키 미설정이면 정상 응답(name 은 user_metadata.name) 을 유지한다',
-      withoutKey(async () => {
-        const capture = captureErrors();
-        try {
-          const client = makeFakeClient({
-            auth: {
-              kind: 'ok',
-              user: { ...authUser, user_metadata: { name: '보정이름' } },
-              session: authSession,
-            },
-            orders: [],
-            tasteProfiles: [],
-          });
-          const res = await signIn(
-            { email: 'user@example.com', password: 'pw123456' },
-            client,
-          );
-          assert.equal(res.id, 'user-1');
-          assert.equal(res.name, '보정이름');
-          assert.equal(client._upserts.length, 0);
-          assert.match(capture.logs(), /프로필 보정 실패/);
-        } finally {
-          capture.restore();
-        }
-      }),
+  it('signIn: metadata.name 도 profile 도 없으면 name 은 빈 문자열이지만 응답은 성공이다', async () => {
+    const client = makeFakeClient({
+      auth: { kind: 'ok', user: authUser, session: authSession },
+      orders: [],
+      tasteProfiles: [],
+    });
+    const res = await signIn(
+      { email: 'user@example.com', password: 'pw123456' },
+      client,
     );
+    assert.equal(res.id, 'user-1');
+    assert.equal(res.email, 'user@example.com');
+    assert.equal(res.name, '');
+  });
 
-    it(
-      'signIn: metadata.name 도 profile 도 없으면 name 은 빈 문자열이지만 응답은 성공이다',
-      withoutKey(async () => {
-        const capture = captureErrors();
-        try {
-          const client = makeFakeClient({
-            auth: {
-              kind: 'ok',
-              user: authUser,
-              session: authSession,
-            },
-            orders: [],
-            tasteProfiles: [],
-          });
-          const res = await signIn(
-            { email: 'user@example.com', password: 'pw123456' },
-            client,
-          );
-          assert.equal(res.id, 'user-1');
-          assert.equal(res.email, 'user@example.com');
-          assert.equal(res.name, '');
-        } finally {
-          capture.restore();
-        }
-      }),
-    );
-
-    it(
-      "getMe: profile 없음 + 키 미설정이면 정상 응답(name 은 user_metadata.name ?? '')을 유지한다",
-      withoutKey(async () => {
-        const capture = captureErrors();
-        try {
-          const client = makeFakeClient({
-            auth: {
-              kind: 'ok',
-              user: { ...authUser, user_metadata: { name: '보정이름' } },
-              session: authSession,
-            },
-            getUserUser: { ...authUser, user_metadata: { name: '보정이름' } },
-            orders: [],
-            tasteProfiles: [],
-          });
-          const res = await getMe(client);
-          assert.equal(res.id, 'user-1');
-          assert.equal(res.name, '보정이름');
-          assert.equal(res.email, 'user@example.com');
-          assert.equal(res.hasTasteProfile, false);
-          assert.equal(client._upserts.length, 0);
-          assert.match(capture.logs(), /프로필 보정 실패/);
-        } finally {
-          capture.restore();
-        }
-      }),
-    );
+  it('profiles 행이 없으면 보정 upsert 를 호출하지 않는다 (signUp 포함)', async () => {
+    const client = makeFakeClient({
+      auth: { kind: 'ok', user: authUser, session: authSession },
+      upsertError: true,
+    });
+    const res = await signUp(signupRequest, client);
+    assert.equal(res.id, 'user-1');
+    assert.equal(res.name, '정은');
+    assert.equal(client._upserts[0]?.table, undefined);
+    assert.equal(client._upserts.length, 0);
   });
 });

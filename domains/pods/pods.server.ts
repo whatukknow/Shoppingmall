@@ -146,3 +146,34 @@ export async function listProductPods(
     offset,
   );
 }
+
+/** 서버 전용 팟 쓰기 오류. route handler 가 HTTP 상태·사용자 메시지로 매핑한다 */
+export class PodWriteError extends Error {
+  public status: number;
+
+  constructor(status: number, message: string) {
+    super(message);
+    this.name = 'PodWriteError';
+    this.status = status;
+  }
+}
+
+/** GET pods/:podId(서버 내부) — 팟 1건을 products 조인·대표 이미지까지 매핑 */
+export async function getPod(
+  podId: string,
+  client: SupabaseClient<Database> = createServerClient(),
+): Promise<Pod> {
+  const query = basePodQuery(client, false).eq('id', podId);
+  const { data, error } = await query.maybeSingle();
+  if (error) throw error;
+  const row = data as JoinedPod | null;
+  if (!row) {
+    throw new PodWriteError(404, '팟을 찾을 수 없어요.');
+  }
+  const images = await fetchHeadImages(client, toGids([row]));
+  return toPod(
+    row,
+    row.products?.name ?? '',
+    images.get(row.products?.gid ?? '') ?? '',
+  );
+}

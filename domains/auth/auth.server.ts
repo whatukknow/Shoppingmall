@@ -1,5 +1,4 @@
 import { createServerClient } from '@/shared/lib/supabase/server';
-import { createAdminClient } from '@/shared/lib/supabase/admin';
 import {
   AuthSessionMissingError,
   type SupabaseClient,
@@ -19,6 +18,8 @@ import type { User } from './users.types';
 type ProfilesRow = Database['public']['Tables']['profiles']['Row'];
 type OrdersRow = Database['public']['Tables']['orders']['Row'];
 type TasteProfilesRow = Database['public']['Tables']['taste_profiles']['Row'];
+// profiles·auth_users 생성은 실DB 트리거(on_auth_user_created → handle_new_auth_user)가 담당한다
+// — auth.server 는 관리자 클라이언트(SUPABASE_SECRET_KEY) 를 전혀 사용하지 않는다.
 
 /** 서버 전용 인증 오류. route handler 가 HTTP 상태로 매핑한다 */
 export class AuthApiError extends Error {
@@ -91,124 +92,6 @@ function mapAuthError(origin: unknown, tag: string): AuthApiError {
   return new AuthApiError(500, GENERIC_AUTH_MESSAGE);
 }
 
-type AuthUserRef = { id: string; email: string; name: string };
-
-/** auth 스키마(public 타입 직외) auth_users 테이블 Insert 타입 */
-type AuthUsersInsert = { id: string; email?: string | null };
-
-/**
-/** admin 클라이언트 생성을 실제로 필요할 때까지 미룬다. 실패(예: 시크릿 키 미설정)는 null 로 치환해 응답 계약을 보존한다 */
-function resolveAdmin(
-  adminClient?: SupabaseClient<Database> | null,
-): SupabaseClient<Database> | null {
-  if (adminClient) return adminClient;
-  try {
-    return createAdminClient();
-  } catch (e) {
-    console.error(
-      '관리자 클라이언트 생성 실패',
-      (e as { message?: string }).message ?? e,
-    );
-    return null;
-  }
-}
-
-/**
- * 관리자 클라이언트(RLS 우회)로 profiles · auth_users 행을 보장한다.
- * 이미 있으면 한 것이 없다 (ignoreDuplicates). 실패는 호출자가 처리한다.
- */
-async function ensureProfile(
-  admin: SupabaseClient<Database>,
-  user: AuthUserRef,
-): Promise<void> {
-  const upsertOptions = {
-    onConflict: 'id',
-    ignoreDuplicates: true,
-  } as const;
-  // database.types 가 Relationships 정의가 없어 insert 인자가 never 로 추론된다 — users.server.ts 와 동일한 any 우회
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const profilesQuery = admin.from('profiles') as any;
-  const { error: profileError } = await profilesQuery.upsert(
-    {
-      id: user.id,
-      display_name: user.name,
-      email: user.email,
-    },
-    upsertOptions,
-  );
-  if (profileError) throw profileError;
-
-  // auth_users 는 public 타입 정직외 테이블이므로 최소 타입으로 우회한다
-  // (가정): auth_users 는 public 스키마 테이블 — 요구되는 Database 타입 정직외 테이블이므로 최소 타입으로 우회한다
-  const authUsersAdmin = admin as unknown as SupabaseClient<{
-    public: {
-      Tables: {
-        auth_users: {
-          Row: AuthUsersInsert;
-          Insert: AuthUsersInsert;
-          Update: Partial<AuthUsersInsert>;
-          Relationships: [];
-        };
-      };
-      Views: { [_ in never]: never };
-      Functions: { [_ in never]: never };
-    };
-  }>;
-  const { error: authUsersError } = await authUsersAdmin
-    .from('auth_users')
-    .upsert(
-      {
-        id: user.id,
-        email: user.email,
-      },
-      upsertOptions,
-    );
-  if (authUsersError) throw authUsersError;
-}
-
-/** 세션 사용자의 profiles 행이 없으면(기존 사용자 · 이전 실패) 관리자 클라이언트로 1회 보정 */
-async function ensureProfileIfNeeded(
-  client: SupabaseClient<Database>,
-  adminClient?: SupabaseClient<Database> | null,
-  user?: {
-    id: string;
-    email?: string | null;
-    user_metadata?: Record<string, unknown>;
-  },
-): Promise<{ profile: ProfilesRow | null; adminUnavailable: boolean }> {
-  const name =
-    typeof user?.user_metadata?.name === 'string'
-      ? (user.user_metadata.name as string)
-      : '';
-  const email = user?.email ?? '';
-  const admin = resolveAdmin(adminClient);
-  if (!admin) {
-    console.error('프로필 보정 실패', '관리자 클라이언트 생성 실패');
-    return { profile: null, adminUnavailable: true };
-  }
-  try {
-    if (user) {
-      await ensureProfile(admin, {
-        id: user.id,
-        email,
-        name: name,
-      });
-    }
-  } catch (e) {
-    const err = e as { code?: string; message?: string };
-    console.error('프로필 보정 실패', err?.code ?? '', err?.message ?? '');
-  }
-  const { data } = await client
-    .from('profiles')
-    .select('*')
-    .eq('id', user?.id ?? '')
-    .maybeSingle();
-  return {
-    profile: (data ?? null) as ProfilesRow | null,
-    adminUnavailable: false,
-  };
-}
-
 type SessionUser = NonNullable<
   Awaited<ReturnType<SupabaseClient['auth']['getUser']>>['data']['user']
 >;
@@ -270,7 +153,6 @@ function assertValidLogin(body: SignInRequest): void {
 export async function signIn(
   body: SignInRequest,
   client: SupabaseClient<Database> = createServerClient(),
-  adminClient?: SupabaseClient<Database> | null,
 ): Promise<SignInResponse> {
   assertValidLogin(body);
 
@@ -288,27 +170,16 @@ export async function signIn(
     throw new AuthApiError(500, GENERIC_AUTH_MESSAGE);
   }
 
-  const loaded = await loadUserInfo(client, data.user.id);
-  let { profile, latestOrder, hasTasteProfile } = loaded;
-  let fallbackName = '';
-  if (!profile) {
-    // 기존 사용자 · 이전 가입 실패 백필: profiles/auth_users 행이 없으면 1회 보정한다
-    const refetched = await ensureProfileIfNeeded(client, adminClient, {
-      id: data.user.id,
-      email: data.user.email ?? body.email,
-      user_metadata: data.user.user_metadata,
-    });
-    // 보정 후 최신 주소 정보를 다시 로드한다
-    ({ profile, latestOrder, hasTasteProfile } = await loadUserInfo(
-      client,
-      data.user.id,
-    ));
-    fallbackName =
-      typeof data.user.user_metadata?.name === 'string'
-        ? (data.user.user_metadata.name as string)
-        : '';
-    profile = refetched.profile;
-  }
+  const { profile, latestOrder, hasTasteProfile } = await loadUserInfo(
+    client,
+    data.user.id,
+  );
+  // 프로필은 DB 트리거가 생성한다. 없으면 관리자 없이 폴백 응답 계약을 유지한다.
+  const fallbackName = profile
+    ? ''
+    : typeof data.user.user_metadata?.name === 'string'
+      ? (data.user.user_metadata.name as string)
+      : '';
 
   return {
     id: data.user.id,
@@ -356,7 +227,6 @@ function sessionExpiresAt(session: { expires_at?: number | null }): string {
 export async function signUp(
   body: SignUpRequest,
   client: SupabaseClient<Database> = createServerClient(),
-  adminClient?: SupabaseClient<Database> | null,
 ): Promise<SignUpResponse> {
   assertValidSignup(body);
 
@@ -378,23 +248,7 @@ export async function signUp(
     throw mapAuthError(error, '회원가입');
   }
 
-  // profiles/auth_users 는 INSERT RLS 정책이 없으므로 관리자 클라이언트로만 �다
-  const admin = resolveAdmin(adminClient);
-  if (admin) {
-    try {
-      await ensureProfile(admin, {
-        id: data.user.id,
-        email: data.user.email ?? body.email,
-        name: body.name.trim(),
-      });
-    } catch (e) {
-      const err = e as { code?: string; message?: string };
-      console.error('프로필 생성 실패', err?.code ?? '', err?.message ?? '');
-    }
-  } else {
-    console.error('프로필 생성 실패', '관리자 클라이언트 생성 실패');
-  }
-
+  // profiles/auth_users 는 DB 트리거(on_auth_user_created) 가 생성한다
   return {
     id: data.user.id,
     name: body.name.trim(),
@@ -421,7 +275,6 @@ export async function signOut(
 /** GET users/me — 세션 사용자 정보 (비로그인 401) */
 export async function getMe(
   client: SupabaseClient<Database> = createServerClient(),
-  adminClient?: SupabaseClient<Database> | null,
 ): Promise<User> {
   const { data, error } = await client.auth.getUser();
   if (error) {
@@ -453,41 +306,30 @@ export async function getMe(
   }
 
   const user: SessionUser = data.user;
-  let { profile, latestOrder, hasTasteProfile } = await loadUserInfo(
+  const { profile, latestOrder, hasTasteProfile } = await loadUserInfo(
     client,
     user.id,
   );
   if (!profile) {
-    const refetched = await ensureProfileIfNeeded(client, adminClient, {
+    // 프로필이 없으면(트리거 미생성 등) 관리자 없이 폴백 응답 계약을 유지한다
+    console.error('profiles 행 없음(폴백 응답)', user.id);
+    const fallbackName =
+      typeof user.user_metadata?.name === 'string'
+        ? (user.user_metadata.name as string)
+        : '';
+    return {
       id: user.id,
+      name: fallbackName,
       email: user.email ?? '',
-      user_metadata: user.user_metadata,
-    });
-    ({ profile, latestOrder, hasTasteProfile } = await loadUserInfo(
-      client,
-      user.id,
-    ));
-    // 관리자 클라이언트 생성 실패(예: 키 미설정)라도 getMe 정상 응답 계약을 유지한다
-    if (!profile && refetched.adminUnavailable) {
-      const fallbackName =
-        typeof user.user_metadata?.name === 'string'
-          ? (user.user_metadata.name as string)
-          : '';
-      return {
-        id: user.id,
-        name: fallbackName,
-        email: user.email ?? '',
-        recipientName: '',
-        recipientPhone: '',
-        postalCode: '',
-        recipientAddress: '',
-        recipientAddressDetail: '',
-        entranceInstructions: '',
-        defaultAddress: '',
-        hasTasteProfile,
-      };
-    }
-    profile = refetched.profile;
+      recipientName: '',
+      recipientPhone: '',
+      postalCode: '',
+      recipientAddress: '',
+      recipientAddressDetail: '',
+      entranceInstructions: '',
+      defaultAddress: '',
+      hasTasteProfile,
+    };
   }
   if (!profile) {
     console.error('profiles 행 없음', user.id);
