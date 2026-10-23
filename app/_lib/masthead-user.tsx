@@ -1,5 +1,8 @@
 import { AuthApiError } from '@/domains/auth/auth.server';
 import type { User } from '@/domains/auth/users.types';
+import { connection } from 'next/server';
+import { MastHead } from '@/shared/components/MastHead';
+import { getMe } from '@/domains/auth/auth.server';
 
 type GetMeFn = () => Promise<User>;
 
@@ -16,4 +19,19 @@ export async function getMastHeadUser(getMeFn: GetMeFn): Promise<MastHeadUser> {
     }
     return null;
   }
+}
+
+/** 요청 시점(connection)에만 로그인 사용자를 조회하는 마스트헤드 — Cache Components 프리렌더에서 Date.now() 실행 회피 */
+export default async function MastHeadWithUser() {
+  await connection();
+  const user = await getMastHeadUser(getMe);
+
+  return (
+    <MastHead
+      variant="header"
+      user={user}
+      login={{ href: '/login' }}
+      account={{ href: '/mypage' }}
+    />
+  );
 }

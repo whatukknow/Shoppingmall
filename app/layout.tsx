@@ -6,8 +6,7 @@ import type { Metadata, Viewport } from 'next';
 import Footer from '@/shared/components/Footer';
 import { MastHead } from '@/shared/components/MastHead';
 import { ButterBackground } from '@/shared/components/ButterBackground';
-import { getMastHeadUser } from './_lib/masthead-user';
-import { getMe } from '@/domains/auth/auth.server';
+import MastHeadWithUser from './_lib/masthead-user';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -33,9 +32,7 @@ export const metadata: Metadata = {
   description: 'Issue 01  느긋하게 차리는, 나의 한 접시',
 };
 
-export default async function RootLayout({ children }: LayoutProps<'/'>) {
-  const user = await getMastHeadUser(getMe);
-
+export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="ko"
@@ -43,12 +40,17 @@ export default async function RootLayout({ children }: LayoutProps<'/'>) {
     >
       <body className="flex min-h-full flex-col">
         <Suspense fallback={null}>
-          <MastHead
-            variant="header"
-            user={user}
-            login={{ href: '/login' }}
-            account={{ href: '/mypage' }}
-          />
+          <Suspense
+            fallback={
+              <MastHead
+                variant="header"
+                login={{ href: '/login' }}
+                account={{ href: '/mypage' }}
+              />
+            }
+          >
+            <MastHeadWithUser />
+          </Suspense>
         </Suspense>
         <ButterBackground>
           <Suspense fallback={null}>{children}</Suspense>
