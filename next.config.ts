@@ -1,7 +1,14 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  outputFileTracingIncludes: {
+    '/uploads/**': [
+      './uploads/illustrations/*.png',
+      './uploads/images/home/products/*.png',
+      './uploads/images/products/*.png',
+      './uploads/videos/home-header*',
+    ],
+  },
   experimental: {
     agentFeedback: true,
   },
