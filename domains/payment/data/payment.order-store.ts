@@ -232,11 +232,7 @@ export async function findOrder(
       unitPrice: item.unit_price ?? 0,
       imageUrl: item.image_url ?? '',
     })),
-    // 컬럼명은 DB 스키마(Scene: 'shipping'+'fee') 참조 — 리터럴 분할로 표기 (스코프 게이트)
-    shippingFee:
-      (orderRow as unknown as Record<string, number | null | undefined>)[
-        ['shipping', 'fee'].join('_')
-      ] ?? undefined,
+    shippingFee: orderRow.shipping_fee ?? undefined,
     amount: orderRow.total ?? 0,
     status:
       orderRow.status === ORDER_STATUS.PAID
