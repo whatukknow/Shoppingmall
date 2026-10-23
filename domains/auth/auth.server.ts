@@ -35,6 +35,12 @@ const EMAIL_TAKEN_MESSAGE = '이미 가입된 이메일이에요.';
 const GENERIC_AUTH_MESSAGE =
   '인증을 처리하지 못했어요. 잠시 후 다시 시도해 주세요.';
 const LOGIN_REQUIRED_MESSAGE = '로그인이 필요해요.';
+const EMAIL_FORMAT_MESSAGE = '이메일 형식을 확인해 주세요.';
+const INVALID_INPUT_MESSAGE = '입력값을 확인해 주세요.';
+const WEAK_PASSWORD_MESSAGE =
+  '비밀번호가 너무 약해요. 다른 비밀번호를 입력해 주세요.';
+const RATE_LIMIT_MESSAGE = '요청이 많아요. 잠시 후 다시 시도해 주세요.';
+const EMAIL_NOT_ALLOWED_MESSAGE = '이 이메일로는 가입할 수 없어요.';
 
 /** Supabase 오류 코드·메시지를 HTTP 상태로 매핑한다 (원문은 로그에만 남긴다) */
 function mapAuthError(origin: unknown, tag: string): AuthApiError {
@@ -58,6 +64,28 @@ function mapAuthError(origin: unknown, tag: string): AuthApiError {
     /already (registered|exists)/i.test(e?.message ?? '')
   ) {
     return new AuthApiError(409, EMAIL_TAKEN_MESSAGE);
+  }
+  if (e?.code === 'email_address_invalid') {
+    return new AuthApiError(400, EMAIL_FORMAT_MESSAGE);
+  }
+  if (e?.code === 'validation_failed') {
+    return new AuthApiError(400, INVALID_INPUT_MESSAGE);
+  }
+  if (e?.code === 'weak_password') {
+    return new AuthApiError(400, WEAK_PASSWORD_MESSAGE);
+  }
+  if (
+    e?.code === 'over_email_send_rate_limit' ||
+    e?.code === 'over_request_rate_limit' ||
+    e?.status === 429
+  ) {
+    return new AuthApiError(429, RATE_LIMIT_MESSAGE);
+  }
+  if (e?.code === 'email_address_not_authorized') {
+    return new AuthApiError(400, EMAIL_NOT_ALLOWED_MESSAGE);
+  }
+  if (e?.code === 'signup_disabled') {
+    return new AuthApiError(403, GENERIC_AUTH_MESSAGE);
   }
   return new AuthApiError(500, GENERIC_AUTH_MESSAGE);
 }

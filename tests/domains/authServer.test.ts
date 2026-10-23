@@ -70,7 +70,7 @@ const tasteRow: TasteProfilesRow = {
 
 type AuthBehavior =
   | { kind: 'ok'; user: AuthUser; session: AuthSession }
-  | { kind: 'err'; code?: string; message: string }
+  | { kind: 'err'; code?: string; message: string; status?: number }
   | { kind: 'noSession'; user: AuthUser }
   | { kind: 'nullResult' };
 
@@ -117,7 +117,11 @@ function makeFakeClient(options: {
       if (a.kind === 'err')
         return {
           data: { user: null, session: null },
-          error: { code: a.code ?? 'unexpected', message: a.message },
+          error: {
+            code: a.code ?? 'unexpected',
+            message: a.message,
+            status: a.status,
+          },
         };
       if (a.kind === 'noSession') {
         return {
@@ -140,10 +144,15 @@ function makeFakeClient(options: {
     }) {
       lastSignUpBody = body;
       userAgentMetadata = body.options?.data;
-      if (options.auth.kind === 'err') {
+      const errAuth = options.auth;
+      if (errAuth.kind === 'err') {
         return {
           data: { user: null, session: null },
-          error: { code: options.auth.code, message: options.auth.message },
+          error: {
+            code: errAuth.code,
+            message: errAuth.message,
+            status: errAuth.status,
+          },
         };
       }
       const a = options.auth;
@@ -555,6 +564,151 @@ describe('auth.server signUp', () => {
         return true;
       },
     );
+  });
+
+  it('email_address_invalid 는 400 "이메일 형식을 확인해 주세요." 로 매핑한다', async () => {
+    const client = makeFakeClient({
+      ...signedInOptions,
+      auth: {
+        kind: 'err',
+        code: 'email_address_invalid',
+        message: 'Email address is invalid',
+        status: 400,
+      },
+    });
+    await assert.rejects(signUp(signupRequest, client), (e: unknown) => {
+      assert.ok(e instanceof AuthApiError);
+      assert.equal(e.status, 400);
+      assert.equal(e.message, '이메일 형식을 확인해 주세요.');
+      return true;
+    });
+  });
+
+  it('validation_failed 는 400 "입력값을 확인해 주세요." 로 매핑한다', async () => {
+    const client = makeFakeClient({
+      ...signedInOptions,
+      auth: {
+        kind: 'err',
+        code: 'validation_failed',
+        message: 'Validation failed',
+        status: 422,
+      },
+    });
+    await assert.rejects(signUp(signupRequest, client), (e: unknown) => {
+      assert.ok(e instanceof AuthApiError);
+      assert.equal(e.status, 400);
+      assert.equal(e.message, '입력값을 확인해 주세요.');
+      return true;
+    });
+  });
+
+  it('weak_password 는 400 "비밀번호가 너무 약해요..." 로 매핑한다', async () => {
+    const client = makeFakeClient({
+      ...signedInOptions,
+      auth: {
+        kind: 'err',
+        code: 'weak_password',
+        message: 'Password is too weak',
+        status: 422,
+      },
+    });
+    await assert.rejects(signUp(signupRequest, client), (e: unknown) => {
+      assert.ok(e instanceof AuthApiError);
+      assert.equal(e.status, 400);
+      assert.equal(
+        e.message,
+        '비밀번호가 너무 약해요. 다른 비밀번호를 입력해 주세요.',
+      );
+      return true;
+    });
+  });
+
+  it('over_email_send_rate_limit 는 429 로 매핑한다', async () => {
+    const client = makeFakeClient({
+      ...signedInOptions,
+      auth: {
+        kind: 'err',
+        code: 'over_email_send_rate_limit',
+        message: 'Email rate limit exceeded',
+        status: 429,
+      },
+    });
+    await assert.rejects(signUp(signupRequest, client), (e: unknown) => {
+      assert.ok(e instanceof AuthApiError);
+      assert.equal(e.status, 429);
+      assert.equal(e.message, '요청이 많아요. 잠시 후 다시 시도해 주세요.');
+      return true;
+    });
+  });
+
+  it('over_request_rate_limit 는 429 로 매핑한다', async () => {
+    const client = makeFakeClient({
+      ...signedInOptions,
+      auth: {
+        kind: 'err',
+        code: 'over_request_rate_limit',
+        message: 'Request rate limit exceeded',
+        status: 429,
+      },
+    });
+    await assert.rejects(signUp(signupRequest, client), (e: unknown) => {
+      assert.ok(e instanceof AuthApiError);
+      assert.equal(e.status, 429);
+      assert.equal(e.message, '요청이 많아요. 잠시 후 다시 시도해 주세요.');
+      return true;
+    });
+  });
+
+  it('code 없이 status 429 인 오류도 429 로 매핑한다', async () => {
+    const client = makeFakeClient({
+      ...signedInOptions,
+      auth: {
+        kind: 'err',
+        message: 'Too many requests',
+        status: 429,
+      },
+    });
+    await assert.rejects(signUp(signupRequest, client), (e: unknown) => {
+      assert.ok(e instanceof AuthApiError);
+      assert.equal(e.status, 429);
+      assert.equal(e.message, '요청이 많아요. 잠시 후 다시 시도해 주세요.');
+      return true;
+    });
+  });
+
+  it('email_address_not_authorized 는 400 "이 이메일로는 가입할 수 없어요." 로 매핑한다', async () => {
+    const client = makeFakeClient({
+      ...signedInOptions,
+      auth: {
+        kind: 'err',
+        code: 'email_address_not_authorized',
+        message: 'Email address not authorized',
+        status: 400,
+      },
+    });
+    await assert.rejects(signUp(signupRequest, client), (e: unknown) => {
+      assert.ok(e instanceof AuthApiError);
+      assert.equal(e.status, 400);
+      assert.equal(e.message, '이 이메일로는 가입할 수 없어요.');
+      return true;
+    });
+  });
+
+  it('signup_disabled 는 403 으로 매핑한다', async () => {
+    const client = makeFakeClient({
+      ...signedInOptions,
+      auth: {
+        kind: 'err',
+        code: 'signup_disabled',
+        message: 'Signups not allowed',
+        status: 403,
+      },
+    });
+    await assert.rejects(signUp(signupRequest, client), (e: unknown) => {
+      assert.ok(e instanceof AuthApiError);
+      assert.equal(e.status, 403);
+      return true;
+    });
   });
 
   it('그 외 오류는 500 으로 매핑한다', async () => {
