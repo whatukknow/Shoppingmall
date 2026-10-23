@@ -8,6 +8,19 @@ import { LoginForm } from '@/domains/auth/components/LoginForm';
 import { hasErrors, validateLogin } from '@/domains/auth/auth.validate';
 import { withNext } from '@/domains/auth/auth.redirect';
 import type { FieldErrors, LoginValues } from '@/domains/auth/auth.types';
+import { ApiError } from '@/shared/lib/client';
+
+const LOGIN_MISMATCH_MESSAGE = '이메일과 비밀번호가 일치하지 않습니다.';
+const LOGIN_UNKNOWN_MESSAGE =
+  '로그인하지 못했어요. 잠시 후 다시 시도해 주세요.';
+
+// 로그인 실패 오류를 사용자에게 보여줄 안내 문구로 바꾼다
+export function loginErrorMessage(error: unknown): string {
+  if (error instanceof ApiError) {
+    return error.status === 401 ? LOGIN_MISMATCH_MESSAGE : error.message;
+  }
+  return LOGIN_UNKNOWN_MESSAGE;
+}
 
 type LoginContainerProps = {
   redirectTo: string; // 로그인 후 이동할 주소
@@ -22,16 +35,19 @@ export default function LoginContainer({ redirectTo }: LoginContainerProps) {
     password: '',
   });
   const [errors, setErrors] = useState<FieldErrors<LoginValues>>({});
+  const [formError, setFormError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition(); // 비동기 대기 중 중복 제출 차단
 
   // 입력칸이 바뀔 때: 값을 바꾸고, 그 칸의 오류는 지움
   const handleChange = (field: keyof LoginValues, value: string) => {
     setValues((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => ({ ...prev, [field]: undefined }));
+    setFormError(null); // 입력값을 바꾸면 로그인 실패 안내도 지움
   };
 
   // 로그인 버튼을 눌렀을 때
   const handleSubmit = () => {
+    setFormError(null); // 재제출을 시작하면 이전 실패 안내는 지움
     const nextErrors = validateLogin(values);
     setErrors(nextErrors);
     if (hasErrors(nextErrors)) return; // 오류가 있으면 여기서 멈춤
@@ -54,8 +70,9 @@ export default function LoginContainer({ redirectTo }: LoginContainerProps) {
         }
 
         router.push(redirectTo);
-      } catch {
-        // TODO: 로그인 실패 안내 UI
+        router.refresh(); // 레이아웃 서버 데이터(MastHead 로그인 상태) 갱신
+      } catch (error) {
+        setFormError(loginErrorMessage(error));
       }
     });
   };
@@ -67,6 +84,7 @@ export default function LoginContainer({ redirectTo }: LoginContainerProps) {
       onChange={handleChange}
       onSubmit={handleSubmit}
       isPending={isPending}
+      formError={formError ?? undefined}
       signupHref={withNext('/signup', redirectTo)}
     />
   );

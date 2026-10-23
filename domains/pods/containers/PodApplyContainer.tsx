@@ -28,6 +28,7 @@ export default function PodApplyContainer({ pod }: PodApplyContainerProps) {
     });
   };
 
+  const isJoined = pod.isJoined === true;
   const isClosed = pod.status === 'close';
 
   return (
@@ -35,11 +36,17 @@ export default function PodApplyContainer({ pod }: PodApplyContainerProps) {
       type="button"
       size="touch"
       className="w-full rounded-none bg-[#650f20] text-[13px] font-medium text-white hover:bg-[#650f20]/90"
-      disabled={isClosed || isPending}
+      disabled={isJoined || isClosed || isPending}
       aria-busy={isPending || undefined}
       onClick={handleApply}
     >
-      {isClosed ? '모집 완료' : isPending ? '참여 신청 중…' : '이 팟에 참여'}
+      {isJoined
+        ? '참여 중'
+        : isClosed
+          ? '모집 완료'
+          : isPending
+            ? '참여 신청 중…'
+            : '이 팟에 참여'}
     </Button>
   );
 }

@@ -10,6 +10,7 @@ type LoginFormProps = {
   onChange: (field: keyof LoginValues, value: string) => void;
   onSubmit: () => void;
   isPending?: boolean; // 제출 대기 중 (버튼 비활성화)
+  formError?: string; // 로그인 실패 안내 문구
   signupHref: string;
 };
 
@@ -21,6 +22,7 @@ export function LoginForm({
   onChange,
   onSubmit,
   isPending = false,
+  formError,
   signupHref,
 }: LoginFormProps) {
   return (
@@ -55,6 +57,12 @@ export function LoginForm({
         error={errors.password}
         required
       />
+
+      {formError && (
+        <p role="alert" className="text-destructive text-sm">
+          {formError}
+        </p>
+      )}
 
       <Button
         type="submit"

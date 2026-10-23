@@ -6,6 +6,7 @@ import type { Metadata, Viewport } from 'next';
 import Footer from '@/shared/components/Footer';
 import { MastHead } from '@/shared/components/MastHead';
 import { ButterBackground } from '@/shared/components/ButterBackground';
+import MastHeadWithUser from './_lib/masthead-user';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -39,11 +40,17 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
     >
       <body className="flex min-h-full flex-col">
         <Suspense fallback={null}>
-          <MastHead
-            variant="header"
-            login={{ href: '/login' }}
-            account={{ href: '/mypage' }}
-          />
+          <Suspense
+            fallback={
+              <MastHead
+                variant="header"
+                login={{ href: '/login' }}
+                account={{ href: '/mypage' }}
+              />
+            }
+          >
+            <MastHeadWithUser />
+          </Suspense>
         </Suspense>
         <ButterBackground>
           <Suspense fallback={null}>{children}</Suspense>

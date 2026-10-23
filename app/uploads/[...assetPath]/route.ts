@@ -1,38 +1,16 @@
 import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { join, resolve, sep } from 'node:path';
 
-const UPLOADS_ROOT = join(process.cwd(), 'uploads');
+const UPLOADS_ROOT = resolve(process.cwd(), 'uploads');
 const ASSET_CONTENT_TYPES = new Map<string, string>([
-  ['images/home/products/apple.png', 'image/png'],
-  ['images/home/products/brussels-sprouts.png', 'image/png'],
-  ['images/home/products/cabbage.png', 'image/png'],
-  ['images/home/products/grapes.png', 'image/png'],
-  ['images/home/products/honeydew-melon.png', 'image/png'],
-  ['images/home/products/illustration-beef-steak.png', 'image/png'],
-  ['images/home/products/illustration-blueberries.png', 'image/png'],
-  ['images/home/products/illustration-chicken-drumstick.png', 'image/png'],
-  ['images/home/products/illustration-dragon-fruit.png', 'image/png'],
-  ['images/home/products/illustration-fried-egg.png', 'image/png'],
-  ['images/home/products/illustration-peach.png', 'image/png'],
-  ['images/home/products/illustration-pork-steak.png', 'image/png'],
-  ['images/home/products/korean-melon.png', 'image/png'],
-  ['images/home/products/mandarin.png', 'image/png'],
-  ['images/home/products/onion.png', 'image/png'],
-  ['images/home/products/orange.png', 'image/png'],
-  ['images/home/products/peas.png', 'image/png'],
-  ['images/home/products/pumpkin.png', 'image/png'],
-  ['images/home/products/scallion.png', 'image/png'],
-  ['images/home/products/strawberry.png', 'image/png'],
-  ['images/home/products/tomatoes.png', 'image/png'],
-  ['images/home/products/watermelon.png', 'image/png'],
-  ['images/products/illustration-dragon-fruit.png', 'image/png'],
-  ['images/products/illustration-fried-egg.png', 'image/png'],
-  ['images/products/illustration-peach.png', 'image/png'],
-  ['images/products/mandarin.png', 'image/png'],
-  ['images/products/strawberry.png', 'image/png'],
-  ['images/products/tomatoes.png', 'image/png'],
-  ['videos/home-header-poster.jpg', 'image/jpeg'],
-  ['videos/home-header.mp4', 'video/mp4'],
+  ['png', 'image/png'],
+  ['jpg', 'image/jpeg'],
+  ['jpeg', 'image/jpeg'],
+  ['webp', 'image/webp'],
+  ['gif', 'image/gif'],
+  ['svg', 'image/svg+xml'],
+  ['mp4', 'video/mp4'],
+  ['webm', 'video/webm'],
 ]);
 
 type RouteContext = {
@@ -59,15 +37,36 @@ function parseRange(rangeHeader: string, size: number) {
   return { start, end };
 }
 
+function resolveSafeAssetPath(assetPath: string[]): string | null {
+  if (assetPath.length === 0) return null;
+  for (const segment of assetPath) {
+    if (
+      segment.length === 0 ||
+      segment === '..' ||
+      segment === '.' ||
+      segment.includes('\\') ||
+      segment.includes('\0')
+    ) {
+      return null;
+    }
+  }
+  const absolutePath = resolve(UPLOADS_ROOT, join(...assetPath));
+  if (!absolutePath.startsWith(UPLOADS_ROOT + sep)) return null;
+  return absolutePath;
+}
+
 async function serveAsset(request: Request, context: RouteContext) {
   const { assetPath } = await context.params;
-  const relativePath = assetPath.join('/');
-  const contentType = ASSET_CONTENT_TYPES.get(relativePath);
-  if (!contentType) return new Response('Not found', { status: 404 });
+  const extension = assetPath[assetPath.length - 1]?.split('.').pop()?.toLowerCase();
+  const contentType = extension ? ASSET_CONTENT_TYPES.get(extension) : undefined;
+  const absolutePath = resolveSafeAssetPath(assetPath);
+  if (!contentType || !absolutePath) {
+    return new Response('Not found', { status: 404 });
+  }
 
   let file: Buffer;
   try {
-    file = await readFile(join(UPLOADS_ROOT, relativePath));
+    file = await readFile(absolutePath);
   } catch {
     return new Response('Not found', { status: 404 });
   }
