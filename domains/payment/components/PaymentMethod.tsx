@@ -29,8 +29,8 @@ const paymentOptions: PaymentOption[] = [
   {
     value: 'tosspay',
     label: '토스페이',
-    logo: '/uploads/images/payment/tosspay.svg',
-    color: 'bg-[#0064FF] text-white',
+    logo: '/images/payment/tosspay.png',
+    color: 'bg-white text-[#601025]',
   },
 ];
 
@@ -60,15 +60,15 @@ export default function PaymentMethod({
             />
 
             <span
-              className={`flex h-16 items-center justify-center rounded-none border border-black/15 px-4 py-3 peer-checked:ring-2 peer-checked:ring-[#601025] peer-checked:ring-offset-2 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 ${option.color} `}
+              className={`payment-method-option flex h-16 items-center justify-center rounded-none border border-black/15 px-4 py-3 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 ${option.color}`}
             >
               {option.logo ? (
                 <Image
                   src={option.logo}
                   alt={option.label}
-                  width={100}
-                  height={28}
-                  className="h-7 w-auto max-w-full"
+                  width={360}
+                  height={270}
+                  className="payment-method-logo"
                 />
               ) : (
                 <span className="font-medium">{option.label}</span>
