@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import { signIn, signOut, signUp } from '../../domains/auth/auth.api';
+import { loginErrorMessage } from '../../domains/auth/containers/LoginContainer';
+import { ApiError } from '../../shared/lib/client';
 import { waitMockDelay } from '../../shared/lib/mock/mockDelay';
 
 describe('auth api (mock)', () => {
@@ -64,5 +66,42 @@ describe('waitMockDelay', () => {
     const start = Date.now();
     await waitMockDelay(0);
     assert.ok(Date.now() - start < 50);
+  });
+});
+
+describe('loginErrorMessage', () => {
+  it('returns the fixed message for a 401 ApiError', () => {
+    const error = new ApiError(
+      401,
+      'HTTP_ERROR',
+      '이메일 또는 비밀번호가 올바르지 않아요.',
+    );
+    assert.equal(
+      loginErrorMessage(error),
+      '이메일과 비밀번호가 일치하지 않습니다.',
+    );
+  });
+
+  it('returns the ApiError message for other ApiError statuses', () => {
+    const error = new ApiError(
+      429,
+      'HTTP_ERROR',
+      '요청이 너무 많습니다. 잠시 후 다시 시도해 주세요.',
+    );
+    assert.equal(
+      loginErrorMessage(error),
+      '요청이 너무 많습니다. 잠시 후 다시 시도해 주세요.',
+    );
+  });
+
+  it('returns the fallback message for unknown errors', () => {
+    assert.equal(
+      loginErrorMessage(new Error('boom')),
+      '로그인하지 못했어요. 잠시 후 다시 시도해 주세요.',
+    );
+    assert.equal(
+      loginErrorMessage(undefined),
+      '로그인하지 못했어요. 잠시 후 다시 시도해 주세요.',
+    );
   });
 });
