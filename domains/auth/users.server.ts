@@ -7,6 +7,7 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import type { RowOf } from '@/shared/lib/supabase/database.types';
 import { toRecommendedProduct } from '@/domains/products/products.mapper';
 import { toListResponse } from '@/shared/lib/mapper.utils';
+import { Buffer } from 'node:buffer';
 import type {
   MyPayment,
   MyPodApplication,
@@ -74,6 +75,23 @@ async function requireUser(client: SupabaseClient<Database>): Promise<string> {
     throw new AuthApiError(401, LOGIN_REQUIRED_MESSAGE);
   }
   return data.user.id;
+}
+
+const UUID_RE =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+/** taste_profiles.id 는 varchar(30) 이다 — user.id(uuid 36자)를 그대로 쓰면
+ * 'tp_'+36자 = 39자 로 22001 오류가 나므로 uuid 16바이트를 base64url 로 인코딩해
+ * 'tp_'+22자 = 25자 로 줄인다. 결정적(id)이라 같은 사용자는 항상 같은 id, 다른
+ * 사용자는 충돌 없음. uuid 형식이 아니면 throw 한다. */
+export function toTasteProfileId(userId: string): string {
+  if (!UUID_RE.test(userId)) {
+    throw new Error(
+      `toTasteProfileId: uuid 형식이 아닌 사용자 id 입니다: ${userId}`,
+    );
+  }
+  const bytes = Buffer.from(userId.replace(/-/g, ''), 'hex');
+  return `tp_${bytes.toString('base64url')}`;
 }
 
 /** taste_profiles 행 → TasteProfile. 테이블에 없는 컬럼(source, variant, animal, items, kit,
@@ -175,7 +193,7 @@ export async function getTasteProfile(
 }
 
 /** PUT users/me/taste-profile — 본인 기존 행(created_at desc 먼저)이 있으면 update,
- * 없으면 결정적 id 'tp_'+user.id 로 upsert(onConflict: 'id').
+ * 없으면 결정적 id toTasteProfileId(user.id) 로 upsert(onConflict: 'id').
  * profile_id 에 유니크 제약이 없어 PK(결정적 id)로 중복 방지 — 동시 PUT 에도 1행만 생긴다. */
 export async function putTasteProfile(
   body: TasteProfileRequest,
@@ -210,7 +228,7 @@ export async function putTasteProfile(
     const insertPayload: Database['public']['Tables']['taste_profiles']['Insert'] =
       {
         // profile_id 유니크 제약이 없어 PK(결정적 id)로 중복 방지 — 동시 PUT 에도 1행만 생긴다
-        id: `tp_${uid}`,
+        id: toTasteProfileId(uid),
         profile_id: uid,
         ...columns,
       };

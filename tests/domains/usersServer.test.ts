@@ -7,6 +7,7 @@ import {
   listMyPodApplications,
   listRecommendedProducts,
   putTasteProfile,
+  toTasteProfileId,
 } from '../../domains/auth/users.server';
 import type { AuthApiError } from '../../domains/auth/auth.server';
 import type { TasteProfileRequest } from '../../domains/auth/users.types';
@@ -432,29 +433,52 @@ describe('putTasteProfile', () => {
     quality_flags: '[]',
   };
 
+  const PUT_UUID = '11111111-2222-3333-4444-555555555555';
+
+  it('toTasteProfileId — 결정적 id 길이는 30자 이하(varchar(30)) 이다', () => {
+    const id = toTasteProfileId(PUT_UUID);
+    assert.ok(id.length <= 30, `id 길이 ${id.length}`);
+  });
+
+  it('toTasteProfileId — 같은 입력이면 항상 같은 id 를 반환한다 (결정성)', () => {
+    assert.equal(toTasteProfileId(PUT_UUID), toTasteProfileId(PUT_UUID));
+  });
+
+  it('toTasteProfileId — 다른 uuid 는 다른 id 를 반환한다', () => {
+    const other = 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee';
+    assert.notEqual(toTasteProfileId(PUT_UUID), toTasteProfileId(other));
+  });
+
+  it('toTasteProfileId — uuid 형식이 아니면 throw 한다', () => {
+    assert.throws(() => toTasteProfileId('u-1'));
+  });
+
   it('행이 없으면 결정적 id tp_<uid> 로 upsert(onConflict: id) 한다 — birth_date 합성', async () => {
     let inserted = '';
-    const { client, requests } = makeFakeClient((req) => {
-      if (req.table !== 'taste_profiles') return { data: null };
-      if (req.method === 'select')
-        return { data: req.filters.length === 0 ? [] : null };
-      if (req.method === 'insert') {
-        const payload = req.payload as Record<string, unknown>;
-        inserted = String(payload.id);
-        return {
-          data: [tasteProfileRow({ id: inserted, nickname: '늦잠러' })],
-        };
-      }
-      return { data: null };
-    });
+    const { client, requests } = makeFakeClient(
+      (req) => {
+        if (req.table !== 'taste_profiles') return { data: null };
+        if (req.method === 'select')
+          return { data: req.filters.length === 0 ? [] : null };
+        if (req.method === 'insert') {
+          const payload = req.payload as Record<string, unknown>;
+          inserted = String(payload.id);
+          return {
+            data: [tasteProfileRow({ id: inserted, nickname: '늦잠러' })],
+          };
+        }
+        return { data: null };
+      },
+      { id: PUT_UUID },
+    );
     const result = await putTasteProfile(body, client);
     // 동시 PUT 에도 PK 로 1행만 생기도록 결정적 id 를 사용한다
-    assert.equal(inserted, 'tp_u-1');
+    assert.equal(inserted, toTasteProfileId(PUT_UUID));
     const insertReq = requests.find((r) => r.method === 'insert');
     assert.equal(insertReq?.onConflict, 'id');
     assert.equal(result.nickname, '늦잠러');
     const payload = insertReq?.payload as Record<string, unknown>;
-    assert.equal(payload.profile_id, 'u-1');
+    assert.equal(payload.profile_id, PUT_UUID);
     assert.equal(payload.birth_date, '1990-03-07');
     assert.equal(payload.nickname, '늦잠러');
     assert.equal(payload.element, 'wood');
@@ -469,24 +493,30 @@ describe('putTasteProfile', () => {
 
   it('동시 2회 PUT 이어도 두 upsert 모두 같은 결정적 id 를 쓴다', async () => {
     const insertedIds: string[] = [];
-    const { client } = makeFakeClient((req) => {
-      if (req.table !== 'taste_profiles') return { data: null };
-      if (req.method === 'select')
-        return { data: req.filters.length === 0 ? [] : null };
-      if (req.method === 'insert') {
-        const payload = req.payload as Record<string, unknown>;
-        insertedIds.push(String(payload.id));
-        return {
-          data: [tasteProfileRow({ id: String(payload.id) })],
-        };
-      }
-      return { data: null };
-    });
+    const { client } = makeFakeClient(
+      (req) => {
+        if (req.table !== 'taste_profiles') return { data: null };
+        if (req.method === 'select')
+          return { data: req.filters.length === 0 ? [] : null };
+        if (req.method === 'insert') {
+          const payload = req.payload as Record<string, unknown>;
+          insertedIds.push(String(payload.id));
+          return {
+            data: [tasteProfileRow({ id: String(payload.id) })],
+          };
+        }
+        return { data: null };
+      },
+      { id: PUT_UUID },
+    );
     await Promise.all([
       putTasteProfile(body, client),
       putTasteProfile(body, client),
     ]);
-    assert.deepEqual(insertedIds, ['tp_u-1', 'tp_u-1']);
+    assert.deepEqual(insertedIds, [
+      toTasteProfileId(PUT_UUID),
+      toTasteProfileId(PUT_UUID),
+    ]);
   });
 
   it('행이 있으면 update 한다', async () => {
