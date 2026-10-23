@@ -36,6 +36,7 @@ export default function ProfileContainer({
         }
 
         router.push('/login');
+        router.refresh(); // 레이아웃 서버 데이터(MastHead 로그인 상태) 갱신
       } catch {
         // TODO: 로그아웃 실패 안내 UI
       }

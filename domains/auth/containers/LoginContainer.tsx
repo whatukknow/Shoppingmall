@@ -70,6 +70,7 @@ export default function LoginContainer({ redirectTo }: LoginContainerProps) {
         }
 
         router.push(redirectTo);
+        router.refresh(); // 레이아웃 서버 데이터(MastHead 로그인 상태) 갱신
       } catch (error) {
         setFormError(loginErrorMessage(error));
       }
