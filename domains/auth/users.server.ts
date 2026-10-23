@@ -336,7 +336,6 @@ export async function listMyPodApplications(
   } else if (status === 'close') {
     rows = rows.filter((row) => row.pods?.status !== 'recruiting');
   }
-  const total = rows.length;
 
   // participant 를 application_id 로 일괄 조회
   const appIds = rows.map((row) => row.id);
@@ -353,6 +352,24 @@ export async function listMyPodApplications(
       }
     }
   }
+
+  // 취소(연결 participant 없음 또는 is_active=false)한 신청은 제외한다
+  rows = rows.filter((row) => {
+    if (row.id == null) return false;
+    const participant = participants.get(row.id);
+    return participant != null && participant.is_active === true;
+  });
+
+  // 같은 팟에 활성 신청이 여러 개면 최신(requested_at 내림차순 정렬상 첫 번째) 1건만
+  const seenPods = new Set<string>();
+  rows = rows.filter((row) => {
+    const key = row.requested_pod_id ?? '';
+    if (!key || seenPods.has(key)) return false;
+    seenPods.add(key);
+    return true;
+  });
+
+  const total = rows.length;
 
   const gids = rows
     .map((row) => row.pods?.products?.gid)

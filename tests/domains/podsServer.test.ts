@@ -54,6 +54,7 @@ type Request = {
 /** Supabase 쿼리 빌더를 흉내 내는 가짜 클라이언트. requests 에 모든 쿼리 기록 */
 function makeFakeClient(
   handlers: (req: Request) => { data: unknown; count?: number },
+  auth?: { id: string },
 ) {
   /** supabase-js PostgrestFilterBuilder 실제 메서드 목록 — 이 외 메서드 호출 시 throw */
   const allowedBuilderMethods = new Set([
@@ -147,6 +148,14 @@ function makeFakeClient(
       );
       return builder;
     },
+    auth: auth
+      ? {
+          getUser: async () => ({
+            data: { user: { id: auth.id } },
+            error: null,
+          }),
+        }
+      : undefined,
   };
   return {
     client: client as unknown as SupabaseClient<Database>,
@@ -420,5 +429,201 @@ describe('pods.server listProductPods', () => {
     assert.equal(res.list[0].status, 'close');
     assert.equal(res.list[1].status, 'open');
     assert.equal(res.list[1].productName, '참외');
+  });
+
+  describe('세션 사용자 참여 반영', () => {
+    const createdRows: (PodRow & {
+      products: { name: string; gid: string } | null;
+    })[] = [
+      // DB 가 pod_no asc 로 돌려주는 상황 재현 — created_at 은 각각 다름
+      {
+        ...pod({
+          id: 'pod-early',
+          product_id: 'pc-001',
+          pod_no: 1,
+          created_at: '2026-01-05T00:00:00Z',
+        }),
+        products: { name: '참외', gid: 'gid-pc-001' },
+      },
+      {
+        ...pod({
+          id: 'pod-mid',
+          product_id: 'pc-001',
+          pod_no: 2,
+          created_at: '2026-01-10T00:00:00Z',
+        }),
+        products: { name: '참외', gid: 'gid-pc-001' },
+      },
+      {
+        ...pod({
+          id: 'pod-late',
+          product_id: 'pc-001',
+          pod_no: 3,
+          created_at: '2026-01-15T00:00:00Z',
+        }),
+        products: { name: '참외', gid: 'gid-pc-001' },
+      },
+    ];
+
+    function participantRows(podIds: string[]) {
+      return podIds.map((pid, i) => ({
+        id: 100 + i,
+        status: 'accepted',
+        is_active: true,
+        refund_required: null,
+        applied_at: null,
+        payment_ready_at: null,
+        paid_at: null,
+        cancelled_at: null,
+        ended_at: null,
+        product_id: 'pc-001',
+        pod_id: pid,
+        application_id: i + 1,
+        paid_order_id: null,
+        profile_id: 'u-1',
+      }));
+    }
+
+    it('내가 참여한 팟은 isJoined true, created_at 최신순으로 맨 앞에 온다 (비참여는 기존 정렬 유지)', async () => {
+      const { client, requests } = makeFakeClient(
+        (req) =>
+          req.table === 'pod_participants'
+            ? { data: participantRows(['pod-early', 'pod-late']) }
+            : req.table === 'pods'
+              ? { data: createdRows, count: createdRows.length }
+              : { data: uploads },
+        { id: 'u-1' },
+      );
+      const res = await listProductPods('pc-001', { sort: 'asc' }, client);
+      // 참여: created_at 최신순 pod-late(01-15) → pod-early(01-05), 나머지 pod-mid
+      assert.deepEqual(
+        res.list.map((x) => x.id),
+        ['pod-late', 'pod-early', 'pod-mid'],
+      );
+      assert.deepEqual(
+        res.list.map((x) => x.isJoined),
+        [true, true, false],
+      );
+      // 참여 조회: 내 profile + 해당 상품 + 활성
+      const partReq = requests.find((r) => r.table === 'pod_participants');
+      assert.ok(partReq);
+      const filt = (col: string) =>
+        partReq.filters.some(
+          (f) => f.op === 'eq' && f.args[0] === col && f.args[1] !== undefined,
+        );
+      assert.ok(filt('profile_id'));
+      assert.ok(filt('product_id'));
+      assert.ok(filt('is_active'));
+      const uidFilter = partReq.filters.find(
+        (f) => f.op === 'eq' && f.args[0] === 'profile_id',
+      );
+      assert.equal(uidFilter?.args[1], 'u-1');
+    });
+
+    it('비로그인(세션 없음)이면 참여 조회 없이 기존 순서 그대로', async () => {
+      const { client, requests } = makeFakeClient((req) =>
+        req.table === 'pods'
+          ? { data: createdRows, count: createdRows.length }
+          : { data: uploads },
+      );
+      const res = await listProductPods('pc-001', { sort: 'asc' }, client);
+      assert.deepEqual(
+        res.list.map((x) => x.id),
+        ['pod-early', 'pod-mid', 'pod-late'],
+      );
+      assert.deepEqual(
+        res.list.map((x) => x.isJoined ?? false),
+        [false, false, false],
+      );
+      assert.ok(!requests.some((r) => r.table === 'pod_participants'));
+    });
+
+    it('내가 참여한 팟이 is_active=false (취소됨) 면 참여로 보지 않는다', async () => {
+      const cancelled = participantRows(['pod-late']).map((r) => ({
+        ...r,
+        is_active: false,
+      }));
+      const { client } = makeFakeClient(
+        (req) =>
+          req.table === 'pod_participants'
+            ? {
+                // DB is_active eq 필터를 존중한 결과를 재현
+                data: req.filters.some(
+                  (f) =>
+                    f.op === 'eq' &&
+                    f.args[0] === 'is_active' &&
+                    f.args[1] === true,
+                )
+                  ? []
+                  : cancelled,
+              }
+            : req.table === 'pods'
+              ? { data: createdRows, count: createdRows.length }
+              : { data: uploads },
+        { id: 'u-1' },
+      );
+      const res = await listProductPods('pc-001', { sort: 'asc' }, client);
+      assert.deepEqual(
+        res.list.map((x) => x.id),
+        ['pod-early', 'pod-mid', 'pod-late'],
+      );
+      assert.ok(!res.list.some((x) => x.isJoined === true));
+    });
+
+    it('첫 페이지에 참여 팟이 limit 밖이어도 맨 앞에 포함, total 은 기존 count 유지', async () => {
+      const pageRows = createdRows.slice(0, 2);
+      const { client, requests } = makeFakeClient(
+        (req) =>
+          req.table === 'pod_participants'
+            ? { data: participantRows(['pod-late']) }
+            : req.table === 'pods' && req.range
+              ? { data: pageRows, count: 42 }
+              : req.table === 'pods'
+                ? { data: [createdRows[2]] }
+                : { data: uploads },
+        { id: 'u-1' },
+      );
+      const res = await listProductPods('pc-001', { limit: 2 }, client);
+      assert.deepEqual(
+        res.list.map((x) => x.id),
+        ['pod-late', 'pod-early', 'pod-mid'],
+      );
+      assert.equal(res.total, 42);
+      // 밖의 참여 팟은 in(id) 재조회로 가져온다
+      const podsReqs = requests.filter((r) => r.table === 'pods');
+      assert.equal(podsReqs.length, 2);
+      const inFilter = podsReqs[1].filters.find((f) => f.op === 'in');
+      assert.ok(inFilter);
+      assert.deepEqual(inFilter.args, ['id', ['pod-late']]);
+      // 재조회에도 동일 status 필터 적용
+      assert.equal(podsReqs[1].range, null);
+    });
+
+    it('offset 0 밖 참여 팟 재조회에도 status 필터를 동일 적용한다', async () => {
+      const { client, requests } = makeFakeClient(
+        (req) =>
+          req.table === 'pod_participants'
+            ? { data: participantRows(['pod-late']) }
+            : req.table === 'pods' && req.range
+              ? { data: createdRows.slice(0, 2), count: 42 }
+              : req.table === 'pods'
+                ? { data: [] }
+                : { data: uploads },
+        { id: 'u-1' },
+      );
+      await listProductPods('pc-001', { status: 'open', limit: 2 }, client);
+      const podsReqs = requests.filter((r) => r.table === 'pods');
+      assert.equal(podsReqs.length, 2);
+      for (const q of podsReqs) {
+        assert.ok(
+          q.filters.some(
+            (f) =>
+              f.op === 'eq' &&
+              f.args[0] === 'status' &&
+              f.args[1] === 'recruiting',
+          ),
+        );
+      }
+    });
   });
 });

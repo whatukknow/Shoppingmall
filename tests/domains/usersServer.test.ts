@@ -717,18 +717,28 @@ describe('listMyPodApplications', () => {
     participant({
       id: 10,
       application_id: 1,
+      pod_id: 'pod-1',
       payment_ready_at: '2026-01-16T00:00:00Z',
       paid_at: null,
     }),
     participant({
       id: 20,
       application_id: 2,
+      pod_id: 'pod-2',
       payment_ready_at: '2026-01-14T00:00:00Z',
+      paid_at: null,
+    }),
+    participant({
+      id: 30,
+      application_id: 3,
+      pod_id: 'pod-3',
+      payment_ready_at: null,
       paid_at: null,
     }),
     participant({
       id: 40,
       application_id: 4,
+      pod_id: 'pod-4',
       payment_ready_at: '2026-01-12T00:00:00Z',
       paid_at: '2026-01-13T00:00:00Z',
     }),
@@ -831,6 +841,113 @@ describe('listMyPodApplications', () => {
     );
     assert.ok(partFilter);
     assert.deepEqual(partFilter.args[1], [1, 2, 3, 4]);
+  });
+
+  describe('활성 참여자 기준 필터', () => {
+    // pod-1: 활성 신청 2건 (중복 — 취소한 옛 신청 + 최신 신청을 재현)
+    const appRows = [
+      joinedApplication({
+        id: 2,
+        status: 'accepted',
+        requested_at: '2026-01-15T00:00:00Z',
+        requested_pod_id: 'pod-1',
+        product_id: 'pc-001',
+        pods: {
+          ...pod({ id: 'pod-1' }),
+          products: {
+            name: '참외',
+            gid: 'gid-pc-001',
+            portion_label: '1팩',
+            portion_price: 4900,
+          },
+        },
+      }),
+      joinedApplication({
+        id: 1,
+        status: 'pending',
+        requested_at: '2026-01-10T00:00:00Z',
+        requested_pod_id: 'pod-1',
+        product_id: 'pc-001',
+        pods: {
+          ...pod({ id: 'pod-1' }),
+          products: {
+            name: '참외',
+            gid: 'gid-pc-001',
+            portion_label: '1팩',
+            portion_price: 4900,
+          },
+        },
+      }),
+      // pod-2: 취소한 신청 — participant is_active=false → 제외
+      joinedApplication({
+        id: 3,
+        status: 'pending',
+        requested_at: '2026-01-12T00:00:00Z',
+        requested_pod_id: 'pod-2',
+        product_id: 'pc-002',
+        pods: {
+          ...pod({ id: 'pod-2' }),
+          products: {
+            name: '토마토',
+            gid: 'gid-pc-002',
+            portion_label: '1망',
+            portion_price: 7900,
+          },
+        },
+      }),
+    ];
+    const participants: ParticipantRow[] = [
+      participant({ id: 20, application_id: 2, pod_id: 'pod-1' }),
+      participant({
+        id: 10,
+        application_id: 1,
+        pod_id: 'pod-1',
+        is_active: false,
+        status: 'cancelled',
+        cancelled_at: '2026-01-11T00:00:00Z',
+      }),
+      participant({
+        id: 30,
+        application_id: 3,
+        pod_id: 'pod-2',
+        is_active: false,
+        status: 'cancelled',
+        cancelled_at: '2026-01-13T00:00:00Z',
+      }),
+    ];
+
+    function handler(req: Request): { data: unknown } {
+      if (req.table === 'pod_applications') return { data: appRows };
+      if (req.table === 'pod_participants') return { data: participants };
+      if (req.table === 'uploads')
+        return { data: [upload({ gid: 'gid-pc-001', head_img: true })] };
+      return { data: null };
+    }
+
+    it('취소(is_active=false)한 신청은 목록에서 제외하고 total 은 필터 후 개수', async () => {
+      const { client } = makeFakeClient(handler);
+      const result = await listMyPodApplications(
+        { status: 'all', sort: 'latest', limit: 0, offset: 0, now: NOW },
+        client,
+      );
+      assert.deepEqual(
+        result.list.map((x) => x.podId),
+        ['pod-1'],
+      );
+      assert.equal(result.total, 1);
+    });
+
+    it('같은 팟에 활성 신청 여러 개면 최신 1건만 남긴다', async () => {
+      const { client } = makeFakeClient(handler);
+      const result = await listMyPodApplications(
+        { status: 'all', sort: 'latest', limit: 0, offset: 0, now: NOW },
+        client,
+      );
+      const pods = result.list.filter((x) => x.podId === 'pod-1');
+      assert.equal(pods.length, 1);
+      // requested_at 내림차순 정렬상 첫 번째(id=2, 01-15)가 유지된다
+      assert.equal(pods[0].id, '2');
+    });
   });
 
   it('비로그인이면 401', async () => {

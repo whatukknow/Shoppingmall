@@ -73,6 +73,8 @@ export type Pod = {
   targetCount: number;
   deadlineLabel: string;
   status: PodStatus;
+  /** 세션 사용자가 이미 참여 중(생성 포함)인 팟인지 — 비로그인 · 목업은 생략 가능 */
+  isJoined?: boolean;
 };
 
 /** 상품별 팟 목록 조회 시 status 필터입니다. */
