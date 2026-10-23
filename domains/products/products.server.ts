@@ -48,7 +48,7 @@ function baseProductQuery(client: SupabaseClient<Database>, inner = false) {
 }
 
 /** uploads 를 gid 목록으로 한 번에 조회해 gid 별 대표(head_img) 이미지를 뽑는다 (N+1 방지) */
-async function fetchHeadImages(
+export async function fetchHeadImages(
   client: SupabaseClient<Database>,
   gids: string[],
 ): Promise<Map<string, string>> {
