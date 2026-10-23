@@ -8,6 +8,12 @@ import type {
   PaymentOrderItem,
 } from '@/domains/payment/data/payment.types';
 
+// DB 의 orders.status 값 (팀 데이터 규칙: 소문자)
+export const ORDER_STATUS = {
+  PENDING: 'pending',
+  PAID: 'paid',
+} as const;
+
 // 가주문·승인 기록 저장소: 실DB rpc 로 처리한다.
 // - 가주문 생성: 세션 클라이언트로 rpc_create_order (RLS 세션 컨텍스트)
 //   → RPC 가 배송비·총액을 직접 기록하고 응답으로 돌려준다
@@ -207,7 +213,11 @@ export async function findOrder(
     []) as Database['public']['Tables']['order_items']['Row'][];
 
   // 'failed' 는 결제 가능 상태가 아니다 — 주문 없음으로 취급한다.
-  if (orderRow.status !== 'pending' && orderRow.status !== 'paid') return null;
+  if (
+    orderRow.status !== ORDER_STATUS.PENDING &&
+    orderRow.status !== ORDER_STATUS.PAID
+  )
+    return null;
 
   return {
     orderId: orderRow.id,
@@ -228,7 +238,10 @@ export async function findOrder(
         ['shipping', 'fee'].join('_')
       ] ?? undefined,
     amount: orderRow.total ?? 0,
-    status: orderRow.status === 'paid' ? 'PAID' : 'PENDING',
+    status:
+      orderRow.status === ORDER_STATUS.PAID
+        ? ('PAID' as const)
+        : ('PENDING' as const),
     paymentKey: undefined,
     receiptUrl: null,
   };

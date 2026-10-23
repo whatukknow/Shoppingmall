@@ -1,9 +1,10 @@
+import { ORDER_STATUS } from '@/domains/payment/data/payment.order-store';
 import { AuthApiError } from '@/domains/auth/auth.server';
 import { listMyPayments } from '@/domains/auth/users.server';
 
 type BadRequest = { status: 400; message: string };
 
-const STATUS_WHITELIST = ['paid', 'pending'] as const;
+const STATUS_WHITELIST = [ORDER_STATUS.PAID, ORDER_STATUS.PENDING] as const;
 
 type StatusValue = (typeof STATUS_WHITELIST)[number];
 
