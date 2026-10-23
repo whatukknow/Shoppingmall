@@ -78,7 +78,6 @@ export function MastHead({
             target={user ? account : loginTarget}
             className="max-w-36 truncate"
           />
-          {user && <NavigationAction label="로그아웃" />}
         </div>
       </div>
     </header>
