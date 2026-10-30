@@ -6,7 +6,7 @@ export var EL = {
     tint: '#E3EEDB',
     t: 'A green table',
     copy: 'Start the week fresh. Green ingredients are your match.',
-    go: ['케일', '적근대', '꽃상추', '대파', '완두콩'],
+    go: ['한 줌의 바질', '레몬', '오이', '잎채소 소분 믹스', '고수'],
   },
   화: {
     h: '火',
@@ -15,7 +15,13 @@ export var EL = {
     tint: '#F6DDD6',
     t: 'A vibrant table',
     copy: 'A week full of energy. Try vibrant red ingredients.',
-    go: ['완숙 토마토', '설향 딸기', '사과', '스테이크용 고기', '홍고추'],
+    go: [
+      '한 끼 토마토',
+      '작은 딸기 한 팩',
+      '사과',
+      '채끝 스테이크 소분',
+      '당근',
+    ],
   },
   토: {
     h: '土',
@@ -24,7 +30,7 @@ export var EL = {
     tint: '#F6E8C8',
     t: 'A golden table',
     copy: 'A grounded, comforting week. Warm golden ingredients are your match.',
-    go: ['계란', '단호박', '홍감자', '고구마', '감귤'],
+    go: ['달걀 소포장', '단호박', '밤', '감자', '버터 소포장'],
   },
   금: {
     h: '金',
@@ -33,7 +39,7 @@ export var EL = {
     tint: '#EFEBE2',
     t: 'A simple table',
     copy: 'Keep it simple this week. Gentle, light ingredients are your match.',
-    go: ['양파', '양배추', '배추', '닭다리', '닭가슴살'],
+    go: ['우유 소포장', '양송이', '두부', '양파 소포장', '닭고기 소포장'],
   },
   수: {
     h: '水',
@@ -42,7 +48,7 @@ export var EL = {
     tint: '#DCE5EF',
     t: 'A sea-inspired table',
     copy: 'A calm, nourishing week. Explore seafood and savory flavors.',
-    go: ['제주도 갈치', '블루베리', '적포도', '수박', '머스크멜론'],
+    go: ['손질 새우', '손질 꽃게', '손질 오징어', '무화과', '참치캔'],
   },
 };
 var ANI = [
