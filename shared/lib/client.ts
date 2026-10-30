@@ -80,8 +80,9 @@ async function request<T>(
   body?: unknown,
   options: RequestOptions = {},
 ): Promise<T> {
+  const cleanPath = path.replace(/^\/+/, '');
   try {
-    const { params } = options;
+    const { params, headers, ...initBase } = options;
     const jsonBody: string | undefined =
       body !== undefined ? JSON.stringify(body) : undefined;
 
@@ -89,20 +90,19 @@ async function request<T>(
     const fetchHeaders: Record<string, string> = {
       'Content-Type': 'application/json',
     };
-    if (options.headers instanceof Headers) {
-      options.headers.forEach((value, key) => {
+    if (headers instanceof Headers) {
+      headers.forEach((value, key) => {
         fetchHeaders[key] = value;
       });
-    } else if (Array.isArray(options.headers)) {
-      for (const [key, value] of options.headers) fetchHeaders[key] = value;
-    } else if (options.headers) {
-      Object.assign(fetchHeaders, options.headers);
+    } else if (Array.isArray(headers)) {
+      for (const [key, value] of headers) fetchHeaders[key] = value;
+    } else if (headers) {
+      Object.assign(fetchHeaders, headers);
     }
-    const { headers: _oHeaders, ...initBase } = options;
-    void _oHeaders;
 
     // 서버 컴포넌트(SSR)에서는 상대 URL fetch 가 불가하므로 절대 URL 을 만든다.
     // next/headers 는 브라우저 번들에서 import 하면 안 되므로 여기서만 동적 import 한다.
+    let url = `/api/${cleanPath}${query ? `?${query}` : ''}`;
     if (typeof window === 'undefined') {
       const loader = nextHeadersLoader ?? (() => import('next/headers'));
       const getHeaders = (await loader()).headers;
@@ -111,25 +111,15 @@ async function request<T>(
       const host = h.get('host') ?? `localhost:${process.env.PORT ?? 3000}`;
       fetchHeaders['Cookie'] = h.get('cookie') ?? '';
       initBase.cache = 'no-store';
-      const baseUrl = `${proto}://${host}`;
-      const response = await fetch(
-        `${baseUrl}/api/${path}${query ? `?${query}` : ''}`,
-        {
-          ...initBase,
-          method,
-          headers: fetchHeaders,
-          body: jsonBody,
-        } as RequestInit,
-      );
-      return await handleLiveResponse<T>(response);
+      url = `${proto}://${host}${url}`;
     }
 
-    const response = await fetch(`/api/${path}${query ? `?${query}` : ''}`, {
+    const response = await fetch(url, {
       ...initBase,
       method,
       headers: fetchHeaders,
       body: jsonBody,
-    } as RequestInit);
+    });
     return await handleLiveResponse<T>(response);
   } catch (e) {
     if (e instanceof ApiError) throw e;
