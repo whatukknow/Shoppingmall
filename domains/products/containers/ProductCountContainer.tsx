@@ -6,5 +6,5 @@ import { getProducts } from '@/domains/products/products.api';
 /** 상품 개수: 목록 조회 응답의 total 을 표시합니다. */
 export default async function ProductCountContainer() {
   const { total } = await getProducts();
-  return <p className="text-foreground/70 pb-1 text-sm">{total}개 상품</p>;
+  return <p className="text-foreground/70 pb-1 text-sm">{total} products</p>;
 }

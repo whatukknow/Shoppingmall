@@ -3,7 +3,7 @@ export function ProductDetailSkeleton() {
   return (
     <div
       aria-busy="true"
-      aria-label="상품 정보를 불러오는 중이에요."
+      aria-label="Loading product details."
       className="flex-1 pb-24 font-sans"
     >
       <div className="mx-auto w-full max-w-[1080px] px-6 pt-10">

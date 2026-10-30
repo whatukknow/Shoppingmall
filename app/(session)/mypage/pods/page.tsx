@@ -5,7 +5,7 @@ import { isMyPodsTab } from '@/domains/pods/containers/MyPodsContainer';
 import { MyPodsSkeleton } from '@/domains/pods/components/MyPodsSkeleton';
 
 export const metadata: Metadata = {
-  title: '내 신청 팟 | Little Portions',
+  title: 'My buying groups | Little Portions',
 };
 
 type PageProps = {

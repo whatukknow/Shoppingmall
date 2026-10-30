@@ -22,12 +22,12 @@ export function SundayStep() {
       <section className="step on" id="q2">
         <div className="head">
           <span className="k">
-            <i className="pf">STEP 2</i>일요일 아침
+            <i className="pf">STEP 2</i>Sunday morning
           </span>
           <h1>
-            이번 주 일요일 아침,
+            This Sunday morning,
             <br />
-            당신은?
+            what’s your plan?
           </h1>
         </div>
         <ChoiceGrid<SundayAnswer>

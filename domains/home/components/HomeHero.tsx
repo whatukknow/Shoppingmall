@@ -11,7 +11,7 @@ export function HomeHero() {
         playsInline
         preload="metadata"
         poster="/uploads/videos/home-header-poster.jpg"
-        aria-label="Little Portions 메인 소개 영상"
+        aria-label="Introducing Little Portions"
         className="absolute inset-0 h-full w-full object-cover"
       >
         <source src="/uploads/videos/home-header.mp4" type="video/mp4" />
@@ -22,20 +22,21 @@ export function HomeHero() {
           TOGETHER, IN THE RIGHT PORTION
         </p>
         <h1 className="mt-8 text-[32px] leading-[1.42] font-bold tracking-[-0.04em] sm:text-[38px]">
-          필요한 만큼,
+          Just what you need.
           <br />
-          함께 나누는 장보기
+          Better when shared.
         </h1>
         <p className="mt-5 text-[13px] leading-6 text-white/90 sm:text-[15px]">
-          마음에 드는 식재료를 발견하고 소분 팟에 참여해요.
+          Discover ingredients you love and join a group to split a larger pack.
           <br className="hidden sm:block" />
-          모집 조건이 채워지면 결제가 열리고, 함께 나눌 준비가 시작됩니다.
+          Once the group fills up, payment opens and your shared order gets
+          started.
         </p>
         <Link
           href="/products"
           className="mt-8 inline-flex h-12 items-center justify-center bg-[#650f20] px-[13px] text-[13px] font-medium text-white transition-colors hover:bg-[#4d0b19]"
         >
-          함께 나눌 소분마켓 둘러보기{' '}
+          Explore the market{' '}
           <span aria-hidden="true" className="ml-1">
             →
           </span>

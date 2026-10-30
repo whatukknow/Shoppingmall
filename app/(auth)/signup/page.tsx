@@ -4,11 +4,15 @@ import { getRedirectTo } from '@/domains/auth/auth.redirect';
 import SignupContainer from '@/domains/auth/containers/SignupContainer';
 
 export const metadata: Metadata = {
-  title: '회원가입 | Little Portions',
+  title: 'Sign up | Little Portions',
 };
 
 // 가입 후 할 수 있는 것 (시안 왼쪽 안내 상자)
-const benefits = ['내 신청 팟 확인', '소분 상품 탐색', 'AI 취향 추천'];
+const benefits = [
+  'Track your buying groups',
+  'Explore smaller portions',
+  'Personalized food picks',
+];
 
 type SignupPageProps = {
   searchParams: Promise<{ next?: string | string[] }>;
@@ -28,27 +32,27 @@ export default function SignupPage({ searchParams }: SignupPageProps) {
       {/* 왼쪽 소개 */}
       <section className="flex flex-col gap-6">
         <h1 className="text-[32px] leading-[1.35] font-bold">
-          작은 장보기의
+          Your next meal
           <br />
-          시작
+          starts here
         </h1>
 
         {/* 모바일 문구 */}
         <p className="text-base leading-7 md:hidden">
-          필요한 만큼 함께 나눠요.
+          Share an order. Get just enough.
         </p>
 
         {/* PC 문구 + 안내 상자 */}
         <p className="hidden text-base leading-7 md:block">
-          상품을 고르고
+          Pick a product.
           <br />
-          팟을 신청하고
+          Join a buying group.
           <br />
-          매칭 후 결제해요.
+          Pay when the group is full.
         </p>
 
         <div className="border-foreground/20 hidden flex-col gap-3 border p-6 md:flex">
-          <h2 className="text-base font-bold">가입 후 할 수 있어요</h2>
+          <h2 className="text-base font-bold">With your account</h2>
           <ul className="flex flex-col gap-2 text-sm">
             {benefits.map((benefit) => (
               <li key={benefit}>· {benefit}</li>

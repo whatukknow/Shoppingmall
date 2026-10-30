@@ -13,8 +13,8 @@ export function PolicyDraftPage({
         {description}
       </p>
       <p className="text-muted-foreground mt-3 text-sm">
-        이 화면은 부트캠프 시안용 경로이며, 실제 정책 문구는 아직 반영되지
-        않았습니다.
+        This is a bootcamp prototype page. Final policy text has not been added
+        yet.
       </p>
     </main>
   );

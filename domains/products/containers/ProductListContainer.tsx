@@ -5,6 +5,6 @@ import { getProducts } from '@/domains/products/products.api';
 
 /** 상품 목록: 전체 상품 목록을 조회해 카탈로그 그리드를 그립니다. */
 export default async function ProductListContainer() {
-  const { list } = await getProducts();
+  const { list } = await getProducts({ limit: 0 });
   return <ProductCatalogGrid products={list} />;
 }

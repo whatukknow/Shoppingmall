@@ -30,7 +30,7 @@ describe('toss.service', () => {
       formatOrderName(['용인 블루베리', '시흥 스테비아 토마토']),
       '용인 블루베리 외 1건',
     );
-    assert.equal(formatOrderName([]), '주문 상품');
+    assert.equal(formatOrderName([]), 'Order items');
   });
 
   it('주문 금액과 콜백 금액이 같으면 통과한다', () => {
@@ -41,13 +41,20 @@ describe('toss.service', () => {
   });
 
   it('콜백 금액이 조작되면 차단한다', () => {
-    const result = verifyOrderBeforeConfirm(pendingOrder, { ...callback, amount: 100 });
+    const result = verifyOrderBeforeConfirm(pendingOrder, {
+      ...callback,
+      amount: 100,
+    });
     assert.equal(result.valid, false);
     assert.equal(result.valid === false && result.code, 'AMOUNT_MISMATCH');
   });
 
   it('이미 PAID인 같은 결제는 alreadyPaid로 통과한다 (새로고침)', () => {
-    const paid = { ...pendingOrder, status: 'PAID' as const, paymentKey: 'tgen_test_key' };
+    const paid = {
+      ...pendingOrder,
+      status: 'PAID' as const,
+      paymentKey: 'tgen_test_key',
+    };
     assert.deepEqual(verifyOrderBeforeConfirm(paid, callback), {
       valid: true,
       alreadyPaid: true,
@@ -55,7 +62,11 @@ describe('toss.service', () => {
   });
 
   it('이미 PAID인데 다른 paymentKey면 차단한다', () => {
-    const paid = { ...pendingOrder, status: 'PAID' as const, paymentKey: 'other_key' };
+    const paid = {
+      ...pendingOrder,
+      status: 'PAID' as const,
+      paymentKey: 'other_key',
+    };
     const result = verifyOrderBeforeConfirm(paid, callback);
     assert.equal(result.valid === false && result.code, 'PAYMENT_MISMATCH');
   });

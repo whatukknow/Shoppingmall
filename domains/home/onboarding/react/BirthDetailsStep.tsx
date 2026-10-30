@@ -1,10 +1,12 @@
 'use client';
 
+import { foodLabel } from '@/shared/lib/food-label';
+
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTaste } from './TasteProvider';
 import { hasBirthDetails, tasteRoutes } from './answers';
-import { saju, EL } from './recommendation';
+import { saju } from './recommendation';
 import { PixelIcon } from './PixelIcon';
 import { TasteFrame } from './TasteFrame';
 
@@ -80,7 +82,7 @@ export function BirthDetailsStep() {
       nextSoft={!hasBirthDetails(answers)}
       overlay={
         <div className={toast ? 'toast show' : 'toast'} role="status">
-          닉네임과 생년월일을 입력해 주세요
+          Enter your nickname and date of birth
         </div>
       }
     >
@@ -88,26 +90,27 @@ export function BirthDetailsStep() {
         <div className="head">
           <PixelIcon name="crystal" />
           <span className="k">
-            <i className="pf">STEP 1</i>한 끼 사주
+            <i className="pf">STEP 1</i>Food fortune
           </span>
-          <h1>이번 주, 당신의 식운을 볼게요</h1>
+          <h1>What’s your food fortune?</h1>
           <p className="sub">
-            태어난 날로 오늘의 기운을 읽고
+            Discover the energy of your birth date
             <br />
-            어울리는 식재료를 골라 드려요
+            and find ingredients to match
           </p>
         </div>
         <div className="panel">
           <div className={submitted && !validNick ? 'fld err' : 'fld'}>
             <label className="lb" htmlFor="taste-nick">
-              닉네임<small className="req">필수 · 결과 화면에 표시돼요</small>
+              Nickname
+              <small className="req">Required · Shown on your results</small>
             </label>
             <input
               ref={nickRef}
               className="in"
               id="taste-nick"
               maxLength={10}
-              placeholder="예) 늦잠러"
+              placeholder="e.g. Sleepyhead"
               autoComplete="off"
               value={answers.nick}
               onChange={(event) =>
@@ -120,27 +123,30 @@ export function BirthDetailsStep() {
             />
             <p className="err-msg" id="taste-nick-error" role="alert">
               {submitted && !validNick
-                ? '닉네임을 적어 주세요. 결과 카드에 표시돼요'
+                ? 'Enter a nickname for your results card'
                 : ''}
             </p>
           </div>
           <div className={submitted && !validDate ? 'fld err' : 'fld'}>
             <span className="lb">
-              생년월일<small className="req">필수 · 띠와 오행을 계산해요</small>
+              Date of birth
+              <small className="req">
+                Required · Used for your zodiac and element
+              </small>
             </span>
             <div className="dob">
               <select
                 ref={yearRef}
                 className={!answers.y ? 'in empty' : 'in'}
-                aria-label="태어난 해"
+                aria-label="Birth year"
                 value={answers.y ?? ''}
                 onChange={(event) => changeDate('y', event.target.value)}
               >
-                <option value="">연도</option>
+                <option value="">Year</option>
                 {Array.from({ length: 61 }, (_, index) => 2010 - index).map(
                   (year) => (
                     <option key={year} value={year}>
-                      {year}년
+                      {year}
                     </option>
                   ),
                 )}
@@ -148,15 +154,15 @@ export function BirthDetailsStep() {
               <select
                 ref={monthRef}
                 className={!answers.m ? 'in empty' : 'in'}
-                aria-label="태어난 달"
+                aria-label="Birth month"
                 value={answers.m ?? ''}
                 onChange={(event) => changeDate('m', event.target.value)}
               >
-                <option value="">월</option>
+                <option value="">Month</option>
                 {Array.from({ length: 12 }, (_, index) => index + 1).map(
                   (month) => (
                     <option key={month} value={month}>
-                      {month}월
+                      {month}
                     </option>
                   ),
                 )}
@@ -164,15 +170,15 @@ export function BirthDetailsStep() {
               <select
                 ref={dayRef}
                 className={!answers.d ? 'in empty' : 'in'}
-                aria-label="태어난 날"
+                aria-label="Birth day"
                 value={answers.d ?? ''}
                 onChange={(event) => changeDate('d', event.target.value)}
               >
-                <option value="">일</option>
+                <option value="">Day</option>
                 {Array.from({ length: days }, (_, index) => index + 1).map(
                   (day) => (
                     <option key={day} value={day}>
-                      {day}일
+                      {day}
                     </option>
                   ),
                 )}
@@ -180,20 +186,20 @@ export function BirthDetailsStep() {
             </div>
             <p className="err-msg" role="alert">
               {submitted && !validDate
-                ? `${!answers.y ? '태어난 해' : !answers.m ? '태어난 달' : '태어난 날'}을 골라 주세요`
+                ? `Please choose your ${!answers.y ? 'birth year' : !answers.m ? 'birth month' : 'birth day'}`
                 : ''}
             </p>
           </div>
           <div className="fld">
             <span className="lb">
-              성별<small>선택</small>
+              Gender<small>Optional</small>
             </span>
             <div className="seg">
               {(
                 [
-                  ['f', '여성'],
-                  ['m', '남성'],
-                  ['n', '선택 안 함'],
+                  ['f', 'Female'],
+                  ['m', 'Male'],
+                  ['n', 'Prefer not to say'],
                 ] as const
               ).map(([value, label]) => (
                 <button
@@ -215,19 +221,18 @@ export function BirthDetailsStep() {
               {zodiac ? (
                 <>
                   <b>
-                    {zodiac.animal}띠 · {zodiac.el}(
-                    {EL[zodiac.el as keyof typeof EL].h})의 기운
+                    {foodLabel(zodiac.animal)} · {foodLabel(zodiac.el)} energy
                   </b>
                   <br />
                   {zodiac.y !== answers.y
-                    ? `입춘 전 출생이라 ${zodiac.y}년 기준이에요`
-                    : '다음 단계에서 식운을 완성해요'}
+                    ? `Born before the start of spring; using ${zodiac.y}`
+                    : 'Continue to discover your food fortune'}
                 </>
               ) : (
                 <>
-                  <b>생년월일을 고르면</b>
+                  <b>Choose your birth date</b>
                   <br />
-                  띠와 오행이 바로 보여요
+                  to reveal your zodiac and element
                 </>
               )}
             </p>

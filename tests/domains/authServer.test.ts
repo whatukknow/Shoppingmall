@@ -401,7 +401,7 @@ describe('auth.server signIn', () => {
       (e: unknown) => {
         assert.ok(e instanceof AuthApiError);
         assert.equal(e.status, 400);
-        assert.equal(e.message, '이메일 형식을 확인해 주세요.');
+        assert.equal(e.message, 'Enter a valid email address.');
         return true;
       },
     );
@@ -565,7 +565,7 @@ describe('auth.server signUp', () => {
       (e: unknown) => {
         assert.ok(e instanceof AuthApiError);
         assert.equal(e.status, 400);
-        assert.equal(e.message, '비밀번호는 8자 이상 입력해 주세요.');
+        assert.equal(e.message, 'Use at least 8 characters for your password.');
         return true;
       },
     );
@@ -578,7 +578,7 @@ describe('auth.server signUp', () => {
       (e: unknown) => {
         assert.ok(e instanceof AuthApiError);
         assert.equal(e.status, 400);
-        assert.equal(e.message, '이메일 형식을 확인해 주세요.');
+        assert.equal(e.message, 'Enter a valid email address.');
         return true;
       },
     );
@@ -596,7 +596,7 @@ describe('auth.server signUp', () => {
     );
   });
 
-  it('email_address_invalid 는 400 "이메일 형식을 확인해 주세요." 로 매핑한다', async () => {
+  it('email_address_invalid 는 400 "Enter a valid email address." 로 매핑한다', async () => {
     const client = makeFakeClient({
       ...signedInOptions,
       auth: {
@@ -609,12 +609,12 @@ describe('auth.server signUp', () => {
     await assert.rejects(signUp(signupRequest, client), (e: unknown) => {
       assert.ok(e instanceof AuthApiError);
       assert.equal(e.status, 400);
-      assert.equal(e.message, '이메일 형식을 확인해 주세요.');
+      assert.equal(e.message, 'Enter a valid email address.');
       return true;
     });
   });
 
-  it('validation_failed 는 400 "입력값을 확인해 주세요." 로 매핑한다', async () => {
+  it('validation_failed 는 400 "Please check your details." 로 매핑한다', async () => {
     const client = makeFakeClient({
       ...signedInOptions,
       auth: {
@@ -627,7 +627,7 @@ describe('auth.server signUp', () => {
     await assert.rejects(signUp(signupRequest, client), (e: unknown) => {
       assert.ok(e instanceof AuthApiError);
       assert.equal(e.status, 400);
-      assert.equal(e.message, '입력값을 확인해 주세요.');
+      assert.equal(e.message, 'Please check your details.');
       return true;
     });
   });
@@ -645,10 +645,7 @@ describe('auth.server signUp', () => {
     await assert.rejects(signUp(signupRequest, client), (e: unknown) => {
       assert.ok(e instanceof AuthApiError);
       assert.equal(e.status, 400);
-      assert.equal(
-        e.message,
-        '비밀번호가 너무 약해요. 다른 비밀번호를 입력해 주세요.',
-      );
+      assert.equal(e.message, 'Choose a stronger password.');
       return true;
     });
   });
@@ -666,7 +663,7 @@ describe('auth.server signUp', () => {
     await assert.rejects(signUp(signupRequest, client), (e: unknown) => {
       assert.ok(e instanceof AuthApiError);
       assert.equal(e.status, 429);
-      assert.equal(e.message, '요청이 많아요. 잠시 후 다시 시도해 주세요.');
+      assert.equal(e.message, 'Too many requests. Please try again shortly.');
       return true;
     });
   });
@@ -684,7 +681,7 @@ describe('auth.server signUp', () => {
     await assert.rejects(signUp(signupRequest, client), (e: unknown) => {
       assert.ok(e instanceof AuthApiError);
       assert.equal(e.status, 429);
-      assert.equal(e.message, '요청이 많아요. 잠시 후 다시 시도해 주세요.');
+      assert.equal(e.message, 'Too many requests. Please try again shortly.');
       return true;
     });
   });
@@ -701,12 +698,12 @@ describe('auth.server signUp', () => {
     await assert.rejects(signUp(signupRequest, client), (e: unknown) => {
       assert.ok(e instanceof AuthApiError);
       assert.equal(e.status, 429);
-      assert.equal(e.message, '요청이 많아요. 잠시 후 다시 시도해 주세요.');
+      assert.equal(e.message, 'Too many requests. Please try again shortly.');
       return true;
     });
   });
 
-  it('email_address_not_authorized 는 400 "이 이메일로는 가입할 수 없어요." 로 매핑한다', async () => {
+  it('email_address_not_authorized 는 400 "You cannot sign up with this email address." 로 매핑한다', async () => {
     const client = makeFakeClient({
       ...signedInOptions,
       auth: {
@@ -719,7 +716,7 @@ describe('auth.server signUp', () => {
     await assert.rejects(signUp(signupRequest, client), (e: unknown) => {
       assert.ok(e instanceof AuthApiError);
       assert.equal(e.status, 400);
-      assert.equal(e.message, '이 이메일로는 가입할 수 없어요.');
+      assert.equal(e.message, 'You cannot sign up with this email address.');
       return true;
     });
   });

@@ -9,9 +9,7 @@ type ProductCatalogGridProps = {
 export function ProductCatalogGrid({ products }: ProductCatalogGridProps) {
   if (products.length === 0) {
     return (
-      <p className="text-muted-foreground min-h-48 py-12">
-        등록된 상품이 없어요.
-      </p>
+      <p className="text-muted-foreground min-h-48 py-12">No products yet.</p>
     );
   }
   return (

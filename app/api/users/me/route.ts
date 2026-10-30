@@ -18,7 +18,7 @@ export async function GET(): Promise<Response> {
     return Response.json(
       {
         error: {
-          message: '회원 정보를 불러오지 못했어요. 잠시 후 다시 시도해 주세요.',
+          message: 'Could not load your account. Please try again shortly.',
         },
       },
       { status: 500 },

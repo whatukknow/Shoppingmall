@@ -23,9 +23,9 @@ export function FridgeStep() {
       <section className="step on" id="q3">
         <div className="head">
           <span className="k">
-            <i className="pf">STEP 3</i>냉장고
+            <i className="pf">STEP 3</i>Your fridge
           </span>
-          <h1>지금 당신의 냉장고는?</h1>
+          <h1>What’s in your fridge?</h1>
         </div>
         <ChoiceGrid<FridgeAnswer>
           options={FRI}

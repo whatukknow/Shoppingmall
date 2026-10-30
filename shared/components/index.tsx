@@ -53,7 +53,7 @@ export {
 } from './ButterBackground';
 export { MainNavigation } from './MainNavigation';
 export { default as Footer } from './Footer';
-export type { CompanyInformationProps, FooterComponentProps } from './Footer';
+export type { BrandInformationProps, FooterComponentProps } from './Footer';
 export { ProductCard } from './ProductCard';
 export { default as ProductGrid } from './ProductGrid';
 export { CarouselContainer } from './CarouselContainer';

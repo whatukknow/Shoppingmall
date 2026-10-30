@@ -29,13 +29,14 @@ const bbhHegarty = localFont({
 
 export const metadata: Metadata = {
   title: 'Little Portions',
-  description: 'Issue 01  느긋하게 차리는, 나의 한 접시',
+  description:
+    'Share larger grocery packs with a buying group and get just the portion you need.',
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
-      lang="ko"
+      lang="en-US"
       className={`${notoSansKr.variable} ${bbhHegarty.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
@@ -57,12 +58,10 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         </ButterBackground>
         <Suspense fallback={null}>
           <Footer
-            companyName="리틀포션즈"
-            representative="teamG"
-            businessRegistrationNumber="000-00-00000"
-            ecommerceRegistrationNumber="제0000-서울구로-0000호"
-            address="서울특별시 구로구 디지털로33길 48"
-            customerService="0000-0000"
+            brandName="Little Portions"
+            representative="Seoin Bae"
+            address="48 Digital-ro 33-gil, Guro-gu, Seoul, South Korea"
+            customerService="littleportionscs@gmail.com"
             termsUrl="/terms"
             privacyUrl="/privacy"
           />

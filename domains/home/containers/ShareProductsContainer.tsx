@@ -1,3 +1,7 @@
+import {
+  findCatalogProduct,
+  catalogImages,
+} from '@/domains/products/catalog/catalog';
 // 'use client' 없음: 서버에서 추천 상품(공유 상품) 추천 모드별 목록을 조회하는 경계
 
 import { ShareProductsCarousel } from '@/domains/home/components/ShareProductsCarousel';
@@ -27,6 +31,21 @@ export default async function ShareProductsContainer() {
   }
 
   return (
-    <ShareProductsCarousel products={products} mode={recommendationMode} />
+    <ShareProductsCarousel
+      products={products.flatMap((p) => {
+        const item = findCatalogProduct(p.id) ?? findCatalogProduct(p.name);
+        return item
+          ? [
+              {
+                ...p,
+                id: item.id,
+                name: item.name,
+                imageUrl: catalogImages(item.id)!.recommendation,
+              },
+            ]
+          : [];
+      })}
+      mode={recommendationMode}
+    />
   );
 }

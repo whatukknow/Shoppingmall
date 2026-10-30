@@ -36,7 +36,7 @@ function ActionLink({ label, href, primary = false }: ActionLinkProps) {
         aria-disabled="true"
         className={cn(style, 'cursor-not-allowed opacity-50')}
       >
-        {label} (준비 중)
+        {label} (Coming soon)
       </span>
     );
   }
@@ -61,11 +61,11 @@ export function ProfileView({
       ? `${member.recipientName} · ${member.recipientPhone} · (${member.postalCode}) ${member.recipientAddress} ${member.recipientAddressDetail}`
       : undefined;
   const infoRows = [
-    { label: '이름', value: member.name },
-    { label: '이메일', value: member.email },
+    { label: 'Name', value: member.name },
+    { label: 'Email', value: member.email },
     {
-      label: '수령 정보',
-      value: deliveryInfo ?? '등록된 수령 정보가 없어요.',
+      label: 'Delivery details',
+      value: deliveryInfo ?? 'No delivery details saved yet.',
     },
   ];
 
@@ -74,9 +74,9 @@ export function ProfileView({
       {/* 제목 */}
       <div className="flex flex-col gap-2">
         <h1 className="text-[28px] font-bold md:text-[32px]">
-          {member.name}님, 안녕하세요
+          Hello, {member.name}
         </h1>
-        <p className="text-base">내 정보와 신청 내역을 확인해요.</p>
+        <p className="text-base">View your details and buying groups.</p>
       </div>
 
       <div className="grid gap-8 md:grid-cols-[180px_1fr_260px]">
@@ -90,7 +90,7 @@ export function ProfileView({
 
         {/* 가운데 기본 정보 */}
         <section className="border-foreground/20 flex flex-col gap-4 border p-6">
-          <h2 className="text-lg font-bold">기본 정보</h2>
+          <h2 className="text-lg font-bold">Account details</h2>
           <dl className="flex flex-col gap-4">
             {infoRows.map((row) => (
               <div key={row.label} className="flex flex-col gap-1">
@@ -100,15 +100,15 @@ export function ProfileView({
             ))}
           </dl>
           <p className="text-muted-foreground text-sm">
-            정보 수정은 준비 중이에요.
+            Profile editing is coming soon.
           </p>
         </section>
 
         {/* 오른쪽 내 장보기 */}
         <section className="border-foreground/20 flex flex-col gap-3 border p-6">
-          <h2 className="text-lg font-bold">내 장보기</h2>
-          <ActionLink label="내 신청 팟 목록" href={myPotsHref} primary />
-          <ActionLink label="AI 추천 취향 설정" href={tasteHref} />
+          <h2 className="text-lg font-bold">My shopping</h2>
+          <ActionLink label="My buying groups" href={myPotsHref} primary />
+          <ActionLink label="Taste preferences" href={tasteHref} />
           <Button
             type="button"
             variant="actionOutline"
@@ -118,7 +118,7 @@ export function ProfileView({
             disabled={isPending}
             aria-busy={isPending}
           >
-            {isPending ? '로그아웃 중…' : '로그아웃'}
+            {isPending ? 'Logging out…' : 'Log out'}
           </Button>
         </section>
       </div>

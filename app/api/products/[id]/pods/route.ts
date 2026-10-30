@@ -18,7 +18,7 @@ function parseWhitelist<T extends string>(
 ): T | BadRequest {
   if (raw === null) return fallback;
   if (!(whitelist as readonly string[]).includes(raw)) {
-    return { status: 400, message: `잘못된 ${name} 파라미터입니다: ${raw}` };
+    return { status: 400, message: `Invalid ${name} parameter: ${raw}` };
   }
   return raw as T;
 }
@@ -31,7 +31,7 @@ function parseNumber(
   if (raw === null) return fallback;
   const value = Number(raw);
   if (!Number.isFinite(value) || value < 0) {
-    return { status: 400, message: `잘못된 ${name} 파라미터입니다: ${raw}` };
+    return { status: 400, message: `Invalid ${name} parameter: ${raw}` };
   }
   return value;
 }
@@ -94,7 +94,7 @@ export async function GET(
   } catch (e) {
     console.error('상품별 소분팟 목록 조회 실패', e);
     return Response.json(
-      { error: { message: '소분팟 정보를 불러오지 못했습니다.' } },
+      { error: { message: 'Could not load buying groups.' } },
       { status: 500 },
     );
   }
@@ -111,7 +111,7 @@ export async function POST(
     body = (await request.json()) as PodCreateRequest;
   } catch {
     return Response.json(
-      { error: { message: '요청 본문 형식을 확인해 주세요.' } },
+      { error: { message: 'Please check the request format.' } },
       { status: 400 },
     );
   }
@@ -133,7 +133,7 @@ export async function POST(
     return Response.json(
       {
         error: {
-          message: '소분팟을 등록하지 못했어요. 잠시 후 다시 시도해 주세요.',
+          message: 'Could not create the group. Please try again shortly.',
         },
       },
       { status: 500 },

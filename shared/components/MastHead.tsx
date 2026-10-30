@@ -47,13 +47,15 @@ export function MastHead({
         className="text-foreground mx-auto flex w-full max-w-[1440px] flex-col items-center gap-4 px-4 py-10 text-center"
       >
         <BrandLogo className="text-primary text-[clamp(2rem,8vw,5rem)] leading-[1.1]" />
-        <p className="text-base leading-6">필요한 만큼, 함께 나누는 신선함</p>
+        <p className="text-base leading-6">
+          Fresh food, shared in just the right portions
+        </p>
       </div>
     );
   }
   return (
     <header
-      aria-label="상점 헤더"
+      aria-label="Store header"
       className={
         isHome
           ? 'absolute top-0 left-0 z-40 w-full pt-[env(safe-area-inset-top)] text-white'
@@ -63,7 +65,7 @@ export function MastHead({
       <div className="mx-auto flex min-h-14 w-full max-w-[1440px] flex-wrap items-center gap-x-2 gap-y-1 px-3 py-1 sm:min-h-20 sm:flex-nowrap sm:gap-6 sm:px-6 lg:px-12">
         <Link
           href="/"
-          aria-label="Little Portions 홈"
+          aria-label="Little Portions home"
           className="focus-visible:outline-primary min-w-0 text-base focus-visible:outline-2 sm:text-[22px]"
         >
           <BrandLogo />
@@ -74,7 +76,7 @@ export function MastHead({
         />
         <div className="ml-auto flex min-w-0 items-center gap-1 sm:gap-4">
           <NavigationAction
-            label={user ? `${user.name}님` : '로그인'}
+            label={user ? user.name : 'Log in'}
             target={user ? account : loginTarget}
             className="max-w-36 truncate"
           />

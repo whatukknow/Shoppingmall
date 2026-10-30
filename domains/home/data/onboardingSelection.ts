@@ -16,8 +16,6 @@ const recommendationAliases: readonly [string, string][] = [
   ['수박', 'watermelon'],
   ['소고기', 'beefSteak'],
   ['스테이크', 'beefSteak'],
-  ['달걀', 'friedEgg'],
-  ['계란', 'friedEgg'],
   ['돼지고기', 'porkSteak'],
   ['닭', 'chickenDrumstick'],
   ['블루베리', 'blueberries'],

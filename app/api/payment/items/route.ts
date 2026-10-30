@@ -18,7 +18,7 @@ export async function GET(): Promise<Response> {
     }
     console.error('결제 상품 목록 조회 실패', e);
     return Response.json(
-      { error: { message: '결제 상품을 불러오지 못했어요.' } },
+      { error: { message: 'Could not load checkout items.' } },
       { status: 500 },
     );
   }

@@ -3,14 +3,15 @@ import type { PodRecruitment } from '@/domains/pods/pods.types';
 
 /** 마감 시각을 M월 D일 오전/오후 h시 문자열로 바꾼다. */
 export function formatDeadlineLabel(deadlineAt: string): string {
-  const date = new Date(deadlineAt);
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-  const hour = date.getHours();
-  const period = hour < 12 ? '오전' : '오후';
-  const hour12 = hour % 12 === 0 ? 12 : hour % 12;
-
-  return `${month}월 ${day}일 ${period} ${hour12}시`;
+  return (
+    new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Asia/Seoul',
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      hour12: true,
+    }).format(new Date(deadlineAt)) + ' KST'
+  );
 }
 
 /** 신청 내역을 모집 현황 카드(PodStatusCard) 모양으로 바꾼다. */

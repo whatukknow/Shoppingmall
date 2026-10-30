@@ -20,13 +20,16 @@ export function MainNavigation({
   const pathname = usePathname();
   // 메뉴 데이터와 NavigationAction 렌더링을 분리해 항목 구성을 한곳에서 관리합니다.
   const items = [
-    { label: '소분마켓', target: products },
-    { label: '취향 찾기', target: recommendation ?? { href: '/onboarding' } },
-    { label: '브랜드 이야기', target: about ?? { href: '/about' } },
+    { label: 'Market', target: products },
+    {
+      label: 'Find your taste',
+      target: recommendation ?? { href: '/onboarding' },
+    },
+    { label: 'Our story', target: about ?? { href: '/about' } },
   ];
   return (
     <nav
-      aria-label="주요 메뉴"
+      aria-label="Main navigation"
       className={cn(
         'text-foreground mx-auto w-full max-w-[1440px] px-2 py-2 sm:px-4 sm:py-3',
         className,

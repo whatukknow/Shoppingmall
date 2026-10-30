@@ -18,7 +18,7 @@ export async function GET(): Promise<Response> {
       {
         error: {
           message:
-            '취향 프로필을 불러오지 못했어요. 잠시 후 다시 시도해 주세요.',
+            'Could not load your taste profile. Please try again shortly.',
         },
       },
       { status: 500 },
@@ -34,7 +34,7 @@ export async function PUT(request: Request): Promise<Response> {
       body = await request.json();
     } catch {
       return Response.json(
-        { error: { message: '잘못된 요청 본문입니다.' } },
+        { error: { message: 'Invalid request body.' } },
         { status: 400 },
       );
     }
@@ -53,7 +53,7 @@ export async function PUT(request: Request): Promise<Response> {
       {
         error: {
           message:
-            '취향 프로필을 저장하지 못했어요. 잠시 후 다시 시도해 주세요.',
+            'Could not save your taste profile. Please try again shortly.',
         },
       },
       { status: 500 },

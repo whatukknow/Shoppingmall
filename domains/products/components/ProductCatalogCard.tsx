@@ -1,3 +1,5 @@
+import { formatPrice } from '@/shared/utils/formatPrice';
+import { foodLabel } from '@/shared/lib/food-label';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ProductListItem } from '../products.types';
@@ -10,26 +12,28 @@ export function ProductCatalogCard({ product }: { product: ProductListItem }) {
         {product.imageUrl ? (
           <Image
             src={product.imageUrl}
-            alt={product.name}
+            alt={foodLabel(product.name)}
             fill
             sizes="(max-width: 640px) 46vw, (max-width: 1024px) 30vw, 22vw"
             className="object-contain p-5"
           />
         ) : (
           <div className="bg-primary/5 text-foreground/50 flex size-full items-center justify-center text-sm">
-            이미지 준비 중
+            Image coming soon
           </div>
         )}
       </div>
       <div className="mt-3 flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="text-foreground/65 text-xs">{product.category}</p>
+          <p className="text-foreground/65 text-xs">
+            {foodLabel(product.category)}
+          </p>
           <h2 className="text-primary mt-1 truncate text-base font-bold">
-            {product.name}
+            {foodLabel(product.name)}
           </h2>
         </div>
         <p className="text-foreground shrink-0 text-sm font-semibold">
-          {product.price.toLocaleString('ko-KR')}원
+          {formatPrice(product.price)}
         </p>
       </div>
     </>

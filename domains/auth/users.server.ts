@@ -41,9 +41,9 @@ type JoinedParticipant = ParticipantsRow & {
   pods: (PodsRow & { products: ProductEmbed }) | null;
 };
 
-const LOGIN_REQUIRED_MESSAGE = '로그인이 필요해요.';
+const LOGIN_REQUIRED_MESSAGE = 'Please log in to continue.';
 const SERVER_ERROR_MESSAGE =
-  '요청을 처리하지 못했어요. 잠시 후 다시 시도해 주세요.';
+  'Could not process your request. Please try again shortly.';
 
 /** 세션 사용자 확인 — 없으면 401 (모든 users/me 함수 진입점) */
 async function requireUser(client: SupabaseClient<Database>): Promise<string> {
@@ -187,7 +187,7 @@ export async function getTasteProfile(
 
   const rows = (data ?? []) as TasteProfilesRow[];
   if (rows.length === 0) {
-    throw new AuthApiError(404, '취향 프로필이 아직 없어요.');
+    throw new AuthApiError(404, 'No taste profile yet.');
   }
   return toTasteProfile(rows[0]);
 }
@@ -202,7 +202,7 @@ export async function putTasteProfile(
   const uid = await requireUser(client);
   const parsed = parseTasteProfileRequest(body);
   if (!parsed) {
-    throw new AuthApiError(400, '취향 프로필 형식이 올바르지 않아요.');
+    throw new AuthApiError(400, 'Invalid taste profile.');
   }
 
   const columns = tasteProfileColumns(parsed);
@@ -246,7 +246,7 @@ export async function putTasteProfile(
     console.error('취향 프로필 저장 후 행 반환 없음', uid);
     throw new AuthApiError(
       500,
-      '취향 프로필을 저장하지 못했어요. 잠시 후 다시 시도해 주세요.',
+      'Could not save your taste profile. Please try again shortly.',
     );
   }
   return toTasteProfile(saved);

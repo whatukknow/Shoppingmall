@@ -3,7 +3,7 @@ export function PodListSkeleton() {
   return (
     <div
       aria-busy="true"
-      aria-label="팟 목록을 불러오는 중이에요."
+      aria-label="Loading buying groups."
       className="mt-5 flex flex-col gap-4"
     >
       {Array.from({ length: 2 }, (_, index) => (

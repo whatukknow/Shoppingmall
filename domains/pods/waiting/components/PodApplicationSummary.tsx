@@ -1,3 +1,4 @@
+import { foodLabel } from '@/shared/lib/food-label';
 // 내 신청 정보와 행동
 // 내가 선택한 팟 목록과 합계, 결제까지.
 import { Button } from '@/shared/components';
@@ -25,10 +26,11 @@ export default function PodApplicationsSummary({
           {items.map((item) => (
             <li key={item.podId}>
               <p className="text-lg font-bold">
-                {item.productName} · {item.optionLabel} · {item.quantity}개
+                {foodLabel(item.productName)} · {foodLabel(item.optionLabel)} ·{' '}
+                {item.quantity} items
               </p>
               <p className="mt-1 text-sm">
-                {(item.quantity * item.unitPrice).toLocaleString('ko-KR')}원
+                {(item.quantity * item.unitPrice).toLocaleString('en-US')} KRW
               </p>
             </li>
           ))}
@@ -38,19 +40,21 @@ export default function PodApplicationsSummary({
       {/* 금액 */}
       <dl className="mt-6 space-y-3">
         <div className="flex justify-between gap-4">
-          <dt>예상 상품 금액</dt>
-          <dd className="font-bold">{totalPrice.toLocaleString('ko-KR')}원</dd>
+          <dt>Estimated subtotal</dt>
+          <dd className="font-bold">
+            {totalPrice.toLocaleString('en-US')} KRW
+          </dd>
         </div>
       </dl>
 
       <p className="mt-3 text-xs">
-        배송비를 포함한 최종 금액은 결제 화면에서 확인해 주세요.
+        Check the final total, including delivery, at checkout.
       </p>
 
       {/* 결제 안내 */}
       <div className="mt-6 border-t border-current/15 pt-4">
         <p id="pod-payment-guide" className="mb-3 text-sm">
-          모집 완료! 결제해 주세요.
+          Your group is full! You can now pay.
         </p>
 
         <Button
@@ -61,13 +65,14 @@ export default function PodApplicationsSummary({
           aria-describedby="pod-payment-guide"
           className="w-full disabled:cursor-not-allowed disabled:opacity-40"
         >
-          결제하기
+          Pay now
         </Button>
 
         <p className="mt-4 text-xs leading-5">
-          함께 나누는 주문인 만큼 신중하게 신청해 주세요. 결제 24시간 이후에는
-          주문 진행 상태에 따라 단순변심 취소가 제한될 수 있습니다. 상품
-          하자·오배송은 별도 기준으로 처리됩니다.
+          Please join thoughtfully, as this is a shared order. After 24 hours
+          from payment, cancellations for a change of mind may be restricted
+          depending on order progress. Defective items and delivery errors are
+          handled separately.
         </p>
       </div>
     </div>

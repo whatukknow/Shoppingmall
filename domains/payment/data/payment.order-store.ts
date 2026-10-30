@@ -45,21 +45,21 @@ export type OrderStoreClients = {
   admin?: SupabaseClient<Database> | null;
 };
 
-const LOGIN_REQUIRED_MESSAGE = '로그인이 필요해요.';
+const LOGIN_REQUIRED_MESSAGE = 'Please log in to continue.';
 const AMOUNT_MISMATCH_MESSAGE =
-  '주문 금액이 일치하지 않아요. 새로고침 후 다시 시도해 주세요.';
+  'The order total has changed. Refresh and try again.';
 const STORE_ERROR_MESSAGE =
-  '주문을 처리하지 못했어요. 잠시 후 다시 시도해 주세요.';
+  'Could not process your order. Please try again shortly.';
 const NOT_PAYMENT_READY_MESSAGE =
-  '결제 가능 상태가 아닙니다. 결제 대상을 다시 확인해 주세요.';
+  'This group is not ready for payment. Check your selected groups.';
 const PAYMENT_DUE_PASSED_MESSAGE =
-  '결제 기한이 지났습니다. 결제 대상을 다시 선택해 주세요.';
+  'The payment deadline has passed. Select your groups again.';
 /** 사전 판정 차단: 참여자가 이미 결제되었거나 비활성인 경우 */
 export const ALREADY_PAID_PARTICIPANT_MESSAGE =
-  '이미 결제가 완료된 팟이 포함되어 있어요.';
+  'One of your selected groups has already been paid for.';
 /** 확정 직전 재검사 차단: 승인은 이미 완료됐을 수 있어 고객센터 안내 */
 export const CONFIRM_RECHECK_MESSAGE =
-  '결제 확인 중 문제가 생겼어요. 고객센터로 문의해 주세요.';
+  'Could not confirm payment. Please contact customer support.';
 
 function defaultClients(): OrderStoreClients {
   // admin 은 결제 확정(rpc_mark_order_paid) 시점에만 생성한다
@@ -93,9 +93,9 @@ function mapOrderRpcError(origin: unknown, tag: string): Error {
     return new Error(ALREADY_PAID_PARTICIPANT_MESSAGE);
   }
   const rpcCodeMessages: Record<string, string> = {
-    POD_NOT_FOUND: '결제할 팟을 다시 선택해 주세요.',
-    EMPTY_PODS: '결제할 팟을 다시 선택해 주세요.',
-    DUPLICATE_PODS: '결제할 팟을 다시 선택해 주세요.',
+    POD_NOT_FOUND: 'Please select your buying groups again.',
+    EMPTY_PODS: 'Please select your buying groups again.',
+    DUPLICATE_PODS: 'Please select your buying groups again.',
   };
   const codeMessage = rpcCodeMessages[prefix];
   if (codeMessage) return new Error(codeMessage);

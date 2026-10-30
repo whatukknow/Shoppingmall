@@ -402,7 +402,7 @@ describe('insertPendingOrder (rpc_create_order)', () => {
     );
     await assert.rejects(
       () => insertPendingOrder(orderFixture(14800), clients),
-      /금액/,
+      /order total/,
     );
     assert.equal(requests.length, 0);
     assert.equal(updated, false);
@@ -412,15 +412,15 @@ describe('insertPendingOrder (rpc_create_order)', () => {
     const cases = [
       {
         message: 'NOT_PAYMENT_READY: 아직 결제 준비가 안 됐습니다.',
-        expect: /결제 가능 상태가 아닙니다/,
+        expect: /not ready for payment/,
       },
       {
         message: 'PAYMENT_DUE_PASSED: 결제 기한이 지났습니다.',
-        expect: /결제 기한이 지났습니다/,
+        expect: /payment deadline has passed/,
       },
       {
         message: 'INTERNAL_CONFLICT: 동시 처리 충돌입니다.',
-        expect: /주문을 처리하지 못했어요/,
+        expect: /Could not process your order/,
       },
     ];
     for (const c of cases) {
@@ -458,7 +458,7 @@ describe('insertPendingOrder (rpc_create_order)', () => {
     );
     await assert.rejects(
       () => insertPendingOrder(orderFixture(), clients),
-      /로그인이 필요/,
+      /Please log in/,
     );
     assert.equal(rpcRequests.length, 0);
   });
@@ -681,27 +681,27 @@ describe('mapOrderRpcError (주문 rpc 오류 사용자 문구 확장)', () => {
   const cases = [
     {
       message: 'ALREADY_PAID: 상태 충돌: 참여자가 이미 결제됨',
-      expect: /이미 결제가 완료된 팟이 포함되어 있어요\./,
+      expect: /already been paid for\./,
     },
     {
       message: 'NOT_A_MEMBER: 참여자가 아닙니다',
-      expect: /이미 결제가 완료된 팟이 포함되어 있어요\./,
+      expect: /already been paid for\./,
     },
     {
       message: 'PARTICIPANT_ALREADY_PAID: 상태: 다른 주문 이미 결제됨',
-      expect: /이미 결제가 완료된 팟이 포함되어 있어요\./,
+      expect: /already been paid for\./,
     },
     {
       message: 'POD_NOT_FOUND: 팟 없음',
-      expect: /결제할 팟을 다시 선택해 주세요\./,
+      expect: /Please select your buying groups again\./,
     },
     {
       message: 'EMPTY_PODS: 빈 팟',
-      expect: /결제할 팟을 다시 선택해 주세요\./,
+      expect: /Please select your buying groups again\./,
     },
     {
       message: 'DUPLICATE_PODS: 팟 중복',
-      expect: /결제할 팟을 다시 선택해 주세요\./,
+      expect: /Please select your buying groups again\./,
     },
   ];
   for (const c of cases) {

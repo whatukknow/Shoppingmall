@@ -11,7 +11,7 @@ function parseNumber(
   if (raw === null) return fallback;
   const value = Number(raw);
   if (!Number.isFinite(value) || value < 0) {
-    return { status: 400, message: `잘못된 ${name} 파라미터입니다: ${raw}` };
+    return { status: 400, message: `Invalid ${name} parameter: ${raw}` };
   }
   return value;
 }
@@ -40,7 +40,7 @@ export async function GET(request: Request): Promise<Response> {
     }
     console.error('추천 상품 조회 실패', e);
     return Response.json(
-      { error: { message: '상품 정보를 불러오지 못했습니다.' } },
+      { error: { message: 'Could not load product details.' } },
       { status: 500 },
     );
   }

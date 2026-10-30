@@ -41,12 +41,12 @@ export default function PodApplyContainer({ pod }: PodApplyContainerProps) {
       onClick={handleApply}
     >
       {isJoined
-        ? '참여 중'
+        ? 'Joined'
         : isClosed
-          ? '모집 완료'
+          ? 'Group full'
           : isPending
-            ? '참여 신청 중…'
-            : '이 팟에 참여'}
+            ? 'Joining…'
+            : 'Join this group'}
     </Button>
   );
 }

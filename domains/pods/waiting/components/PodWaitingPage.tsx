@@ -1,5 +1,7 @@
 'use client';
 
+import { foodLabel } from '@/shared/lib/food-label';
+
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -35,7 +37,7 @@ export default function PodWaitingPage({
     const saved = saveSelectedPodIds(selectedIds);
 
     if (!saved) {
-      setPaymentError('선택한 팟을 저장하지 못했어요. 다시 시도해 주세요.');
+      setPaymentError('Could not save your selected groups. Please try again.');
       return;
     }
 
@@ -45,10 +47,10 @@ export default function PodWaitingPage({
   return (
     <main className="mx-auto w-full max-w-[1260px] px-6 py-10">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold">함께 나눌 준비가 됐어요!</h1>
+        <h1 className="text-3xl font-bold">Your group is ready!</h1>
 
         <p className="mt-2">
-          모집이 완료됐어요. 주문 내용을 확인하고 결제해 주세요.
+          Your group is full. Review your order and pay for your share.
         </p>
       </header>
 
@@ -58,7 +60,7 @@ export default function PodWaitingPage({
 
           <div className="mt-8 grid grid-cols-1 items-start gap-8 min-[1260px]:grid-cols-[minmax(0,1fr)_320px]">
             <section className="min-w-0">
-              <h2 className="mb-6 text-2xl font-bold">모집 현황</h2>
+              <h2 className="mb-6 text-2xl font-bold">Group progress</h2>
 
               <div className="flex flex-col gap-6">
                 {pods.map((pod) => {
@@ -78,7 +80,7 @@ export default function PodWaitingPage({
                             )
                           }
                         />
-                        <span>{pod.productName} 선택</span>
+                        <span>Select {foodLabel(pod.productName)}</span>
                       </label>
                       <div className="mt-3">
                         <PodStatusCard {...toRecruitment(pod)} />
@@ -90,7 +92,7 @@ export default function PodWaitingPage({
             </section>
 
             <aside className="min-[1260px]:sticky min-[1260px]:top-24">
-              <h2 className="mb-6 text-2xl font-bold">내 신청 정보</h2>
+              <h2 className="mb-6 text-2xl font-bold">My order details</h2>
 
               <PodApplicationSummary
                 items={selectedPods}
@@ -107,13 +109,13 @@ export default function PodWaitingPage({
           </div>
         </>
       ) : (
-        <EmptyState title="결제할 팟이 없어요.">
+        <EmptyState title="No groups ready for payment.">
           <Button
             type="button"
             variant="actionOutline"
             size="touch"
             className="min-h-10 w-full py-2"
-            render={<Link href="/mypage/pods">내 신청 팟 보기</Link>}
+            render={<Link href="/mypage/pods">My buying groups</Link>}
           />
         </EmptyState>
       )}

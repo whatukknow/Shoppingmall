@@ -18,7 +18,6 @@ const productIllustrations: Record<HomeProduct['illustration'], string> = {
   mandarin: '/uploads/images/home/products/mandarin.png',
   watermelon: '/uploads/images/home/products/watermelon.png',
   beefSteak: '/uploads/images/home/products/illustration-beef-steak.png',
-  friedEgg: '/uploads/images/home/products/illustration-fried-egg.png',
   porkSteak: '/uploads/images/home/products/illustration-pork-steak.png',
   chickenDrumstick:
     '/uploads/images/home/products/illustration-chicken-drumstick.png',

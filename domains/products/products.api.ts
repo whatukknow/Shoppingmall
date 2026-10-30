@@ -22,7 +22,7 @@ export async function getProducts({
   return response.data;
 }
 
-/** 상품 상세를 조회합니다. 목업에 없는 id 는 404 ApiError 로 전파됩니다. */
+/** 상품 상세를 조회합니다. 존재하지 않는 id 는 404 ApiError 로 전파됩니다. */
 export async function getProductDetail(
   id: string,
 ): Promise<ProductDetailResponse> {

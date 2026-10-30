@@ -1,3 +1,5 @@
+import KitDescription from './KitDescription';
+import { kits } from '@/domains/products/catalog/catalog';
 import Link from 'next/link';
 import type { ProductDetail, LivePod } from '../data/productDetail.types';
 
@@ -17,22 +19,25 @@ export default function ProductDetailView({
   product,
   pods,
 }: ProductDetailViewProps) {
+  const kit = kits.find((k) => k.id === (product.catalogId ?? product.id));
   return (
-    <main className="flex-1 pb-24 font-sans">
-      <div className="mx-auto w-full max-w-[1080px] px-6 pt-10">
+    <main
+      className={`preview-product-detail ${kit ? 'kit-product-detail' : ''} flex-1 pb-24 font-sans`}
+    >
+      <div className="kit-detail-shell mx-auto w-full max-w-[1080px] px-6 pt-10">
         <Link href="/products" className="text-sm underline underline-offset-4">
-          ← 전체 상품
+          ← All products
         </Link>
 
         {/* 상단: 상품 이미지 + 상품 정보 + 액션 */}
-        <div className="mt-8 grid items-start gap-8 md:grid-cols-2">
+        <div className="preview-product-summary mt-8 grid items-start gap-8 md:grid-cols-2">
           <ProductGallery
             key={product.id}
             name={product.name}
             images={product.images}
           />
 
-          <div className="flex flex-col gap-6">
+          <div className="kit-detail-information flex flex-col gap-6">
             <ProductInfo
               name={product.name}
               category={product.category}
@@ -44,11 +49,18 @@ export default function ProductDetailView({
 
             {product.isSample && (
               <p className="text-muted-foreground text-sm">
-                시안 예시 금액이며 실제 판매·재고 정보가 아닙니다.
+                Example pricing for this prototype; availability and prices are
+                not live.
               </p>
             )}
 
-            <ProductActions id={product.id} />
+            {product.isPurchasable === false ? (
+              <p className="text-muted-foreground text-sm">
+                Pack contents and pricing are being prepared.
+              </p>
+            ) : (
+              <ProductActions id={product.id} />
+            )}
           </div>
         </div>
 
@@ -65,9 +77,17 @@ export default function ProductDetailView({
 
         {/* 하단: 상품 설명 + 팟 목록 */}
         <div className="space-y-12 pt-10">
-          <ProductDescription description={product.description} />
+          {kit ? (
+            <KitDescription id={kit.id} />
+          ) : (
+            <ProductDescription description={product.description} />
+          )}
 
-          <LivePodSection productId={product.id} pods={pods} />
+          <LivePodSection
+            productId={product.id}
+            pods={pods}
+            allowBrowse={product.isPurchasable !== false}
+          />
         </div>
       </div>
     </main>

@@ -75,7 +75,7 @@ async function fetchTossPayment(paymentKey: string): Promise<TossLookupResult> {
       return {
         ok: false,
         code: 'TOSS_LOOKUP_FAILED',
-        message: '결제 정보를 확인하지 못했어요. 잠시 후 다시 시도해 주세요.',
+        message: 'Could not verify payment details. Please try again shortly.',
       };
     }
     return { ok: true, data: json as TossConfirmResponse };
@@ -83,7 +83,7 @@ async function fetchTossPayment(paymentKey: string): Promise<TossLookupResult> {
     return {
       ok: false,
       code: 'CONFIRM_UNAVAILABLE',
-      message: '결제 정보를 확인하지 못했어요. 잠시 후 다시 시도해 주세요.',
+      message: 'Could not verify payment details. Please try again shortly.',
     };
   }
 }
@@ -126,7 +126,10 @@ export async function createPendingOrderAction(
     podIds.length === 0 ||
     podIds.some((id) => typeof id !== 'string' || !id)
   ) {
-    return { success: false, message: '결제할 팟을 다시 선택해 주세요.' };
+    return {
+      success: false,
+      message: 'Please select your buying groups again.',
+    };
   }
 
   // 배송 정보도 서버에서 다시 검사 (브라우저 검사는 우회될 수 있음)
@@ -136,7 +139,7 @@ export async function createPendingOrderAction(
     Object.values(delivery).some((value) => typeof value !== 'string') ||
     Object.keys(validateDelivery(delivery)).length > 0
   ) {
-    return { success: false, message: '배송 정보를 다시 확인해 주세요.' };
+    return { success: false, message: 'Please check your delivery details.' };
   }
 
   // 서버 액션은 상대 URL fetch 를 못 하므로 apiClient 가 아니라 서버 함수를 직접 호출한다
@@ -147,12 +150,12 @@ export async function createPendingOrderAction(
     )();
   } catch (e) {
     if (e instanceof AuthApiError && e.status === 401) {
-      return { success: false, message: '로그인이 필요해요.' };
+      return { success: false, message: 'Please log in to continue.' };
     }
     console.error('결제 대상 조회 실패', e);
     return {
       success: false,
-      message: '결제 대상을 조회하지 못했어요. 잠시 후 다시 시도해 주세요.',
+      message: 'Could not load the selected groups. Please try again shortly.',
     };
   }
   const items = allItems.filter((item) => podIds.includes(item.podId));
@@ -161,7 +164,10 @@ export async function createPendingOrderAction(
     items.length === 0 ||
     new Set(items.map((item) => item.podId)).size !== new Set(podIds).size
   ) {
-    return { success: false, message: '결제할 팟을 다시 선택해 주세요.' };
+    return {
+      success: false,
+      message: 'Please select your buying groups again.',
+    };
   }
 
   const subtotal = items.reduce(
@@ -181,7 +187,7 @@ export async function createPendingOrderAction(
         item.unitPrice < 0,
     )
   ) {
-    return { success: false, message: '주문 금액을 확인할 수 없습니다.' };
+    return { success: false, message: 'Could not verify the order total.' };
   }
 
   let orderId: string;
@@ -210,7 +216,7 @@ export async function createPendingOrderAction(
       message:
         e instanceof Error
           ? e.message
-          : '주문을 생성하지 못했어요. 잠시 후 다시 시도해 주세요.',
+          : 'Could not create your order. Please try again shortly.',
     };
   }
 
@@ -243,7 +249,7 @@ export async function confirmPaymentAction(
     return {
       success: false,
       code: 'INVALID_INPUT',
-      message: '결제 정보를 확인해 주세요.',
+      message: 'Please check your payment details.',
     };
   }
   const order = await findOrder(input.orderId, clients);
@@ -252,7 +258,7 @@ export async function confirmPaymentAction(
     return {
       success: false,
       code: 'ORDER_NOT_FOUND',
-      message: '주문 정보를 찾을 수 없어요.',
+      message: 'Order not found.',
     };
   }
 
@@ -285,7 +291,7 @@ export async function confirmPaymentAction(
     return {
       success: false,
       code: 'PAYMENT_MISMATCH',
-      message: '기존 결제 정보와 일치하지 않습니다.',
+      message: 'The payment details do not match the existing record.',
     };
   }
 
@@ -295,7 +301,7 @@ export async function confirmPaymentAction(
     return {
       success: false,
       code: 'ORDER_NOT_FOUND',
-      message: '주문 정보를 찾을 수 없어요.',
+      message: 'Order not found.',
     };
   }
   const orderId = order.orderId;
@@ -340,7 +346,7 @@ export async function confirmPaymentAction(
     return {
       success: false,
       code: 'PAYMENT_NOT_COMPLETED',
-      message: '결제 완료 상태를 확인할 수 없습니다.',
+      message: 'Could not confirm payment completion.',
     };
   }
 

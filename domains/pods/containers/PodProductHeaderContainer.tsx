@@ -1,3 +1,4 @@
+import { foodLabel } from '@/shared/lib/food-label';
 // 'use client' 없음: 서버에서 상품 정보를 조회해 팟 페이지 헤더 문구를 그리는 경계
 
 import { notFound } from 'next/navigation';
@@ -9,7 +10,7 @@ type PodProductHeaderContainerProps = {
   productId: string;
 };
 
-/** 상품별 팟 페이지 상단 문구: 상품명 · 묶음 단위 · 매칭 이후 결제 */
+/** 상품별 팟 페이지 상단 문구: 상품명 · 묶음 단위 · Pay when the group is full */
 export default async function PodProductHeaderContainer({
   productId,
 }: PodProductHeaderContainerProps) {
@@ -25,7 +26,8 @@ export default async function PodProductHeaderContainer({
 
   return (
     <p className="text-[#77766f]">
-      {detail.name} · {detail.unit} · 매칭 이후 결제
+      {foodLabel(detail.name)} · {foodLabel(detail.unit)} · Pay when the group
+      is full
     </p>
   );
 }

@@ -10,11 +10,11 @@ export function BrandStorySection() {
           A SMALLER, MORE THOUGHTFUL TABLE
         </p>
         <h2 className="mt-3 max-w-[620px] text-xl leading-[1.55] font-bold sm:text-2xl">
-          장보기의 부담은 덜고, 함께 먹는 즐거움은 나누고.
+          Less to buy. More to enjoy together.
         </h2>
       </div>
       <p className="max-w-[475px] text-sm leading-6 text-[#77766f]">
-        소분 팟의 모집 조건과 진행 상태를 먼저 확인하고 참여할 수 있어요.
+        Check each buying group’s requirements and progress before you join.
       </p>
     </section>
   );

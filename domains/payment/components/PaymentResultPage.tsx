@@ -43,7 +43,7 @@ export default function PaymentResultPage({
   if (!loaded) {
     return (
       <main className="mx-auto max-w-[900px] px-6 py-16">
-        <p role="status">주문 정보를 불러오는 중입니다.</p>
+        <p role="status">Loading your order.</p>
       </main>
     );
   }
@@ -52,9 +52,9 @@ export default function PaymentResultPage({
   if (items.length === 0) {
     return (
       <main className="mx-auto max-w-[900px] px-6 py-16">
-        <h1 className="text-2xl font-bold">확인할 주문 정보가 없어요.</h1>
+        <h1 className="text-2xl font-bold">No order details to show.</h1>
         <Link href="/" className="mt-6 inline-block underline">
-          홈으로 돌아가기
+          Back to home
         </Link>
       </main>
     );
@@ -76,8 +76,8 @@ export default function PaymentResultPage({
     <main className="mx-auto w-full max-w-[900px] px-6 py-12">
       <p className="mb-8 text-center text-sm">
         {isSuccess
-          ? '결제 승인 결과를 확인했어요.'
-          : '결제가 완료되지 않았습니다.'}
+          ? 'Your payment status has been confirmed.'
+          : 'Payment has not been completed.'}
       </p>
 
       <header className="mb-12 text-center">
@@ -89,13 +89,13 @@ export default function PaymentResultPage({
         </span>
 
         <h1 className="text-3xl font-bold">
-          {isSuccess ? '결제를 완료했어요!' : '결제에 실패했어요.'}
+          {isSuccess ? 'Payment complete!' : 'Payment failed.'}
         </h1>
 
         <p className="mt-4 leading-7">
           {isSuccess
-            ? '농부의 정성이 담긴 작은 결실이 곧 집 앞으로 찾아갑니다.'
-            : '선택한 팟은 그대로 보관했어요. 결제 정보를 확인하고 다시 시도해 주세요.'}
+            ? 'Fresh ingredients, grown with care, are on their way to your table.'
+            : 'Your selected groups are saved. Check your payment details and try again.'}
         </p>
       </header>
       <div className="flex flex-col gap-10">
@@ -106,28 +106,28 @@ export default function PaymentResultPage({
           className="rounded-xl border border-current/15 bg-white/40 p-6"
         >
           <h2 id="result-amount-title" className="mb-6 text-2xl font-bold">
-            {isSuccess ? '결제 내역' : '결제 예정 금액'}
+            {isSuccess ? 'Payment details' : 'Amount due'}
           </h2>
 
           <dl className="space-y-3">
             <div className="flex justify-between gap-4">
-              <dt>상품 금액</dt>
-              <dd>{subtotal.toLocaleString('ko-KR')}원</dd>
+              <dt>Subtotal</dt>
+              <dd>{subtotal.toLocaleString('en-US')} KRW</dd>
             </div>
 
             <div className="flex justify-between gap-4">
-              <dt>배송비</dt>
-              <dd>{shippingFee.toLocaleString('ko-KR')}원</dd>
+              <dt>Delivery fee</dt>
+              <dd>{shippingFee.toLocaleString('en-US')} KRW</dd>
             </div>
 
             <div className="flex justify-between gap-4">
-              <dt>할인 금액</dt>
-              <dd>-{discount.toLocaleString('ko-KR')}원</dd>
+              <dt>Discount</dt>
+              <dd>-{discount.toLocaleString('en-US')} KRW</dd>
             </div>
 
             <div className="flex justify-between gap-4 border-t border-current/15 pt-4 text-xl font-bold">
-              <dt>{isSuccess ? '총 결제 금액' : '총 결제 예정 금액'}</dt>
-              <dd>{total.toLocaleString('ko-KR')}원</dd>
+              <dt>{isSuccess ? 'Total' : 'Total due'}</dt>
+              <dd>{total.toLocaleString('en-US')} KRW</dd>
             </div>
           </dl>
         </section>
@@ -140,7 +140,7 @@ export default function PaymentResultPage({
               rel="noopener noreferrer"
               className="flex min-h-12 items-center justify-center border border-current/30 px-8 font-bold"
             >
-              영수증 보기
+              View receipt
             </a>
           )}
           {!isSuccess && (
@@ -148,7 +148,7 @@ export default function PaymentResultPage({
               href="/payment"
               className="flex min-h-12 items-center justify-center rounded-none bg-[#601025] px-8 font-bold text-white"
             >
-              다시 결제하기
+              Try payment again
             </Link>
           )}
 
@@ -156,7 +156,7 @@ export default function PaymentResultPage({
             href="/"
             className="flex min-h-12 items-center justify-center rounded-none border border-current/30 px-8 font-bold"
           >
-            홈으로 돌아가기
+            Back to home
           </Link>
         </div>
       </div>

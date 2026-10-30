@@ -26,7 +26,7 @@ export function encodeTossBasicAuth(secretKey: string): string {
 
 // 주문명: "용인 블루베리 외 1건"
 export function formatOrderName(productNames: string[]): string {
-  if (productNames.length === 0) return '주문 상품';
+  if (productNames.length === 0) return 'Order items';
   if (productNames.length === 1) return productNames[0];
   return `${productNames[0]} 외 ${productNames.length - 1}건`;
 }
@@ -66,7 +66,7 @@ export async function requestTossPaymentConfirm(
       return {
         ok: false,
         code: json.code ?? 'TOSS_CONFIRM_FAILED',
-        message: json.message ?? '결제 승인에 실패했습니다.',
+        message: json.message ?? 'Payment authorization failed.',
       };
     }
 
@@ -81,7 +81,7 @@ export async function requestTossPaymentConfirm(
       return {
         ok: false,
         code: 'INVALID_RESPONSE',
-        message: '결제 승인 응답을 확인할 수 없습니다.',
+        message: 'Could not verify the payment authorization response.',
       };
     }
     return { ok: true, data: json as TossConfirmResponse };
@@ -90,7 +90,7 @@ export async function requestTossPaymentConfirm(
       ok: false,
       code: 'CONFIRM_UNAVAILABLE',
       message:
-        '승인 결과를 확인하지 못했습니다. 새 결제를 진행하기 전에 주문 상태를 확인해 주세요.',
+        'Could not confirm authorization. Check your order status before trying another payment.',
     };
   }
 }
@@ -115,7 +115,7 @@ export function verifyOrderBeforeConfirm(
     return {
       valid: false,
       code: 'ORDER_MISMATCH',
-      message: '주문 번호가 일치하지 않습니다.',
+      message: 'Order numbers do not match.',
     };
   }
 
@@ -124,7 +124,7 @@ export function verifyOrderBeforeConfirm(
     return {
       valid: false,
       code: 'AMOUNT_MISMATCH',
-      message: '결제 금액이 주문 금액과 달라요.',
+      message: 'The payment amount does not match the order total.',
     };
   }
 
@@ -136,7 +136,7 @@ export function verifyOrderBeforeConfirm(
     return {
       valid: false,
       code: 'PAYMENT_MISMATCH',
-      message: '기존 결제 정보와 일치하지 않습니다.',
+      message: 'The payment details do not match the existing record.',
     };
   }
 

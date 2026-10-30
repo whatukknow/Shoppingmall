@@ -10,13 +10,13 @@ export default function ProductActions({ id }: ProductActionsProps) {
   return (
     <div className="flex w-full flex-col gap-3">
       <NavigationAction
-        label="바로 참여"
+        label="Join a group"
         target={{ href: '#live-pods' }}
         className="border-primary bg-primary text-primary-foreground min-h-12 w-full border"
       />
 
       <NavigationAction
-        label="나의 소분 신청하기"
+        label="Find a buying group"
         target={{ href: podsHref }}
         className="border-primary text-primary min-h-12 w-full border"
       />

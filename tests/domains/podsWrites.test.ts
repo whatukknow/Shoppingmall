@@ -238,7 +238,7 @@ describe('pods.server getPod', () => {
     assert.equal(podResult.currentCount, 1);
     assert.equal(podResult.targetCount, 2);
     assert.equal(podResult.status, 'open');
-    assert.ok(/^(D-\d+|오늘 마감|마감)$/.test(podResult.deadlineLabel));
+    assert.ok(/^(D-\d+|Closes today|Closed)$/.test(podResult.deadlineLabel));
   });
 
   it('행이 없으면 404 PodWriteError 를 던진다', async () => {
@@ -379,63 +379,63 @@ describe('pods.server RPC 오류 매핑', () => {
       code: '28000',
       message: 'UNAUTHORIZED: 로그인이 필요합니다.',
       status: 401,
-      userMessage: '로그인이 필요해요.',
+      userMessage: 'Please log in to continue.',
     },
     {
       name: 'POD_NOT_FOUND(P0002) → 404',
       code: 'P0002',
       message: 'POD_NOT_FOUND: 팟을 찾을 수 없습니다.',
       status: 404,
-      userMessage: '팟을 찾을 수 없어요.',
+      userMessage: 'Buying group not found.',
     },
     {
       name: 'PRODUCT_INACTIVE(P0001) → 409',
       code: 'P0001',
       message: 'PRODUCT_INACTIVE: 판매 중단된 상품입니다.',
       status: 409,
-      userMessage: '판매가 중단된 상품이에요.',
+      userMessage: 'This product is no longer available.',
     },
     {
       name: 'NOT_RECRUITING(P0001) → 409',
       code: 'P0001',
       message: 'NOT_RECRUITING: 모집 중인 팟이 아닙니다.',
       status: 409,
-      userMessage: '모집 중인 팟이 아니에요.',
+      userMessage: 'This buying group is no longer open.',
     },
     {
       name: 'DEADLINE_PASSED(P0001) → 409',
       code: 'P0001',
       message: 'DEADLINE_PASSED: 모집 마감 시간이 지났습니다.',
       status: 409,
-      userMessage: '모집 마감 시간이 지났어요.',
+      userMessage: 'The recruitment deadline has passed.',
     },
     {
       name: 'ALREADY_JOINED(P0001) → 409',
       code: 'P0001',
       message: 'ALREADY_JOINED: 이미 참여 중인 팟입니다.',
       status: 409,
-      userMessage: '이미 참여 중인 팟이에요.',
+      userMessage: 'You have already joined this group.',
     },
     {
       name: 'POD_FULL(P0001) → 409',
       code: 'P0001',
       message: 'POD_FULL: 모집 정원이 초과되었습니다.',
       status: 409,
-      userMessage: '모집 정원이 가득 찼어요.',
+      userMessage: 'This group is full.',
     },
     {
       name: 'ALREADY_PAID(P0001) → 409',
       code: 'P0001',
       message: 'ALREADY_PAID: 결제가 완료된 팟은 취소할 수 없습니다.',
       status: 409,
-      userMessage: '결제가 완료된 팟은 취소할 수 없어요.',
+      userMessage: 'You cannot leave a group after payment.',
     },
     {
       name: 'NOT_A_MEMBER(P0002) → 404',
       code: 'P0002',
       message: 'NOT_A_MEMBER: 이 팟의 활성 참여자가 아닙니다.',
       status: 404,
-      userMessage: '이 팟의 참여자가 아니에요.',
+      userMessage: 'You have not joined this buying group.',
     },
     {
       name: 'PGRST202(함수 없음) → 500 일반 메시지, 원문 응답 노출 없음',
@@ -443,7 +443,7 @@ describe('pods.server RPC 오류 매핑', () => {
       message:
         'Could not find the function public.create_pod in the schema cache',
       status: 500,
-      userMessage: '요청을 처리하지 못했어요. 잠시 후 다시 시도해 주세요.',
+      userMessage: 'Could not process your request. Please try again shortly.',
     },
   ];
 
@@ -490,7 +490,7 @@ describe('pods.server RPC 오류 매핑', () => {
       (e: unknown) => {
         assert.ok(e instanceof PodWriteError);
         assert.equal(e.status, 401);
-        assert.equal(e.message, '로그인이 필요해요.');
+        assert.equal(e.message, 'Please log in to continue.');
         return true;
       },
     );
@@ -510,7 +510,7 @@ describe('pods.server 쓰기 비로그인 게이트', () => {
       (e: unknown) => {
         assert.ok(e instanceof PodWriteError);
         assert.equal(e.status, 401);
-        assert.equal(e.message, '로그인이 필요해요.');
+        assert.equal(e.message, 'Please log in to continue.');
         return true;
       },
     );
@@ -528,7 +528,7 @@ describe('pods.server 쓰기 비로그인 게이트', () => {
       (e: unknown) => {
         assert.ok(e instanceof PodWriteError);
         assert.equal(e.status, 401);
-        assert.equal(e.message, '로그인이 필요해요.');
+        assert.equal(e.message, 'Please log in to continue.');
         return true;
       },
     );
@@ -546,7 +546,7 @@ describe('pods.server 쓰기 비로그인 게이트', () => {
       (e: unknown) => {
         assert.ok(e instanceof PodWriteError);
         assert.equal(e.status, 401);
-        assert.equal(e.message, '로그인이 필요해요.');
+        assert.equal(e.message, 'Please log in to continue.');
         return true;
       },
     );

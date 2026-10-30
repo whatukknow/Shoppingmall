@@ -5,15 +5,15 @@ export function TasteFinderPromptCard() {
   return (
     <div className="flex min-h-48 flex-col items-center justify-center gap-6 text-center">
       <p className="text-[26px] leading-tight font-bold sm:text-[30px]">
-        사주를 통해 취향을 파악하여
+        Explore your food fortune
         <br />
-        AI에게 추천 받으세요
+        and discover your next meal
       </p>
       <Link
         href="/onboarding"
         className="inline-flex items-center justify-center rounded-none bg-[#650f20] px-6 py-3 text-[13px] font-medium text-white hover:opacity-90"
       >
-        취향 찾기
+        Find your taste
       </Link>
     </div>
   );

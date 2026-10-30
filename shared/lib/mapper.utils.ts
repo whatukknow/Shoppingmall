@@ -16,7 +16,7 @@ export function toImageUrl(upload: UploadsRow | null): string {
 export function toDeadlineLabel(recruitDeadline: string, now?: Date): string {
   const nowDate = now ?? new Date();
   const deadline = new Date(recruitDeadline);
-  if (Number.isNaN(deadline.getTime())) return '마감';
+  if (Number.isNaN(deadline.getTime())) return 'Closed';
 
   // Asia/Seoul 기준 캘린더 일자(YYYY-MM-DD)로 D-day 를 계산합니다.
   // 서버 시간대와 무관하게 동일한 결과를 보장합니다.
@@ -38,7 +38,7 @@ export function toDeadlineLabel(recruitDeadline: string, now?: Date): string {
   const effectiveDeadline = isKstMidnight
     ? toUtcMidnight(kstDateFmt.format(deadline)) + 24 * 60 * 60 * 1000 - 1
     : deadline.getTime();
-  if (effectiveDeadline <= nowDate.getTime()) return '마감';
+  if (effectiveDeadline <= nowDate.getTime()) return 'Closed';
 
   const diffDays = Math.round(
     (toUtcMidnight(kstDateFmt.format(deadline)) -
@@ -47,8 +47,8 @@ export function toDeadlineLabel(recruitDeadline: string, now?: Date): string {
   );
 
   if (diffDays > 0) return `D-${diffDays}`;
-  if (diffDays === 0) return '오늘 마감';
-  return '마감';
+  if (diffDays === 0) return 'Closes today';
+  return 'Closed';
 }
 
 /** 목록 응답 봉투 */

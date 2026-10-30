@@ -14,20 +14,20 @@ export default function ProductGallery({ name, images }: ProductGalleryProps) {
   const currentImage = imageList[currentIndex];
 
   return (
-    <section aria-label="상품 이미지" className="w-full">
+    <section aria-label="Product image" className="product-gallery w-full">
       {/* 메인 이미지 */}
-      <div className="relative aspect-square w-full overflow-hidden">
+      <div className="product-gallery-main relative aspect-square w-full overflow-hidden">
         {currentImage ? (
           <Image
             src={currentImage}
-            alt={`${name} 상품 이미지 ${currentIndex + 1}`}
+            alt={`${name}, image ${currentIndex + 1}`}
             fill
-            sizes="(max-width: 768px) 100vw, 540px"
+            sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) 600px, 620px"
             className="object-cover"
           />
         ) : (
           <div className="text-muted-foreground flex h-full items-center justify-center">
-            상품 이미지 준비 중
+            Product image coming soon
           </div>
         )}
       </div>
@@ -36,15 +36,15 @@ export default function ProductGallery({ name, images }: ProductGalleryProps) {
       {imageList.length > 1 && (
         <div
           role="group"
-          aria-label="상품 이미지 선택"
-          className="mt-3 grid grid-cols-4 gap-3"
+          aria-label="Choose a product image"
+          className="product-gallery-thumbnails mt-3 grid grid-cols-4 gap-3"
         >
           {imageList.map((image, index) => (
             <button
               key={`${image}-${index}`}
               type="button"
               onClick={() => setActiveIndex(index)}
-              aria-label={`${index + 1}번 상품 이미지 보기`}
+              aria-label={`View product image ${index + 1}`}
               aria-pressed={currentIndex === index}
               className={`focus-visible:outline-primary relative aspect-square overflow-hidden border-2 focus-visible:outline-2 focus-visible:outline-offset-2 ${
                 currentIndex === index ? 'border-primary' : 'border-transparent'
@@ -54,7 +54,7 @@ export default function ProductGallery({ name, images }: ProductGalleryProps) {
                 src={image}
                 alt=""
                 fill
-                sizes="120px"
+                sizes="72px"
                 className="object-cover"
               />
             </button>

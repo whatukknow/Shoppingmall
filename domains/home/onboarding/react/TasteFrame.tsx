@@ -46,12 +46,12 @@ export function TasteFrame({
                   router.push(tasteRoutes[3]);
                 }}
               >
-                건너뛰기
+                Skip
               </button>
             )}
           </div>
           {step < 3 && (
-            <div className="dots" aria-label="진행 단계">
+            <div className="dots" aria-label="Progress">
               {[0, 1, 2].map((index) => (
                 <i
                   key={index}
@@ -71,7 +71,7 @@ export function TasteFrame({
                   className="btn ghost"
                   onClick={() => router.push(tasteRoutes[step - 1])}
                 >
-                  이전
+                  Back
                 </button>
               )}
               <button
@@ -80,7 +80,7 @@ export function TasteFrame({
                 disabled={nextDisabled}
                 onClick={onNext}
               >
-                {step === 2 ? '내 식운 보기' : '다음'}
+                {step === 2 ? 'See my food fortune' : 'Next'}
               </button>
             </div>
           </div>

@@ -4,8 +4,8 @@ import { PolicyDraftPage } from '@/shared/components/PolicyDraftPage';
 export default function PrivacyPage() {
   return (
     <PolicyDraftPage
-      title="개인정보처리방침"
-      description="개인정보처리방침이 이곳에 표시됩니다."
+      title="Privacy policy"
+      description="The privacy policy will appear here."
     />
   );
 }

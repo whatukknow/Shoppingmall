@@ -1,3 +1,8 @@
+import {
+  catalogIdForRow,
+  catalogImages,
+  findCatalogProduct,
+} from './catalog/catalog';
 import type {
   ProductDetailBasicInfo,
   ProductListItem,
@@ -69,9 +74,11 @@ export function toRecommendedProduct(
   row: ProductsRow,
   imageUrl: string,
 ): RecommendedProduct {
+  const catalogId = catalogIdForRow(row);
+  const item = catalogId ? findCatalogProduct(catalogId) : undefined;
   return {
-    id: row.id,
-    name: row.name ?? '',
-    imageUrl,
+    id: item?.id ?? row.id,
+    name: item?.name ?? row.name ?? '',
+    imageUrl: item ? catalogImages(item.id)!.recommendation : imageUrl,
   };
 }

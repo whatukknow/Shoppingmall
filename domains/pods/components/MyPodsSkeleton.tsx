@@ -3,7 +3,7 @@ export function MyPodsSkeleton() {
   return (
     <div
       aria-busy="true"
-      aria-label="내 신청 팟을 불러오는 중이에요."
+      aria-label="Loading your buying groups."
       className="flex flex-col gap-8"
     >
       <div className="flex flex-col gap-2">
@@ -20,7 +20,7 @@ export function MyPodsSkeleton() {
       <div className="grid gap-8 md:grid-cols-[180px_1fr]">
         {/* 사이드 메뉴 자리 (PC) */}
         <nav
-          aria-label="내 정보 메뉴"
+          aria-label="Account menu"
           className="hidden flex-col gap-3 md:flex"
           aria-hidden="true"
         >

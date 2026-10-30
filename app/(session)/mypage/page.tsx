@@ -4,7 +4,7 @@ import { ProfileSkeleton } from '@/domains/auth/components/ProfileSkeleton';
 import MyProfileContainer from '@/domains/auth/containers/MyProfileContainer';
 
 export const metadata: Metadata = {
-  title: '회원 정보 | Little Portions',
+  title: 'My account | Little Portions',
 };
 
 // 'use client' 없음: 회원 정보 컨테이너를 Suspense 로 감싸 스트리밍하는 페이지

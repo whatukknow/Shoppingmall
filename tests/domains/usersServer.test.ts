@@ -32,7 +32,7 @@ function tasteProfileRow(
     sunday_scene: 'window-sun',
     fridge_state: 'always-full',
     element: 'wood',
-    recommended_product_ids: '["pc-101","pc-102"]',
+    recommended_product_ids: '["pc-101","pc-104"]',
     created_at: '2026-01-02T00:00:00Z',
     profile_id: 'u-1',
     survey_response_id: 'sr-1',
@@ -335,7 +335,7 @@ function expect401(error: unknown) {
   const e = error as AuthApiError;
   assert.equal(e.name, 'AuthApiError');
   assert.equal(e.status, 401);
-  assert.equal(e.message, '로그인이 필요해요.');
+  assert.equal(e.message, 'Please log in to continue.');
   return true;
 }
 
@@ -369,7 +369,7 @@ describe('getTasteProfile', () => {
       qualityFlags: '[]',
     });
     // 원본 행에 없던 필드가 조작되지 않았는지 확인
-    assert.equal(row.recommended_product_ids, '["pc-101","pc-102"]');
+    assert.equal(row.recommended_product_ids, '["pc-101","pc-104"]');
     assert.equal(requests[0].table, 'taste_profiles');
     assert.ok(
       requests[0].filters.some(
@@ -394,7 +394,7 @@ describe('getTasteProfile', () => {
     assert.equal(result.birthMd, '');
   });
 
-  it('비로그인이면 401 "로그인이 필요해요."', async () => {
+  it('비로그인이면 401 "Please log in to continue."', async () => {
     const { client } = makeFakeClient(
       () => ({ data: null }),
       authErrorForGuest,
@@ -1117,27 +1117,27 @@ describe('listRecommendedProducts', () => {
         };
       if (req.table === 'products') return { data: products };
       if (req.table === 'uploads')
-        return { data: [upload({ gid: 'gid-pc-102', head_img: true })] };
+        return { data: [upload({ gid: 'gid-pc-104', head_img: true })] };
       return { data: null };
     };
   }
 
   const products = [
-    product({ id: 'pc-102', name: '유정란 10구' }),
+    product({ id: 'pc-104', name: '닭다리살' }),
     product({ id: 'pc-101', name: '스테이크용 소고기' }),
     product({ id: 'pc-103', name: '돼지 목살', is_active: false }),
   ];
 
   it('추천 ID 순서를 유지하고 활성 상품만 조회한다 (limit 적용)', async () => {
     const { client, requests } = makeFakeClient(
-      handlerWith('pc-101, pc-102, pc-103', products),
+      handlerWith('pc-101, pc-104, pc-103', products),
     );
     const result = await listRecommendedProducts({ limit: 2 }, client);
     assert.deepEqual(
       result.list.map((x) => x.id),
-      ['pc-101', 'pc-102'],
+      ['pc-101', 'pc-104'],
     );
-    assert.ok(result.list[1].imageUrl.length > 0); // pc-102 의 헤더 이미지
+    assert.ok(result.list[1].imageUrl.length > 0); // pc-104 의 헤더 이미지
     // products in(id) + is_active
     const productReq = requests.find((r) => r.table === 'products');
     assert.ok(productReq);
@@ -1145,7 +1145,7 @@ describe('listRecommendedProducts', () => {
       (f) => f.op === 'in' && f.args[0] === 'id',
     );
     assert.ok(idFilter);
-    assert.deepEqual(idFilter.args[1], ['pc-101', 'pc-102', 'pc-103']);
+    assert.deepEqual(idFilter.args[1], ['pc-101', 'pc-104', 'pc-103']);
     // 추천 ID 로 조회
     const profileReq = requests[0];
     assert.equal(profileReq.table, 'taste_profiles');
@@ -1285,7 +1285,7 @@ describe('requireUser 로그 문구', () => {
         assert.equal(e.status, 500);
         assert.equal(
           e.message,
-          '요청을 처리하지 못했어요. 잠시 후 다시 시도해 주세요.',
+          'Could not process your request. Please try again shortly.',
         );
         return true;
       });
@@ -1308,7 +1308,7 @@ describe('requireUser 로그 문구', () => {
       assert.equal(e.status, 500);
       assert.equal(
         e.message,
-        '요청을 처리하지 못했어요. 잠시 후 다시 시도해 주세요.',
+        'Could not process your request. Please try again shortly.',
       );
       return true;
     });

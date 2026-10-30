@@ -31,6 +31,8 @@ export type ProductDescriptionData = {
 };
 
 export type ProductDetail = {
+  catalogId?: string;
+  isPurchasable?: boolean;
   id: string;
   name: string;
   category: string;
@@ -40,7 +42,7 @@ export type ProductDetail = {
 
   // 제안 계약: 화면에 표시할 최종 금액.
   // discountRate로 다시 할인 계산하지 않습니다.
-  price: number;
+  price: number | null;
   discountRate?: number;
   isSample: boolean;
 

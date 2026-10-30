@@ -1,7 +1,7 @@
 import {
-  listProducts,
-  listRandomProducts,
-} from '@/domains/products/products.server';
+  listMenuProducts as listProducts,
+  listMenuRecommendations as listRandomProducts,
+} from '@/domains/products/catalog/menu.server';
 
 type BadRequest = { status: 400; message: string };
 
@@ -12,7 +12,7 @@ type SortValue = (typeof SORT_WHITELIST)[number];
 function parseSort(raw: string | null): SortValue | BadRequest {
   if (raw === null) return 'latest';
   if (!(SORT_WHITELIST as readonly string[]).includes(raw)) {
-    return { status: 400, message: `잘못된 sort 파라미터입니다: ${raw}` };
+    return { status: 400, message: `Invalid sort parameter: ${raw}` };
   }
   return raw as SortValue;
 }
@@ -25,7 +25,7 @@ function parseNumber(
   if (raw === null) return fallback;
   const value = Number(raw);
   if (!Number.isFinite(value) || value < 0) {
-    return { status: 400, message: `잘못된 ${name} 파라미터입니다: ${raw}` };
+    return { status: 400, message: `Invalid ${name} parameter: ${raw}` };
   }
   return value;
 }
@@ -51,7 +51,7 @@ export async function GET(request: Request): Promise<Response> {
     } catch (e) {
       console.error('랜덤 추천 상품 조회 실패', e);
       return Response.json(
-        { error: { message: '상품 정보를 불러오지 못했습니다.' } },
+        { error: { message: 'Could not load product details.' } },
         { status: 500 },
       );
     }
@@ -90,7 +90,7 @@ export async function GET(request: Request): Promise<Response> {
   } catch (e) {
     console.error('상품 목록 조회 실패', e);
     return Response.json(
-      { error: { message: '상품 정보를 불러오지 못했습니다.' } },
+      { error: { message: 'Could not load product details.' } },
       { status: 500 },
     );
   }

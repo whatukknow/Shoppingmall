@@ -4,7 +4,7 @@ import { getRedirectTo } from '@/domains/auth/auth.redirect';
 import LoginContainer from '@/domains/auth/containers/LoginContainer';
 
 export const metadata: Metadata = {
-  title: '로그인 | Little Portions',
+  title: 'Log in | Little Portions',
 };
 
 type LoginPageProps = {
@@ -24,14 +24,13 @@ export default function LoginPage({ searchParams }: LoginPageProps) {
       {/* 왼쪽 소개 (PC에서만 보임) */}
       <section className="hidden flex-col gap-6 md:flex">
         <h1 className="text-[32px] leading-[1.35] font-bold">
-          작게 나누는
-          <br />
-          좋은 식탁
+          Small portions,
+          <br />a better table
         </h1>
         <p className="text-base leading-7">
-          필요한 양만 고르고,
+          Choose just what you need,
           <br />
-          같은 상품을 원하는 사람들과 함께해요.
+          and share an order with people who want the same food.
         </p>
         <div
           aria-hidden="true"
@@ -42,7 +41,7 @@ export default function LoginPage({ searchParams }: LoginPageProps) {
       {/* 오른쪽 로그인 카드 */}
       <section className="flex flex-col gap-2">
         <p className="text-muted-foreground text-sm md:hidden">
-          Little Portions에 로그인해 주세요.
+          Log in to Little Portions.
         </p>
         <Suspense fallback={null}>
           <LoginRedirect searchParams={searchParams} />

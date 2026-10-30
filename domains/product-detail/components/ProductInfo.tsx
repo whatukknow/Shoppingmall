@@ -1,3 +1,4 @@
+import { foodLabel } from '@/shared/lib/food-label';
 import type { ProductDetail } from '../data/productDetail.types';
 import { formatPrice } from '@/shared/utils/formatPrice';
 
@@ -19,15 +20,17 @@ export default function ProductInfo({
 
   return (
     <section className="flex flex-col gap-4">
-      <p className="text-muted-foreground text-sm">{category}</p>
+      <p className="text-muted-foreground text-sm">{foodLabel(category)}</p>
 
-      <h1 className="text-3xl font-bold">{name}</h1>
+      <h1 className="text-3xl font-bold">{foodLabel(name)}</h1>
 
       {farmName && (
-        <p className="text-muted-foreground text-sm">생산 농장: {farmName}</p>
+        <p className="text-muted-foreground text-sm">
+          Farm: {foodLabel(farmName)}
+        </p>
       )}
 
-      {unit && <p className="text-sm">{unit}</p>}
+      {unit && <p className="text-sm">{foodLabel(unit)}</p>}
 
       <div className="flex items-center gap-3">
         {hasDiscount && (

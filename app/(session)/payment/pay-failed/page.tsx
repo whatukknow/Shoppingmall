@@ -16,7 +16,7 @@ export default function Page({ searchParams }: PageProps) {
     <Suspense
       fallback={
         <p role="status" className="px-6 py-10">
-          결제 결과를 확인하고 있습니다.
+          Checking your payment status.
         </p>
       }
     >
@@ -34,28 +34,27 @@ async function PaymentFailureContent({ searchParams }: PageProps) {
 
   // URL의 문구는 안내용입니다. 주문의 실제 결제 상태를 변경하지 않습니다.
   const failMessage =
-    message ||
-    '결제 완료 여부를 확인하지 못했습니다. 주문 상태를 확인해 주세요.';
+    message || 'Could not confirm payment. Please check your order status.';
 
   return (
     <>
       {/* 상품 목록을 불러오지 못해도 실패 안내는 표시합니다. */}
       <section
-        aria-label="결제 오류 안내"
+        aria-label="Payment error details"
         className="mx-auto w-full max-w-[900px] px-6 pt-10"
       >
         <div role="alert" className="border border-current/15 p-5">
-          <p className="font-semibold">결제 처리 안내</p>
+          <p className="font-semibold">Payment status</p>
           <p className="mt-2 text-sm break-words whitespace-pre-wrap">
             {failMessage}
           </p>
           {code && (
             <p className="text-muted-foreground mt-2 text-xs break-all">
-              오류 코드: {code}
+              Error code: {code}
             </p>
           )}
           <Link href="/payment" className="mt-4 inline-block text-sm underline">
-            주문 정보로 돌아가기
+            Back to order details
           </Link>
         </div>
       </section>
@@ -63,7 +62,7 @@ async function PaymentFailureContent({ searchParams }: PageProps) {
       <Suspense
         fallback={
           <p role="status" className="mx-auto w-full max-w-[900px] px-6 py-10">
-            주문 정보를 불러오는 중입니다.
+            Loading your order.
           </p>
         }
       >
@@ -80,7 +79,7 @@ async function FailureOrderContent() {
   } catch {
     return (
       <p className="mx-auto w-full max-w-[900px] px-6 py-10 text-sm">
-        주문 목록을 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.
+        Could not load your orders. Please try again shortly.
       </p>
     );
   }

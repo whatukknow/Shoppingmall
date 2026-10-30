@@ -10,7 +10,7 @@ export function Hud({ walking = false }: { walking?: boolean }) {
       <span
         key={`cart-${cartPulse}`}
         className={cartPulse ? 'hc bump' : 'hc'}
-        aria-label="장바구니 수량"
+        aria-label="Cart item count"
       >
         <CartIcon />
         <b>{cart.length}</b>
@@ -18,7 +18,7 @@ export function Hud({ walking = false }: { walking?: boolean }) {
       <span
         key={`credit-${creditPulse}`}
         className={creditPulse ? 'hc cr bump' : 'hc cr'}
-        aria-label="크레딧"
+        aria-label="Credits"
       >
         <i className="coin" />
         <b>{credits}</b>

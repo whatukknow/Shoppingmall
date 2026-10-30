@@ -33,8 +33,8 @@ export function ActionDialog({
   description,
   detail,
   children,
-  confirmLabel = '확인',
-  cancelLabel = '취소',
+  confirmLabel = 'Confirm',
+  cancelLabel = 'Cancel',
   pending = false,
   confirmDisabled = false,
   onConfirm,
@@ -67,7 +67,7 @@ export function ActionDialog({
             disabled={pending || confirmDisabled}
             onClick={() => void onConfirm()}
           >
-            {pending ? '처리 중…' : confirmLabel}
+            {pending ? 'Processing…' : confirmLabel}
           </Button>
         </DialogFooter>
       </DialogContent>
@@ -92,12 +92,12 @@ export function CancellationDialog({
   return (
     <ActionDialog
       {...props}
-      title="신청을 취소할까요?"
+      title="Cancel your spot?"
       description={
         availabilityDescription ??
-        '신청을 취소해도 함께 나누는 팟은 유지됩니다.'
+        'The buying group stays open even if you leave.'
       }
-      confirmLabel="신청 취소"
+      confirmLabel="Leave group"
       confirmDisabled={!canCancel}
     />
   );
@@ -109,5 +109,5 @@ export type NotificationDialogProps = Omit<
 >;
 
 export function NotificationDialog(props: NotificationDialogProps) {
-  return <ActionDialog {...props} cancelLabel="닫기" />;
+  return <ActionDialog {...props} cancelLabel="Close" />;
 }

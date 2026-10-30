@@ -5,6 +5,7 @@ import type { LivePod } from '../data/productDetail.types';
 
 type LivePodSectionProps = {
   productId: string;
+  allowBrowse?: boolean;
 
   // null: 데이터 연결 전
   // []: 조회는 완료했지만 결과가 없음
@@ -14,6 +15,7 @@ type LivePodSectionProps = {
 export default function LivePodSection({
   productId,
   pods,
+  allowBrowse = true,
 }: LivePodSectionProps) {
   const listHref = `/pods/product/${encodeURIComponent(productId)}`;
 
@@ -28,19 +30,23 @@ export default function LivePodSection({
     >
       <div className="flex items-center justify-between gap-4">
         <h2 id="live-pods-heading" className="text-2xl font-bold">
-          모집 중인 팟
+          Open buying groups
         </h2>
 
-        <NavigationAction label="전체 보기 →" target={{ href: listHref }} />
+        {allowBrowse && (
+          <NavigationAction label="View all →" target={{ href: listHref }} />
+        )}
       </div>
 
-      {pods === null ? (
+      {!allowBrowse ? (
+        <EmptyState title="Buying groups will open once this product is ready." />
+      ) : pods === null ? (
         <EmptyState
-          title="팟 정보 연결 준비 중"
-          description="상품별 팟 목록이 연결되면 표시됩니다."
+          title="Group details coming soon"
+          description="Buying groups will appear here when available."
         />
       ) : recruitingPods.length === 0 ? (
-        <EmptyState title="현재 모집 중인 팟이 없습니다." />
+        <EmptyState title="No open buying groups right now." />
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {recruitingPods.map((pod) => (

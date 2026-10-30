@@ -1,19 +1,21 @@
 const steps = [
   {
     number: '01',
-    title: '품목을 둘러봐요',
-    description: '관심 있는 식재료와 상품 상세에서 함께 나눌 조건을 확인해요.',
+    title: 'Find your ingredients',
+    description:
+      'Browse ingredients and check the details of each shared order.',
   },
   {
     number: '02',
-    title: '소분 팟에 참여해요',
-    description: '원하는 팟에 신청하고 모집이 채워질 때까지 기다려요.',
+    title: 'Join a buying group',
+    description:
+      'Join a group for the product you want and wait for it to fill up.',
   },
   {
     number: '03',
-    title: '모집 완료 후 결제해요',
+    title: 'Pay when the group is full',
     description:
-      '조건이 충족되면 결제가 열려요. 결제 완료 후 나눔이 진행됩니다.',
+      'Payment opens once the group meets its requirements. Your order proceeds after payment.',
   },
 ];
 
@@ -28,10 +30,10 @@ export function HowItWorksSection() {
         HOW IT WORKS
       </p>
       <h2 className="mt-2 text-[26px] leading-tight font-bold sm:text-[30px]">
-        소분은 이렇게 시작해요
+        Smaller portions, in three steps
       </h2>
       <p className="mt-2 text-sm text-[#77766f]">
-        참여부터 결제까지, 필요한 순간을 차근차근 안내합니다.
+        From joining a group to paying for your share.
       </p>
 
       <div className="mt-8 border-y border-[#e0ded6] py-7">
