@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 import { getRedirectTo } from '@/domains/auth/auth.redirect';
 import LoginContainer from '@/domains/auth/containers/LoginContainer';
@@ -32,10 +33,15 @@ export default function LoginPage({ searchParams }: LoginPageProps) {
           <br />
           and share an order with people who want the same food.
         </p>
-        <div
-          aria-hidden="true"
-          className="border-foreground/20 aspect-[4/3] w-full border"
-        />
+        <div aria-hidden="true" className="relative aspect-[4/3] w-full">
+          <Image
+            src="/images/auth/red-basket.png"
+            alt=""
+            fill
+            sizes="(max-width: 767px) 0px, (max-width: 1080px) 45vw, 504px"
+            className="object-contain"
+          />
+        </div>
       </section>
 
       {/* 오른쪽 로그인 카드 */}
