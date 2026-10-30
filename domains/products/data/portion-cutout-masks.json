@@ -1,0 +1,524 @@
+{
+  "schemaVersion": 1,
+  "method": "reviewed-local-outline-alpha-lossless",
+  "notes": [
+    "개별 검토한 트레이 외곽과 모서리에 알파만 적용한다. RGB·캔버스·원본 파일은 유지한다.",
+    "원본부터 캔버스에 닿는 포장 외곽은 복원하거나 여백을 만들지 않는다.",
+    "마스크는 트레이 외곽의 근사이며 투명 필름의 물리적 투과율을 복원하는 처리가 아니다."
+  ],
+  "entries": [
+    {
+      "id": "raw-01",
+      "source": "uploads/catalog/raw-sets/001-korean-melon/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/001-korean-melon/06-portion-package-cutout.webp",
+      "sourceSha256": "9d037f79b038c204b29edae61b6993c4c3a4b6e3c72b293410dfdbf8ceaf2c14",
+      "quad": [
+        [0.06220095693779904, 0.06060606060606061],
+        [0.9385964912280702, 0.06060606060606061],
+        [0.9585326953748007, 0.9425837320574163],
+        [0.045454545454545456, 0.9425837320574163]
+      ],
+      "rounding": [
+        0.11961722488038277, 0.11961722488038277, 0.10207336523125997,
+        0.11961722488038277
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-02",
+      "source": "uploads/catalog/raw-sets/002-ripe-tomato/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/002-ripe-tomato/06-portion-package-cutout.webp",
+      "sourceSha256": "7f339844bb042e1ec2a99e653fd35cb7f42ff5d8d6be10ef07408566998fc97f",
+      "quad": [
+        [0.06060606060606061, 0.03668261562998405],
+        [0.9505582137161085, 0.03668261562998405],
+        [0.9553429027113237, 0.9370015948963317],
+        [0.051036682615629984, 0.9370015948963317]
+      ],
+      "rounding": [
+        0.11961722488038277, 0.11483253588516747, 0.11961722488038277,
+        0.11961722488038277
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-03",
+      "source": "uploads/catalog/raw-sets/003-muskmelon/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/003-muskmelon/06-portion-package-cutout.webp",
+      "sourceSha256": "e0bd68c2dafc8bd557e2a451b0115581906f75afa51f1fc535e2a49745781a09",
+      "quad": [
+        [0.045454545454545456, 0.08532695374800638],
+        [0.9505582137161085, 0.08213716108452951],
+        [0.9681020733652312, 0.9074960127591707],
+        [0.037480063795853266, 0.9074960127591707]
+      ],
+      "rounding": [
+        0.15151515151515152, 0.12759170653907495, 0.12759170653907495,
+        0.13556618819776714
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-04",
+      "source": "uploads/catalog/raw-sets/004-kabocha/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/004-kabocha/06-portion-package-cutout.webp",
+      "sourceSha256": "d4bf6f533ef2dbd971e3cd56fb7d307b4ef32bc48fe10605bc4709444f9b3dab",
+      "quad": [
+        [0.04784688995215311, 0.043859649122807015],
+        [0.9545454545454546, 0.043859649122807015],
+        [0.9633173843700159, 0.9433811802232854],
+        [0.03987240829346093, 0.9433811802232854]
+      ],
+      "rounding": [
+        0.11961722488038277, 0.12360446570972887, 0.12599681020733652,
+        0.1339712918660287
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-05",
+      "source": "uploads/catalog/raw-sets/005-red-potato/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/005-red-potato/06-portion-package-cutout.webp",
+      "sourceSha256": "d114f5d5adabb39e3dc9b86e311ba6ff7e8b672331cffd3a27b2e69605d58df0",
+      "quad": [
+        [0.0685805422647528, 0.13078149920255183],
+        [0.9202551834130781, 0.13078149920255183],
+        [0.9346092503987241, 0.8421052631578947],
+        [0.05741626794258373, 0.8421052631578947]
+      ],
+      "rounding": [
+        0.11961722488038277, 0.11562998405103668, 0.11961722488038277,
+        0.12759170653907495
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-06",
+      "source": "uploads/catalog/raw-sets/006-red-grapes/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/006-red-grapes/06-portion-package-cutout.webp",
+      "sourceSha256": "c339f6e49c4beae9fb22a99a0ac8ef9a2acd1c153311c20bc37601722290f40a",
+      "quad": [
+        [0.04704944178628389, 0.0733652312599681],
+        [0.9545454545454546, 0.0733652312599681],
+        [0.960127591706539, 0.8963317384370016],
+        [0.04066985645933014, 0.8963317384370016]
+      ],
+      "rounding": [
+        0.13556618819776714, 0.11961722488038277, 0.11562998405103668,
+        0.12759170653907495
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-07",
+      "source": "uploads/catalog/raw-sets/007-seolhyang-strawberry/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/007-seolhyang-strawberry/06-portion-package-cutout.webp",
+      "sourceSha256": "ec20976065153571c39ded288d0215e0d0d42212b7340ad579c532286ddcb16a",
+      "quad": [
+        [-0.006379585326953748, 0.1076555023923445],
+        [1.0007974481658692, 0.1076555023923445],
+        [1.0007974481658692, 0.8652312599681021],
+        [-0.004784688995215311, 0.8652312599681021]
+      ],
+      "rounding": [
+        0.12759170653907495, 0.10366826156299841, 0.11164274322169059,
+        0.11562998405103668
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인",
+      "limitations": "원본 포장이 좌우 캔버스 끝에 닿는다. 잘린 포장을 새로 만들거나 여백을 추가하지 않고 원본 범위를 유지한다."
+    },
+    {
+      "id": "raw-08",
+      "source": "uploads/catalog/raw-sets/008-onion/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/008-onion/06-portion-package-cutout.webp",
+      "sourceSha256": "d4c698d36e1d4cc739ea716885d0db01467951abd7fa8f3fcda861fdbee8ec7e",
+      "quad": [
+        [0.051834130781499205, 0.0645933014354067],
+        [0.9441786283891547, 0.0645933014354067],
+        [0.9497607655502392, 0.9370015948963317],
+        [0.049441786283891544, 0.9370015948963317]
+      ],
+      "rounding": [
+        0.14354066985645933, 0.12360446570972887, 0.11961722488038277,
+        0.12759170653907495
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-09",
+      "source": "uploads/catalog/raw-sets/009-cabbage/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/009-cabbage/06-portion-package-cutout.webp",
+      "sourceSha256": "317a8cd4a1c0856a08c52cb50d463e1565adf772cb11fa2e05d7d9c87dc38743",
+      "quad": [
+        [0.044657097288676235, 0.03827751196172249],
+        [0.9505582137161085, 0.03827751196172249],
+        [0.9577352472089314, 0.9569377990430622],
+        [0.04226475279106858, 0.9569377990430622]
+      ],
+      "rounding": [
+        0.13556618819776714, 0.12759170653907495, 0.14752791068580542,
+        0.14354066985645933
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-10",
+      "source": "uploads/catalog/raw-sets/010-scallion/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/010-scallion/06-portion-package-cutout.webp",
+      "sourceSha256": "cc3925c170a2ec9b290cf6bedabdf9b9b28af49608827081c3b0f766ee387607",
+      "quad": [
+        [0.17942583732057416, 0.02073365231259968],
+        [0.8181818181818182, 0.02073365231259968],
+        [0.8221690590111643, 0.9712918660287081],
+        [0.17783094098883573, 0.9712918660287081]
+      ],
+      "rounding": [
+        0.13556618819776714, 0.12759170653907495, 0.12759170653907495,
+        0.13556618819776714
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-11",
+      "source": "uploads/catalog/raw-sets/011-green-peas/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/011-green-peas/06-portion-package-cutout.webp",
+      "sourceSha256": "77b41a35d5778cb6ada67a01422ff20b5c6ff28c1aea1c157f7b1b01586dca17",
+      "quad": [
+        [0.051036682615629984, 0.046251993620414676],
+        [0.9441786283891547, 0.046251993620414676],
+        [0.9521531100478469, 0.9393939393939394],
+        [0.04784688995215311, 0.9393939393939394]
+      ],
+      "rounding": [
+        0.13556618819776714, 0.12759170653907495, 0.12759170653907495,
+        0.12759170653907495
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-12",
+      "source": "uploads/catalog/raw-sets/012-brussels-sprouts/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/012-brussels-sprouts/06-portion-package-cutout.webp",
+      "sourceSha256": "c56d617ccccc898b390de066b647e88c9202ddb2ffd67e76a45c0bfb5de87345",
+      "quad": [
+        [0.030303030303030304, 0.06778309409888357],
+        [0.9696969696969697, 0.06778309409888357],
+        [0.9744816586921851, 0.9170653907496013],
+        [0.030303030303030304, 0.9170653907496013]
+      ],
+      "rounding": [
+        0.13556618819776714, 0.11164274322169059, 0.13955342902711323,
+        0.12759170653907495
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-13",
+      "source": "uploads/catalog/raw-sets/013-apple/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/013-apple/06-portion-package-cutout.webp",
+      "sourceSha256": "c26f55ca681144e04354e12d629d60952e47c4da57fe259d06401f9072203519",
+      "box": [0.03987241, 0.03907496, 0.96012759, 0.94417863],
+      "rounding": [0.112, 0.105, 0.095, 0.11],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-14",
+      "source": "uploads/catalog/raw-sets/014-mandarin/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/014-mandarin/06-portion-package-cutout.webp",
+      "sourceSha256": "2b03694845039b327a6314d8e81371ef9855e44b9992c4850a36ee9f964ca121",
+      "box": [0.03668262, 0.04864434, 0.96251994, 0.94019139],
+      "rounding": [0.112, 0.11, 0.1, 0.105],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-15",
+      "source": "uploads/catalog/raw-sets/015-watermelon/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/015-watermelon/06-portion-package-cutout.webp",
+      "sourceSha256": "1f45bdb486f9108fd9bdce32f4f8ade0c9d6797838fdad7547e40c87c3ede9ff",
+      "rounding": [0.077, 0.086, 0.07, 0.075],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인",
+      "quad": [
+        [0.06140351, 0.07097289],
+        [0.93301435, 0.06858054],
+        [0.94417863, 0.92264753],
+        [0.05980861, 0.92344498]
+      ]
+    },
+    {
+      "id": "raw-16",
+      "source": "uploads/catalog/raw-sets/016-beef-steak/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/016-beef-steak/06-portion-package-cutout.webp",
+      "sourceSha256": "7e6304305d125b816d0b2043ef1e43d87a6a52568ec8ab4fe687ba31e1ce1202",
+      "box": [0.03668262, 0.06299841, 0.96491228, 0.92663477],
+      "rounding": [0.105, 0.1, 0.09, 0.1],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-17",
+      "source": "uploads/catalog/raw-sets/017-eggs/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/017-eggs/06-portion-package-cutout.webp",
+      "sourceSha256": "9af5520c8f15aec289d622b278276825fcebdfa8093d56a6e8929eaf728ec1ca",
+      "rounding": [0.144, 0.112, 0.104, 0.124],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인",
+      "quad": [
+        [0.03827751, 0.03508772],
+        [0.9569378, 0.03508772],
+        [0.96969697, 0.9585327],
+        [0.03429027, 0.95135566]
+      ]
+    },
+    {
+      "id": "raw-18",
+      "source": "uploads/catalog/raw-sets/018-pork-neck/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/018-pork-neck/06-portion-package-cutout.webp",
+      "sourceSha256": "42167ce6ddc17830f6ddb654786f3577d0b3efc6187c2e78e37e911e46daa22a",
+      "box": [0.03110048, 0.04944179, 0.96491228, 0.94657097],
+      "rounding": [0.116, 0.12, 0.112, 0.112],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-19",
+      "source": "uploads/catalog/raw-sets/019-chicken-drumsticks/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/019-chicken-drumsticks/06-portion-package-cutout.webp",
+      "sourceSha256": "5a663e61f31207988d8b45e172f10210349ef8dd2cc71633a21fd9cb4258041b",
+      "box": [0.023, 0.081, 0.975, 0.902],
+      "rounding": [0.08, 0.085, 0.064, 0.07],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-20",
+      "source": "uploads/catalog/raw-sets/020-blueberries/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/020-blueberries/06-portion-package-cutout.webp",
+      "sourceSha256": "3e3ffe658dfe8384fb50b7bff481322cfc1fde0b0a6cb6f3ef0d4fdf9efbd348",
+      "rounding": [0.122, 0.13, 0.125, 0.145],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인",
+      "quad": [
+        [0.04625199, 0.05023923],
+        [0.95614035, 0.04784689],
+        [0.96251994, 0.94019139],
+        [0.03987241, 0.94098884]
+      ]
+    },
+    {
+      "id": "raw-21",
+      "source": "uploads/catalog/raw-sets/021-dragon-fruit/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/021-dragon-fruit/06-portion-package-cutout.webp",
+      "sourceSha256": "c8e2b3d74b3b0b61ca22b3c44664b71644fc4b0440c64ea5dbe4ce6f355bd8ef",
+      "rounding": [0.13, 0.12, 0.124, 0.125],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인",
+      "quad": [
+        [0.03827751, 0.09330144],
+        [0.96092504, 0.09330144],
+        [0.97129187, 0.90749601],
+        [0.02631579, 0.90510367]
+      ]
+    },
+    {
+      "id": "raw-22",
+      "source": "uploads/catalog/raw-sets/022-peach/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/022-peach/06-portion-package-cutout.webp",
+      "sourceSha256": "de137f0dfb1a4ad42ca376598a9983c53df9958e234e67d938b2d4a8e958ee33",
+      "box": [0.03907496, 0.0414673, 0.96092504, 0.94258373],
+      "rounding": [0.148, 0.145, 0.145, 0.145],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-23",
+      "source": "uploads/catalog/raw-sets/023-sweet-potato/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/023-sweet-potato/06-portion-package-cutout.webp",
+      "sourceSha256": "c4381b5c99c0d8d48c0a2627616bc55a40cb505dc5b8d036fcc10e58e99a44d8",
+      "rounding": [0.141, 0.137, 0.126, 0.125],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인",
+      "quad": [
+        [0.0543672, 0.06776034],
+        [0.94919786, 0.06776034],
+        [0.95989305, 0.91298146],
+        [0.04901961, 0.91298146]
+      ]
+    },
+    {
+      "id": "raw-24",
+      "source": "uploads/catalog/raw-sets/024-kale/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/024-kale/06-portion-package-cutout.webp",
+      "sourceSha256": "05fad5542d9cf69c0c4ff865a5e33693dcc1b5bb8b8e81c2f8b958780bd96b90",
+      "rounding": [0.108, 0.104, 0.087, 0.11],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인",
+      "quad": [
+        [0.04944179, 0.04944179],
+        [0.94736842, 0.05023923],
+        [0.94816587, 0.94338118],
+        [0.04545455, 0.94098884]
+      ]
+    },
+    {
+      "id": "raw-25",
+      "source": "uploads/catalog/raw-sets/025-red-chard/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/025-red-chard/06-portion-package-cutout.webp",
+      "sourceSha256": "5a69d17dccaaf71e0028cbe5a8a7701c2cac44bcf3852eb33196c12b1e05efb1",
+      "quad": [
+        [0.05901116427432217, 0.022328548644338118],
+        [0.9401913875598086, 0.022328548644338118],
+        [0.9417862838915471, 0.9625199362041468],
+        [0.05901116427432217, 0.9625199362041468]
+      ],
+      "rounding": [
+        0.11562998405103668, 0.11562998405103668, 0.12759170653907495,
+        0.12360446570972887
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-26",
+      "source": "uploads/catalog/raw-sets/026-flower-lettuce/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/026-flower-lettuce/06-portion-package-cutout.webp",
+      "sourceSha256": "057b926c1f59260c936c766c36fb239de647d46e16fd18331be3fcea705b0b5f",
+      "quad": [
+        [0.043859649122807015, 0.051036682615629984],
+        [0.9545454545454546, 0.051036682615629984],
+        [0.9545454545454546, 0.9417862838915471],
+        [0.043859649122807015, 0.9417862838915471]
+      ],
+      "rounding": [
+        0.13157894736842105, 0.12759170653907495, 0.10366826156299841,
+        0.1076555023923445
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-27",
+      "source": "uploads/catalog/raw-sets/027-napa-cabbage/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/027-napa-cabbage/06-portion-package-cutout.webp",
+      "sourceSha256": "40e90aaafc34cfa3566de1e5193e2557ce3466483cbbda6092c3084d7d6649b7",
+      "quad": [
+        [0.11483253588516747, 0.018341307814992026],
+        [0.8835725677830941, 0.018341307814992026],
+        [0.8851674641148325, 0.9665071770334929],
+        [0.11323763955342903, 0.9665071770334929]
+      ],
+      "rounding": [
+        0.10366826156299841, 0.10366826156299841, 0.09569377990430622,
+        0.09728867623604466
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-28",
+      "source": "uploads/catalog/raw-sets/028-golden-kiwi/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/028-golden-kiwi/06-portion-package-cutout.webp",
+      "sourceSha256": "dd4f397ae69fdd8e8f9f4a880a23adeea6aaa6e6797716b5620e0e6d10ad83fe",
+      "quad": [
+        [0.03907496012759171, 0.0342902711323764],
+        [0.9609250398724083, 0.0342902711323764],
+        [0.9609250398724083, 0.9505582137161085],
+        [0.03907496012759171, 0.9505582137161085]
+      ],
+      "rounding": [
+        0.14752791068580542, 0.14752791068580542, 0.13556618819776714,
+        0.13157894736842105
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-29",
+      "source": "uploads/catalog/raw-sets/029-chicken-breast/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/029-chicken-breast/06-portion-package-cutout.webp",
+      "sourceSha256": "86b30135383bf53c2d8b29704194d542c4085d5e2b5fd3173e23994b2c311777",
+      "quad": [
+        [0.050239234449760764, 0.04784688995215311],
+        [0.9497607655502392, 0.049441786283891544],
+        [0.9545454545454546, 0.9322169059011164],
+        [0.046251993620414676, 0.9298245614035088]
+      ],
+      "rounding": [
+        0.12759170653907495, 0.11562998405103668, 0.10366826156299841,
+        0.1076555023923445
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-30",
+      "source": "uploads/catalog/raw-sets/030-wild-raspberries/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/030-wild-raspberries/06-portion-package-cutout.webp",
+      "sourceSha256": "196f6a0d25aeda8a067edb0fac5c36064018c3edddd11407dcbd038f5628bc98",
+      "quad": [
+        [0.05741626794258373, 0.08054226475279107],
+        [0.9553429027113237, 0.08851674641148326],
+        [0.9553429027113237, 0.8971291866028708],
+        [0.051036682615629984, 0.8931419457735247]
+      ],
+      "rounding": [
+        0.14354066985645933, 0.12759170653907495, 0.13955342902711323,
+        0.13955342902711323
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-31",
+      "source": "uploads/catalog/raw-sets/031-jeju-cutlassfish/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/031-jeju-cutlassfish/06-portion-package-cutout.webp",
+      "sourceSha256": "7fa2ee82737d908b624bc938d57f77c981f060ffe4325d36a008fda6a0fe86f5",
+      "quad": [
+        [0.02631578947368421, 0.04226475279106858],
+        [0.9728867623604466, 0.04066985645933014],
+        [0.9768740031897927, 0.9441786283891547],
+        [0.023125996810207338, 0.9449760765550239]
+      ],
+      "rounding": [
+        0.13157894736842105, 0.13556618819776714, 0.12759170653907495,
+        0.13157894736842105
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-32",
+      "source": "uploads/catalog/raw-sets/032-pork-belly/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/032-pork-belly/06-portion-package-cutout.webp",
+      "sourceSha256": "0febde34303b3b49ae37a3cc0d693ff56e69c6f616fc25fb90ff831472d8daa9",
+      "quad": [
+        [0.0342902711323764, 0.05582137161084529],
+        [0.970494417862839, 0.05502392344497608],
+        [0.9728867623604466, 0.9322169059011164],
+        [0.027910685805422646, 0.9298245614035088]
+      ],
+      "rounding": [
+        0.11164274322169059, 0.1076555023923445, 0.10366826156299841,
+        0.1076555023923445
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-33",
+      "source": "uploads/catalog/raw-sets/033-green-chili/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/033-green-chili/06-portion-package-cutout.webp",
+      "sourceSha256": "c66b6d1d1f5bc0a2aab1a8beac0d20a77b41b7115ecd7ac72ddacd71bcbe4437",
+      "quad": [
+        [0.05901116427432217, 0.03349282296650718],
+        [0.9417862838915471, 0.03189792663476874],
+        [0.94896331738437, 0.9553429027113237],
+        [0.05502392344497608, 0.9553429027113237]
+      ],
+      "rounding": [
+        0.14752791068580542, 0.14513556618819776, 0.13875598086124402,
+        0.14433811802232854
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    },
+    {
+      "id": "raw-34",
+      "source": "uploads/catalog/raw-sets/034-red-chili/06-portion-package.webp",
+      "output": "uploads/catalog/raw-sets/034-red-chili/06-portion-package-cutout.webp",
+      "sourceSha256": "4286c43444b726ac138c870d8fd55d3876c12e479096ad259149d2f247adf34d",
+      "quad": [
+        [0.04066985645933014, 0.03588516746411483],
+        [0.9593301435406698, 0.03588516746411483],
+        [0.9585326953748007, 0.9433811802232854],
+        [0.03907496012759171, 0.9425837320574163]
+      ],
+      "rounding": [
+        0.14354066985645933, 0.13955342902711323, 0.11961722488038277,
+        0.11961722488038277
+      ],
+      "visualReview": "작성자 검수 통과: 원본과 배경 합성에서 상품·흰 트레이·필름 보존 및 외곽 잔여물 확인"
+    }
+  ]
+}

@@ -16,7 +16,7 @@ export function catalogImages(idOrName: string) {
     return {
       catalog: p.catalogImage,
       gallery: p.images,
-      recommendation: p.carouselImage,
+      recommendation: p.catalogImage,
       story: p.storyImage,
       portion: undefined,
     };

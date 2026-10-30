@@ -48,3 +48,17 @@ The images are generated concepts, not verified photographs of suppliers, packag
 The existing public server was previously updated with the Korean catalog release `catalog-20261030-raw34-diy22`, build `cTnlJ-s-w6Plkatr8xol4`. Its 56 menu entries and 426 image responses were verified then. That deployment does not establish that this English integration is deployed.
 
 This change is prepared for Git publication. Review the pull request and satisfy required checks, then merge into `main`. Deploy only that merged `main` commit, retaining the existing environment; do not deploy the feature branch before merge. Run authenticated order/payment and mobile checks separately before claiming those flows have passed end to end.
+
+
+## 2026-10-31 사용자 후속 결정
+
+위 표는 10월30일 통합 당시 기록이다. 이후 승인된 현재 계약과 실행 결과는 `TASTE-HOME-FLOW.md`를 따른다.
+
+- 취향 찾기 내부 상품 담기·추천 상품은 이름별 픽셀아트로 복구한다(#145).
+- 메인 첫 추천 원물은06 소분 패키지 이미지를 사용한다(#146).
+- DIY22 메인 추천·목록은 기존 투명 catalog 컷아웃을 사용하며 상세01~04는 유지한다(#147).
+- 원물06 전체34종의 투명 컷아웃은 별도 작업(#148)이며, 승인된 결과는 아직 없다. 원본 이미지는 보존한다.
+
+### 2026-10-31 00:41 KST — 원물06 로컬 컷아웃 후속 적용
+
+사용자 승인에 따라 원물34종의 06 소분 포장 이미지를 로컬 외곽 마스크로 처리했다. 원본 RGB·규격·포장과 기존426개 자산을 보존하고 투명 WebP34개만 추가해 manifest460개로 확장했다. rawProducts의 tasteFinderImage만 새 컷아웃으로 변경했으며 상세 갤러리·원본06·원물05는 유지했다. DIY22는 기존 투명 catalog 컷아웃을 계속 사용한다. 메인 추천의 실제 적용과 독립 검증은 TASTE-HOME-FLOW.md, 팀 요구사항 대조와 신규 계정 미검증 상태는 SLACK-REQUIREMENTS-CHECK-20261031.md에 기록한다. PR #144 초안에 반영하며 사람 머지·서버 배포는 별도이다.

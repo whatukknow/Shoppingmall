@@ -1,3 +1,9 @@
+import {
+  catalogImages,
+  findCatalogProduct,
+} from '@/domains/products/catalog/catalog';
+import type { HomeCardItem } from '../home.types';
+
 export type HomeRecommendationMode = 'random' | 'ai' | 'needs-taste';
 
 export type HomeRecommendationStatus = {
@@ -14,3 +20,36 @@ export function resolveHomeRecommendationMode(
 }
 
 export const HOME_RECOMMENDATIONS_KEY = 'little-portions:home-recommendations';
+
+/** 실제로 표시할 수 있는 카탈로그 상품으로 투영한 뒤 추천/랜덤을 결정한다. */
+export async function loadHomeRecommendations(
+  status: HomeRecommendationStatus,
+  loaders: {
+    ai: () => Promise<HomeCardItem[]>;
+    random: () => Promise<HomeCardItem[]>;
+  },
+): Promise<{ mode: HomeRecommendationMode; products: HomeCardItem[] }> {
+  const project = (products: HomeCardItem[]) =>
+    products.flatMap((p) => {
+      const item = findCatalogProduct(p.id) ?? findCatalogProduct(p.name);
+      const images = item ? catalogImages(item.id)! : undefined;
+      return item
+        ? [
+            {
+              ...p,
+              id: item.id,
+              name: item.name,
+              imageUrl: images!.portion ?? images!.recommendation,
+            },
+          ]
+        : [];
+    });
+  const mode = resolveHomeRecommendationMode(status);
+  if (mode === 'needs-taste') return { mode, products: [] };
+  if (mode === 'ai') {
+    // 장애는 전파한다. 성공했지만 표시 가능한 추천이 없을 때만 랜덤으로 대체한다.
+    const products = project(await loaders.ai());
+    if (products.length) return { mode: 'ai', products };
+  }
+  return { mode: 'random', products: project(await loaders.random()) };
+}

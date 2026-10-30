@@ -1,7 +1,7 @@
 'use client';
 
 import { foodLabel } from '@/shared/lib/food-label';
-import { CatalogTasteImage } from './CatalogTasteImage';
+import { PixelIcon } from './PixelIcon';
 
 import {
   forwardRef,
@@ -240,7 +240,7 @@ export const ShoppingWalk = forwardRef<ShoppingWalkHandle, { items: Item[] }>(
                 icons.current[index] = element;
               }}
             >
-              <CatalogTasteImage name={item.name} />
+              <PixelIcon name={item.name} />
             </span>
             <small>{item.kit ? 'Meal kit' : foodLabel(item.name)}</small>
           </div>
@@ -257,7 +257,7 @@ export const ShoppingWalk = forwardRef<ShoppingWalkHandle, { items: Item[] }>(
           </span>
           <span className="bin">
             {collected.map((index, position) => (
-              <CatalogTasteImage
+              <PixelIcon
                 key={index}
                 name={items[index].name}
                 style={{

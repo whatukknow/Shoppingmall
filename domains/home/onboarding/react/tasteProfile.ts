@@ -1,3 +1,4 @@
+import { findCatalogProduct } from '@/domains/products/catalog/catalog';
 import type { TasteAnswers } from './answers';
 
 // recommend() 반환형은 JS 모듈이라 최소 구조 타입으로 정의한다
@@ -56,4 +57,24 @@ export function buildTasteProfile({
     consent,
     qualityFlags: JSON.stringify([]),
   };
+}
+
+/** 화면의 추천 결과를 기존 카탈로그의 안정적인 ID로 제한한다. */
+export function tasteRecommendationIds(
+  itemsJson: string,
+  kitJson: string,
+): string[] {
+  const items: unknown = JSON.parse(itemsJson);
+  const kit: unknown = JSON.parse(kitJson);
+  if (!Array.isArray(items) || !Array.isArray(kit))
+    throw new Error('Invalid recommendation list');
+  const picks: unknown[] = [...items, ...(kit.length ? [kit] : [])];
+  const ids = picks.map((pick) => {
+    if (!Array.isArray(pick) || typeof pick[0] !== 'string')
+      throw new Error('Invalid recommendation item');
+    const item = findCatalogProduct(pick[0]);
+    if (!item) throw new Error('Unknown catalog recommendation');
+    return item.id;
+  });
+  return [...new Set(ids)];
 }

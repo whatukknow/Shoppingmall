@@ -2128,5 +2128,209 @@
     "sourceSha256": "e87eccc608f48f2fbd0e66d0ee694ac4d085f2bbec5496d1b6a53e4c274b50d8",
     "sha256": "1871d987147e68465fe1cb0284fbb96b802a3bef26b2b7cde0160aaa6736f629",
     "bytes": 308096
+  },
+  "/uploads/catalog/raw-sets/001-korean-melon/06-portion-package-cutout.webp": {
+    "sourceSha256": "9d037f79b038c204b29edae61b6993c4c3a4b6e3c72b293410dfdbf8ceaf2c14",
+    "sha256": "fa5f117c79cd01172345fbcf66a95c97d9c3ad73d844bc8d2542b5a78aedd7bc",
+    "bytes": 1279974,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/002-ripe-tomato/06-portion-package-cutout.webp": {
+    "sourceSha256": "7f339844bb042e1ec2a99e653fd35cb7f42ff5d8d6be10ef07408566998fc97f",
+    "sha256": "229a4794afcdad28172258b039e5df0fe2e9f39c03840e89f58cd62832c27d0a",
+    "bytes": 1328982,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/003-muskmelon/06-portion-package-cutout.webp": {
+    "sourceSha256": "e0bd68c2dafc8bd557e2a451b0115581906f75afa51f1fc535e2a49745781a09",
+    "sha256": "1eaa29edd5b5fcd9c91129bb37b8efbe9579c403a6144c24991dc7fa22517efb",
+    "bytes": 1161814,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/004-kabocha/06-portion-package-cutout.webp": {
+    "sourceSha256": "d4bf6f533ef2dbd971e3cd56fb7d307b4ef32bc48fe10605bc4709444f9b3dab",
+    "sha256": "c88f86b5aa81844a1a18a34f6e730bfeac2324f61125756153aed553f0f66013",
+    "bytes": 1294512,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/005-red-potato/06-portion-package-cutout.webp": {
+    "sourceSha256": "d114f5d5adabb39e3dc9b86e311ba6ff7e8b672331cffd3a27b2e69605d58df0",
+    "sha256": "21da3d0931bb22eb37c69cfcc123c73eea8007d5a25cae76c798f0e3b97ed73c",
+    "bytes": 1017134,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/006-red-grapes/06-portion-package-cutout.webp": {
+    "sourceSha256": "c339f6e49c4beae9fb22a99a0ac8ef9a2acd1c153311c20bc37601722290f40a",
+    "sha256": "97861074d654c632cdb5f059824699b01ccadd32723f7979cae2f2e83cf6e335",
+    "bytes": 1263914,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/007-seolhyang-strawberry/06-portion-package-cutout.webp": {
+    "sourceSha256": "ec20976065153571c39ded288d0215e0d0d42212b7340ad579c532286ddcb16a",
+    "sha256": "bf146e260b2374691f5dbedda31644ff8ca1bfd9ebacc356fd1efbdff8e6404a",
+    "bytes": 1407788,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/008-onion/06-portion-package-cutout.webp": {
+    "sourceSha256": "d4c698d36e1d4cc739ea716885d0db01467951abd7fa8f3fcda861fdbee8ec7e",
+    "sha256": "99ab7a8a45117d7eee906b45fa5a4fd465c54a470126c9a40651414bf30e6d9c",
+    "bytes": 1267622,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/009-cabbage/06-portion-package-cutout.webp": {
+    "sourceSha256": "317a8cd4a1c0856a08c52cb50d463e1565adf772cb11fa2e05d7d9c87dc38743",
+    "sha256": "9910a3dada0c1a78bc50ec4d2582a51229d3ab59a633cd6387321ce55ec2cc47",
+    "bytes": 1202318,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/010-scallion/06-portion-package-cutout.webp": {
+    "sourceSha256": "cc3925c170a2ec9b290cf6bedabdf9b9b28af49608827081c3b0f766ee387607",
+    "sha256": "fa022ec556316546de1d23a7c46008a81f9c1c7cae3fd1341d5b4fa529303a96",
+    "bytes": 998596,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/011-green-peas/06-portion-package-cutout.webp": {
+    "sourceSha256": "77b41a35d5778cb6ada67a01422ff20b5c6ff28c1aea1c157f7b1b01586dca17",
+    "sha256": "36629e8508c3d0f1716f0b646f6e29ed7aaa3c4ee43b7beb1c7c3d2647f78d16",
+    "bytes": 1298162,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/012-brussels-sprouts/06-portion-package-cutout.webp": {
+    "sourceSha256": "c56d617ccccc898b390de066b647e88c9202ddb2ffd67e76a45c0bfb5de87345",
+    "sha256": "5e6a2acd187641192917305957f9db6e05f7fdbbc0ed37a462a8f85e18b53b6e",
+    "bytes": 1377404,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/013-apple/06-portion-package-cutout.webp": {
+    "sourceSha256": "c26f55ca681144e04354e12d629d60952e47c4da57fe259d06401f9072203519",
+    "sha256": "6529d336d687a70c9eea939dcb096f39f72b90253fc84f14ccd906a9df7ed75f",
+    "bytes": 1452330,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/014-mandarin/06-portion-package-cutout.webp": {
+    "sourceSha256": "2b03694845039b327a6314d8e81371ef9855e44b9992c4850a36ee9f964ca121",
+    "sha256": "89425a6769a7a0c1768b1cebf3748076815d87d93dec8e1a742af3f052058587",
+    "bytes": 1320288,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/015-watermelon/06-portion-package-cutout.webp": {
+    "sourceSha256": "1f45bdb486f9108fd9bdce32f4f8ade0c9d6797838fdad7547e40c87c3ede9ff",
+    "sha256": "9c30c3b20d4fd7c786de705dbbc502f0b789f348c78cb0252bc9b7bbac3171a0",
+    "bytes": 1279148,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/016-beef-steak/06-portion-package-cutout.webp": {
+    "sourceSha256": "7e6304305d125b816d0b2043ef1e43d87a6a52568ec8ab4fe687ba31e1ce1202",
+    "sha256": "9964591d20f97e60edbfd6bb87a3b43d5fb9df3271356031df748551d79d1b1f",
+    "bytes": 1562174,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/017-eggs/06-portion-package-cutout.webp": {
+    "sourceSha256": "9af5520c8f15aec289d622b278276825fcebdfa8093d56a6e8929eaf728ec1ca",
+    "sha256": "02510aa897382b173d79ddcd19ed9e88cfa1c69dd183d728e2e372a7accf9a1f",
+    "bytes": 1399906,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/018-pork-neck/06-portion-package-cutout.webp": {
+    "sourceSha256": "42167ce6ddc17830f6ddb654786f3577d0b3efc6187c2e78e37e911e46daa22a",
+    "sha256": "656f3a98ca2a99486186969e68df2d5eee0a5c3b3ffbc002e2bf3a22a23ac317",
+    "bytes": 1450294,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/019-chicken-drumsticks/06-portion-package-cutout.webp": {
+    "sourceSha256": "5a663e61f31207988d8b45e172f10210349ef8dd2cc71633a21fd9cb4258041b",
+    "sha256": "0caf778bdaa5d6a407d0d88887c8f7556934d753f732743cbb86a2b68c62c43d",
+    "bytes": 1237622,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/020-blueberries/06-portion-package-cutout.webp": {
+    "sourceSha256": "3e3ffe658dfe8384fb50b7bff481322cfc1fde0b0a6cb6f3ef0d4fdf9efbd348",
+    "sha256": "5f9ced47ba494ac472f774e218cd6c54e845e03975a4766ef8b466449b1484b3",
+    "bytes": 1321806,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/021-dragon-fruit/06-portion-package-cutout.webp": {
+    "sourceSha256": "c8e2b3d74b3b0b61ca22b3c44664b71644fc4b0440c64ea5dbe4ce6f355bd8ef",
+    "sha256": "9a5649cb07222afc94d1b1b44f97d8d5bf61516dd6d43bc9feec44cfcf43a7f7",
+    "bytes": 1377056,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/022-peach/06-portion-package-cutout.webp": {
+    "sourceSha256": "de137f0dfb1a4ad42ca376598a9983c53df9958e234e67d938b2d4a8e958ee33",
+    "sha256": "6f3f82cb5972d6c1b816eba7a9589198372018c6570f033a217098d9c8dcb696",
+    "bytes": 1404954,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/023-sweet-potato/06-portion-package-cutout.webp": {
+    "sourceSha256": "c4381b5c99c0d8d48c0a2627616bc55a40cb505dc5b8d036fcc10e58e99a44d8",
+    "sha256": "06206d6a641f993676fa77613c777421cdd1c0fecddb2092e66965e57fa58aa8",
+    "bytes": 1391362,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/024-kale/06-portion-package-cutout.webp": {
+    "sourceSha256": "05fad5542d9cf69c0c4ff865a5e33693dcc1b5bb8b8e81c2f8b958780bd96b90",
+    "sha256": "ea6bab72f8cd98030431c1e912e343d2246fb5afadf6cfd53d4399414bc7d797",
+    "bytes": 1484604,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/025-red-chard/06-portion-package-cutout.webp": {
+    "sourceSha256": "5a69d17dccaaf71e0028cbe5a8a7701c2cac44bcf3852eb33196c12b1e05efb1",
+    "sha256": "a463f908073430715e3a1f9ed2af09a909ad8dcfad4fe7bd67053111c2e03c3c",
+    "bytes": 1564320,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/026-flower-lettuce/06-portion-package-cutout.webp": {
+    "sourceSha256": "057b926c1f59260c936c766c36fb239de647d46e16fd18331be3fcea705b0b5f",
+    "sha256": "9824d19a308a0c64dcdc983ef2eeaefddb2c93fa52bd783cd1c729743266636c",
+    "bytes": 1449676,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/027-napa-cabbage/06-portion-package-cutout.webp": {
+    "sourceSha256": "40e90aaafc34cfa3566de1e5193e2557ce3466483cbbda6092c3084d7d6649b7",
+    "sha256": "d03df3d5b9e2802459b7de812761c3b1d9fdf2ed8d2a25209d9adfb2b7ca5262",
+    "bytes": 1120426,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/028-golden-kiwi/06-portion-package-cutout.webp": {
+    "sourceSha256": "dd4f397ae69fdd8e8f9f4a880a23adeea6aaa6e6797716b5620e0e6d10ad83fe",
+    "sha256": "e576d36522a4168c3e9dcecf8330d1e72ae990dd0923309a8df09201bfa5096a",
+    "bytes": 1473868,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/029-chicken-breast/06-portion-package-cutout.webp": {
+    "sourceSha256": "86b30135383bf53c2d8b29704194d542c4085d5e2b5fd3173e23994b2c311777",
+    "sha256": "2f4a4c58d0951b42d4df1a20ed5044bf031e329c9613e2ac2507a51da5ff4608",
+    "bytes": 959458,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/030-wild-raspberries/06-portion-package-cutout.webp": {
+    "sourceSha256": "196f6a0d25aeda8a067edb0fac5c36064018c3edddd11407dcbd038f5628bc98",
+    "sha256": "9ece6ced5582acce8d07dc24ae5c1b3c800533c79edd9a187598f83a4b6c7da4",
+    "bytes": 1340514,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/031-jeju-cutlassfish/06-portion-package-cutout.webp": {
+    "sourceSha256": "7fa2ee82737d908b624bc938d57f77c981f060ffe4325d36a008fda6a0fe86f5",
+    "sha256": "e4f0b7a9817f8f398ae07604ee0479df8bff1479cff10ebe5cfc7926e541fb3d",
+    "bytes": 1335152,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/032-pork-belly/06-portion-package-cutout.webp": {
+    "sourceSha256": "0febde34303b3b49ae37a3cc0d693ff56e69c6f616fc25fb90ff831472d8daa9",
+    "sha256": "bfd61ae108e8f1000fec8ed6fd092d4fd9583145933bb12c75b33977de82fefb",
+    "bytes": 1423424,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/033-green-chili/06-portion-package-cutout.webp": {
+    "sourceSha256": "c66b6d1d1f5bc0a2aab1a8beac0d20a77b41b7115ecd7ac72ddacd71bcbe4437",
+    "sha256": "e9169960f617ef731aeb562437617b231d1010818b7672266290b7587d504839",
+    "bytes": 1288638,
+    "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/034-red-chili/06-portion-package-cutout.webp": {
+    "sourceSha256": "4286c43444b726ac138c870d8fd55d3876c12e479096ad259149d2f247adf34d",
+    "sha256": "34cb5a379a12ab389bba38ed80d860903cf660249c738d2e08911576f15b329d",
+    "bytes": 1358278,
+    "method": "reviewed-local-outline-alpha-lossless"
   }
 }

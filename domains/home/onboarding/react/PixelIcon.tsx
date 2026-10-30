@@ -1,13 +1,6 @@
 import type { CSSProperties } from 'react';
 import { CY } from './pixelEngine';
-
-type PixelRect = {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  fill: string;
-};
+import { catalogPixelRects, type PixelRect } from './catalogPixelIcons';
 
 export function PixelIcon({
   name,
@@ -20,7 +13,7 @@ export function PixelIcon({
   style?: CSSProperties;
   title?: string;
 }) {
-  const rects = CY.px(name) as PixelRect[];
+  const rects = catalogPixelRects(name) ?? (CY.px(name) as PixelRect[]);
   return (
     <span className={`px ${className}`} style={style} title={title}>
       <svg viewBox="0 0 20 20" shapeRendering="crispEdges" aria-hidden="true">
