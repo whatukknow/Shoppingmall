@@ -1,3 +1,9 @@
+import {
+  catalogIdForRow,
+  catalogImages,
+  findCatalogProduct,
+} from '@/domains/products/catalog/catalog';
+import { tasteRecommendationIds } from '@/domains/home/onboarding/react/tasteProfile';
 import { AuthApiError } from '@/domains/auth/auth.server';
 import { createServerClient } from '@/shared/lib/supabase/server';
 import { fetchHeadImages } from '@/domains/products/products.server';
@@ -157,11 +163,14 @@ export function parseTasteProfileRequest(
   return v as unknown as TasteProfileRequest;
 }
 
-/** taste_profiles 저장 컬럼 값 — 역방향 매핑만 (recommended_product_ids·code·survey_response_id 미포함) */
+/** taste_profiles 저장 컬럼 값 — 역방향 매핑만 (추천 카탈로그 ID를 기존 recommended_product_ids 컬럼에 저장) */
 function tasteProfileColumns(
   body: TasteProfileRequest,
 ): Database['public']['Tables']['taste_profiles']['Update'] {
   return {
+    recommended_product_ids: JSON.stringify(
+      tasteRecommendationIds(body.items, body.kit),
+    ),
     nickname: body.nickname,
     birth_date: `${body.birth_year}-${body.birth_md.slice(0, 2)}-${body.birth_md.slice(2, 4)}`,
     gender: body.gender,
@@ -205,13 +214,20 @@ export async function putTasteProfile(
     throw new AuthApiError(400, 'Invalid taste profile.');
   }
 
-  const columns = tasteProfileColumns(parsed);
-  const { data: existing } = await client
+  let columns: Database['public']['Tables']['taste_profiles']['Update'];
+  try {
+    columns = tasteProfileColumns(parsed);
+  } catch {
+    throw new AuthApiError(400, 'Invalid recommendation list.');
+  }
+  const { data: existing, error: existingError } = await client
     .from('taste_profiles')
     .select('id')
     .eq('profile_id', uid)
     .order('created_at', { ascending: false })
     .limit(1);
+
+  if (existingError) throw existingError;
 
   let saved: TasteProfilesRow | null = null;
   if (((existing ?? []) as { id: string }[]).length > 0) {
@@ -460,6 +476,7 @@ export async function listRecommendedProducts(
     .from('taste_profiles')
     .select('recommended_product_ids')
     .eq('profile_id', uid)
+    .order('created_at', { ascending: false })
     .limit(1);
   if (tasteError) throw tasteError;
   const ids = parseRecommendedProductIds(
@@ -468,31 +485,73 @@ export async function listRecommendedProducts(
   );
   if (ids.length === 0) return toListResponse([], 0, limit, 0);
 
-  // ID 순서를 유지하기 위해 in 으로 조회한 뒤 앱에서 재배열한다
-  const { data: productData, error: productError } = await client
-    .from('products')
-    .select('*')
-    .in('id', ids)
-    .eq('is_active', true);
+  // 새 저장값은 안정적인 카탈로그 ID, 과거 저장값은 실제 상품 ID다.
+  const legacyIds = ids.filter((id) => !findCatalogProduct(id));
+  const catalogPicks = new Map(
+    ids.flatMap((id) => {
+      const item = findCatalogProduct(id);
+      return item
+        ? [
+            [
+              id,
+              {
+                id: item.id,
+                name: item.name,
+                imageUrl: catalogImages(item.id)!.recommendation,
+              },
+            ] as const,
+          ]
+        : [];
+    }),
+  );
+  // 카탈로그 표시는 판매 허용이 아니다. 구매 가능 여부는 기존 상세에서 판정한다.
+  // 과거 상품 ID는 활성 상품만 조회한 뒤 원래 순서로 합친다.
+  const { data: productData, error: productError } =
+    legacyIds.length > 0
+      ? await client
+          .from('products')
+          .select('*')
+          .in('id', legacyIds)
+          .eq('is_active', true)
+      : { data: [], error: null };
   if (productError) throw productError;
   const rows = (productData ?? []) as ProductsRow[];
   const byId = new Map(rows.map((row) => [row.id, row]));
   const ordered = ids
     .map((id) => byId.get(id))
     .filter((row): row is ProductsRow => row != null);
-  const total = ordered.length;
-
   const gids = ordered
     .map((row) => row.gid)
     .filter((gid): gid is string => typeof gid === 'string');
   const images = await fetchHeadImages(client, gids);
 
-  const picked = limit > 0 ? ordered.slice(0, limit) : ordered;
+  const operationalPicks = new Map(
+    ordered.map((row) => {
+      const item = findCatalogProduct(catalogIdForRow(row) ?? '');
+      return [
+        row.id,
+        item
+          ? {
+              id: item.id,
+              name: item.name,
+              imageUrl: catalogImages(item.id)!.recommendation,
+            }
+          : toRecommendedProduct(row, images.get(row.gid ?? '') ?? ''),
+      ] as const;
+    }),
+  );
+  const all: RecommendedProduct[] = [];
+  const seen = new Set<string>();
+  for (const id of ids) {
+    const item = catalogPicks.get(id) ?? operationalPicks.get(id);
+    if (item && !seen.has(item.id)) {
+      seen.add(item.id);
+      all.push(item);
+    }
+  }
   return toListResponse(
-    picked.map((row) =>
-      toRecommendedProduct(row, images.get(row.gid ?? '') ?? ''),
-    ),
-    total,
+    limit > 0 ? all.slice(0, limit) : all,
+    all.length,
     limit,
     0,
   );

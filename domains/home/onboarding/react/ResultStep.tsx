@@ -12,13 +12,10 @@ import { recommend, EL, SUN_W } from './recommendation';
 import { PixelIcon } from './PixelIcon';
 import { saveTasteProfile } from '@/domains/auth/users.api';
 import { buildTasteProfile } from './tasteProfile';
-import { HOME_RECOMMENDATIONS_KEY } from '../../data/homeRecommendations';
-import { matchOnboardingProducts } from '../../data/onboardingSelection';
 import { ShoppingWalk, type ShoppingWalkHandle } from './ShoppingWalk';
 
 function ResultContent({ onRestart }: { onRestart: () => void }) {
-  const router = useRouter();
-  const { answers, remaining, products } = useTaste();
+  const { answers, remaining } = useTaste();
   const [loading, setLoading] = useState(true);
   const [loadingIcon, setLoadingIcon] = useState('crystal');
   const [busy, setBusy] = useState(false);
@@ -124,15 +121,6 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
   const complete = async () => {
     try {
       if (preference) {
-        const names = result.items
-          .concat([result.kit])
-          .map((product: string[]) => product[0]);
-        sessionStorage.setItem(
-          HOME_RECOMMENDATIONS_KEY,
-          JSON.stringify(matchOnboardingProducts(names, products)),
-        );
-      } else sessionStorage.removeItem(HOME_RECOMMENDATIONS_KEY);
-      if (preference) {
         setBusy(true);
         try {
           await saveTasteProfile(
@@ -150,8 +138,10 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
         }
         setBusy(false);
       }
-      sessionStorage.setItem('little-portions:onboarding-complete', 'yes');
-      router.push('/#share-products');
+      // 새 서버 요청으로 저장 직후의 회원별 추천을 읽는다(이전 홈 캐시 재사용 방지).
+      // 저장 전 프리패치된 홈이 아닌 새 문서에서 회원별 API를 읽기 위한 의도적 전체 이동.
+      // eslint-disable-next-line @next/next/no-location-assign-relative-destination
+      window.location.assign('/#share-products');
     } catch {
       setToast('Could not open your picks. Please try again.');
     }
@@ -417,9 +407,9 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
 }
 
 export function ResultStep() {
+  const router = useRouter();
   const leaving = useRef(false);
   const { answers, setAnswers } = useTaste();
-  const router = useRouter();
   const pathname = usePathname();
   useEffect(() => {
     leaving.current = false;

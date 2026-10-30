@@ -11,6 +11,12 @@
 
 - G팀 쇼핑몰 프로젝트에서 CSS를 새로 작성하거나 추가할 때는 별도 CSS 파일을 만들지 않고 `app/globals.css`를 사용한다. 기존 선택자와 적용 범위를 유지한다. 이 규칙은 다른 프로젝트에는 적용하지 않는다.
 
+## 취향·메인 추천 연결 및 검토 순서 — 2026-10-30
+
+- 현재 겉모습·서버 이미지·이미지 역할·페이지와 컴포넌트 계층을 보존한다. 저장된 취향은 메인 추천 캐러셀에 연결하고, 미저장·비로그인은 같은 캐러셀에 랜덤 상품을 표시한다. 관련 API 계약은 `TASTE-HOME-FLOW.md`를 따른다.
+- 변경은 GitHub 이슈 → 작업 브랜치 → PR → 바로 독립 테스트·검증 및 Claude Code 교차검토 → 수정·재검증 → 사람 머지 순서로 진행한다. 자동 머지·머지 전 배포 금지. 실행하지 못한 검토는 미검증이다.
+- 프로젝트 대화·검토 전달은 한국어를 사용한다. 기존 영문 제품 UI는 별도 변경 지시 없이 번역하지 않는다.
+
 ## Shared context source
 
 - Canonical shared context: https://github.com/axfehlerlee/my-ai-context/blob/main/AI_CONTEXT.md (project display name: `paos`; main dot: `에요`). Read the relevant current sections when project context or all-agent sharing is required; do not substitute local memory for this source.

@@ -1,3 +1,10 @@
+import {
+  buildTasteProfile,
+  tasteRecommendationIds,
+} from '../../domains/home/onboarding/react/tasteProfile';
+import { recommend } from '../../domains/home/onboarding/react/recommendation';
+import { toTasteProfileRequest } from '../../domains/auth/users.api';
+import { catalogImages } from '../../domains/products/catalog/catalog';
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import {
@@ -153,7 +160,11 @@ type Request = {
   limitArg: number | null;
 };
 
-type Handler = (req: Request) => { data: unknown; count?: number };
+type Handler = (req: Request) => {
+  data: unknown;
+  count?: number;
+  error?: Error;
+};
 
 /** Supabase 쿼리 빌더를 흉내 내는 가짜 클라이언트 (podsServer.test.ts 의 엄격 방식 확장판) */
 function makeFakeClient(
@@ -300,11 +311,15 @@ function makeFakeClient(
             resolve: (r: {
               data: unknown;
               count?: number;
-              error: null;
+              error: Error | null;
             }) => void,
           ) {
             const result = handler(req);
-            resolve({ data: result.data, count: result.count, error: null });
+            resolve({
+              data: result.data,
+              count: result.count,
+              error: result.error ?? null,
+            });
             return undefined;
           },
         },
@@ -486,7 +501,7 @@ describe('putTasteProfile', () => {
     assert.equal(payload.fridge_state, 'always-full');
     assert.equal(payload.gender, 'f');
     // 저장 컬럼 역방향만 — 없는 필드는 건드리지 않는다
-    assert.equal(payload.recommended_product_ids, undefined);
+    assert.equal(payload.recommended_product_ids, '[]');
     assert.equal(payload.code, undefined);
     assert.equal(payload.survey_response_id, undefined);
   });
@@ -545,7 +560,7 @@ describe('putTasteProfile', () => {
     assert.equal(payload.nickname, '늦잠러');
     assert.equal(payload.birth_date, '1990-03-07');
     assert.equal(payload.id, undefined);
-    assert.equal(payload.recommended_product_ids, undefined);
+    assert.equal(payload.recommended_product_ids, '[]');
     assert.equal(payload.code, undefined);
     assert.equal(payload.survey_response_id, undefined);
   });
@@ -1157,6 +1172,24 @@ describe('listRecommendedProducts', () => {
     );
   });
 
+  it('카탈로그 ID와 과거 운영 ID가 같은 상품이면 첫 순서를 유지하며 중복 제거한다', async () => {
+    const { client } = makeFakeClient(
+      handlerWith('["raw-01","prd_old"]', [
+        product({
+          id: 'prd_old',
+          name: '다른 표시명',
+          details: { catalogId: 'raw-01' },
+        }),
+      ]),
+    );
+    const result = await listRecommendedProducts({ limit: 0 }, client);
+    assert.deepEqual(
+      result.list.map((p) => p.id),
+      ['raw-01'],
+    );
+    assert.equal(result.total, 1);
+  });
+
   it('프로필이 없으면 빈 목록, products 조회를 건너뛴다', async () => {
     const { client, requests } = makeFakeClient(handlerWith('', products));
     const result = await listRecommendedProducts({ limit: 5 }, client);
@@ -1329,5 +1362,125 @@ describe('requireUser 로그 문구', () => {
       }
     ).getUser;
     await assert.rejects(() => detached(), /분리 호출할 수 없습니다/);
+  });
+});
+
+describe('취향 저장 → 회원별 메인 추천 연결', () => {
+  const answers = {
+    nick: '합성 검증',
+    y: 1990,
+    m: 3,
+    d: 7,
+    g: 'f' as const,
+    sun: 'p' as const,
+    fridge: 'sauce' as const,
+  };
+  const result = recommend(answers);
+  const body = toTasteProfileRequest(
+    buildTasteProfile({
+      answers,
+      result,
+      nickname: answers.nick,
+      consent: true,
+    }),
+  );
+  const expected = tasteRecommendationIds(body.items, body.kit);
+  const uid = '11111111-2222-3333-4444-555555555555';
+
+  it('실제 추천 결과를 저장하고 새 클라이언트로 순서·이미지·상품 링크용 ID를 다시 읽는다', async () => {
+    let stored: TasteProfilesRow | null = null;
+    const handler: Handler = (req) => {
+      if (req.table !== 'taste_profiles')
+        throw new Error('카탈로그 추천에 운영 상품 조회가 필요하지 않음');
+      assert.ok(
+        req.filters.some(
+          (f) => f.args[0] === 'profile_id' && f.args[1] === uid,
+        ) || req.method === 'insert',
+      );
+      if (req.method === 'insert' || req.method === 'update') {
+        stored = tasteProfileRow({
+          ...(req.payload as Partial<TasteProfilesRow>),
+          profile_id: uid,
+        });
+      }
+      return { data: stored ? [stored] : [] };
+    };
+    const writer = makeFakeClient(handler, { id: uid });
+    await putTasteProfile(body, writer.client);
+    const reader = makeFakeClient(handler, { id: uid });
+    const recommendations = await listRecommendedProducts(
+      { limit: 0 },
+      reader.client,
+    );
+    assert.ok(expected.length > 0);
+    assert.deepEqual(
+      recommendations.list.map((p) => p.id),
+      expected,
+    );
+    for (const p of recommendations.list)
+      assert.equal(p.imageUrl, catalogImages(p.id)!.recommendation);
+    assert.deepEqual(reader.requests[0].orders, [
+      { column: 'created_at', ascending: false },
+    ]);
+  });
+
+  it('다른 회원은 이전 회원의 추천을 받지 않는다', async () => {
+    const other = 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee';
+    const { client, requests } = makeFakeClient(
+      (req) => {
+        const owner = req.filters.find((f) => f.args[0] === 'profile_id')
+          ?.args[1];
+        return {
+          data:
+            owner === uid
+              ? [
+                  tasteProfileRow({
+                    recommended_product_ids: JSON.stringify(expected),
+                  }),
+                ]
+              : [],
+        };
+      },
+      { id: other },
+    );
+    const response = await listRecommendedProducts({}, client);
+    assert.deepEqual(response.list, []);
+    assert.equal(requests[0].filters[0].args[1], other);
+  });
+
+  it('알 수 없는 추천과 잘못된 JSON은 400이며 저장하지 않는다', async () => {
+    for (const items of ['bad json', '[["없는 상품"]]', '{}']) {
+      const { client, requests } = makeFakeClient(() => ({ data: [] }), {
+        id: uid,
+      });
+      await assert.rejects(
+        putTasteProfile({ ...body, items }, client),
+        (e: unknown) => (e as AuthApiError).status === 400,
+      );
+      assert.equal(requests.length, 0);
+    }
+  });
+
+  it('기존 프로필 조회 오류는 저장 성공이나 신규 행 생성으로 위장하지 않는다', async () => {
+    const { client, requests } = makeFakeClient(
+      () => ({ data: null, error: new Error('synthetic unavailable') }),
+      { id: uid },
+    );
+    await assert.rejects(
+      putTasteProfile(body, client),
+      /synthetic unavailable/,
+    );
+    assert.ok(requests.every((r) => r.method === 'select'));
+  });
+
+  it('추천 조회 오류는 빈 목록으로 위장하지 않는다', async () => {
+    const { client } = makeFakeClient(() => ({
+      data: null,
+      error: new Error('synthetic unavailable'),
+    }));
+    await assert.rejects(
+      listRecommendedProducts({}, client),
+      /synthetic unavailable/,
+    );
   });
 });
