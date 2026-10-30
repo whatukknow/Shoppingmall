@@ -100,7 +100,10 @@ describe('메인 추천 캐러셀 데이터 분기', () => {
         result.products[0].imageUrl,
         catalogImages('raw-19')!.portion,
       );
-      assert.match(result.products[0].imageUrl, /06-portion-package/);
+      assert.match(
+        result.products[0].imageUrl,
+        /06-portion-package-cutout\.webp/,
+      );
       assert.equal(
         result.products[1].imageUrl,
         catalogImages('diy-10')!.catalog,

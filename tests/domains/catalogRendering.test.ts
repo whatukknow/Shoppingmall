@@ -32,7 +32,7 @@ describe('catalog presentation boundaries', () => {
         title: '케일',
       }),
     );
-    assert.match(html, /06-portion-package/);
+    assert.match(html, /06-portion-package-cutout\.webp/);
     assert.match(html, /title="Kale"/);
     assert.match(html, /Kale — portion image concept/);
     assert.doesNotMatch(html, /[가-힣]/);

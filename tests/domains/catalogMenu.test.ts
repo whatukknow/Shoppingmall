@@ -25,10 +25,10 @@ describe('Shared raw / DIY menu', () => {
     assert.equal(menuList([]).total, 56);
     assert.ok(!kits.some((k) => k.id === 'diy-20' || k.id === 'diy-22'));
   });
-  it('keeps slot 06 in Taste Finder, slots 01–04 in galleries, raw 05 recommendation, kit cutout recommendation, 07 story, 08 catalog', () => {
+  it('keeps transparent slot 06 in Taste Finder, slots 01–04 in galleries, raw 05 recommendation, kit cutout recommendation, 07 story, 08 catalog', () => {
     for (const r of raw) {
       const images = catalogImages(r.id)!;
-      assert.match(images.portion!, /06-portion-package.webp$/);
+      assert.match(images.portion!, /06-portion-package-cutout\.webp$/);
       assert.match(images.catalog, /08-illustration.webp$/);
       assert.match(images.recommendation, /05-/);
       assert.match(images.story, /07-/);
@@ -44,14 +44,14 @@ describe('Shared raw / DIY menu', () => {
       assert.equal(images.portion, undefined);
     }
   });
-  it('all 426 referenced images exist at their deployed uploads path', () => {
+  it('all 460 catalog assets exist with the recorded bytes and hashes', () => {
     const manifest = JSON.parse(
       readFileSync(
         join(process.cwd(), 'domains/products/data/image-manifest.json'),
         'utf8',
       ),
     );
-    assert.equal(Object.keys(manifest).length, 426);
+    assert.equal(Object.keys(manifest).length, 460);
     for (const path of Object.keys(manifest)) {
       assert.ok(existsSync(join(process.cwd(), path)), path);
       const bytes = readFileSync(join(process.cwd(), path));
@@ -61,6 +61,56 @@ describe('Shared raw / DIY menu', () => {
         manifest[path].sha256,
         path,
       );
+    }
+  });
+  it('maps all 34 reviewed cutouts without replacing the original package or gallery assets', () => {
+    const dataRoot = join(process.cwd(), 'domains/products/data');
+    const products = JSON.parse(
+      readFileSync(join(dataRoot, 'rawProducts.json'), 'utf8'),
+    );
+    const masks = JSON.parse(
+      readFileSync(join(dataRoot, 'portion-cutout-masks.json'), 'utf8'),
+    );
+    const audit = JSON.parse(
+      readFileSync(join(dataRoot, 'portion-cutout-audit.json'), 'utf8'),
+    );
+    assert.equal(masks.entries.length, 34);
+    assert.equal(audit.entries.length, 34);
+    assert.equal(
+      new Set(masks.entries.map((entry: { id: string }) => entry.id)).size,
+      34,
+    );
+    for (const product of products) {
+      const mask = masks.entries.find(
+        (entry: { id: string }) => entry.id === product.id,
+      );
+      const result = audit.entries.find(
+        (entry: { id: string }) => entry.id === product.id,
+      );
+      assert.ok(mask, product.id);
+      assert.ok(result, product.id);
+      assert.equal(product.tasteFinderImage, `/${mask.output}`);
+      assert.equal(product.portionImage, `/${mask.source}`);
+      assert.equal(product.galleryImages.length, 4);
+      assert.ok(
+        product.galleryImages.every((path: string) => !path.includes('cutout')),
+      );
+      for (const [path, expected] of [
+        [mask.source, mask.sourceSha256],
+        [mask.output, result.sha256],
+      ]) {
+        assert.equal(
+          createHash('sha256')
+            .update(readFileSync(join(process.cwd(), path)))
+            .digest('hex'),
+          expected,
+        );
+      }
+      assert.equal(result.sourceSha256, mask.sourceSha256);
+      assert.equal(result.rgbChangedPixels, 0);
+      assert.equal(result.sourceUnchanged, true);
+      assert.equal(result.alphaMin, 0);
+      assert.equal(result.alphaMax, 255);
     }
   });
   it('does not turn missing prices into free products or reuse ambiguous bindings', () => {

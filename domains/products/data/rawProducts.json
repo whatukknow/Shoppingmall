@@ -19,7 +19,7 @@
     "farmName": "노란뜰 농원 (시안용 가상 농장)",
     "farmInfo": "노란 참외가 익어가는 밭. 계절의 달콤함을 담았어요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/001-korean-melon/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/001-korean-melon/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/001-korean-melon/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -42,7 +42,7 @@
     "farmName": "붉은뜰 농장 (시안용 가상 농장)",
     "farmInfo": "붉게 익은 토마토가 가득한 밭. 싱그러운 한 끼를 떠올려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/002-ripe-tomato/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/002-ripe-tomato/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/002-ripe-tomato/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -65,7 +65,7 @@
     "farmName": "달결 농원 (시안용 가상 농장)",
     "farmInfo": "여름빛 머스크멜론이 자라는 곳. 달콤한 순간을 그려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/003-muskmelon/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/003-muskmelon/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/003-muskmelon/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -88,7 +88,7 @@
     "farmName": "포근들 농장 (시안용 가상 농장)",
     "farmInfo": "둥근 단호박이 익는 들판. 포근한 한 끼를 떠올려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/004-kabocha/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/004-kabocha/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/004-kabocha/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -111,7 +111,7 @@
     "farmName": "붉은알 농장 (시안용 가상 농장)",
     "farmInfo": "붉은 감자가 자라는 밭. 든든한 계절을 담았어요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/005-red-potato/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/005-red-potato/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/005-red-potato/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -134,7 +134,7 @@
     "farmName": "송이마루 과수원 (시안용 가상 농장)",
     "farmInfo": "탐스런 포도송이가 맺히는 곳. 한 알의 풍경을 전해요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/006-red-grapes/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/006-red-grapes/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/006-red-grapes/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -157,7 +157,7 @@
     "farmName": "봄향 농원 (시안용 가상 농장)",
     "farmInfo": "봄빛 딸기가 붉어지는 밭. 향긋한 계절을 그려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/007-seolhyang-strawberry/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/007-seolhyang-strawberry/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/007-seolhyang-strawberry/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -180,7 +180,7 @@
     "farmName": "한결밭 농장 (시안용 가상 농장)",
     "farmInfo": "양파가 차곡차곡 여무는 밭. 매일의 요리를 생각해요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/008-onion/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/008-onion/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/008-onion/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -203,7 +203,7 @@
     "farmName": "둥근뜰 농장 (시안용 가상 농장)",
     "farmInfo": "둥근 양배추가 자라는 들판. 신선한 식탁을 떠올려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/009-cabbage/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/009-cabbage/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/009-cabbage/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -226,7 +226,7 @@
     "farmName": "푸른길 농원 (시안용 가상 농장)",
     "farmInfo": "푸른 대파가 곧게 자라는 밭. 요리의 첫 향을 담았어요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/010-scallion/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/010-scallion/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/010-scallion/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -249,7 +249,7 @@
     "farmName": "작은콩 농장 (시안용 가상 농장)",
     "farmInfo": "작은 완두콩이 여무는 밭. 초록의 계절을 그려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/011-green-peas/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/011-green-peas/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/011-green-peas/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -272,7 +272,7 @@
     "farmName": "오밀정원 농장 (시안용 가상 농장)",
     "farmInfo": "방울양배추가 자라는 곳. 작은 채소의 매력을 담았어요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/012-brussels-sprouts/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/012-brussels-sprouts/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/012-brussels-sprouts/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -295,7 +295,7 @@
     "farmName": "햇살 과수원 (시안용 가상 농장)",
     "farmInfo": "햇살과 바람이 머무는 농장. 정성껏 키운 사과의 이야기. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/013-apple/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/013-apple/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/013-apple/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -318,7 +318,7 @@
     "farmName": "귤빛 과수원 (시안용 가상 농장)",
     "farmInfo": "귤빛 열매가 익어가는 곳. 상큼한 계절을 담았어요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/014-mandarin/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/014-mandarin/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/014-mandarin/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -341,7 +341,7 @@
     "farmName": "여름결 농원 (시안용 가상 농장)",
     "farmInfo": "푸른 줄기 사이 수박이 자라요. 여름 한 조각을 그려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/015-watermelon/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/015-watermelon/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/015-watermelon/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -364,7 +364,7 @@
     "farmName": "온마루 목장 (시안용 가상 농장)",
     "farmInfo": "넓은 들판의 목장 풍경. 든든한 한 끼를 떠올려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/016-beef-steak/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/016-beef-steak/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/016-beef-steak/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -388,7 +388,7 @@
     "farmName": "아침별 양계농장 (시안용 가상 농장)",
     "farmInfo": "아침 햇살 아래 닭이 오가는 곳. 소박한 식탁을 떠올려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/017-eggs/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/017-eggs/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/017-eggs/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -411,7 +411,7 @@
     "farmName": "솔담 양돈농장 (시안용 가상 농장)",
     "farmInfo": "돼지가 머무는 농장의 풍경. 맛있는 한 끼를 그려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/018-pork-neck/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/018-pork-neck/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/018-pork-neck/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -434,7 +434,7 @@
     "farmName": "바람결 양계농장 (시안용 가상 농장)",
     "farmInfo": "닭들이 오가는 들판의 풍경. 든든한 식탁을 떠올려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/019-chicken-drumsticks/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/019-chicken-drumsticks/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/019-chicken-drumsticks/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -457,7 +457,7 @@
     "farmName": "보랏빛 농원 (시안용 가상 농장)",
     "farmInfo": "작은 보랏빛 열매가 익는 곳. 싱그러운 하루를 그려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/020-blueberries/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/020-blueberries/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/020-blueberries/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -480,7 +480,7 @@
     "farmName": "별빛 농원 (시안용 가상 농장)",
     "farmInfo": "색다른 열매가 자라는 풍경. 한 입의 즐거움을 담았어요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/021-dragon-fruit/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/021-dragon-fruit/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/021-dragon-fruit/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -503,7 +503,7 @@
     "farmName": "고운빛 과수원 (시안용 가상 농장)",
     "farmInfo": "복숭아가 고운 빛으로 익는 곳. 여름의 향기를 그려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/022-peach/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/022-peach/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/022-peach/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -526,7 +526,7 @@
     "farmInfo": "달콤한 고구마가 자라는 밭. 따뜻한 한 끼를 떠올려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "image": "/uploads/catalog/raw-sets/023-sweet-potato/08-illustration.webp",
     "portionImage": "/uploads/catalog/raw-sets/023-sweet-potato/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/023-sweet-potato/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/023-sweet-potato/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -549,7 +549,7 @@
     "farmInfo": "겹겹이 푸른 케일이 자라는 밭. 초록 식탁을 그려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "image": "/uploads/catalog/raw-sets/024-kale/08-illustration.webp",
     "portionImage": "/uploads/catalog/raw-sets/024-kale/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/024-kale/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/024-kale/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -572,7 +572,7 @@
     "farmInfo": "붉은 줄기의 근대가 자라는 밭. 다채로운 한 접시를 그려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "image": "/uploads/catalog/raw-sets/025-red-chard/08-illustration.webp",
     "portionImage": "/uploads/catalog/raw-sets/025-red-chard/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/025-red-chard/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/025-red-chard/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -595,7 +595,7 @@
     "farmInfo": "꽃처럼 펼쳐진 상추가 자라는 밭. 싱그러운 식탁을 그려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "image": "/uploads/catalog/raw-sets/026-flower-lettuce/08-illustration.webp",
     "portionImage": "/uploads/catalog/raw-sets/026-flower-lettuce/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/026-flower-lettuce/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/026-flower-lettuce/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -619,7 +619,7 @@
     "farmName": "속찬뜰 농장 (시안용 가상 농장)",
     "farmInfo": "속이 차오르는 배추가 자라는 밭. 계절의 식탁을 그려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "portionImage": "/uploads/catalog/raw-sets/027-napa-cabbage/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/027-napa-cabbage/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/027-napa-cabbage/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -642,7 +642,7 @@
     "farmInfo": "금빛 키위가 매달린 과수원. 산뜻한 한 입을 그려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "image": "/uploads/catalog/raw-sets/028-golden-kiwi/08-illustration.webp",
     "portionImage": "/uploads/catalog/raw-sets/028-golden-kiwi/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/028-golden-kiwi/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/028-golden-kiwi/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -665,7 +665,7 @@
     "farmInfo": "닭들이 거니는 농장의 풍경. 담백한 한 끼를 떠올려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "image": "/uploads/catalog/raw-sets/029-chicken-breast/08-illustration.webp",
     "portionImage": "/uploads/catalog/raw-sets/029-chicken-breast/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/029-chicken-breast/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/029-chicken-breast/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -688,7 +688,7 @@
     "farmInfo": "작은 산딸기가 익어가는 곳. 새콤한 계절을 그려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "image": "/uploads/catalog/raw-sets/030-wild-raspberries/08-illustration.webp",
     "portionImage": "/uploads/catalog/raw-sets/030-wild-raspberries/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/030-wild-raspberries/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/030-wild-raspberries/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -711,7 +711,7 @@
     "farmInfo": "은빛 갈치와 바다의 풍경. 오늘의 식탁을 떠올려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "image": "/uploads/catalog/raw-sets/031-jeju-cutlassfish/08-illustration.webp",
     "portionImage": "/uploads/catalog/raw-sets/031-jeju-cutlassfish/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/031-jeju-cutlassfish/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/031-jeju-cutlassfish/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -734,7 +734,7 @@
     "farmInfo": "돼지가 오가는 농장의 풍경. 푸짐한 한 끼를 떠올려요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "image": "/uploads/catalog/raw-sets/032-pork-belly/08-illustration.webp",
     "portionImage": "/uploads/catalog/raw-sets/032-pork-belly/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/032-pork-belly/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/032-pork-belly/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -757,7 +757,7 @@
     "farmInfo": "초록 고추가 자라는 밭. 요리에 산뜻함을 더해요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "image": "/uploads/catalog/raw-sets/033-green-chili/08-illustration.webp",
     "portionImage": "/uploads/catalog/raw-sets/033-green-chili/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/033-green-chili/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/033-green-chili/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   },
   {
@@ -780,7 +780,7 @@
     "farmInfo": "붉은 고추가 익어가는 밭. 요리에 선명함을 더해요. 실제 공급처 정보가 아닌 이미지 시안입니다.",
     "image": "/uploads/catalog/raw-sets/034-red-chili/08-illustration.webp",
     "portionImage": "/uploads/catalog/raw-sets/034-red-chili/06-portion-package.webp",
-    "tasteFinderImage": "/uploads/catalog/raw-sets/034-red-chili/06-portion-package.webp",
+    "tasteFinderImage": "/uploads/catalog/raw-sets/034-red-chili/06-portion-package-cutout.webp",
     "portionImagePlacement": "취향 찾기: 소분된 식재료 실사 이미지"
   }
 ]
