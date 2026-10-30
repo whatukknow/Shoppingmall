@@ -301,3 +301,12 @@ VS Code에서 이어갈 때: “CODEX_HANDOFF.md와 shared/components/README.md�
 - Agent handoff: All agents working on this project must follow the rule in `AGENTS.md` and include it in subsequent handoffs.
 - Verified implementation: route-theme CSS was moved to `app/globals.css`; the four route-group imports were removed.
 - Delivery: saved in project instructions and this handoff log. No other connected in-scope agent was available in the current agent inventory. External-session acknowledgment/adoption and remote publication are unverified.
+
+## 2026-10-30 — Remove mock data and mock process layer (chore/remove-mock-layer)
+
+- User command: "mock data와 플로우로 인해 정상동작 범위를 찾지 못함 — 우선 제거. 새로운 브랜치로 시작."
+- Branch: `chore/remove-mock-layer` (from `main`).
+- Changes: all `apiClient` requests now go to real `/api` routes only. Removed `shared/lib/mock/` (fetchMock, mockDelay, mockScenario, datas/*), `domains/payment/data/payment.mock.ts`, and the mock fallback branch in `shared/lib/client.ts` (including `isLiveEndpoint`/`parseLivePatterns`/`NEXT_PUBLIC_LIVE_API` switching and `MOCK_NOT_FOUND`/`MOCK_ERROR` codes). Renamed `MockOrder` to `OrderRecord` in `domains/payment/data/payment.order-store.ts` (no behavior change; store is already Supabase RPC based).
+- Tests: deleted mock-dependent tests `tests/domains/authApi.test.ts`, `homeListApi.test.ts`, `homeRecommendationApi.test.ts`, `usersApi.test.ts`. Rewrote `tests/domains/liveApiClient.test.ts` for live-only client (removed env/pattern/mock-fallback cases, kept SSR/browser/HTTP_ERROR/POST header cases). `paymentOrderStore.test.ts` unchanged except one test description string.
+- Docs: `shared/lib/README.md` rewritten (mock sections removed, live route table added), `README.md` data-path diagram and status lines updated, this entry added.
+- Verification: `npx tsc --noEmit --incremental false`, `npx eslint .`, `node --test tests/`, and a repo-wide grep for `fetchMock|waitMockDelay|MOCK_USER_SCENARIO|paymentMockItems|MockOrder|isLiveEndpoint|NEXT_PUBLIC_LIVE_API` in `*.ts`/`*.tsx` (0 hits expected). Design/onboarding files untouched per AGENTS.md.

@@ -20,7 +20,7 @@ export const ORDER_STATUS = {
 // - 주문 조회·참여자 판정: 세션 클라이언트 (RLS 본인 SELECT)
 // - 결제 확정: service_role 전용 rpc_mark_order_paid 를 관리자 클라이언트로 호출
 
-export type MockOrder = {
+export type OrderRecord = {
   orderId?: string; // rpc_create_order 가 발급한 orderId 로 대체됨 — 입력값은 무시
   podIds: string[];
   items?: PaymentOrderItem[]; // 주문 생성 시 상품 스냅샷
@@ -124,7 +124,7 @@ async function callOrderRpc(
  * 배송비·total 을 포함한 응답을 돌려준다. 세션 클라이언트(RLS) 만 사용한다.
  */
 export async function insertPendingOrder(
-  order: MockOrder,
+  order: OrderRecord,
   clients?: OrderStoreClients,
 ): Promise<PendingOrderResult> {
   const injected = clients ?? defaultClients();
@@ -174,11 +174,11 @@ export async function insertPendingOrder(
   };
 }
 
-/** 주문 조회: 본인(profile_id) 주문만 MockOrder 로 변환한다 — 세션 클라이언트(RLS) */
+/** 주문 조회: 본인(profile_id) 주문만 OrderRecord 로 변환한다 — 세션 클라이언트(RLS) */
 export async function findOrder(
   orderId: string,
   clients?: OrderStoreClients,
-): Promise<MockOrder | null> {
+): Promise<OrderRecord | null> {
   const injected = clients ?? defaultClients();
   const session = injected.session;
   // 비로그인이면 주문도 없는 것으로 취급 (결과 페이지 500 방지)

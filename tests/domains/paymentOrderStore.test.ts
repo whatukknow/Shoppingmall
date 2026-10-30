@@ -32,7 +32,7 @@ type RpcRequest = {
 
 const UID = 'u-user-id-0001';
 
-function mockOrder(amount = 14800) {
+function orderFixture(amount = 14800) {
   return {
     podIds: ['p1', 'p2'],
     amount,
@@ -287,7 +287,7 @@ describe('insertPendingOrder (rpc_create_order)', () => {
         req.result = { data: RPC_ORDER_RESULT, error: null };
       },
     );
-    const result = await insertPendingOrder(mockOrder(), clients);
+    const result = await insertPendingOrder(orderFixture(), clients);
     assert.equal(rpcRequests.length, 1);
     assert.equal(
       adminRpcRequests.length,
@@ -320,8 +320,8 @@ describe('insertPendingOrder (rpc_create_order)', () => {
         req.result = { data: RPC_ORDER_RESULT, error: null };
       },
     );
-    await insertPendingOrder(mockOrder(), clients);
-    await insertPendingOrder(mockOrder(), clients);
+    await insertPendingOrder(orderFixture(), clients);
+    await insertPendingOrder(orderFixture(), clients);
     assert.equal(keys.length, 2);
     assert.notEqual(keys[0], keys[1]);
   });
@@ -337,7 +337,7 @@ describe('insertPendingOrder (rpc_create_order)', () => {
         req.result = { data: RPC_ORDER_RESULT, error: null };
       },
     );
-    await insertPendingOrder(mockOrder(), clients);
+    await insertPendingOrder(orderFixture(), clients);
     assert.equal(
       adminCalls,
       0,
@@ -358,7 +358,7 @@ describe('insertPendingOrder (rpc_create_order)', () => {
         req.result = { data: RPC_ORDER_RESULT, error: null };
       },
     );
-    const result = await insertPendingOrder(mockOrder(), clients);
+    const result = await insertPendingOrder(orderFixture(), clients);
     assert.equal(result.shippingFee, 3000);
     assert.equal(result.total, 14800);
     assert.equal(
@@ -379,7 +379,7 @@ describe('insertPendingOrder (rpc_create_order)', () => {
       },
     );
     const result = await insertPendingOrder(
-      { ...mockOrder(), shippingFee: 3000 },
+      { ...orderFixture(), shippingFee: 3000 },
       clients,
     );
     assert.equal(result.shippingFee, 3000);
@@ -401,7 +401,7 @@ describe('insertPendingOrder (rpc_create_order)', () => {
       },
     );
     await assert.rejects(
-      () => insertPendingOrder(mockOrder(14800), clients),
+      () => insertPendingOrder(orderFixture(14800), clients),
       /금액/,
     );
     assert.equal(requests.length, 0);
@@ -434,7 +434,7 @@ describe('insertPendingOrder (rpc_create_order)', () => {
         },
       );
       await assert.rejects(
-        () => insertPendingOrder(mockOrder(), clients),
+        () => insertPendingOrder(orderFixture(), clients),
         c.expect,
       );
     }
@@ -457,7 +457,7 @@ describe('insertPendingOrder (rpc_create_order)', () => {
       { error: true },
     );
     await assert.rejects(
-      () => insertPendingOrder(mockOrder(), clients),
+      () => insertPendingOrder(orderFixture(), clients),
       /로그인이 필요/,
     );
     assert.equal(rpcRequests.length, 0);
@@ -719,7 +719,7 @@ describe('mapOrderRpcError (주문 rpc 오류 사용자 문구 확장)', () => {
       );
       try {
         await assert.rejects(
-          () => insertPendingOrder(mockOrder(), clients),
+          () => insertPendingOrder(orderFixture(), clients),
           c.expect,
         );
       } finally {
@@ -745,7 +745,7 @@ describe('mapOrderRpcError (주문 rpc 오류 사용자 문구 확장)', () => {
     );
     try {
       await assert.rejects(
-        () => insertPendingOrder(mockOrder(), clients),
+        () => insertPendingOrder(orderFixture(), clients),
         (e: Error) => {
           assert.equal(e.message, ALREADY_PAID_PARTICIPANT_MESSAGE);
           assert.ok(!e.message.includes('conflict-abc123'));
@@ -968,7 +968,7 @@ describe('findOrder', () => {
     assert.ok(requests.every((r) => r.side === 'session'));
   });
 
-  it('본인 주문을 MockOrder 로 변환한다', async () => {
+  it('본인 주문을 OrderRecord 로 변환한다', async () => {
     const { clients, requests } = makeFakeClients(
       (req, i) => {
         assert.equal(req.table, ['orders', 'order_items'][i]);
