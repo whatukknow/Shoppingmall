@@ -16,7 +16,7 @@ export function resolveHomeRecommendationMode(
   status: HomeRecommendationStatus,
 ): HomeRecommendationMode {
   if (!status.isLoggedIn) return 'random';
-  return status.hasTasteProfile ? 'ai' : 'random';
+  return status.hasTasteProfile ? 'ai' : 'needs-taste';
 }
 
 export const HOME_RECOMMENDATIONS_KEY = 'little-portions:home-recommendations';
@@ -32,18 +32,21 @@ export async function loadHomeRecommendations(
   const project = (products: HomeCardItem[]) =>
     products.flatMap((p) => {
       const item = findCatalogProduct(p.id) ?? findCatalogProduct(p.name);
+      const images = item ? catalogImages(item.id)! : undefined;
       return item
         ? [
             {
               ...p,
               id: item.id,
               name: item.name,
-              imageUrl: catalogImages(item.id)!.recommendation,
+              imageUrl: images!.portion ?? images!.recommendation,
             },
           ]
         : [];
     });
-  if (resolveHomeRecommendationMode(status) === 'ai') {
+  const mode = resolveHomeRecommendationMode(status);
+  if (mode === 'needs-taste') return { mode, products: [] };
+  if (mode === 'ai') {
     // 장애는 전파한다. 성공했지만 표시 가능한 추천이 없을 때만 랜덤으로 대체한다.
     const products = project(await loaders.ai());
     if (products.length) return { mode: 'ai', products };

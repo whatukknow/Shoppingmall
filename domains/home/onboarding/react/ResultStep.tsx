@@ -1,7 +1,6 @@
 'use client';
 
 import { foodLabel } from '@/shared/lib/food-label';
-import { CatalogTasteImage } from './CatalogTasteImage';
 
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
@@ -332,7 +331,7 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
                       key={product[0]}
                       style={{ animationDelay: `${1150 + index * 110}ms` }}
                     >
-                      <CatalogTasteImage name={product[0]} />
+                      <PixelIcon name={product[0]} />
                       <b>{foodLabel(product[0])}</b>
                     </div>
                   ))}
@@ -344,7 +343,7 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
                 </h3>
                 <div>
                   <div className="kit" style={{ animationDelay: '1500ms' }}>
-                    <CatalogTasteImage name={result.kit[0]} />
+                    <PixelIcon name={result.kit[0]} />
                     <div>
                       <b>{foodLabel(result.kit[0])}</b>
                       <small>{kitCopy}</small>
@@ -358,7 +357,7 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
                     Share a pack <small>Payment opens at 4 members</small>
                   </h3>
                   <div className="split">
-                    <CatalogTasteImage name={result.items[0][0]} />
+                    <PixelIcon name={result.items[0][0]} />
                     <span>{foodLabel(result.items[0][0])} shared pack</span>
                     <span className="m">
                       <i />

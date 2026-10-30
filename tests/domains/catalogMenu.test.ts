@@ -25,7 +25,7 @@ describe('Shared raw / DIY menu', () => {
     assert.equal(menuList([]).total, 56);
     assert.ok(!kits.some((k) => k.id === 'diy-20' || k.id === 'diy-22'));
   });
-  it('keeps slot 06 in Taste Finder, slots 01–04 in galleries, 05 recommendation, 07 story, 08 catalog', () => {
+  it('keeps slot 06 in Taste Finder, slots 01–04 in galleries, raw 05 recommendation, kit cutout recommendation, 07 story, 08 catalog', () => {
     for (const r of raw) {
       const images = catalogImages(r.id)!;
       assert.match(images.portion!, /06-portion-package.webp$/);
@@ -37,7 +37,8 @@ describe('Shared raw / DIY menu', () => {
     for (const k of kits) {
       const images = catalogImages(k.id)!;
       assert.equal(images.gallery.length, 4);
-      assert.match(images.recommendation, /05-/);
+      assert.equal(images.recommendation, k.catalogImage);
+      assert.match(images.recommendation, /catalog-cutout/);
       assert.match(images.story, /07-/);
       assert.match(images.catalog, /(08-catalog|00-catalog)/);
       assert.equal(images.portion, undefined);
