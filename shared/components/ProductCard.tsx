@@ -1,3 +1,4 @@
+import { foodLabel } from '@/shared/lib/food-label';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from './ui/button';
@@ -22,7 +23,7 @@ export function ProductCard({
 }: ProductCardProps) {
   return (
     <article
-      aria-label={`${name} 상품`}
+      aria-label={`${foodLabel(name)} product`}
       className="text-foreground relative flex w-full min-w-0 flex-col gap-2 font-sans"
     >
       {/* 이미지 영역: 카드 너비에 맞춘 정사각형이며, object-cover로 영역을 채웁니다. */}
@@ -33,19 +34,19 @@ export function ProductCard({
         {imageUrl ? (
           <Image
             src={imageUrl}
-            alt={name}
+            alt={foodLabel(name)}
             fill
             sizes="(max-width: 1440px) 25vw, 336px"
             className="object-cover"
           />
         ) : (
-          <span className="sr-only">{name} 이미지 준비 중</span>
+          <span className="sr-only">{foodLabel(name)} image coming soon</span>
         )}
       </Link>
 
       {/* 상품명은 상세 페이지로 연결하고, 가격은 공통 포맷으로 표시합니다. */}
       <h3 className="min-w-0 text-sm leading-[22px] font-medium wrap-anywhere">
-        <Link href={href}>{name}</Link>
+        <Link href={href}>{foodLabel(name)}</Link>
       </h3>
       <p className="text-[17px] leading-[1.45] font-bold whitespace-nowrap">
         {formatPrice(price)}
@@ -56,10 +57,10 @@ export function ProductCard({
         variant="actionOutline"
         size="touch"
         className="mt-auto min-h-10 w-full py-2"
-        aria-label={`${name} 장바구니에 담기`}
+        aria-label={`Add ${foodLabel(name)} to cart`}
         onClick={onAddToCart}
       >
-        + 담기
+        + Add
       </Button>
     </article>
   );

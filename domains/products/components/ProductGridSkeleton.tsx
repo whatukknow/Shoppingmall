@@ -3,7 +3,7 @@ export function ProductGridSkeleton() {
   return (
     <div
       aria-busy="true"
-      aria-label="상품 목록을 불러오는 중이에요."
+      aria-label="Loading products."
       className="grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-8"
     >
       {Array.from({ length: 10 }, (_, index) => (

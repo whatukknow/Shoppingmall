@@ -55,21 +55,21 @@ export function mountBrandStory(root) {
       [5.5, 0, -4.6],
     ];
     let cs = [
-      ['특가 배너', '할인·광고로 유입'],
-      ['검색', '뭘 살지 정해야 시작'],
-      ['상품 목록', '비슷한 상품 비교'],
-      ['상품 상세', '용량·가격 확인'],
-      ['옵션·수량', '단위를 직접 선택'],
-      ['장바구니', '다른 상품을 더 담게 됨'],
-      ['회원·최소금액', '무료배송 기준을 채워야 함'],
-      ['결제', '주소·결제 정보 입력'],
+      ['Promotions', 'Arrive through discounts and ads'],
+      ['Search', 'Decide what to buy first'],
+      ['Product list', 'Compare similar products'],
+      ['Product details', 'Check pack sizes and prices'],
+      ['Options', 'Choose a pack size'],
+      ['Cart', 'Add more to your cart'],
+      ['Minimums', 'Meet the free-delivery threshold'],
+      ['Payment', 'Enter delivery and payment details'],
     ];
     let us = [
-      ['메인', '한 접시 · 음식 이야기'],
-      ['AI 취향 설문', '3문항 · 이미지 카드'],
-      ['추천 음식', '원물 + 키트'],
-      ['상품 상세', '1인분 가격 · 신청 현황'],
-      ['소분 신청', '버튼 하나 · 게이지'],
+      ['Discover', 'Meals and food stories'],
+      ['Taste quiz', 'Three visual questions'],
+      ['Food picks', 'Ingredients + meal kits'],
+      ['Product details', 'Price per portion and group progress'],
+      ['Join a group', 'Join and track progress'],
     ];
     let N = [];
     cs.forEach(function (c, i) {
@@ -130,7 +130,7 @@ export function mountBrandStory(root) {
         n.b +
         '</b><div class="tip">' +
         n.d +
-        (n.g ? '<em>이탈 지점 (UX 가설 · 실측 아님)</em>' : '') +
+        (n.g ? '<em>Drop-off point (UX hypothesis, not measured)</em>' : '') +
         '</div></div>';
       wrap.appendChild(el);
       return el;
@@ -420,7 +420,7 @@ export function mountBrandStory(root) {
       }
       g += pill(
         P([-17.2, -0.5, 3.2], th),
-        '국내 이커머스',
+        'Typical ecommerce',
         '#8C7B5A',
         '#FBF8EF',
         fs * 0.5,

@@ -4,14 +4,14 @@ import type { PodRecruitment } from '@/domains/pods/pods.types';
 
 type PodProgressProps = Pick<PodRecruitment, 'status'>;
 
-const steps = ['신청 완료', '모집 중', '모집 완료', '결제'];
+const steps = ['Joined', 'Open', 'Group full', 'Payment'];
 
 export default function PodProgress({ status }: PodProgressProps) {
   // 배열의 순서는 0부터 시작
   const currentStep = status === 'matched' ? 2 : 1;
 
   return (
-    <ol aria-label="팟 진행 단계" className="grid grid-cols-4 gap-2">
+    <ol aria-label="Group order progress" className="grid grid-cols-4 gap-2">
       {steps.map((step, index) => (
         <li
           key={step}

@@ -1,5 +1,8 @@
 'use client';
 
+import { foodLabel } from '@/shared/lib/food-label';
+import { CatalogTasteImage } from './CatalogTasteImage';
+
 import {
   forwardRef,
   useEffect,
@@ -7,7 +10,6 @@ import {
   useRef,
   useState,
 } from 'react';
-import { PixelIcon } from './PixelIcon';
 import { HeroSprite } from './HeroSprite';
 import { Hud } from './Hud';
 import { useTaste } from './TasteProvider';
@@ -160,12 +162,12 @@ export const ShoppingWalk = forwardRef<ShoppingWalkHandle, { items: Item[] }>(
       <div
         className="walk"
         ref={walk}
-        aria-label="장바구니를 든 캐릭터가 추천 원물과 키트를 차례로 담는 애니메이션"
+        aria-label="A character collects your recommended ingredients and meal kit"
       >
         <button
           type="button"
           className="snd"
-          aria-label="효과음 켜기/끄기"
+          aria-label="Toggle sound effects"
           aria-pressed={sound.enabled}
           onClick={sound.toggle}
         >
@@ -220,7 +222,7 @@ export const ShoppingWalk = forwardRef<ShoppingWalkHandle, { items: Item[] }>(
         </button>
         {!running && collected.length === 0 && (
           <span className="hint">
-            원물 {items.length - 1} + 키트 1, 담으러 가요
+            Picking up {items.length - 1} ingredients + 1 meal kit
           </span>
         )}
         <Hud walking />
@@ -238,15 +240,9 @@ export const ShoppingWalk = forwardRef<ShoppingWalkHandle, { items: Item[] }>(
                 icons.current[index] = element;
               }}
             >
-              <PixelIcon name={item.name} />
+              <CatalogTasteImage name={item.name} />
             </span>
-            <small>
-              {item.kit
-                ? '키트'
-                : item.name
-                    .replace(/\s?(소포장|1인분|한 줌의|한 줌)\s?/g, '')
-                    .slice(0, 6)}
-            </small>
+            <small>{item.kit ? 'Meal kit' : foodLabel(item.name)}</small>
           </div>
         ))}
         <div
@@ -261,7 +257,7 @@ export const ShoppingWalk = forwardRef<ShoppingWalkHandle, { items: Item[] }>(
           </span>
           <span className="bin">
             {collected.map((index, position) => (
-              <PixelIcon
+              <CatalogTasteImage
                 key={index}
                 name={items[index].name}
                 style={{
@@ -283,10 +279,10 @@ export const ShoppingWalk = forwardRef<ShoppingWalkHandle, { items: Item[] }>(
             }}
           >
             {reward.credit
-              ? '+1 크레딧'
+              ? '+1 credit'
               : reward.why === 'same'
-                ? '+0 · 이미 받은 결과'
-                : '+0 · 한도 도달'}
+                ? '+0 · Already collected'
+                : '+0 · Limit reached'}
           </span>
         )}
       </div>

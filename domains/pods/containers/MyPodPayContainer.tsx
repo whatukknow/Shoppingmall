@@ -12,7 +12,7 @@ type MyPodPayContainerProps = {
 // 결제하기 주 버튼 — MyPodCard 의 primary 링크 버튼과 같은 클래스
 export default function MyPodPayContainer({
   podId,
-  label = '결제하기',
+  label = 'Pay now',
 }: MyPodPayContainerProps) {
   const router = useRouter();
   const [error, setError] = useState('');
@@ -20,7 +20,7 @@ export default function MyPodPayContainer({
   const handlePay = () => {
     // 결제 페이지는 저장된 팟 id 로 주문 상품을 고른다
     if (!saveSelectedPodIds([podId])) {
-      setError('선택한 팟을 저장하지 못했어요. 다시 시도해 주세요.');
+      setError('Could not save your selected groups. Please try again.');
       return;
     }
     router.push('/payment');

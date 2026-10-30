@@ -34,15 +34,15 @@ export default function DeliveryForm({
           id="recipient-title"
           className="mb-6 border-b border-current/15 pb-3 text-2xl font-bold"
         >
-          받으실 분 정보
+          Recipient details
         </h2>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <FormField
             id="recipientName"
-            label="받으실 분"
+            label="Recipient name"
             name="recipientName"
-            placeholder="예) 김포션 (최대 10자)"
+            placeholder="e.g. Alex (up to 10 characters)"
             maxLength={10}
             required
             value={infos.recipientName}
@@ -52,7 +52,7 @@ export default function DeliveryForm({
 
           <FormField
             id="recipientPhone"
-            label="휴대폰 번호"
+            label="Mobile number"
             name="recipientPhone"
             type="tel"
             inputMode="numeric"
@@ -72,7 +72,7 @@ export default function DeliveryForm({
           id="delivery-title"
           className="mb-6 border-b border-current/15 pb-3 text-2xl font-bold"
         >
-          배송지 정보
+          Delivery address
         </h2>
 
         <div className="flex flex-col gap-4">
@@ -80,7 +80,7 @@ export default function DeliveryForm({
             <div className="w-40 min-w-0">
               <FormField
                 id="postalCode"
-                label="우편번호"
+                label="Postal code"
                 name="postalCode"
                 value={infos.postalCode}
                 readOnly
@@ -94,10 +94,10 @@ export default function DeliveryForm({
 
           <FormField
             id="recipientAddress"
-            label="기본 주소"
+            label="Street address"
             name="recipientAddress"
             value={infos.recipientAddress}
-            placeholder="주소를 검색하세요."
+            placeholder="Search for your address."
             readOnly
             required
             error={errors.recipientAddress}
@@ -105,25 +105,25 @@ export default function DeliveryForm({
 
           <FormField
             id="recipientAddressDetail"
-            label="상세 주소"
+            label="Apartment or unit"
             name="recipientAddressDetail"
             value={infos.recipientAddressDetail}
-            placeholder="호수 등 상세 주소를 입력해주세요."
+            placeholder="Enter your apartment or unit number."
             onChange={(event) => onAddressDetailChange(event.target.value)}
             error={errors.recipientAddressDetail}
           />
 
           <FormField
             id="entranceInstructions"
-            label="공동현관 출입 방법"
+            label="Building entry instructions"
             name="entranceInstructions"
-            placeholder="예) 경비실 호출 (최대 15자)"
+            placeholder="e.g. Call guard (max. 15)"
             maxLength={15}
             value={infos.entranceInstructions}
             onChange={(event) =>
               onEntranceInstructionsChange(event.target.value)
             }
-            description="15자 이내로 입력해 주세요."
+            description="Use up to 15 characters."
             error={errors.entranceInstructions}
           />
         </div>

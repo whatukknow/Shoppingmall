@@ -22,7 +22,7 @@ function app(overrides: Partial<MyPodApplication> = {}): MyPodApplication {
     podStatus: 'matched',
     applicantCount: 3,
     capacity: 3,
-    deadlineAt: '2026-10-21T18:00:00',
+    deadlineAt: '2026-10-21T18:00:00+09:00',
     appliedAt: '2026-10-20T14:00:00',
     ...overrides,
   };
@@ -82,19 +82,19 @@ describe('podWaiting (결제 가능 내 팟 선택)', () => {
 
   it('toRecruitment: deadlineAt 을 M월 D일 오전/오후 h시 문자열로 바꾼다', () => {
     assert.equal(
-      toRecruitment({ ...app(), deadlineAt: '2026-10-21T18:00:00' })
+      toRecruitment({ ...app(), deadlineAt: '2026-10-21T18:00:00+09:00' })
         .deadlineLabel,
-      '10월 21일 오후 6시',
+      'Oct 21, 6 PM KST',
     );
     assert.equal(
-      toRecruitment({ ...app(), deadlineAt: '2026-10-24T09:00:00' })
+      toRecruitment({ ...app(), deadlineAt: '2026-10-24T09:00:00+09:00' })
         .deadlineLabel,
-      '10월 24일 오전 9시',
+      'Oct 24, 9 AM KST',
     );
     assert.equal(
-      toRecruitment({ ...app(), deadlineAt: '2026-11-02T00:00:00' })
+      toRecruitment({ ...app(), deadlineAt: '2026-11-02T00:00:00+09:00' })
         .deadlineLabel,
-      '11월 2일 오전 12시',
+      'Nov 2, 12 AM KST',
     );
   });
 });

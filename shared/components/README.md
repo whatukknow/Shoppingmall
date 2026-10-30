@@ -246,16 +246,14 @@ import {
 
 목록 없음, 준비 중, 완료 등 빈 영역의 제목·설명·선택 액션을 표시합니다. 버튼은 `actionLabel`과 `onAction`을 모두 전달한 경우에만 나옵니다. 특정 API 상태를 감지하지 않으므로 어느 경우에 보여줄지 호출부가 정합니다.
 
-## 푸터와 회사 정보
+## 푸터와 브랜드 정보
 
-`Footer`는 pathname에 따라 홈 메인 푸터와 서브 푸터를 선택하고, 같은 `BrandLogo`, 슬로건, 회사정보, 정책 링크 구조를 사용합니다. 바탕은 페이지와 같은 `--butter`를 사용합니다.
+`Footer`는 pathname에 따라 홈 메인 푸터와 서브 푸터를 선택하고, 같은 `BrandLogo`, 슬로건, 브랜드정보, 정책 링크 구조를 사용합니다. 바탕은 페이지와 같은 `--butter`를 사용합니다.
 
 ```tsx
 <Footer
-  companyName={companyName}
+  brandName={brandName}
   representative={representative}
-  businessRegistrationNumber={businessRegistrationNumber}
-  ecommerceRegistrationNumber={ecommerceRegistrationNumber}
   address={address}
   customerService={customerService}
   termsUrl="/terms"
@@ -263,7 +261,7 @@ import {
 />
 ```
 
-루트 `app/layout.tsx`에는 부트캠프 화면 확인용 `0` 형식과 지정 주소가 전달되어 있습니다. 실제 사업자 정보로 오인하지 말고, 실제 운영 값은 담당자가 확정 후 바꿔야 합니다. 현재 `/terms`, `/privacy`는 시안 안내 페이지이지 확정 약관 원문이 아닙니다.
+루트 `app/layout.tsx`에는 사용자 지정 대표자 `Seoin Bae`, 고객지원 이메일 `littleportionscs@gmail.com`과 주소가 전달됩니다. 사업자등록번호와 통신판매업 신고번호 항목은 사용자 요청에 따라 제거했습니다. 현재 `/terms`, `/privacy`는 시안 안내 페이지이지 확정 약관 원문이 아닙니다.
 
 ## 변경·검토 원칙
 

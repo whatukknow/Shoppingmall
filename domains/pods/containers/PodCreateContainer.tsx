@@ -24,12 +24,11 @@ function validate(values: PodCreateValues): PodCreateErrors {
     targetCount < 2 ||
     targetCount > 20
   ) {
-    nextErrors.targetCount =
-      '목표 인원은 2명 이상 20명 이하의 정수로 입력해 주세요.';
+    nextErrors.targetCount = 'Enter a whole number between 2 and 20.';
   }
 
   if (!/^\d{4}-\d{2}-\d{2}$/.test(values.deadline)) {
-    nextErrors.deadline = '마감 기한은 YYYY-MM-DD 형식으로 입력해 주세요.';
+    nextErrors.deadline = 'Enter the deadline as YYYY-MM-DD.';
   } else {
     const [year, month, day] = values.deadline.split('-').map(Number);
     const date = new Date(year, month - 1, day);
@@ -38,7 +37,7 @@ function validate(values: PodCreateValues): PodCreateErrors {
       date.getMonth() !== month - 1 ||
       date.getDate() !== day
     ) {
-      nextErrors.deadline = '마감 기한은 YYYY-MM-DD 형식으로 입력해 주세요.';
+      nextErrors.deadline = 'Enter the deadline as YYYY-MM-DD.';
     }
   }
 

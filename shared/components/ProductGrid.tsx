@@ -19,8 +19,8 @@ type ProductGridProps = {
 export default function ProductGrid({
   products,
   onAddToCart,
-  emptyTitle = '상품이 없습니다',
-  emptyDescription = '조건에 맞는 상품을 찾지 못했어요.',
+  emptyTitle = 'No products found',
+  emptyDescription = 'No products match your filters.',
 }: ProductGridProps) {
   if (products.length === 0) {
     return <EmptyState title={emptyTitle} description={emptyDescription} />;

@@ -32,7 +32,7 @@ export function PotCard({
   return (
     <article
       className="border-border flex min-w-0 flex-col gap-4 border p-5"
-      aria-label={`${title} 소분 팟`}
+      aria-label={`${title} buying group`}
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
@@ -47,9 +47,9 @@ export function PotCard({
         <p className="text-muted-foreground text-sm">{description}</p>
       )}
       <p className="text-sm">
-        신청 현황{' '}
+        Members{' '}
         <strong>
-          {applicantCount} / {capacity}명
+          {applicantCount} / {capacity} members
         </strong>
       </p>
       {actionLabel && onAction && (

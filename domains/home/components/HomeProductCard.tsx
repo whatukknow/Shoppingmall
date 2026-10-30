@@ -1,3 +1,4 @@
+import { foodLabel } from '@/shared/lib/food-label';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { HomeCardItem } from '../home.types';
@@ -31,11 +32,11 @@ export function HomeProductCard({
           </p>
         )}
         <h3 className="mt-1 text-base leading-7 font-bold sm:text-[19px]">
-          {product.name}
+          {foodLabel(product.name)}
         </h3>
         {product.description && (
           <p className="mt-1 text-xs leading-5 text-[#77766f]">
-            {product.description}
+            {foodLabel(product.description)}
           </p>
         )}
       </div>

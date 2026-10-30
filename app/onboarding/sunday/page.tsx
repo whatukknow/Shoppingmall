@@ -1,5 +1,5 @@
 import { SundayStep } from '@/domains/home/onboarding/react/SundayStep';
-export const metadata = { title: '일요일 아침 | Little Portions' };
+export const metadata = { title: 'Sunday morning | Little Portions' };
 
 export default function Page() {
   return <SundayStep />;

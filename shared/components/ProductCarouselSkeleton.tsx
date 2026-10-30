@@ -3,7 +3,7 @@ export function ProductCarouselSkeleton() {
   return (
     <section
       aria-busy="true"
-      aria-label="상품 목록을 불러오는 중이에요."
+      aria-label="Loading products."
       className="max-w-1260px mx-auto w-full px-6 pt-14 md:px-0"
     >
       <div

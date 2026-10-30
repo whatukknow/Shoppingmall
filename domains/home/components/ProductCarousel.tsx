@@ -1,5 +1,6 @@
 'use client';
 
+import { foodLabel } from '@/shared/lib/food-label';
 import { CarouselContainer } from '@/shared/components/CarouselContainer';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,21 +14,21 @@ export function ProductCarousel({ products }: { products: CatalogCardItem[] }) {
         EXPLORE PRODUCTS
       </p>
       <h2 className="mt-2 text-[26px] leading-tight font-bold sm:text-[30px]">
-        상품 둘러보기
+        Explore the market
       </h2>
       <p className="mt-2 text-[13px] text-[#77766f]">
-        다양한 상품을 둘러보세요.
+        Find something for your next meal.
       </p>
 
       <div className="mt-8 min-h-48 px-10">
         {products.length === 0 && (
-          <p className="text-muted-foreground py-12">등록된 상품이 없어요.</p>
+          <p className="text-muted-foreground py-12">No products yet.</p>
         )}
         <CarouselContainer
           items={products}
           itemsPerSlide={5}
           getItemKey={(product) => product.id}
-          ariaLabel="상품 목록"
+          ariaLabel="Products"
           renderItem={(product) => (
             <Link
               href={`/products/${encodeURIComponent(product.id)}`}
@@ -45,7 +46,7 @@ export function ProductCarousel({ products }: { products: CatalogCardItem[] }) {
               </div>
               <div className="pt-3">
                 <h3 className="text-base leading-7 font-bold sm:text-[19px]">
-                  {product.name}
+                  {foodLabel(product.name)}
                 </h3>
               </div>
             </Link>

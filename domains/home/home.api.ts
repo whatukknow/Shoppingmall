@@ -1,3 +1,4 @@
+import { raw } from '@/domains/products/catalog/catalog';
 import { apiClient, ApiError } from '@/shared/lib/client';
 import type { ApiResponse, ListResponse } from '@/shared/lib/api.types';
 import type { RecommendedProduct } from './home.types';
@@ -52,5 +53,13 @@ export async function getHomeProducts(): Promise<{
   shareProducts: HomeProduct[];
   popularProducts: HomeProduct[];
 }> {
-  return { shareProducts: [], popularProducts: [] };
+  return {
+    shareProducts: raw.map((p) => ({
+      id: p.id,
+      name: p.name,
+      description: '',
+      illustration: p.id,
+    })),
+    popularProducts: [],
+  };
 }

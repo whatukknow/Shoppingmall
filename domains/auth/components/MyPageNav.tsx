@@ -20,24 +20,24 @@ export function MyPageNav({
   const items = [
     {
       key: 'pods' as const,
-      label: '내 신청 팟',
+      label: 'My buying groups',
       href: myPodsHref,
     },
     {
       key: 'profile' as const,
-      label: '회원 정보',
+      label: 'My account',
       href: profileHref,
     },
     {
       key: 'taste' as const,
-      label: '추천 취향',
+      label: 'Taste preferences',
       href: tasteHref,
     },
   ];
 
   return (
-    <nav aria-label="내 정보 메뉴" className="hidden flex-col gap-3 md:flex">
-      <p className="font-bold">{name}님</p>
+    <nav aria-label="Account menu" className="hidden flex-col gap-3 md:flex">
+      <p className="font-bold">{name}</p>
       <ul className="flex flex-col gap-2 text-sm">
         {items.map((item) => (
           <li key={item.key}>

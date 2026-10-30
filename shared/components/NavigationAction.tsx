@@ -42,7 +42,7 @@ export function NavigationAction({
       variant="ghost"
       disabled={!target}
       onClick={target?.onClick}
-      title={!target ? `${label} 연결 준비 중` : undefined}
+      title={!target ? `${label} coming soon` : undefined}
       className={styles}
     >
       {label}

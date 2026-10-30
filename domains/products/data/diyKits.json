@@ -1,0 +1,2605 @@
+[
+  {
+    "id": "diy-01",
+    "catalogImage": "/uploads/catalog/kits/diy-01/00-catalog-cutout.webp",
+    "sourceName": "브리오슈 프렌치토스트 키트",
+    "name": "브리오슈 프렌치토스트",
+    "category": "브런치",
+    "included": ["계란", "설향 딸기"],
+    "separate": ["버터", "설탕", "브리오슈", "우유"],
+    "recipeSteps": [
+      "딸기를 씻어 꼭지를 제거하고 먹기 좋게 잘라요. 달걀 1개에 우유 60ml와 설탕 8g을 고루 섞어요.",
+      "브리오슈 80g을 달걀물에 적셔요. 버터 8g을 두른 팬에서 양면을 노릇하게 굽고 속까지 익혀요.",
+      "구운 토스트를 접시에 담고 딸기를 곁들여요. 딸기는 취향에 맞게 썰어 토스트와 함께 즐겨요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-01/01-finished-dish.webp",
+      "/uploads/catalog/kits/diy-01/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-01/03-cooking-process.webp",
+      "/uploads/catalog/kits/diy-01/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "계란",
+        "amount": 1,
+        "unit": "개",
+        "productId": "raw-17",
+        "sourceName": "달걀"
+      },
+      {
+        "name": "설향 딸기",
+        "amount": 80,
+        "unit": "g",
+        "productId": "raw-07",
+        "sourceName": "딸기"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "버터",
+        "amount": 8,
+        "unit": "g"
+      },
+      {
+        "name": "설탕",
+        "amount": 8,
+        "unit": "g"
+      },
+      {
+        "name": "브리오슈",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "name": "우유",
+        "amount": 60,
+        "unit": "ml"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "브리오슈",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "name": "달걀",
+        "amount": 1,
+        "unit": "개"
+      },
+      {
+        "name": "우유",
+        "amount": 60,
+        "unit": "ml"
+      },
+      {
+        "name": "딸기",
+        "amount": 80,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-01/01-finished-dish.webp",
+      "02": "/uploads/catalog/kits/diy-01/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-01/03-cooking-process.webp",
+      "04": "/uploads/catalog/kits/diy-01/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-01/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-01/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-01/00-catalog-cutout.webp"
+    },
+    "carouselImage": "/uploads/catalog/kits/diy-01/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-01/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-02",
+    "sourceName": "원디쉬 라구 파스타 키트",
+    "name": "토마토 라구 파스타",
+    "category": "파스타",
+    "included": ["완숙 토마토", "양파"],
+    "separate": [
+      "올리브오일",
+      "소금",
+      "후추",
+      "건파스타면",
+      "다진 소고기",
+      "마늘"
+    ],
+    "recipeSteps": [
+      "토마토와 양파, 마늘을 손질해요.",
+      "다진 소고기를 충분히 익힌 뒤 채소를 더해 소스를 만들어요.",
+      "삶은 면을 소스와 함께 볶아 담아요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-02/01-main.webp",
+      "/uploads/catalog/kits/diy-02/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-02/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-02/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "완숙 토마토",
+        "amount": 180,
+        "unit": "g",
+        "productId": "raw-02",
+        "sourceName": "토마토"
+      },
+      {
+        "name": "양파",
+        "amount": 50,
+        "unit": "g",
+        "productId": "raw-08",
+        "sourceName": "양파"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "올리브오일",
+        "amount": 10,
+        "unit": "ml"
+      },
+      {
+        "name": "소금",
+        "amount": 1,
+        "unit": "g"
+      },
+      {
+        "name": "후추",
+        "amount": 0.2,
+        "unit": "g"
+      },
+      {
+        "name": "건파스타면",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "name": "다진 소고기",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "name": "마늘",
+        "amount": 5,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "건파스타면",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "name": "다진 소고기",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "name": "토마토",
+        "amount": 180,
+        "unit": "g"
+      },
+      {
+        "name": "양파",
+        "amount": 50,
+        "unit": "g"
+      },
+      {
+        "name": "마늘",
+        "amount": 5,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-02/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-02/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-02/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-02/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-02/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-02/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-02/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-02/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-02/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-02/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-03",
+    "sourceName": "주말 와플 브런치 키트",
+    "name": "와플 브런치",
+    "category": "브런치",
+    "included": ["계란", "블루베리"],
+    "separate": ["버터", "시럽", "와플믹스", "우유"],
+    "recipeSteps": [
+      "블루베리를 씻고 와플믹스와 달걀, 우유를 제품 안내에 맞춰 섞어요.",
+      "와플 기구에 반죽을 넣어 속까지 익혀요.",
+      "블루베리를 곁들이고 시럽은 취향에 맞게 더해요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-03/01-main.webp",
+      "/uploads/catalog/kits/diy-03/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-03/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-03/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "계란",
+        "amount": 1,
+        "unit": "개",
+        "productId": "raw-17",
+        "sourceName": "달걀"
+      },
+      {
+        "name": "블루베리",
+        "amount": 50,
+        "unit": "g",
+        "productId": "raw-20",
+        "sourceName": "블루베리"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "버터",
+        "amount": 8,
+        "unit": "g"
+      },
+      {
+        "name": "시럽",
+        "amount": 15,
+        "unit": "g"
+      },
+      {
+        "name": "와플믹스",
+        "amount": 70,
+        "unit": "g"
+      },
+      {
+        "name": "우유",
+        "amount": 60,
+        "unit": "ml"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "와플믹스",
+        "amount": 70,
+        "unit": "g"
+      },
+      {
+        "name": "달걀",
+        "amount": 1,
+        "unit": "개"
+      },
+      {
+        "name": "우유",
+        "amount": 60,
+        "unit": "ml"
+      },
+      {
+        "name": "블루베리",
+        "amount": 50,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-03/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-03/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-03/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-03/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-03/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-03/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-03/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-03/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-03/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-03/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-04",
+    "sourceName": "새우와 채소 한 접시 키트",
+    "name": "새우와 구운 채소",
+    "category": "한 접시",
+    "included": ["단호박", "양파"],
+    "separate": ["식용유", "소금", "후추", "새우살", "파프리카"],
+    "recipeSteps": [
+      "새우를 손질하고 채소를 먹기 좋은 크기로 잘라요.",
+      "단호박과 양파부터 익히고 새우를 더해 충분히 익혀요.",
+      "간을 조절하고 한 접시에 담아요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-04/01-main.webp",
+      "/uploads/catalog/kits/diy-04/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-04/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-04/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "단호박",
+        "amount": 120,
+        "unit": "g",
+        "productId": "raw-04",
+        "sourceName": "단호박"
+      },
+      {
+        "name": "양파",
+        "amount": 50,
+        "unit": "g",
+        "productId": "raw-08",
+        "sourceName": "양파"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "식용유",
+        "amount": 10,
+        "unit": "ml"
+      },
+      {
+        "name": "소금",
+        "amount": 1,
+        "unit": "g"
+      },
+      {
+        "name": "후추",
+        "amount": 0.2,
+        "unit": "g"
+      },
+      {
+        "name": "새우살",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "name": "파프리카",
+        "amount": 70,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "새우살",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "name": "단호박",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "name": "양파",
+        "amount": 50,
+        "unit": "g"
+      },
+      {
+        "name": "파프리카",
+        "amount": 70,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-04/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-04/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-04/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-04/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-04/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-04/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-04/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-04/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-04/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-04/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-05",
+    "sourceName": "작은 식탁의 크림 케이크",
+    "name": "딸기 크림 케이크",
+    "category": "베이킹",
+    "included": ["설향 딸기"],
+    "separate": ["설탕", "케이크 시트", "무가당 생크림"],
+    "recipeSteps": [
+      "딸기를 씻어 물기를 제거하고 시트를 준비해요.",
+      "차가운 생크림에 설탕을 더해 휘핑해요.",
+      "시트와 크림, 딸기를 겹쳐 조립하고 냉장 보관해요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-05/01-main.webp",
+      "/uploads/catalog/kits/diy-05/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-05/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-05/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "설향 딸기",
+        "amount": 70,
+        "unit": "g",
+        "productId": "raw-07",
+        "sourceName": "딸기"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "설탕",
+        "amount": 5,
+        "unit": "g"
+      },
+      {
+        "name": "케이크 시트",
+        "amount": 60,
+        "unit": "g"
+      },
+      {
+        "name": "무가당 생크림",
+        "amount": 50,
+        "unit": "ml"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "케이크 시트",
+        "amount": 60,
+        "unit": "g"
+      },
+      {
+        "name": "무가당 생크림",
+        "amount": 50,
+        "unit": "ml"
+      },
+      {
+        "name": "딸기",
+        "amount": 70,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-05/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-05/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-05/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-05/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-05/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-05/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-05/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-05/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-05/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-05/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-06",
+    "sourceName": "햄을 곁들인 프렌치토스트",
+    "name": "햄 프렌치토스트",
+    "category": "브런치",
+    "included": ["계란"],
+    "separate": ["버터", "소금", "식빵", "햄", "우유"],
+    "recipeSteps": [
+      "달걀과 우유를 섞고 식빵과 햄을 준비해요.",
+      "식빵을 달걀물에 적셔 팬에서 속까지 익히고 햄도 구워요.",
+      "구운 햄을 곁들여 담아요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-06/01-main.webp",
+      "/uploads/catalog/kits/diy-06/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-06/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-06/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "계란",
+        "amount": 1,
+        "unit": "개",
+        "productId": "raw-17",
+        "sourceName": "달걀"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "버터",
+        "amount": 8,
+        "unit": "g"
+      },
+      {
+        "name": "소금",
+        "amount": 0.3,
+        "unit": "g"
+      },
+      {
+        "name": "식빵",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "name": "햄",
+        "amount": 50,
+        "unit": "g"
+      },
+      {
+        "name": "우유",
+        "amount": 50,
+        "unit": "ml"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "식빵",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "name": "햄",
+        "amount": 50,
+        "unit": "g"
+      },
+      {
+        "name": "달걀",
+        "amount": 1,
+        "unit": "개"
+      },
+      {
+        "name": "우유",
+        "amount": 50,
+        "unit": "ml"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-06/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-06/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-06/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-06/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-06/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-06/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-06/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-06/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-06/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-06/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-07",
+    "sourceName": "햄·달걀 바게트 브런치",
+    "name": "햄·달걀 바게트",
+    "category": "샌드위치",
+    "included": ["계란", "꽃상추"],
+    "separate": ["마요네즈", "머스터드", "바게트", "햄"],
+    "recipeSteps": [
+      "잎채소를 씻어 물기를 제거하고 바게트를 갈라요.",
+      "달걀과 햄을 각각 충분히 익혀요.",
+      "빵에 소스를 바르고 재료를 차례로 채워요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-07/01-main.webp",
+      "/uploads/catalog/kits/diy-07/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-07/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-07/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "계란",
+        "amount": 1,
+        "unit": "개",
+        "productId": "raw-17",
+        "sourceName": "달걀"
+      },
+      {
+        "name": "꽃상추",
+        "amount": 25,
+        "unit": "g",
+        "productId": "raw-26",
+        "sourceName": "잎채소"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "마요네즈",
+        "amount": 10,
+        "unit": "g"
+      },
+      {
+        "name": "머스터드",
+        "amount": 5,
+        "unit": "g"
+      },
+      {
+        "name": "바게트",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "햄",
+        "amount": 50,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 일반 잎채소는 꽃상추로 구성한 제안입니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "바게트",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "햄",
+        "amount": 50,
+        "unit": "g"
+      },
+      {
+        "name": "달걀",
+        "amount": 1,
+        "unit": "개"
+      },
+      {
+        "name": "잎채소",
+        "amount": 25,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-07/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-07/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-07/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-07/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-07/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-07/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-07/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-07/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-07/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-07/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-08",
+    "sourceName": "리가토니 한 접시 키트",
+    "name": "토마토 리가토니",
+    "category": "파스타",
+    "included": ["완숙 토마토", "양파"],
+    "separate": [
+      "올리브오일",
+      "소금",
+      "후추",
+      "건리가토니면",
+      "마늘",
+      "경성 치즈"
+    ],
+    "recipeSteps": [
+      "토마토와 양파, 마늘을 손질해요.",
+      "면을 삶는 동안 채소를 볶아 소스를 만들어요.",
+      "면과 소스를 섞고 치즈를 곁들여요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-08/01-main.webp",
+      "/uploads/catalog/kits/diy-08/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-08/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-08/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "완숙 토마토",
+        "amount": 180,
+        "unit": "g",
+        "productId": "raw-02",
+        "sourceName": "토마토"
+      },
+      {
+        "name": "양파",
+        "amount": 40,
+        "unit": "g",
+        "productId": "raw-08",
+        "sourceName": "양파"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "올리브오일",
+        "amount": 10,
+        "unit": "ml"
+      },
+      {
+        "name": "소금",
+        "amount": 1,
+        "unit": "g"
+      },
+      {
+        "name": "후추",
+        "amount": 0.2,
+        "unit": "g"
+      },
+      {
+        "name": "건리가토니면",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "name": "마늘",
+        "amount": 5,
+        "unit": "g"
+      },
+      {
+        "name": "경성 치즈",
+        "amount": 15,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "건리가토니면",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "name": "토마토",
+        "amount": 180,
+        "unit": "g"
+      },
+      {
+        "name": "양파",
+        "amount": 40,
+        "unit": "g"
+      },
+      {
+        "name": "마늘",
+        "amount": 5,
+        "unit": "g"
+      },
+      {
+        "name": "경성 치즈",
+        "amount": 15,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-08/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-08/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-08/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-08/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-08/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-08/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-08/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-08/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-08/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-08/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-09",
+    "sourceName": "버섯 크림 한 접시 키트",
+    "name": "버섯 크림 파스타",
+    "category": "파스타",
+    "included": ["양파"],
+    "separate": [
+      "버터",
+      "소금",
+      "후추",
+      "건파스타면",
+      "버섯",
+      "무가당 생크림",
+      "우유"
+    ],
+    "recipeSteps": [
+      "버섯과 양파를 손질하고 면을 삶아요.",
+      "버섯과 양파를 볶은 뒤 생크림과 우유를 넣어 익혀요.",
+      "면을 더해 농도와 간을 맞추고 담아요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-09/01-main.webp",
+      "/uploads/catalog/kits/diy-09/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-09/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-09/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "양파",
+        "amount": 40,
+        "unit": "g",
+        "productId": "raw-08",
+        "sourceName": "양파"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "버터",
+        "amount": 8,
+        "unit": "g"
+      },
+      {
+        "name": "소금",
+        "amount": 1,
+        "unit": "g"
+      },
+      {
+        "name": "후추",
+        "amount": 0.2,
+        "unit": "g"
+      },
+      {
+        "name": "건파스타면",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "name": "버섯",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "무가당 생크림",
+        "amount": 60,
+        "unit": "ml"
+      },
+      {
+        "name": "우유",
+        "amount": 50,
+        "unit": "ml"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "건파스타면",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "name": "버섯",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "양파",
+        "amount": 40,
+        "unit": "g"
+      },
+      {
+        "name": "무가당 생크림",
+        "amount": 60,
+        "unit": "ml"
+      },
+      {
+        "name": "우유",
+        "amount": 50,
+        "unit": "ml"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-09/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-09/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-09/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-09/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-09/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-09/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-09/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-09/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-09/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-09/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-10",
+    "sourceName": "피크닉 베이글 샌드위치",
+    "name": "피크닉 베이글 샌드위치",
+    "category": "샌드위치",
+    "included": ["꽃상추"],
+    "separate": ["소금", "후추", "베이글", "크림치즈", "오이"],
+    "recipeSteps": [
+      "오이와 잎채소를 씻어 물기를 제거해요.",
+      "베이글을 갈라 취향에 맞게 데우고 크림치즈를 발라요.",
+      "채소를 채우고 반으로 잘라 담아요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-10/01-main.webp",
+      "/uploads/catalog/kits/diy-10/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-10/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-10/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "꽃상추",
+        "amount": 25,
+        "unit": "g",
+        "productId": "raw-26",
+        "sourceName": "잎채소"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "소금",
+        "amount": 0.3,
+        "unit": "g"
+      },
+      {
+        "name": "후추",
+        "amount": 0.1,
+        "unit": "g"
+      },
+      {
+        "name": "베이글",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "크림치즈",
+        "amount": 35,
+        "unit": "g"
+      },
+      {
+        "name": "오이",
+        "amount": 50,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 일반 잎채소는 꽃상추로 구성한 제안입니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "베이글",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "크림치즈",
+        "amount": 35,
+        "unit": "g"
+      },
+      {
+        "name": "오이",
+        "amount": 50,
+        "unit": "g"
+      },
+      {
+        "name": "잎채소",
+        "amount": 25,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-10/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-10/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-10/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-10/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-10/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-10/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-10/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-10/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-10/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-10/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-11",
+    "sourceName": "에그 샌드위치 키트",
+    "name": "에그 샌드위치",
+    "category": "샌드위치",
+    "included": ["계란"],
+    "separate": ["마요네즈", "소금", "후추", "식빵", "오이"],
+    "recipeSteps": [
+      "달걀을 충분히 삶고 오이를 손질해요.",
+      "식힌 달걀을 으깨 마요네즈와 간을 더해요.",
+      "빵 사이에 달걀과 오이를 넣고 잘라요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-11/01-main.webp",
+      "/uploads/catalog/kits/diy-11/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-11/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-11/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "계란",
+        "amount": 2,
+        "unit": "개",
+        "productId": "raw-17",
+        "sourceName": "달걀"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "마요네즈",
+        "amount": 15,
+        "unit": "g"
+      },
+      {
+        "name": "소금",
+        "amount": 0.5,
+        "unit": "g"
+      },
+      {
+        "name": "후추",
+        "amount": 0.1,
+        "unit": "g"
+      },
+      {
+        "name": "식빵",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "name": "오이",
+        "amount": 40,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "식빵",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "name": "달걀",
+        "amount": 2,
+        "unit": "개"
+      },
+      {
+        "name": "오이",
+        "amount": 40,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-11/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-11/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-11/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-11/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-11/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-11/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-11/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-11/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-11/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-11/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-12",
+    "sourceName": "토마토 치즈 한 접시",
+    "name": "토마토 치즈 샐러드",
+    "category": "샐러드",
+    "included": ["완숙 토마토"],
+    "separate": ["올리브오일", "소금", "후추", "모차렐라", "바질"],
+    "recipeSteps": [
+      "토마토와 바질을 씻고 물기를 제거해요.",
+      "토마토와 치즈를 먹기 좋게 잘라요.",
+      "접시에 번갈아 담고 오일과 간을 더해요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-12/01-main.webp",
+      "/uploads/catalog/kits/diy-12/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-12/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-12/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "완숙 토마토",
+        "amount": 180,
+        "unit": "g",
+        "productId": "raw-02",
+        "sourceName": "토마토"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "올리브오일",
+        "amount": 10,
+        "unit": "ml"
+      },
+      {
+        "name": "소금",
+        "amount": 0.5,
+        "unit": "g"
+      },
+      {
+        "name": "후추",
+        "amount": 0.1,
+        "unit": "g"
+      },
+      {
+        "name": "모차렐라",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "name": "바질",
+        "amount": 5,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "토마토",
+        "amount": 180,
+        "unit": "g"
+      },
+      {
+        "name": "모차렐라",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "name": "바질",
+        "amount": 5,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-12/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-12/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-12/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-12/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-12/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-12/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-12/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-12/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-12/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-12/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-13",
+    "sourceName": "청포도 치즈 샐러드",
+    "name": "청포도 치즈 샐러드",
+    "category": "샐러드",
+    "included": ["꽃상추"],
+    "separate": ["올리브오일", "식초", "청포도", "치즈", "견과류"],
+    "recipeSteps": [
+      "청포도와 잎채소를 씻어 물기를 제거해요.",
+      "청포도와 치즈를 먹기 좋게 손질해요.",
+      "재료를 담고 오일과 식초를 취향에 맞게 더해요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-13/01-main.webp",
+      "/uploads/catalog/kits/diy-13/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-13/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-13/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "꽃상추",
+        "amount": 80,
+        "unit": "g",
+        "productId": "raw-26",
+        "sourceName": "잎채소"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "올리브오일",
+        "amount": 10,
+        "unit": "ml"
+      },
+      {
+        "name": "식초",
+        "amount": 5,
+        "unit": "ml"
+      },
+      {
+        "name": "청포도",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "치즈",
+        "amount": 40,
+        "unit": "g"
+      },
+      {
+        "name": "견과류",
+        "amount": 15,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 일반 잎채소는 꽃상추로 구성한 제안입니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "청포도",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "잎채소",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "name": "치즈",
+        "amount": 40,
+        "unit": "g"
+      },
+      {
+        "name": "견과류",
+        "amount": 15,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-13/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-13/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-13/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-13/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-13/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-13/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-13/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-13/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-13/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-13/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-14",
+    "sourceName": "초록 페스토 샐러드",
+    "name": "바질페스토 그린 샐러드",
+    "category": "샐러드",
+    "included": ["꽃상추"],
+    "separate": ["올리브오일", "소금", "오이", "바질", "견과류", "경성 치즈"],
+    "recipeSteps": [
+      "잎채소와 오이, 바질을 씻어 물기를 제거해요.",
+      "바질과 견과류, 치즈, 오일로 페스토를 만들어요.",
+      "채소에 페스토를 조금씩 더해 버무려요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-14/01-main.webp",
+      "/uploads/catalog/kits/diy-14/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-14/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-14/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "꽃상추",
+        "amount": 100,
+        "unit": "g",
+        "productId": "raw-26",
+        "sourceName": "잎채소"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "올리브오일",
+        "amount": 15,
+        "unit": "ml"
+      },
+      {
+        "name": "소금",
+        "amount": 0.5,
+        "unit": "g"
+      },
+      {
+        "name": "오이",
+        "amount": 70,
+        "unit": "g"
+      },
+      {
+        "name": "바질",
+        "amount": 15,
+        "unit": "g"
+      },
+      {
+        "name": "견과류",
+        "amount": 10,
+        "unit": "g"
+      },
+      {
+        "name": "경성 치즈",
+        "amount": 15,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 일반 잎채소는 꽃상추로 구성한 제안입니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "잎채소",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "오이",
+        "amount": 70,
+        "unit": "g"
+      },
+      {
+        "name": "바질",
+        "amount": 15,
+        "unit": "g"
+      },
+      {
+        "name": "견과류",
+        "amount": 10,
+        "unit": "g"
+      },
+      {
+        "name": "경성 치즈",
+        "amount": 15,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-14/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-14/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-14/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-14/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-14/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-14/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-14/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-14/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-14/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-14/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-15",
+    "sourceName": "새우·달걀 브런치 키트",
+    "name": "새우·달걀 브런치",
+    "category": "브런치",
+    "included": ["계란", "완숙 토마토", "꽃상추"],
+    "separate": ["식용유", "소금", "후추", "새우살"],
+    "recipeSteps": [
+      "새우를 손질하고 채소를 씻어 물기를 제거해요.",
+      "새우와 달걀을 각각 충분히 익혀요.",
+      "채소와 함께 한 접시에 담고 간을 더해요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-15/01-main.webp",
+      "/uploads/catalog/kits/diy-15/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-15/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-15/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "계란",
+        "amount": 2,
+        "unit": "개",
+        "productId": "raw-17",
+        "sourceName": "달걀"
+      },
+      {
+        "name": "완숙 토마토",
+        "amount": 100,
+        "unit": "g",
+        "productId": "raw-02",
+        "sourceName": "토마토"
+      },
+      {
+        "name": "꽃상추",
+        "amount": 40,
+        "unit": "g",
+        "productId": "raw-26",
+        "sourceName": "잎채소"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "식용유",
+        "amount": 10,
+        "unit": "ml"
+      },
+      {
+        "name": "소금",
+        "amount": 0.8,
+        "unit": "g"
+      },
+      {
+        "name": "후추",
+        "amount": 0.2,
+        "unit": "g"
+      },
+      {
+        "name": "새우살",
+        "amount": 100,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 일반 잎채소는 꽃상추로 구성한 제안입니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "새우살",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "달걀",
+        "amount": 2,
+        "unit": "개"
+      },
+      {
+        "name": "토마토",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "잎채소",
+        "amount": 40,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-15/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-15/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-15/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-15/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-15/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-15/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-15/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-15/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-15/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-15/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-16",
+    "sourceName": "구운 청어알 비빔메밀면",
+    "name": "청어알 메밀 비빔면",
+    "category": "면 요리",
+    "included": ["꽃상추"],
+    "separate": [
+      "간장",
+      "식초",
+      "설탕",
+      "참기름",
+      "건메밀면",
+      "청어알 제품",
+      "오이"
+    ],
+    "recipeSteps": [
+      "청어알은 제품의 조리 안내에 따라 준비하고 채소를 손질해요.",
+      "메밀면을 삶아 찬물에 헹군 뒤 물기를 빼요.",
+      "양념을 섞어 면과 채소에 더하고 준비한 청어알을 곁들여요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-16/01-main.webp",
+      "/uploads/catalog/kits/diy-16/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-16/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-16/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "꽃상추",
+        "amount": 30,
+        "unit": "g",
+        "productId": "raw-26",
+        "sourceName": "잎채소"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "간장",
+        "amount": 10,
+        "unit": "ml"
+      },
+      {
+        "name": "식초",
+        "amount": 10,
+        "unit": "ml"
+      },
+      {
+        "name": "설탕",
+        "amount": 5,
+        "unit": "g"
+      },
+      {
+        "name": "참기름",
+        "amount": 5,
+        "unit": "ml"
+      },
+      {
+        "name": "건메밀면",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "name": "청어알 제품",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "name": "오이",
+        "amount": 60,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 일반 잎채소는 꽃상추로 구성한 제안입니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "건메밀면",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "name": "청어알 제품",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "name": "오이",
+        "amount": 60,
+        "unit": "g"
+      },
+      {
+        "name": "잎채소",
+        "amount": 30,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-16/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-16/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-16/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-16/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-16/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-16/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-16/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-16/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-16/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-16/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-17",
+    "sourceName": "멕시칸 타코 샐러드",
+    "name": "타코 샐러드",
+    "category": "샐러드",
+    "included": ["꽃상추", "완숙 토마토", "양파"],
+    "separate": [
+      "식용유",
+      "소금",
+      "후추",
+      "타코 시즈닝",
+      "다진 소고기",
+      "토르티야"
+    ],
+    "recipeSteps": [
+      "채소를 씻고 먹기 좋은 크기로 손질해요.",
+      "소고기에 간을 더해 충분히 익히고 토르티야를 구워요.",
+      "채소와 고기, 토르티야를 한 접시에 담아요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-17/01-main.webp",
+      "/uploads/catalog/kits/diy-17/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-17/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-17/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "꽃상추",
+        "amount": 80,
+        "unit": "g",
+        "productId": "raw-26",
+        "sourceName": "잎채소"
+      },
+      {
+        "name": "완숙 토마토",
+        "amount": 100,
+        "unit": "g",
+        "productId": "raw-02",
+        "sourceName": "토마토"
+      },
+      {
+        "name": "양파",
+        "amount": 30,
+        "unit": "g",
+        "productId": "raw-08",
+        "sourceName": "양파"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "식용유",
+        "amount": 5,
+        "unit": "ml"
+      },
+      {
+        "name": "소금",
+        "amount": 0.8,
+        "unit": "g"
+      },
+      {
+        "name": "후추",
+        "amount": 0.2,
+        "unit": "g"
+      },
+      {
+        "name": "타코 시즈닝",
+        "amount": 3,
+        "unit": "g"
+      },
+      {
+        "name": "다진 소고기",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "토르티야",
+        "amount": 40,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 일반 잎채소는 꽃상추로 구성한 제안입니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "다진 소고기",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "잎채소",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "name": "토마토",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "양파",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "name": "토르티야",
+        "amount": 40,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-17/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-17/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-17/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-17/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-17/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-17/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-17/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-17/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-17/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-17/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-18",
+    "sourceName": "토마토 뇨키 키트",
+    "name": "토마토 뇨키",
+    "category": "파스타",
+    "included": ["완숙 토마토", "양파"],
+    "separate": ["올리브오일", "소금", "후추", "뇨키", "마늘", "치즈"],
+    "recipeSteps": [
+      "토마토와 양파, 마늘을 손질해요.",
+      "채소를 익혀 소스를 만들고 뇨키를 제품 안내에 따라 조리해요.",
+      "뇨키와 소스를 섞고 치즈를 더해요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-18/01-main.webp",
+      "/uploads/catalog/kits/diy-18/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-18/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-18/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "완숙 토마토",
+        "amount": 150,
+        "unit": "g",
+        "productId": "raw-02",
+        "sourceName": "토마토"
+      },
+      {
+        "name": "양파",
+        "amount": 40,
+        "unit": "g",
+        "productId": "raw-08",
+        "sourceName": "양파"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "올리브오일",
+        "amount": 10,
+        "unit": "ml"
+      },
+      {
+        "name": "소금",
+        "amount": 0.8,
+        "unit": "g"
+      },
+      {
+        "name": "후추",
+        "amount": 0.2,
+        "unit": "g"
+      },
+      {
+        "name": "뇨키",
+        "amount": 180,
+        "unit": "g"
+      },
+      {
+        "name": "마늘",
+        "amount": 5,
+        "unit": "g"
+      },
+      {
+        "name": "치즈",
+        "amount": 20,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "뇨키",
+        "amount": 180,
+        "unit": "g"
+      },
+      {
+        "name": "토마토",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "name": "양파",
+        "amount": 40,
+        "unit": "g"
+      },
+      {
+        "name": "마늘",
+        "amount": 5,
+        "unit": "g"
+      },
+      {
+        "name": "치즈",
+        "amount": 20,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-18/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-18/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-18/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-18/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-18/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-18/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-18/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-18/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-18/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-18/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-19",
+    "sourceName": "노른자 크림 파스타 키트",
+    "name": "달걀 치즈 파스타",
+    "category": "파스타",
+    "included": ["계란"],
+    "separate": ["소금", "후추", "건파스타면", "경성 치즈", "베이컨"],
+    "recipeSteps": [
+      "면을 삶고 베이컨을 충분히 익혀요.",
+      "달걀과 치즈를 섞어 소스 재료를 준비해요.",
+      "면과 소스를 섞어 달걀이 충분히 익도록 조리하고 간을 맞춰요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-19/01-main.webp",
+      "/uploads/catalog/kits/diy-19/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-19/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-19/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "계란",
+        "amount": 1,
+        "unit": "개",
+        "productId": "raw-17",
+        "sourceName": "달걀"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "소금",
+        "amount": 0.5,
+        "unit": "g"
+      },
+      {
+        "name": "후추",
+        "amount": 0.5,
+        "unit": "g"
+      },
+      {
+        "name": "건파스타면",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "name": "경성 치즈",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "name": "베이컨",
+        "amount": 50,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "건파스타면",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "name": "달걀",
+        "amount": 1,
+        "unit": "개"
+      },
+      {
+        "name": "경성 치즈",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "name": "베이컨",
+        "amount": 50,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-19/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-19/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-19/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-19/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-19/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-19/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-19/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-19/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-19/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-19/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-21",
+    "sourceName": "갓 만든 베이글 아침 세트",
+    "name": "베이글 아침 식탁",
+    "category": "브런치",
+    "included": ["계란"],
+    "separate": ["식용유", "소금", "베이글", "크림치즈", "제철 과일"],
+    "recipeSteps": [
+      "과일을 씻어 손질하고 베이글을 갈라 데워요.",
+      "달걀을 취향에 맞는 형태로 충분히 익혀요.",
+      "크림치즈를 곁들인 베이글과 달걀, 과일을 함께 담아요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-21/01-main.webp",
+      "/uploads/catalog/kits/diy-21/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-21/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-21/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "계란",
+        "amount": 1,
+        "unit": "개",
+        "productId": "raw-17",
+        "sourceName": "달걀"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "식용유",
+        "amount": 5,
+        "unit": "ml"
+      },
+      {
+        "name": "소금",
+        "amount": 0.3,
+        "unit": "g"
+      },
+      {
+        "name": "베이글",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "크림치즈",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "name": "제철 과일",
+        "amount": 100,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "베이글",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "달걀",
+        "amount": 1,
+        "unit": "개"
+      },
+      {
+        "name": "크림치즈",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "name": "제철 과일",
+        "amount": 100,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-21/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-21/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-21/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-21/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-21/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-21/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-21/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-21/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-21/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-21/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-23",
+    "sourceName": "한강 피크닉 도시락 세트",
+    "name": "피크닉 샌드위치 박스",
+    "category": "샌드위치",
+    "included": ["계란", "꽃상추"],
+    "separate": ["마요네즈", "머스터드", "식빵", "햄", "제철 과일"],
+    "recipeSteps": [
+      "채소와 과일을 씻어 물기를 제거하고 달걀을 충분히 익혀요.",
+      "빵에 소스를 바르고 햄과 달걀, 잎채소를 넣어요.",
+      "샌드위치를 잘라 과일과 함께 용기에 담아요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-23/01-main.webp",
+      "/uploads/catalog/kits/diy-23/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-23/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-23/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "계란",
+        "amount": 1,
+        "unit": "개",
+        "productId": "raw-17",
+        "sourceName": "달걀"
+      },
+      {
+        "name": "꽃상추",
+        "amount": 25,
+        "unit": "g",
+        "productId": "raw-26",
+        "sourceName": "잎채소"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "마요네즈",
+        "amount": 10,
+        "unit": "g"
+      },
+      {
+        "name": "머스터드",
+        "amount": 5,
+        "unit": "g"
+      },
+      {
+        "name": "식빵",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "name": "햄",
+        "amount": 40,
+        "unit": "g"
+      },
+      {
+        "name": "제철 과일",
+        "amount": 80,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 일반 잎채소는 꽃상추로 구성한 제안입니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "식빵",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "name": "햄",
+        "amount": 40,
+        "unit": "g"
+      },
+      {
+        "name": "달걀",
+        "amount": 1,
+        "unit": "개"
+      },
+      {
+        "name": "잎채소",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "name": "제철 과일",
+        "amount": 80,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-23/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-23/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-23/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-23/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-23/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-23/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-23/08-catalog-cutout.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-23/08-catalog-cutout.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-23/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-23/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  },
+  {
+    "id": "diy-24",
+    "sourceName": "이탈리아 식품 셀렉션",
+    "name": "토마토 바질 한 접시",
+    "category": "한 접시",
+    "included": ["완숙 토마토"],
+    "separate": ["올리브오일", "소금", "후추", "바게트", "바질", "모차렐라"],
+    "recipeSteps": [
+      "토마토와 바질을 씻어 물기를 제거하고 잘라요.",
+      "바게트를 썰어 가볍게 굽고 치즈를 준비해요.",
+      "빵 위에 토마토와 바질, 치즈를 올리고 오일과 간을 더해요."
+    ],
+    "price": null,
+    "servings": 1,
+    "quantities": null,
+    "cookingMinutes": null,
+    "images": [
+      "/uploads/catalog/kits/diy-24/01-main.webp",
+      "/uploads/catalog/kits/diy-24/02-included-ingredients.webp",
+      "/uploads/catalog/kits/diy-24/03-cooking-process-v2.webp",
+      "/uploads/catalog/kits/diy-24/04-serving.webp"
+    ],
+    "farmCardImage": null,
+    "status": "draft",
+    "imageSlots": [
+      "완성 요리 예시",
+      "실제 제공 식재료 전체",
+      "손질·조리 과정",
+      "담아낸 모습"
+    ],
+    "servingStatus": "proposed",
+    "portionBasis": "식재료는 손질 후 조리 투입량 기준; 건면·가루는 건조 중량, 달걀은 개수. 실제 배송 중량·규격은 별도 확정.",
+    "includedIngredients": [
+      {
+        "name": "완숙 토마토",
+        "amount": 120,
+        "unit": "g",
+        "productId": "raw-02",
+        "sourceName": "토마토"
+      }
+    ],
+    "pantryIngredients": [
+      {
+        "name": "올리브오일",
+        "amount": 10,
+        "unit": "ml"
+      },
+      {
+        "name": "소금",
+        "amount": 0.5,
+        "unit": "g"
+      },
+      {
+        "name": "후추",
+        "amount": 0.1,
+        "unit": "g"
+      },
+      {
+        "name": "바게트",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "바질",
+        "amount": 5,
+        "unit": "g"
+      },
+      {
+        "name": "모차렐라",
+        "amount": 50,
+        "unit": "g"
+      }
+    ],
+    "quantitiesStatus": "proposed",
+    "reviewNote": "포함 재료는 판매 원물 상품에만 연결했습니다. 기존 레시피 분량은 검토용이며 판매·배송 규격은 미확정입니다.",
+    "originalIncludedIngredients": [
+      {
+        "name": "바게트",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "토마토",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "name": "바질",
+        "amount": 5,
+        "unit": "g"
+      },
+      {
+        "name": "모차렐라",
+        "amount": 50,
+        "unit": "g"
+      }
+    ],
+    "componentPolicy": "sold-raw-products-only",
+    "configurationStatus": "draft",
+    "isPurchasable": false,
+    "imageAssets": {
+      "01": "/uploads/catalog/kits/diy-24/01-main.webp",
+      "02": "/uploads/catalog/kits/diy-24/02-included-ingredients.webp",
+      "03": "/uploads/catalog/kits/diy-24/03-cooking-process-v2.webp",
+      "04": "/uploads/catalog/kits/diy-24/04-serving.webp",
+      "05": "/uploads/catalog/kits/diy-24/05-recommendation.webp",
+      "07": "/uploads/catalog/kits/diy-24/07-story.webp",
+      "08": "/uploads/catalog/kits/diy-24/08-catalog-cutout-v2.webp"
+    },
+    "catalogImage": "/uploads/catalog/kits/diy-24/08-catalog-cutout-v2.webp",
+    "carouselImage": "/uploads/catalog/kits/diy-24/05-recommendation.webp",
+    "storyImage": "/uploads/catalog/kits/diy-24/07-story.webp",
+    "imageStatus": "available",
+    "imageUsageNote": "완성 요리·추천·이야기 이미지는 별도 준비 재료를 포함할 수 있는 조리 예시입니다. 실제 포함 재료는 includedIngredients를 기준으로 확인하세요.",
+    "serviceMappingStatus": "reference-catalog-only-not-live-service-verified"
+  }
+]

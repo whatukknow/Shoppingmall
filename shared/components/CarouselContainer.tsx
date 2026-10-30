@@ -19,7 +19,7 @@ export function CarouselContainer<Item>({
   itemsPerSlide,
   getItemKey,
   renderItem,
-  ariaLabel = '상품 목록',
+  ariaLabel = 'Products',
   responsive = false,
 }: CarouselContainerProps<Item>) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -69,7 +69,7 @@ export function CarouselContainer<Item>({
           <>
             <button
               type="button"
-              aria-label="이전 상품 보기"
+              aria-label="Previous products"
               disabled={visibleSlide === 0}
               onClick={() => setCurrentSlide((slide) => Math.max(slide - 1, 0))}
               className="absolute top-1/2 -left-10 -translate-y-1/2 text-3xl disabled:opacity-30"
@@ -78,7 +78,7 @@ export function CarouselContainer<Item>({
             </button>
             <button
               type="button"
-              aria-label="다음 상품 보기"
+              aria-label="Next products"
               disabled={visibleSlide === lastSlide}
               onClick={() =>
                 setCurrentSlide((slide) => Math.min(slide + 1, lastSlide))

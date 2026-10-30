@@ -48,7 +48,7 @@ describe('toDeadlineLabel', () => {
   it('오늘 마감이면 "오늘 마감"', () => {
     assert.equal(
       toDeadlineLabel('2026-10-23T23:59:59+09:00', now),
-      '오늘 마감',
+      'Closes today',
     );
   });
 
@@ -61,19 +61,22 @@ describe('toDeadlineLabel', () => {
   });
 
   it('기한이 지났으면 "마감"', () => {
-    assert.equal(toDeadlineLabel('2026-10-22T23:59:59+09:00', now), '마감');
+    assert.equal(toDeadlineLabel('2026-10-22T23:59:59+09:00', now), 'Closed');
   });
 
   it('같은 날이라도 마감 시각이 지났으면 "마감"', () => {
     // now = 10:00, 마감 = 당일 09:00 → 이미 지남
-    assert.equal(toDeadlineLabel('2026-10-23T09:00:00+09:00', now), '마감');
+    assert.equal(toDeadlineLabel('2026-10-23T09:00:00+09:00', now), 'Closed');
   });
 
   it('KST 기준 캘린더 일자로 비교한다 (서버 시간대가 달라도 동일)', () => {
     // '2026-10-11T15:00:00Z' = KST 2026-10-12 00:00
     // 서버가 UTC여도 KST 일자 기준으로 같은 날이므로 "오늘 마감"
     const nowUtc = new Date('2026-10-12T00:30:00Z');
-    assert.equal(toDeadlineLabel('2026-10-11T15:00:00Z', nowUtc), '오늘 마감');
+    assert.equal(
+      toDeadlineLabel('2026-10-11T15:00:00Z', nowUtc),
+      'Closes today',
+    );
   });
 });
 

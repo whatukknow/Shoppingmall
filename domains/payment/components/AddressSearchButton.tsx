@@ -66,16 +66,16 @@ export default function AddressSearchButton({
         onClick={handleSearch}
       >
         {loadError
-          ? '주소 검색 사용 불가'
+          ? 'Address search unavailable'
           : ready
-            ? '주소 검색'
-            : '주소 검색 준비 중'}
+            ? 'Find address'
+            : 'Preparing address search'}
       </Button>
 
       {loadError && (
         <p role="alert" className="text-destructive mt-2 text-sm">
-          주소 검색을 불러오지 못했습니다. 네트워크를 확인하고 페이지를
-          새로고침해 주세요.
+          Could not load address search. Check your connection and refresh the
+          page.
         </p>
       )}
     </div>

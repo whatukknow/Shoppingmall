@@ -26,12 +26,12 @@ export function ShareProductsCarousel({
         PICKS FOR YOU
       </p>
       <h2 className="mt-2 text-[26px] leading-tight font-bold sm:text-[30px]">
-        {showAiCopy ? 'AI가 추천하는 당신의 장바구니' : '오늘의 랜덤 추천'}
+        {showAiCopy ? 'Picked for your taste' : 'Today’s discoveries'}
       </h2>
       <p className="mt-2 text-[13px] text-[#77766f]">
         {showAiCopy
-          ? '한 끼 사주에서 선택한 답변에 맞춘 식재료예요.'
-          : '오늘의 추천 상품을 둘러보세요.'}
+          ? 'Ingredients matched to your food fortune answers.'
+          : 'Explore today’s selection.'}
       </p>
 
       <div className="mt-8 min-h-48 px-10">
@@ -40,7 +40,9 @@ export function ShareProductsCarousel({
         ) : (
           <>
             {visibleProducts.length === 0 && (
-              <p className="text-muted-foreground py-12">추천 상품이 없어요.</p>
+              <p className="text-muted-foreground py-12">
+                No recommendations yet.
+              </p>
             )}
             <CarouselContainer
               // 화면 너비에 따라 PC 5개 · 태블릿 3개 · 모바일 2개로 표시합니다.
@@ -49,9 +51,7 @@ export function ShareProductsCarousel({
               itemsPerSlide={5}
               getItemKey={(product) => product.id}
               ariaLabel={
-                showAiCopy
-                  ? '한 끼 사주 취향 추천 상품'
-                  : '오늘의 랜덤 추천 상품'
+                showAiCopy ? 'Personalized food picks' : 'Today’s product picks'
               }
               renderItem={(product) => (
                 <HomeProductCard

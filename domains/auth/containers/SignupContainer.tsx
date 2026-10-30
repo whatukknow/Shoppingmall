@@ -36,7 +36,7 @@ export default function SignupContainer({ redirectTo }: SignupContainerProps) {
     setErrors((prev) => ({ ...prev, [field]: undefined }));
   };
 
-  // "가입 완료 후 로그인" 버튼을 눌렀을 때
+  // "Create account and log in" 버튼을 눌렀을 때
   const handleSubmit = () => {
     const nextErrors = validateSignup(values);
     setErrors(nextErrors);

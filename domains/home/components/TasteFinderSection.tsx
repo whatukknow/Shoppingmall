@@ -1,4 +1,8 @@
-const tasteQuestions = ['좋아하는 식재료', '선호하는 맛', '장보기 준비 방식'];
+const tasteQuestions = [
+  'Favorite ingredients',
+  'Favorite flavors',
+  'Shopping habits',
+];
 
 /** 취향 탐색에 사용할 질문을 미리 보여주는 소개 섹션입니다. */
 export function TasteFinderSection() {
@@ -11,10 +15,11 @@ export function TasteFinderSection() {
         FIND YOUR TASTE
       </p>
       <h2 className="mt-2 text-[25px] leading-tight font-bold sm:text-[28px]">
-        내 취향으로 발견하는 큐레이션
+        Find food that fits your taste
       </h2>
       <p className="mt-2 text-sm text-[#77766f]">
-        세 가지 질문의 답을 상품 태그와 연결해, 취향에 맞는 품목을 찾아봐요.
+        Answer three questions to discover ingredients matched to your
+        preferences.
       </p>
 
       <ol className="mt-10 grid grid-cols-1 gap-7 sm:grid-cols-3 sm:gap-10">
@@ -28,8 +33,8 @@ export function TasteFinderSection() {
         ))}
       </ol>
       <p className="mt-8 text-[11px] leading-5 text-[#77766f]">
-        답변을 바탕으로 상품 태그를 연결하는 큐레이션 예시이며, 검증된 성향
-        진단을 의미하지 않습니다.
+        These suggestions match your answers to product tags. They are for
+        exploration and are not a validated personality assessment.
       </p>
     </section>
   );

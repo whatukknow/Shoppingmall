@@ -32,17 +32,16 @@ export class AuthApiError extends Error {
   }
 }
 
-const INVALID_CREDENTIAL_MESSAGE = '이메일 또는 비밀번호가 올바르지 않아요.';
-const EMAIL_TAKEN_MESSAGE = '이미 가입된 이메일이에요.';
+const INVALID_CREDENTIAL_MESSAGE = 'Incorrect email or password.';
+const EMAIL_TAKEN_MESSAGE = 'This email is already registered.';
 const GENERIC_AUTH_MESSAGE =
-  '인증을 처리하지 못했어요. 잠시 후 다시 시도해 주세요.';
-const LOGIN_REQUIRED_MESSAGE = '로그인이 필요해요.';
-const EMAIL_FORMAT_MESSAGE = '이메일 형식을 확인해 주세요.';
-const INVALID_INPUT_MESSAGE = '입력값을 확인해 주세요.';
-const WEAK_PASSWORD_MESSAGE =
-  '비밀번호가 너무 약해요. 다른 비밀번호를 입력해 주세요.';
-const RATE_LIMIT_MESSAGE = '요청이 많아요. 잠시 후 다시 시도해 주세요.';
-const EMAIL_NOT_ALLOWED_MESSAGE = '이 이메일로는 가입할 수 없어요.';
+  'Could not complete authentication. Please try again shortly.';
+const LOGIN_REQUIRED_MESSAGE = 'Please log in to continue.';
+const EMAIL_FORMAT_MESSAGE = 'Enter a valid email address.';
+const INVALID_INPUT_MESSAGE = 'Please check your details.';
+const WEAK_PASSWORD_MESSAGE = 'Choose a stronger password.';
+const RATE_LIMIT_MESSAGE = 'Too many requests. Please try again shortly.';
+const EMAIL_NOT_ALLOWED_MESSAGE = 'You cannot sign up with this email address.';
 
 /** Supabase 오류 코드·메시지를 HTTP 상태로 매핑한다 (원문은 로그에만 남긴다) */
 function mapAuthError(origin: unknown, tag: string): AuthApiError {
@@ -144,7 +143,7 @@ function composeDefaultAddress(order: OrdersRow | null): string | null {
 function assertValidLogin(body: SignInRequest): void {
   const errors = validateLogin(body);
   if (hasErrors(errors)) {
-    const first = Object.values(errors)[0] ?? '입력값을 확인해 주세요.';
+    const first = Object.values(errors)[0] ?? 'Please check your details.';
     throw new AuthApiError(400, first);
   }
 }
@@ -206,7 +205,7 @@ function assertValidSignup(body: SignUpRequest): void {
   });
 
   if (hasErrors(errors)) {
-    const first = Object.values(errors)[0] ?? '입력값을 확인해 주세요.';
+    const first = Object.values(errors)[0] ?? 'Please check your details.';
     throw new AuthApiError(400, first);
   }
 }
@@ -267,7 +266,7 @@ export async function signOut(
 ): Promise<SignOutResponse> {
   const { error } = await client.auth.signOut();
   if (error) {
-    throw mapAuthError(error, '로그아웃');
+    throw mapAuthError(error, 'Log out');
   }
   return { signedOut: true, requestId: crypto.randomUUID() };
 }

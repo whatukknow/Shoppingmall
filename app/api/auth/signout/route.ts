@@ -15,7 +15,8 @@ export async function POST(): Promise<Response> {
     return Response.json(
       {
         error: {
-          message: '인증을 처리하지 못했어요. 잠시 후 다시 시도해 주세요.',
+          message:
+            'Could not complete authentication. Please try again shortly.',
         },
       },
       { status: 500 },

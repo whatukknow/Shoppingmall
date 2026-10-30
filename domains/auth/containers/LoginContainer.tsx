@@ -10,9 +10,8 @@ import { withNext } from '@/domains/auth/auth.redirect';
 import type { FieldErrors, LoginValues } from '@/domains/auth/auth.types';
 import { ApiError } from '@/shared/lib/client';
 
-const LOGIN_MISMATCH_MESSAGE = '이메일과 비밀번호가 일치하지 않습니다.';
-const LOGIN_UNKNOWN_MESSAGE =
-  '로그인하지 못했어요. 잠시 후 다시 시도해 주세요.';
+const LOGIN_MISMATCH_MESSAGE = 'Incorrect email or password.';
+const LOGIN_UNKNOWN_MESSAGE = 'Could not log in. Please try again shortly.';
 
 // 로그인 실패 오류를 사용자에게 보여줄 안내 문구로 바꾼다
 export function loginErrorMessage(error: unknown): string {

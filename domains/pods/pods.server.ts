@@ -228,7 +228,7 @@ export async function getPod(
   if (error) throw error;
   const row = data as JoinedPod | null;
   if (!row) {
-    throw new PodWriteError(404, '팟을 찾을 수 없어요.');
+    throw new PodWriteError(404, 'Buying group not found.');
   }
   const images = await fetchHeadImages(client, toGids([row]));
   return toPod(

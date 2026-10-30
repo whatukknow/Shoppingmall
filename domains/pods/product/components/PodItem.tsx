@@ -7,8 +7,8 @@ import type { Pod } from '@/domains/pods/pods.types';
 export default function PodItem({ pod }: { pod: Pod }): React.JSX.Element {
   const state =
     pod.status === 'open'
-      ? `모집 중 · ${pod.currentCount}/${pod.targetCount}명 · ${pod.deadlineLabel}`
-      : `모집 완료 · ${pod.deadlineLabel}`;
+      ? `Open · ${pod.currentCount}/${pod.targetCount} members · ${pod.deadlineLabel}`
+      : `Group full · ${pod.deadlineLabel}`;
 
   return (
     <li className="flex min-w-0 flex-col gap-6 border-y border-[#e0ded6] p-5 sm:p-6">
@@ -17,7 +17,7 @@ export default function PodItem({ pod }: { pod: Pod }): React.JSX.Element {
           src={pod.imageUrl}
           width={88}
           height={88}
-          alt="상품 이미지"
+          alt="Product image"
           className="h-22 w-22 shrink-0 object-contain"
         />
         <div className="flex min-w-0 flex-1 flex-col gap-1">

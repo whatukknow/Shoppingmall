@@ -25,7 +25,7 @@ export default async function PodListContainer({
   }
 
   if (response.list.length === 0) {
-    return <p className="mt-5 text-sm text-[#77766f]">등록된 팟이 없어요.</p>;
+    return <p className="mt-5 text-sm text-[#77766f]">No buying groups yet.</p>;
   }
 
   return (

@@ -1,0 +1,2132 @@
+{
+  "/uploads/catalog/raw-sets/001-korean-melon/08-illustration.webp": {
+    "sourceSha256": "cf6d5a51ba4001ac42cb2fc21e641a84618bd8f5b5a50aac428010dfaa399656",
+    "sha256": "180ee268ab18f09664641167f1e83c84fb6e946e627e928538f8fa2b6935b8ef",
+    "bytes": 60150
+  },
+  "/uploads/catalog/raw-sets/001-korean-melon/01-main.webp": {
+    "sourceSha256": "bb34f7105446cc3bff7b9a38b775ee90a363e433f933268d8f72791888b731a8",
+    "sha256": "4c0e007afec48a827de98588e14ae09076cf5a0ce33ed54002efe317d852afd8",
+    "bytes": 301608
+  },
+  "/uploads/catalog/raw-sets/001-korean-melon/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "46e881e05ac49ad45d35b75bc21f604357b3cdb0171ddeee97fdfc5fb9867b2c",
+    "sha256": "78a3687e236264b2c913ada195b1dddc2bac426bc3923f195bde62a88af1d595",
+    "bytes": 273336
+  },
+  "/uploads/catalog/raw-sets/001-korean-melon/03-thumbnail-farm.webp": {
+    "sourceSha256": "31995a34f78b7562136b842202fb7c57f592f73be86b0a30091074c0b4a499fb",
+    "sha256": "dd51aae0b285ec44e2d49ca51fe574851ee833e5f8a18179593ab198cd17909d",
+    "bytes": 310684
+  },
+  "/uploads/catalog/raw-sets/001-korean-melon/04-thumbnail-bowl.webp": {
+    "sourceSha256": "a4bd2b51d40d5bd00d2f08635792f52a06f91c701d53ba90f31cc16fe9e9393c",
+    "sha256": "11ea8a1de0a35acb0aaad5df4c170fef052ec0bb48b45fcb231a7e77327e432c",
+    "bytes": 340182
+  },
+  "/uploads/catalog/raw-sets/001-korean-melon/05-farm-visible-part.webp": {
+    "sourceSha256": "4c3f6e1f10528ff95ea626709add6b0380a3fd3375ad2cf0ab1eb30d5d013e5c",
+    "sha256": "231c2ab0ac18b9cf9b8d42ccdcf4c918b3a7342eda6ae72e45d70e5903ca042a",
+    "bytes": 258152
+  },
+  "/uploads/catalog/raw-sets/001-korean-melon/07-farm-card.webp": {
+    "sourceSha256": "0b596a2702e19d3a164378f763f2e1f9268eb246b7ab2d3bedf3f9f72630a886",
+    "sha256": "ca389cc53ccaf811ece79e50b4b134496e4e6d6ad5618342885b99a1eb04a663",
+    "bytes": 241148
+  },
+  "/uploads/catalog/raw-sets/001-korean-melon/06-portion-package.webp": {
+    "sourceSha256": "93b232ad5ee6556003e26f269566c8860d43b648edb404fff0f0d9befe0b3209",
+    "sha256": "9d037f79b038c204b29edae61b6993c4c3a4b6e3c72b293410dfdbf8ceaf2c14",
+    "bytes": 241472
+  },
+  "/uploads/catalog/raw-sets/002-ripe-tomato/08-illustration.webp": {
+    "sourceSha256": "ba0fb99eb81c14842db9dd150f346f7ac306040a678a1c791e9ef1f1934360a0",
+    "sha256": "a28bc9097102eadbc1dcd4f684e27f9e2897a8aa98fdd0ac87008809d571402a",
+    "bytes": 65692
+  },
+  "/uploads/catalog/raw-sets/002-ripe-tomato/01-main.webp": {
+    "sourceSha256": "a93a3c7ce316019ea66b0e7d293fe39018929a594c64b2fb8ff9d2be09806803",
+    "sha256": "9f7c0c54591e811b842c008f9ea7a7d8163cc7f8c5b25816bb21a1649261629b",
+    "bytes": 384392
+  },
+  "/uploads/catalog/raw-sets/002-ripe-tomato/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "61ff36bd1ef73099d8ed5b797727944d135f9f601e6f01d9e2b36c335b36267c",
+    "sha256": "fe6b1fa8d53e9e856ccb1bca06439d5e7f7f73ee874d263460531bd2586a0009",
+    "bytes": 301026
+  },
+  "/uploads/catalog/raw-sets/002-ripe-tomato/03-thumbnail-farm.webp": {
+    "sourceSha256": "fb15f97666f80c458c0a5002ec2d45388641125854955f639e1d9e0bbad7febc",
+    "sha256": "b4d17c19e8b18b4d7a877d31592883e49a309cdaa70f3be2ad6e64b20df988b9",
+    "bytes": 339792
+  },
+  "/uploads/catalog/raw-sets/002-ripe-tomato/04-thumbnail-bowl.webp": {
+    "sourceSha256": "552f0f7fc895f5f6859a067e10a6dd48b8db074e3e875f3b45bc41be98327b4d",
+    "sha256": "471922e0bbd6f4e3fddb0db17b0606cff7c8127abdabd6ea13a8ccc291e6a2c1",
+    "bytes": 499184
+  },
+  "/uploads/catalog/raw-sets/002-ripe-tomato/05-farm-visible-part.webp": {
+    "sourceSha256": "4c3d2caa3c567b10610f084c9d990a87f6e0be348894c9e7345503eba8c35297",
+    "sha256": "51cbda47d25dd44892363396ea28e63d8c7106df860a46476b66df251957dd71",
+    "bytes": 223516
+  },
+  "/uploads/catalog/raw-sets/002-ripe-tomato/07-farm-card.webp": {
+    "sourceSha256": "e4a2b1b474b4607e54396e6d5d31d657129e4094234bb070f1fba128d286a99e",
+    "sha256": "7eb049d993cfc2f8d3b956014e2f1b62198aa0d8e7af154aefa7ce4cb5fcc3ef",
+    "bytes": 219648
+  },
+  "/uploads/catalog/raw-sets/002-ripe-tomato/06-portion-package.webp": {
+    "sourceSha256": "ef971365ea761d7645fa6def645378eb2015098290aaac6d566b48b5b930b762",
+    "sha256": "7f339844bb042e1ec2a99e653fd35cb7f42ff5d8d6be10ef07408566998fc97f",
+    "bytes": 267048
+  },
+  "/uploads/catalog/raw-sets/003-muskmelon/08-illustration.webp": {
+    "sourceSha256": "8b1ec9b2fb592d381735e300369ac79f7ae6c3bb951011500e3231d2638b16c3",
+    "sha256": "1ae7471e92a8090edc8b6ad9a98de0d3e543a6ccfbe415319feea6b7e1d8c058",
+    "bytes": 67620
+  },
+  "/uploads/catalog/raw-sets/003-muskmelon/01-main.webp": {
+    "sourceSha256": "0f0aa541a604a52983fe1b327e4691d18f9e2fdd28c1bded25ad245873d51ac3",
+    "sha256": "2b83544193f768a55fe19e58ce745e8df6bad6e50edc15eb5c3bfb3159d3edae",
+    "bytes": 377042
+  },
+  "/uploads/catalog/raw-sets/003-muskmelon/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "d96161011aa5f36df370e671e00cf5a167436f2023e7c13b1321a82f32cc6c16",
+    "sha256": "8b036a3cda0c75ed0bfcd0780bc2366cf8f56a8620c2001e19d7c045d8b52ad8",
+    "bytes": 389806
+  },
+  "/uploads/catalog/raw-sets/003-muskmelon/03-thumbnail-farm.webp": {
+    "sourceSha256": "cec455fcff8523631bb089e6107cbbd1c7ff6ecf7d2a2b695258d5e9c03dba18",
+    "sha256": "639269f79489cea0449cb8f14a12fa8a3a94cad6834ef75f7e4efb2448d09006",
+    "bytes": 304636
+  },
+  "/uploads/catalog/raw-sets/003-muskmelon/04-thumbnail-bowl.webp": {
+    "sourceSha256": "b24e7cbd0ac096b5824a2744be2398b3d9e8857cb2fb299e1fdaa21eff20b62c",
+    "sha256": "8c2b7ec4f3bf58358e64bc43bc6499809da5cbfb84170c6269f56b92bb01232c",
+    "bytes": 323620
+  },
+  "/uploads/catalog/raw-sets/003-muskmelon/05-farm-visible-part.webp": {
+    "sourceSha256": "67cabfce34b9fa4512263fa7212be017fb60eb0bd1ba2d875c524ba7ac058e56",
+    "sha256": "f9e8c2c99fb3724b97160b017d74cbbde34b6a6777b9625c84bdd16a2b25b03f",
+    "bytes": 244658
+  },
+  "/uploads/catalog/raw-sets/003-muskmelon/07-farm-card.webp": {
+    "sourceSha256": "722dbac781eb6621a3ec2e9ba5fca14c2a8a04b34198167dcb6e4c320b2bd79b",
+    "sha256": "881c4dd924b9b9645583bc16efe5885b3d6262ab651a97e0f70c0310a4b96fdd",
+    "bytes": 239244
+  },
+  "/uploads/catalog/raw-sets/003-muskmelon/06-portion-package.webp": {
+    "sourceSha256": "4b1b7aa1ed583050be463b52b32120a4bc20912bd4155268676c2016b36f6dc9",
+    "sha256": "e0bd68c2dafc8bd557e2a451b0115581906f75afa51f1fc535e2a49745781a09",
+    "bytes": 232264
+  },
+  "/uploads/catalog/raw-sets/004-kabocha/08-illustration.webp": {
+    "sourceSha256": "a3f8b60b457aad03c32ed5f012ccda9359ab81dc7641b030a844a7d498aaa54d",
+    "sha256": "8aa24067adf05750054179cb2f819b6cc1183ca2805f258687b601d1e186cd0c",
+    "bytes": 149656
+  },
+  "/uploads/catalog/raw-sets/004-kabocha/01-main.webp": {
+    "sourceSha256": "3d7816bc534f504e9d22a7efa4ca967544d05d3acbea86d3647fcef14e61bb69",
+    "sha256": "8592b367d08f206360aa5a2861275f94a2f3f79d020e13c651f16ea29a914508",
+    "bytes": 447554
+  },
+  "/uploads/catalog/raw-sets/004-kabocha/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "c6b42024b9d7064ded065ef96acfc899cc13cf07edd538b3f3841ebc83134342",
+    "sha256": "7ccc3cf8f2d4169ebe81e9465c3c0ec1fd6002b1c590fef9142f104bc3b1d212",
+    "bytes": 430130
+  },
+  "/uploads/catalog/raw-sets/004-kabocha/03-thumbnail-farm.webp": {
+    "sourceSha256": "6a879a4bcadc4998c761c2c72362cb29f382507f5d25369b5d950b2a93186bd9",
+    "sha256": "ff2ed2fd11262e77fda3dc532e56fa16eec2025c95a29343780066642dab921f",
+    "bytes": 317964
+  },
+  "/uploads/catalog/raw-sets/004-kabocha/04-thumbnail-bowl.webp": {
+    "sourceSha256": "01fbfb3e734a3d2a505cdce0be4f43dbab027355c04c15911130c4c849d3e127",
+    "sha256": "78b70aa9712a2f097ba0d34ae07caa40e082003d283b890bceea68e1e2a7e953",
+    "bytes": 493878
+  },
+  "/uploads/catalog/raw-sets/004-kabocha/05-farm-visible-part.webp": {
+    "sourceSha256": "52a78b1944fa072c7366192a2c1898cf679ac1a28e63845e58c9d41a01dc9d46",
+    "sha256": "c9b6bc337534da0d856a8e139508e248521011dc17a318745c83f68b68c32b93",
+    "bytes": 247456
+  },
+  "/uploads/catalog/raw-sets/004-kabocha/07-farm-card.webp": {
+    "sourceSha256": "90c646efe30cbdab183ef62aa2a352c47b10d73f1adeb3599a6777276a28ca89",
+    "sha256": "d7b20f660c22784c547db50f106f6cf8a1a4a3418e6bb5f588f6fcb26fcb2364",
+    "bytes": 220222
+  },
+  "/uploads/catalog/raw-sets/004-kabocha/06-portion-package.webp": {
+    "sourceSha256": "d8911b9efba2425335061ee17ab781fc4098d4e27bf6a543e0dcb7122e21e25f",
+    "sha256": "d4bf6f533ef2dbd971e3cd56fb7d307b4ef32bc48fe10605bc4709444f9b3dab",
+    "bytes": 315320
+  },
+  "/uploads/catalog/raw-sets/005-red-potato/08-illustration.webp": {
+    "sourceSha256": "b7e08cf4d46ad968f3c00c0d97713093a0bc6753ce9261aa3478d4c2e7f6d5b9",
+    "sha256": "b785b870bb515c955d338ee12d580c58eed32be98e4acd6b7031a51c0019d134",
+    "bytes": 76164
+  },
+  "/uploads/catalog/raw-sets/005-red-potato/01-main.webp": {
+    "sourceSha256": "9dcd60b9a6fc266ed3125a275ea4bdf5e37282e5e18b5c23222fdc5e579f9895",
+    "sha256": "2045b245c403145e679adfac3b6eaed79b93d98e8a7f00a9fac025b831e1c7e6",
+    "bytes": 412416
+  },
+  "/uploads/catalog/raw-sets/005-red-potato/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "f8c1a2d743b9196f7d9dedce2522806e5ed6fa4b456a1232faea934e54592e04",
+    "sha256": "e3609f0bbe175cd0d4893533b29eb2ce1e8177663090d3fe86000d88bf4bc81b",
+    "bytes": 422012
+  },
+  "/uploads/catalog/raw-sets/005-red-potato/03-thumbnail-farm.webp": {
+    "sourceSha256": "97a1b84618f271a501da7a540a6028eff33735dc1a44bc1fdf6f5ec42e648479",
+    "sha256": "34f57717107aabc64c4f12326778591aee57742ba6636b6985a6f6c927930273",
+    "bytes": 428798
+  },
+  "/uploads/catalog/raw-sets/005-red-potato/04-thumbnail-bowl.webp": {
+    "sourceSha256": "bba690214db2e076a8d485121cf1ba93aa3661414e766a3550bca1d39e5ee453",
+    "sha256": "7674d3bab83657cddc81d652144271e437bd8840fa6c7947ebb2d08bdc007c70",
+    "bytes": 299748
+  },
+  "/uploads/catalog/raw-sets/005-red-potato/05-farm-visible-part.webp": {
+    "sourceSha256": "6cfc1cae8afb9d7191cba7c833407af7598144b2f6f26b1495975a132406f38c",
+    "sha256": "c72908c0c69edaa284ba106ecb2a25da8f4df70fcf3554c2c261217ff5bdf6f2",
+    "bytes": 242834
+  },
+  "/uploads/catalog/raw-sets/005-red-potato/07-farm-card.webp": {
+    "sourceSha256": "0e52b37d021ae639eb54784880d9a6bb499517da937a5bf6d882ced81eabdde6",
+    "sha256": "77c8aa1393d410fb1d17c27ed79f49d3ddb03a09eed2e1cc75912e4acb7d9a09",
+    "bytes": 227916
+  },
+  "/uploads/catalog/raw-sets/005-red-potato/06-portion-package.webp": {
+    "sourceSha256": "550cf0a9acec08a159649a11ec18eb2f1208a1cab114865881fd215852cf4914",
+    "sha256": "d114f5d5adabb39e3dc9b86e311ba6ff7e8b672331cffd3a27b2e69605d58df0",
+    "bytes": 207284
+  },
+  "/uploads/catalog/raw-sets/006-red-grapes/08-illustration.webp": {
+    "sourceSha256": "57eef84533b8e650420647e41a0a4e92c531548701471a0235be3cf32015f1a4",
+    "sha256": "095ad07ac96cebcc43a4a9ec11be2ed0d3867d1c32a680650beaad9378543592",
+    "bytes": 58640
+  },
+  "/uploads/catalog/raw-sets/006-red-grapes/01-main.webp": {
+    "sourceSha256": "436e493c966ad35dfa27ba0bea698b1ca1d2c277d4ea789e1bb7692894d89116",
+    "sha256": "3d06ccffb8532f0566362624dc91ed44c0df9eb7a2ad1a46a63ae7d66183990d",
+    "bytes": 378940
+  },
+  "/uploads/catalog/raw-sets/006-red-grapes/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "3acc8bb7e2618351820ae9adb321df20e9c436f75391b51c2489916fc1822488",
+    "sha256": "33a066ea8138828725199e00e9cab6dd46ff7bbd4a95126ad187f6fc939d25da",
+    "bytes": 351762
+  },
+  "/uploads/catalog/raw-sets/006-red-grapes/03-thumbnail-farm.webp": {
+    "sourceSha256": "1e56a7934442ae6abb59a42a46a9e95b82da147249998660194d1b8ec5ec0cfc",
+    "sha256": "91f26eb7f00fd015df0f577fd68a0ab26dad521e315fdaf8e8b6d845bd2ef21d",
+    "bytes": 276658
+  },
+  "/uploads/catalog/raw-sets/006-red-grapes/04-thumbnail-bowl.webp": {
+    "sourceSha256": "967a0cea742133deace9246d6af398ddba7d858c5460a332545f87f15d4a1a58",
+    "sha256": "94d67c92060b256190b4108b77669c474092904d8f8db7a14f61b73d42fe20d0",
+    "bytes": 436540
+  },
+  "/uploads/catalog/raw-sets/006-red-grapes/05-farm-visible-part.webp": {
+    "sourceSha256": "f98a0a6a287d6f765cf1daa796092b2826222b8a1447b1f1dc7eeae33c4e3c9e",
+    "sha256": "67a78f963504bde46338fb15422beb913c737c2b27680590af66d5aee784908a",
+    "bytes": 301576
+  },
+  "/uploads/catalog/raw-sets/006-red-grapes/07-farm-card.webp": {
+    "sourceSha256": "771f9734ecd4d0cb1a94f504ef535ec146b4b067387c01420c8beefcbb8929aa",
+    "sha256": "afd6da27dc0fddc32badb5312769d1ed252568f4fc7e8449e4fd9ebc18ffa05c",
+    "bytes": 239210
+  },
+  "/uploads/catalog/raw-sets/006-red-grapes/06-portion-package.webp": {
+    "sourceSha256": "3fc04c26551047f34bb125722ef5fe5b62956efdc7d5654f46fd6e4558df307b",
+    "sha256": "c339f6e49c4beae9fb22a99a0ac8ef9a2acd1c153311c20bc37601722290f40a",
+    "bytes": 263746
+  },
+  "/uploads/catalog/raw-sets/007-seolhyang-strawberry/08-illustration.webp": {
+    "sourceSha256": "afe41893da8b0d7026c1b9a05b5965829f6d0732cb666fa325546add65c994c6",
+    "sha256": "9e6c6ac4f835da8ff9dd23c0b5d55baeea0d28dcf62cc7a48f9e9aa5f5aa41e5",
+    "bytes": 79576
+  },
+  "/uploads/catalog/raw-sets/007-seolhyang-strawberry/01-main.webp": {
+    "sourceSha256": "10e250cfadfe7bf44f6ef69d7e63e974cbaf85a94ecee462f5985936521c3e7d",
+    "sha256": "e11a766b175cab6d3fa8505a56234c6d2dd438dab96539ecaa560333c1da7f47",
+    "bytes": 422190
+  },
+  "/uploads/catalog/raw-sets/007-seolhyang-strawberry/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "f13c25b216d06a31267e80595af630e4afa5e99d4061d302bb8bf62af3aeb049",
+    "sha256": "73ed4e0e20e9202d72b0493dea0602ad13fe7dd6b5aad93b731d7b6796665481",
+    "bytes": 301184
+  },
+  "/uploads/catalog/raw-sets/007-seolhyang-strawberry/03-thumbnail-farm.webp": {
+    "sourceSha256": "ca18c0d0b72106d6f3c696a2bfa4c1d92a53af4b9857b272d846c94478428c5e",
+    "sha256": "9681301c0db7f6599458be4659459ede802d0f989ccb01e45099ff88489c1cfa",
+    "bytes": 301202
+  },
+  "/uploads/catalog/raw-sets/007-seolhyang-strawberry/04-thumbnail-bowl.webp": {
+    "sourceSha256": "254c1558b8b79309a0d79d3329000c08b3eb65a257dd0836ceea2efaf9ccca67",
+    "sha256": "df6916b87a2ece6692a1a86ee22831b3ceb4fe7e3e1741572de97e6c1e2f9a36",
+    "bytes": 469354
+  },
+  "/uploads/catalog/raw-sets/007-seolhyang-strawberry/05-farm-visible-part.webp": {
+    "sourceSha256": "fc6d1f72bf1fa642e4269db42f4880f837e747812eb3b6f23b6fb253b82d799f",
+    "sha256": "62b2bbac28e715b4b80bc73756dc9e0cac90da132f07e84c4b6eab0a134400e8",
+    "bytes": 283784
+  },
+  "/uploads/catalog/raw-sets/007-seolhyang-strawberry/07-farm-card.webp": {
+    "sourceSha256": "92f1df9382805eb5a330789af57a26657b583c59ccfaa4d33535372473377435",
+    "sha256": "f4ce4131f1b7fca8fc0778aa0760382a911bb9d0e36c6b9cff320e4d52a2dafc",
+    "bytes": 267102
+  },
+  "/uploads/catalog/raw-sets/007-seolhyang-strawberry/06-portion-package.webp": {
+    "sourceSha256": "388aec3911af72465a845f357830e969be4b28df1162f0cb1dc025ab18ea84c0",
+    "sha256": "ec20976065153571c39ded288d0215e0d0d42212b7340ad579c532286ddcb16a",
+    "bytes": 303846
+  },
+  "/uploads/catalog/raw-sets/008-onion/08-illustration.webp": {
+    "sourceSha256": "2d2c4d16f92ec12f31ede5913209f4afa4c7cbab0689a6e5d4b0eb96d5c743a3",
+    "sha256": "14dc84375eb4d4e524551d9cc7c3cc6c11c7a3d7ab700bd3f0064167a77b1733",
+    "bytes": 70256
+  },
+  "/uploads/catalog/raw-sets/008-onion/01-main.webp": {
+    "sourceSha256": "1c639494d0d2bd6c82805d3595e268882fef50df6717fdb8b0b579fa0708643a",
+    "sha256": "678473094d36fee1b5f32f85c4fe1410a0634def368b37fac21e7360cf4706f3",
+    "bytes": 461836
+  },
+  "/uploads/catalog/raw-sets/008-onion/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "7a8262358b27047396929e5a627eb8804bb7e037a69d7c858976af8eac45e06f",
+    "sha256": "7c03df7b2d92f7949738bdd694609b695cff9119ea2aae5f527b74fb3e51d0f1",
+    "bytes": 285062
+  },
+  "/uploads/catalog/raw-sets/008-onion/03-thumbnail-farm.webp": {
+    "sourceSha256": "09be564ae24c160c48e2d8cc86af38e11c040ff98c3199e3b662972860bac7bb",
+    "sha256": "a3b84b9d825da02fa96e888f71441944bd07be3a2dd50a8457f142c6559d0974",
+    "bytes": 353552
+  },
+  "/uploads/catalog/raw-sets/008-onion/04-thumbnail-bowl.webp": {
+    "sourceSha256": "84de0a6df47398d427a1428a492e12b895a2e8e8d85c154647a7f60494b385f0",
+    "sha256": "f33f1dcfbd5c503961c65d52a6088eaa5253b62343af23a4cb06a54d65f7303e",
+    "bytes": 498162
+  },
+  "/uploads/catalog/raw-sets/008-onion/05-farm-visible-part.webp": {
+    "sourceSha256": "4355a889124e21a2077eb7c51346e16c5dc640ddb33fdb32fff5a50da970de60",
+    "sha256": "2e4cba2565b1cbd544b9ded88eab45d389cb928254a9785151eabd0b2a663c29",
+    "bytes": 247072
+  },
+  "/uploads/catalog/raw-sets/008-onion/07-farm-card.webp": {
+    "sourceSha256": "bd8d3ec0272953402faa31463ffd25cd400a4b5cb8afc3276b3494a87b074b5c",
+    "sha256": "8ef905a2e51280164af4a4397ea2ce6fc3f30ef3a74d74b2ec154bfe94b78c46",
+    "bytes": 225592
+  },
+  "/uploads/catalog/raw-sets/008-onion/06-portion-package.webp": {
+    "sourceSha256": "9df0c64bee7050d7540fb6d686858118e9fd0d58a86cee4d349931a01ccffca5",
+    "sha256": "d4c698d36e1d4cc739ea716885d0db01467951abd7fa8f3fcda861fdbee8ec7e",
+    "bytes": 253440
+  },
+  "/uploads/catalog/raw-sets/009-cabbage/08-illustration.webp": {
+    "sourceSha256": "2cf5ddcb3a1c23ed30a9d1fff576751f085e65546bec02361a8c165e42f1d26a",
+    "sha256": "775bb1187016d5a40d4a117aeaeb1659c9135928945d99969c1dda4828918b7a",
+    "bytes": 105470
+  },
+  "/uploads/catalog/raw-sets/009-cabbage/01-main.webp": {
+    "sourceSha256": "2a01bcc497b6d6c3bf7479151e761eaf344351a9e08a8c79f4d3ee6f8abbb0e0",
+    "sha256": "c3315cb0e003d88498645b4aeccaab18e165a37fdefb7c489bbe33cfd3eefa83",
+    "bytes": 366868
+  },
+  "/uploads/catalog/raw-sets/009-cabbage/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "5e8e002f01cd788a4dd6862c83c6a26b5d52fc73561caa3aa0c0d3d2b4cefc73",
+    "sha256": "793a17e7f5a5ea81b760da6f34d448e8c95c157e6398b04a1e8a3d313f3c4450",
+    "bytes": 267836
+  },
+  "/uploads/catalog/raw-sets/009-cabbage/03-thumbnail-farm.webp": {
+    "sourceSha256": "3b445f036c276a58dbd7056611a96305fa69c79dea643d96d39093a92f73f865",
+    "sha256": "c863db87dc56ed8be7cb337034072481f1599cd25d0bebba86ad32447221b412",
+    "bytes": 269894
+  },
+  "/uploads/catalog/raw-sets/009-cabbage/04-thumbnail-bowl.webp": {
+    "sourceSha256": "890fd7cbf50e6278a406adf035e2d8498d1a7eaaa975e20608e36e18c0d4a70c",
+    "sha256": "8492cab0ca88c008e009999038c473f4f98172f57d772cd649e2cc8e870f25bb",
+    "bytes": 433244
+  },
+  "/uploads/catalog/raw-sets/009-cabbage/05-farm-visible-part.webp": {
+    "sourceSha256": "6d47a56b5f6013b9654f696bbbfa34b013c72016f692b7f53f9f2621918a2904",
+    "sha256": "f09e3f20861c2d7478b69ab3ad72f2f7204bfb99e36147630200d3e01330bd87",
+    "bytes": 237168
+  },
+  "/uploads/catalog/raw-sets/009-cabbage/07-farm-card.webp": {
+    "sourceSha256": "1c7beb8fb84ab936fdbbe0ccd25f98cd61fb08b59d1a2ae9981d5877aa492f6c",
+    "sha256": "e85a2fff91a61935d3313a5bbd6008f7e792230e87c1ff4f841eeed2aa8a7315",
+    "bytes": 199244
+  },
+  "/uploads/catalog/raw-sets/009-cabbage/06-portion-package.webp": {
+    "sourceSha256": "30923648198b1b2aba3371265cdbc7354f975bc62008d767a7e57eae2420747a",
+    "sha256": "317a8cd4a1c0856a08c52cb50d463e1565adf772cb11fa2e05d7d9c87dc38743",
+    "bytes": 216454
+  },
+  "/uploads/catalog/raw-sets/010-scallion/08-illustration.webp": {
+    "sourceSha256": "de70d9c2a7406035f593ae57782b257c3c093e15c83700c41dfeafae2a770c78",
+    "sha256": "9d02d166105d2e82b50b5dcf0654ffba9c70d2abacc5b0c0ef8c315b98b7f0a6",
+    "bytes": 48674
+  },
+  "/uploads/catalog/raw-sets/010-scallion/01-main.webp": {
+    "sourceSha256": "cf49189ee10a178fd8b0e01d5811fd98c41f933cd104492866ea721f48bb2846",
+    "sha256": "5a6d7383edcaaa23fdeee03d5def9ced82e1874ed9b36c1aa3c1528aa28d900b",
+    "bytes": 295288
+  },
+  "/uploads/catalog/raw-sets/010-scallion/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "51a9ca7ca5c8502930f38e567f5fa6f5a41aab3cb9e6e9710f015a80d4357bbd",
+    "sha256": "ba46dffeb5fc017f163726c25f79d2a99f3188b94970c718261dcfc75621cc15",
+    "bytes": 241652
+  },
+  "/uploads/catalog/raw-sets/010-scallion/03-thumbnail-farm.webp": {
+    "sourceSha256": "9dd920256444f2ceb78d722eff754447870889be530a90c2dc17af50816f32b4",
+    "sha256": "cfe30c8841b5b3190d3a47fa15339a592038cfedf6709d957367009d31a2abc3",
+    "bytes": 318562
+  },
+  "/uploads/catalog/raw-sets/010-scallion/04-thumbnail-bowl.webp": {
+    "sourceSha256": "6e683b6711c060a3c612b420fe0afc11490be520cbfdb4c47a95534f47000d47",
+    "sha256": "1a6225ea8ba676d85c5cdba52bcd42cdcc880802f5568cbf19abeb673fedb55a",
+    "bytes": 511082
+  },
+  "/uploads/catalog/raw-sets/010-scallion/05-farm-visible-part.webp": {
+    "sourceSha256": "14a7c0de6219785dfe665b5ea394543611c8c3f1d3fcc7878ec046a87265a81a",
+    "sha256": "1223cffeb22d3ce7c36f513c7f8abba9e45a9d0cad3224b76869b63bc165c6b1",
+    "bytes": 250614
+  },
+  "/uploads/catalog/raw-sets/010-scallion/07-farm-card.webp": {
+    "sourceSha256": "47c5bedef1affe718f4855b201181339a6e4ccee2601b33a3ca563724f4b8025",
+    "sha256": "3df1705d5217f49647fb7a74d084eb53a68161669a6c80625fbbac474a842769",
+    "bytes": 231396
+  },
+  "/uploads/catalog/raw-sets/010-scallion/06-portion-package.webp": {
+    "sourceSha256": "02222e15f6192ae06feba85062bfb5dfa919dab4012498dc315f676fd975b87a",
+    "sha256": "cc3925c170a2ec9b290cf6bedabdf9b9b28af49608827081c3b0f766ee387607",
+    "bytes": 212436
+  },
+  "/uploads/catalog/raw-sets/011-green-peas/08-illustration.webp": {
+    "sourceSha256": "f454a708382e03d7d0b4819e6de7f576332f6864e49861db5f4fac4cc129031d",
+    "sha256": "ed0a907d4ad9612e45bc9910a7e1b53546380deb4e18639f16712c8c0194e12d",
+    "bytes": 59480
+  },
+  "/uploads/catalog/raw-sets/011-green-peas/01-main.webp": {
+    "sourceSha256": "d67ae1a9e2cec7ef8f842f7f2096728cd6a55d9e1049d5c4c58b3fcdef466228",
+    "sha256": "1497c8c05c2a1b80185cc5ed4a801668ce847deac1faf4298527ed5e67b05f8c",
+    "bytes": 325330
+  },
+  "/uploads/catalog/raw-sets/011-green-peas/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "8bd1e97d24c3c26c598304e81686c0c14a544e56226b3c4f044fdcee6695ac44",
+    "sha256": "8387bad4631d998db13b1d999ca847ad8bbe5cf19caf0071781bc4abdb46aae3",
+    "bytes": 274520
+  },
+  "/uploads/catalog/raw-sets/011-green-peas/03-thumbnail-farm.webp": {
+    "sourceSha256": "b1bf1eec219eb2b47927ef70197e8526bd96b2d4bfaecebb2da3691618700783",
+    "sha256": "38bb6215ccd43fb29486beb543e0d8cff15982048a8bd3d4154188c08b48c92e",
+    "bytes": 368414
+  },
+  "/uploads/catalog/raw-sets/011-green-peas/04-thumbnail-bowl.webp": {
+    "sourceSha256": "b1f2ab2ab9856d1997092407cf59252bdbb895d678eea2f9b5c5fcc10ad98766",
+    "sha256": "c658d9b9b8cf381148c09cc3cd8dd4977407e7e3cece3ec7c127f02bde5d1ad7",
+    "bytes": 452934
+  },
+  "/uploads/catalog/raw-sets/011-green-peas/05-farm-visible-part.webp": {
+    "sourceSha256": "edc3b3dba3be00e508d8c0d83455fa6a0535e33216b7fc74673070041e2c93b0",
+    "sha256": "5cd666a5e28337d9df8cf7de1fb078acc27437cef14e617cfdd49de750a0c709",
+    "bytes": 223402
+  },
+  "/uploads/catalog/raw-sets/011-green-peas/07-farm-card.webp": {
+    "sourceSha256": "658b9ad527d7e40d5c3d314a0861aa08bdbcb6da93ac1a871ede2f2de02da328",
+    "sha256": "afadbad904e9e0f877e9a7181c769af93cec4a703c10e7c94ec4e7c80f7625d9",
+    "bytes": 200626
+  },
+  "/uploads/catalog/raw-sets/011-green-peas/06-portion-package.webp": {
+    "sourceSha256": "cef4dd515d3eb7adccbe6b8e2426289fe6d05b92df6a59724f1f90b766f00802",
+    "sha256": "77b41a35d5778cb6ada67a01422ff20b5c6ff28c1aea1c157f7b1b01586dca17",
+    "bytes": 261272
+  },
+  "/uploads/catalog/raw-sets/012-brussels-sprouts/08-illustration.webp": {
+    "sourceSha256": "c893dd1ee4864fadbdd5e41c74cc761231c4a6b4d98899526403ba0300c3b4e9",
+    "sha256": "e36ee7fd326cb6b367edb405489ff007d644a9c255ae2ee8b37264a23cb98cce",
+    "bytes": 59672
+  },
+  "/uploads/catalog/raw-sets/012-brussels-sprouts/01-main.webp": {
+    "sourceSha256": "1c6c69bc21e306cb9250b2234824d223b9905e1aebf2856697c23ff0d732b3d2",
+    "sha256": "bbb6446971948117560142f884643a79f5855615c0300113cec836b3a6781556",
+    "bytes": 340022
+  },
+  "/uploads/catalog/raw-sets/012-brussels-sprouts/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "6696b87f7413ea0ed77b5cda01712c28229eb3046ef9d4ab5b7cd98289bed47c",
+    "sha256": "afdb46c5ea84df9165d79bb7c6798e9c28589f6451ede508d1803855ef1de677",
+    "bytes": 271366
+  },
+  "/uploads/catalog/raw-sets/012-brussels-sprouts/03-thumbnail-farm.webp": {
+    "sourceSha256": "d5c67cded6212459ac57200127391f3eaf255ccf19e8a12ca8f132cbf50ac38b",
+    "sha256": "c33e07140f4f23e45f39fed437de05e8563572f30272376b49f74054551d486b",
+    "bytes": 326966
+  },
+  "/uploads/catalog/raw-sets/012-brussels-sprouts/04-thumbnail-bowl.webp": {
+    "sourceSha256": "f45f5c3221a7dfb24111c0fb3ca4c76e15dac356f53722a380e170ae1108f9bd",
+    "sha256": "ff27f65c01300e96aef85fb29775b3b692f9b594ecc76a73e4f3a933cd62e7b7",
+    "bytes": 400076
+  },
+  "/uploads/catalog/raw-sets/012-brussels-sprouts/05-farm-visible-part.webp": {
+    "sourceSha256": "b3f503f5c37502cee429ef61624833a76deff5386eeb70bb02fbfff6b4d168b3",
+    "sha256": "0e2e369e133952a251231e122cabc55aa4df3c57908b16975d6b2e1a0d88879d",
+    "bytes": 270946
+  },
+  "/uploads/catalog/raw-sets/012-brussels-sprouts/07-farm-card.webp": {
+    "sourceSha256": "ad752a56430e9e951dc76f71ded733261b07ef09ad96de20074ecc0740d2f14f",
+    "sha256": "ca069c99fa6ee1957b2244233cf80ec9be62fabac8b5fed1cb999bb9a0dd9634",
+    "bytes": 239544
+  },
+  "/uploads/catalog/raw-sets/012-brussels-sprouts/06-portion-package.webp": {
+    "sourceSha256": "d94ff582ba1724f6580cd3a261962bee729530ae122af34a9e4d073a85bef28e",
+    "sha256": "c56d617ccccc898b390de066b647e88c9202ddb2ffd67e76a45c0bfb5de87345",
+    "bytes": 296236
+  },
+  "/uploads/catalog/raw-sets/013-apple/08-illustration.webp": {
+    "sourceSha256": "7c27acec379747f420b55c63883bd76cab50470a330e01703c108b6cfd4d023d",
+    "sha256": "4f6c0d304a2b59e364c0ca2e238a617c233e7656e8a09e8689a8e95d48d98bdc",
+    "bytes": 78188
+  },
+  "/uploads/catalog/raw-sets/013-apple/01-main.webp": {
+    "sourceSha256": "cc4e82fe2338fa799e512d2cc4596adc08725cac4c13fad28cf5b8f7d2333ca3",
+    "sha256": "e1dad57bd304c50c7af520e7bb4025e16bf0b9aa1a42399a58adb552353bd061",
+    "bytes": 380614
+  },
+  "/uploads/catalog/raw-sets/013-apple/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "2914d82391dba93f62f553b3082cd1d414f4b15f70920056d356f39f055f254e",
+    "sha256": "03d4981a6581a153ad98fc464a2956313bb23a19bac258358175a1d589021713",
+    "bytes": 278020
+  },
+  "/uploads/catalog/raw-sets/013-apple/03-thumbnail-farm.webp": {
+    "sourceSha256": "1614ce64ca19c94b147a301228e5c746fc69efedc3a6d3b457e77be24fba5b45",
+    "sha256": "f5f56ad265a26d4b3c433d71de0ec81b5939e34eeaf217d9abefdc1ab6da5a41",
+    "bytes": 294562
+  },
+  "/uploads/catalog/raw-sets/013-apple/04-thumbnail-bowl.webp": {
+    "sourceSha256": "eb7d5762256c2cb301b6c0fabb4d133eab73058ceeb85716600ab4136c89c32b",
+    "sha256": "644b8aeabc0a90307458d22e3328139b44908e0201ac180e9b2ae7d31d7df304",
+    "bytes": 441024
+  },
+  "/uploads/catalog/raw-sets/013-apple/05-farm-visible-part.webp": {
+    "sourceSha256": "22900ceb3882c1a2002db9968d65eab306e0eba82ebb50fe82351eae6a9c50b8",
+    "sha256": "3fd8a8879e3c1caf584a40e1e8df83a0b0d439280eb272325645cd9f45057706",
+    "bytes": 322762
+  },
+  "/uploads/catalog/raw-sets/013-apple/07-farm-card.webp": {
+    "sourceSha256": "a0c84b5f5bd07417ebbfe88c3696217767a6544903cfd14f629bccb8ba4fca13",
+    "sha256": "e5f0521be2ae056a76471c805ad0cdd67b23a574f548b331d976f25c6151900f",
+    "bytes": 287120
+  },
+  "/uploads/catalog/raw-sets/013-apple/06-portion-package.webp": {
+    "sourceSha256": "6eae96d42ee6fc6336373aea8c6a4d5644301ba7932e09e09b4ae66bf98213be",
+    "sha256": "c26f55ca681144e04354e12d629d60952e47c4da57fe259d06401f9072203519",
+    "bytes": 322302
+  },
+  "/uploads/catalog/raw-sets/014-mandarin/08-illustration.webp": {
+    "sourceSha256": "d3714ec614ce631043ca1f26e6cbb6d3c1242f8aa769f71af932701d11e32b02",
+    "sha256": "231174df3b9edfd5c5249c10bc94e54de4584969d5f5d62b7a9e3cb666a96104",
+    "bytes": 66240
+  },
+  "/uploads/catalog/raw-sets/014-mandarin/01-main.webp": {
+    "sourceSha256": "2f4b82082ef6bb07920731cf6ebf321cf2d7c1b6e0cf7985a8c00a8d666d3f26",
+    "sha256": "f9621e62f3d5a76a19612fa57ad5e3fd8a5189de898aff9813f78b380e9e8a8d",
+    "bytes": 303804
+  },
+  "/uploads/catalog/raw-sets/014-mandarin/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "ab14d9979c6c79844778bc4d25144326d880ec5b4555a6c66d6774670600c1d1",
+    "sha256": "70fa53695cecc588ca9ff86e167f62e4faa04e6c3267beb7ecc13ebc63a90180",
+    "bytes": 324670
+  },
+  "/uploads/catalog/raw-sets/014-mandarin/03-thumbnail-farm.webp": {
+    "sourceSha256": "966eb8b6366af2bcdaefce4fcca8d3a147c42abb858e417a56380c9e84ee9942",
+    "sha256": "08b6230667519156f04464f9664b9df4d825cd2e3929ca94ad7da6e17f03a320",
+    "bytes": 339010
+  },
+  "/uploads/catalog/raw-sets/014-mandarin/04-thumbnail-bowl.webp": {
+    "sourceSha256": "48604377a8aec2c2c2bad3d0017db737b7edb3eca17de2adfd91f6efbd07dbe2",
+    "sha256": "c87cad1c765200c8fac339e7c58392f49953e6ee0f1e2ffedae6ea525b32c852",
+    "bytes": 482364
+  },
+  "/uploads/catalog/raw-sets/014-mandarin/05-farm-visible-part.webp": {
+    "sourceSha256": "80bc88b64d3d17c038a3b91e19041cbc6d25e7d39bfa2c9b81ee9ccfb157dc1a",
+    "sha256": "ed2f93a4afe6aecedcfa08f55456a13188f89bd3402b38136cd3d05dbba17e57",
+    "bytes": 226260
+  },
+  "/uploads/catalog/raw-sets/014-mandarin/07-farm-card.webp": {
+    "sourceSha256": "0cb9990ac65e25339340fd30ac43032860fc15afeb2f14cbeb6fda0a812cab5d",
+    "sha256": "2c373741d6d218b9998b6b6851739d4770627a5f5aec4e76a57f654d83c5b0ac",
+    "bytes": 204570
+  },
+  "/uploads/catalog/raw-sets/014-mandarin/06-portion-package.webp": {
+    "sourceSha256": "1dc7bb45a757320a8ceb3b43c903cbd57394830047a8a53c9c550e32466c183f",
+    "sha256": "2b03694845039b327a6314d8e81371ef9855e44b9992c4850a36ee9f964ca121",
+    "bytes": 260370
+  },
+  "/uploads/catalog/raw-sets/015-watermelon/08-illustration.webp": {
+    "sourceSha256": "b3dff09e672294f306e930ac676bec9ddd138f21498a976fd9dede1d0bddc10a",
+    "sha256": "899735c3683fa5a36f6cd0bbcff457e85ce3fe8588dd437efe454e61439cdc0b",
+    "bytes": 111134
+  },
+  "/uploads/catalog/raw-sets/015-watermelon/01-main.webp": {
+    "sourceSha256": "cda0aa8b37469ee5f39af77c16537413787b4dc6111ad374ab8eac9d661f89a4",
+    "sha256": "a14ab2357b6348107fb21bee817f96ee29e0ec5353cb86d72e02507ae61501ea",
+    "bytes": 369488
+  },
+  "/uploads/catalog/raw-sets/015-watermelon/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "1db6b148de59f176e724587676a1cf5389f4d9b775c3b7db5dc13dc0701db5b8",
+    "sha256": "8a15e08b8992b943e2c0b07610e540115781abc14f00483a35521ec767d6914c",
+    "bytes": 417950
+  },
+  "/uploads/catalog/raw-sets/015-watermelon/03-thumbnail-farm.webp": {
+    "sourceSha256": "f4cc05f14e64329b4ec96dfe096c9619219655c7a4b7a281b7ff7845833d6d6b",
+    "sha256": "cce87cd3e12fe092eee44de2b0fd881f5fe80ac1577e0c7727c0d03e4d75090a",
+    "bytes": 319566
+  },
+  "/uploads/catalog/raw-sets/015-watermelon/04-thumbnail-bowl.webp": {
+    "sourceSha256": "360283946dc394091f3da01d6a0f000beade9a643f07bc169e2710a8231d6d13",
+    "sha256": "342e303ce301c1a860aa9a60688144a0bf70983e49d3c5cc4193172b99e7b409",
+    "bytes": 589640
+  },
+  "/uploads/catalog/raw-sets/015-watermelon/05-farm-visible-part.webp": {
+    "sourceSha256": "c89c6cc2835ef7e20f7ec18fa62590ff9184455e202eb1b90db0f77908d97c5a",
+    "sha256": "e91aacf26f13a97a5c0a5804c3468b94c3129b5a30764954e2fafc57212ccf7b",
+    "bytes": 254258
+  },
+  "/uploads/catalog/raw-sets/015-watermelon/07-farm-card.webp": {
+    "sourceSha256": "e2129c5c693982c197c80e96cbaea3fb612eccec31fc06d2503d50682f39fec5",
+    "sha256": "49741add9f1028cbdb884625da024eab7438d4f2d0513a568b8f557c34a747f2",
+    "bytes": 227070
+  },
+  "/uploads/catalog/raw-sets/015-watermelon/06-portion-package.webp": {
+    "sourceSha256": "ee51687e5574a1403059ae18cf3bf7fc05d37aef2dca1ab68c840ad37d21f2fb",
+    "sha256": "1f45bdb486f9108fd9bdce32f4f8ade0c9d6797838fdad7547e40c87c3ede9ff",
+    "bytes": 297336
+  },
+  "/uploads/catalog/raw-sets/016-beef-steak/08-illustration.webp": {
+    "sourceSha256": "dcdc77bf0e0678ac5e54c950ff7c7683c8ba5a2c331ada06e5db9031cc7a2be2",
+    "sha256": "4e702dac951e55aa70bbb90668b6f3d81eeb1cc0a1cffe6fc7c8b71409c6baa3",
+    "bytes": 122848
+  },
+  "/uploads/catalog/raw-sets/016-beef-steak/01-main.webp": {
+    "sourceSha256": "111cf7ecbbeacf9adfe365f2c29d29e2d806814601a34c000a34c3df305cf62e",
+    "sha256": "0a339505d3249d64bdbfa5a41be121fca3615607ea96387c46f2d0e5eecc8dde",
+    "bytes": 449700
+  },
+  "/uploads/catalog/raw-sets/016-beef-steak/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "e8692d7807fb5d3a3feedcaa7cfadb24dda854bef773a8fad4130fa503383744",
+    "sha256": "5deb46e6316659e9142cdf8d253ee5ddfafde99028a31f268d147c02c8c13932",
+    "bytes": 453780
+  },
+  "/uploads/catalog/raw-sets/016-beef-steak/03-thumbnail-farm.webp": {
+    "sourceSha256": "ce2fdf07dbcdb9dd23b7623ea9e6f9c692af4eff75c3bf1eaa8a7d4bd8c39857",
+    "sha256": "316b556c22efddd1fbe77151ec381763e47bf92120c10e1387f580f4cc4d3152",
+    "bytes": 328502
+  },
+  "/uploads/catalog/raw-sets/016-beef-steak/04-thumbnail-bowl.webp": {
+    "sourceSha256": "7521f82d309f987c847f4bbb04322cad90be324a9e75572bca8cfeffb7d9f964",
+    "sha256": "5c867a8dca3c180952db52a91e7f64e050293cc34df37481550230a425d9ca9f",
+    "bytes": 643712
+  },
+  "/uploads/catalog/raw-sets/016-beef-steak/05-farm-visible-part.webp": {
+    "sourceSha256": "d173e699dba51ee854240718f22da279eb3629d52dfaa128ce47d30143de2ef7",
+    "sha256": "96a8dfa0d11182501744c22e5baf758c925e8a54b72683d460c1385846941ae7",
+    "bytes": 253682
+  },
+  "/uploads/catalog/raw-sets/016-beef-steak/07-farm-card.webp": {
+    "sourceSha256": "dedd5bf460f742d1ecfdb8cbf799d340aa92b825955e2b62b028c828ffb7d5a8",
+    "sha256": "f27ad8e0ec04b438357207a6cb1ac07f91c6919ec295a83dcf1d1eabe78133ba",
+    "bytes": 220410
+  },
+  "/uploads/catalog/raw-sets/016-beef-steak/06-portion-package.webp": {
+    "sourceSha256": "ea8008664d2362a84bb2791455c97c573cff0cfa424868e85a106e970432efd0",
+    "sha256": "7e6304305d125b816d0b2043ef1e43d87a6a52568ec8ab4fe687ba31e1ce1202",
+    "bytes": 377142
+  },
+  "/uploads/catalog/raw-sets/017-eggs/08-illustration.webp": {
+    "sourceSha256": "bc65d504e546645d71c4464df3b7507901b6b31aa4b051a91d39cb5e291eabb6",
+    "sha256": "1404ae6cfd207d000f19d0d6b8f28e6d6786706476468533bbd9da0ba5a5c180",
+    "bytes": 359912
+  },
+  "/uploads/catalog/raw-sets/017-eggs/01-main.webp": {
+    "sourceSha256": "0c9aa5fe110296e3fb4742d332e787a36449835b13557b64dbe56df0dc2f9a8f",
+    "sha256": "dd1f18db7e30a8efc6a3b8566c16ed09c18b4333c339b1b6fd1da5f3098d9e0f",
+    "bytes": 304522
+  },
+  "/uploads/catalog/raw-sets/017-eggs/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "dbdab203ed39259430ebe9ced682a03c150e924e5ba8bed13e4d578ed58eaff4",
+    "sha256": "171573692223da59f9a6fe1d53a565b95d307ee705d17aad5ba185411ec957dc",
+    "bytes": 267378
+  },
+  "/uploads/catalog/raw-sets/017-eggs/03-thumbnail-farm.webp": {
+    "sourceSha256": "9e7d7f86598a0d0367ee7a654908c77a077bdf5eac4ff17bdfd0c0b40fced9d4",
+    "sha256": "b71cc1185d98488c2a86611cbc6c7182884b389f380d30a1f06f0df89431d88c",
+    "bytes": 296818
+  },
+  "/uploads/catalog/raw-sets/017-eggs/04-thumbnail-bowl.webp": {
+    "sourceSha256": "1f65e78238dcd127e942a9d80defb4163a1af3d80a041564d3dd517e4a68f94b",
+    "sha256": "2192c78878aaa7134bd9c14645232440b65594b07fe8619e2a7e3950392bc200",
+    "bytes": 363810
+  },
+  "/uploads/catalog/raw-sets/017-eggs/05-farm-visible-part.webp": {
+    "sourceSha256": "1010289e27eac0c6ab0ace60e1b43f18a36d1be0d1d04c7282a6642482606c9c",
+    "sha256": "801cc57c01b4d90249ba409a78798adfe3c477e7df29139260a3c3205d26afd2",
+    "bytes": 299324
+  },
+  "/uploads/catalog/raw-sets/017-eggs/07-farm-card.webp": {
+    "sourceSha256": "e9ca59c1523ba36c83029ce3fa8b647014bbc616c5ee026f816366a63e024a91",
+    "sha256": "976b41d3cab1694ee0e764279ad8b540a5d33d66fef317133d262fa7ccadc5de",
+    "bytes": 260978
+  },
+  "/uploads/catalog/raw-sets/017-eggs/06-portion-package.webp": {
+    "sourceSha256": "df4cd3c7484b045769bf4ec294b708339c5a45b9f6ae89f9f7fd0e806e4a445b",
+    "sha256": "9af5520c8f15aec289d622b278276825fcebdfa8093d56a6e8929eaf728ec1ca",
+    "bytes": 314912
+  },
+  "/uploads/catalog/raw-sets/018-pork-neck/08-illustration.webp": {
+    "sourceSha256": "7d163bd8e9232b050729b24e86392767e097f435666918681d97dfa042d6b18f",
+    "sha256": "16a0ae72d81324a5f1d2682fb4a1ac989f29f40265029607b129844f1d8eb101",
+    "bytes": 74626
+  },
+  "/uploads/catalog/raw-sets/018-pork-neck/01-main.webp": {
+    "sourceSha256": "5529e31078c3d97481b3bd1f0174f8220dcdeab84a5a22eefa1871ec8f458445",
+    "sha256": "819ed33c62237a3d03b60b2848febd90f50f7ded1c74ea478e838949d5028d19",
+    "bytes": 447244
+  },
+  "/uploads/catalog/raw-sets/018-pork-neck/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "34c8bdf5e0dacd43f87081df6f81ea0a419ef59348dddd1ca84b99796623cffe",
+    "sha256": "c65ad5beabf3efbacc8c99cc96aaf8f35e33116f09c45ecda3786ac2c1e1f770",
+    "bytes": 413230
+  },
+  "/uploads/catalog/raw-sets/018-pork-neck/03-thumbnail-farm.webp": {
+    "sourceSha256": "281ba88a35138295b5d466abb73cc2f00331c80213ff88833cda0ede271103d9",
+    "sha256": "13f5242d55efecf444d8c2b0bcf413b45e4a97d681d5cf516039147f6cfd155d",
+    "bytes": 257838
+  },
+  "/uploads/catalog/raw-sets/018-pork-neck/04-thumbnail-bowl.webp": {
+    "sourceSha256": "32fd7c7f9f292025196992bd0e57a8df900c1d6bc8e28c379e8db384e7201702",
+    "sha256": "b3aa191593639017d9f9b7e2cda2c5210c583cdde3889a2a0f6d5023b1db4ec4",
+    "bytes": 534282
+  },
+  "/uploads/catalog/raw-sets/018-pork-neck/05-farm-visible-part.webp": {
+    "sourceSha256": "405581579afe576eb3861975b32b5d1e74fc91c3d33049244ae3166e9169b988",
+    "sha256": "32fbc5a01cf76756610e569224c9e2d0749a14cb707b4c7245d2eccf91c47b76",
+    "bytes": 256280
+  },
+  "/uploads/catalog/raw-sets/018-pork-neck/07-farm-card.webp": {
+    "sourceSha256": "21931ec23d92789063a999b72338c2241bcfa15d978a978ef1d62649f5f2d1bd",
+    "sha256": "6ede9247fa47aece63cd1950f1749e3b46613f6fe091665db308787b98246f4b",
+    "bytes": 223416
+  },
+  "/uploads/catalog/raw-sets/018-pork-neck/06-portion-package.webp": {
+    "sourceSha256": "ebb0046e0752c8e3c2813eaa4407335fedf993063b28c0978f53402f4007cbca",
+    "sha256": "42167ce6ddc17830f6ddb654786f3577d0b3efc6187c2e78e37e911e46daa22a",
+    "bytes": 341788
+  },
+  "/uploads/catalog/raw-sets/019-chicken-drumsticks/08-illustration.webp": {
+    "sourceSha256": "800cbddcba9304a1ba78e500e74a46827c9de43288b742bafdb2267271b32e0b",
+    "sha256": "aac0aaa870258b3fa31e7f3a28535b2e4f5809b3e04dc708eeeb216b42c7d994",
+    "bytes": 77542
+  },
+  "/uploads/catalog/raw-sets/019-chicken-drumsticks/01-main.webp": {
+    "sourceSha256": "0b1748b2ff1d5c6970ac30a80726800f52fbdc5d58bd8d803acd686744fac1d4",
+    "sha256": "4b4f36967fbe78094054d4e18945dba6925e0a148c7511b148b5ed8f16aba1e7",
+    "bytes": 314470
+  },
+  "/uploads/catalog/raw-sets/019-chicken-drumsticks/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "e14f6c42b8d1bf6df79ceb6a3e3b8513ed9bf0986160cd154b67a407dc9f8218",
+    "sha256": "461c2dd881c3e5a59f304f37bee0b13bc524571e875cafc69139ee177549db05",
+    "bytes": 262454
+  },
+  "/uploads/catalog/raw-sets/019-chicken-drumsticks/03-thumbnail-farm.webp": {
+    "sourceSha256": "05ad9922c7df7f6a62db0bf4a140fcb7bbcda64cdff3ae778f525211daa5f50f",
+    "sha256": "061a1a1da94b877f87961e913885cf0511a469ccafa9a1eabb08bb5d983fcff6",
+    "bytes": 348028
+  },
+  "/uploads/catalog/raw-sets/019-chicken-drumsticks/04-thumbnail-bowl.webp": {
+    "sourceSha256": "212f77ab2fef94680ee0abd5a2dfa023d5e74de6acb30a1deea932c5b0fcad32",
+    "sha256": "353835620567c34548a758dd7d9b85ab96ca7c0518e6144918531a2660e384d2",
+    "bytes": 329142
+  },
+  "/uploads/catalog/raw-sets/019-chicken-drumsticks/05-farm-visible-part.webp": {
+    "sourceSha256": "c6db2ad6dda0ecc57b8ea08c26269962a34d066a1c3ecd9b30d153a115c12206",
+    "sha256": "d4c4e9f6da5a89e89ca187509f2d5c372dea1293de147df83733d441a4f46af2",
+    "bytes": 264042
+  },
+  "/uploads/catalog/raw-sets/019-chicken-drumsticks/07-farm-card.webp": {
+    "sourceSha256": "ad7434db2ee4acaaa09874a6785061da5b238034cd10be2561db4a0082135911",
+    "sha256": "9ebf6cd43eb088e2ec21cb56b56f0af5251246d33bed6f56a6c6057e9ccb2ff2",
+    "bytes": 223674
+  },
+  "/uploads/catalog/raw-sets/019-chicken-drumsticks/06-portion-package.webp": {
+    "sourceSha256": "759f1d5d08895ff539af4e3ec585c1231c85ce6a97a9b28fd22364b332773448",
+    "sha256": "5a663e61f31207988d8b45e172f10210349ef8dd2cc71633a21fd9cb4258041b",
+    "bytes": 220134
+  },
+  "/uploads/catalog/raw-sets/020-blueberries/08-illustration.webp": {
+    "sourceSha256": "61f3d5aa050da19b5ea677b90b69850d1d19b7023a56fd2408245555390ef5ca",
+    "sha256": "f361f45a9b600fd37b740accbb6b9dd1a828ea88b288215e2f201aec7240cb97",
+    "bytes": 81720
+  },
+  "/uploads/catalog/raw-sets/020-blueberries/01-main.webp": {
+    "sourceSha256": "2e5b3104d57091f498bf43089e8b16f3c57c9b496096698d33dc52b9da59c46a",
+    "sha256": "4caa8c506e60e4f280f2c8791e717aafa45da2156fe0b98bc29d4e09559b3f8d",
+    "bytes": 369498
+  },
+  "/uploads/catalog/raw-sets/020-blueberries/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "18e8d7443a501b98ea0f1dbaf7d08ee61e7d24aa908e096aeaf33ab1ddd7c92e",
+    "sha256": "f616854e2a097a3bf97eb682a5ed6497aeecc02e23c4ebcf42e77cbceb7fb514",
+    "bytes": 372978
+  },
+  "/uploads/catalog/raw-sets/020-blueberries/03-thumbnail-farm.webp": {
+    "sourceSha256": "6bea764264dd0fdc4042da815658dbe5bf646957e4760696160dbbb9b2e62a84",
+    "sha256": "421323fe38fc7a8678cd11bf07d7b118e1c2452d1d0e2bf91daec6c098bf2846",
+    "bytes": 326574
+  },
+  "/uploads/catalog/raw-sets/020-blueberries/04-thumbnail-bowl.webp": {
+    "sourceSha256": "29ea0d6b0a82403a18ba49bec8b0eba43a0cbfec3881909f45e1e35f1e6b659d",
+    "sha256": "c555b13e48723ad8dcb1d11c0663ece38740f6f594736b4e356d42b2881a2ddc",
+    "bytes": 536440
+  },
+  "/uploads/catalog/raw-sets/020-blueberries/05-farm-visible-part.webp": {
+    "sourceSha256": "8a39178cd9976dd0f0e8959df568433db9623f864ff6d96e3ddb53061229e7a0",
+    "sha256": "b94d0baf11a56646ca60b947af4267b8866fc8d1ffd5d26e7491994e1e163449",
+    "bytes": 264816
+  },
+  "/uploads/catalog/raw-sets/020-blueberries/07-farm-card.webp": {
+    "sourceSha256": "acae0698802ba07673057b90685b1a4435d6bad4c25010770bd40da6712af5b8",
+    "sha256": "d297c55d9e4493373214f584a65a1ed4c0f6249388dcd14b258d6c87407e9698",
+    "bytes": 221190
+  },
+  "/uploads/catalog/raw-sets/020-blueberries/06-portion-package.webp": {
+    "sourceSha256": "2f2af4cc3fdd731d1a3bcc9bce4b1b5a2558c2221c549d3dbac0a886f4c4ffd8",
+    "sha256": "3e3ffe658dfe8384fb50b7bff481322cfc1fde0b0a6cb6f3ef0d4fdf9efbd348",
+    "bytes": 302968
+  },
+  "/uploads/catalog/raw-sets/021-dragon-fruit/08-illustration.webp": {
+    "sourceSha256": "64a590753a04e360c6c9546f71686948346d66772050d999fcb6b892979c62c5",
+    "sha256": "ba3dbe8a1561dc4aa653e12a50642c7aee4e4e7023652a117ced1216bb8f7e4a",
+    "bytes": 54292
+  },
+  "/uploads/catalog/raw-sets/021-dragon-fruit/01-main.webp": {
+    "sourceSha256": "bb2d5647278f67690c6a659d557acb5d35611ba85535f6a9b8b08434e5ff4a50",
+    "sha256": "5b968f1591613564ab72481e3b685c9535c5154680d03a78d3c0e2ed9d649440",
+    "bytes": 356916
+  },
+  "/uploads/catalog/raw-sets/021-dragon-fruit/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "3161682efa0e5aefecad2aadd2d0b257a526ca3fbf568f6bbe4d398b2c241595",
+    "sha256": "4deef61729a2dcdd45672066443e1dee4d3071d5a410e57b931807596ab56438",
+    "bytes": 348412
+  },
+  "/uploads/catalog/raw-sets/021-dragon-fruit/03-thumbnail-farm.webp": {
+    "sourceSha256": "deccf9640e4e7f8b770c4f59faa769266ddf244e2a9230092c2d0a778f669e7b",
+    "sha256": "c495c867950f16dfa3efa44e2eb9efa622b6f6f1f6dd57262b8d3408c0f732f2",
+    "bytes": 274328
+  },
+  "/uploads/catalog/raw-sets/021-dragon-fruit/04-thumbnail-bowl.webp": {
+    "sourceSha256": "e7e7c554a5270423c136ba68add716af09e9adef903c45876fc80e02acf6e93f",
+    "sha256": "15a65755710115172dd635852cd8aba93d9c5f3ba05852cc95b6a41558ebe88d",
+    "bytes": 453210
+  },
+  "/uploads/catalog/raw-sets/021-dragon-fruit/05-farm-visible-part.webp": {
+    "sourceSha256": "0bcb6485e9fa9432a59b9e673bb973aef327b1f8472b352b3053a40f3052e2b8",
+    "sha256": "2b84a2392e48007c65e51c01d391bad58424a4541c39cec1e7557445368b7bd4",
+    "bytes": 200932
+  },
+  "/uploads/catalog/raw-sets/021-dragon-fruit/07-farm-card.webp": {
+    "sourceSha256": "1269cab5e84ca4966538dd2dbe17d19cad9d8725a60ba192984a2ee48190b495",
+    "sha256": "328d9f25c1f07616c9dedb1917936cca2ba8dfb565d9e5b09cbd2fad603c125d",
+    "bytes": 207658
+  },
+  "/uploads/catalog/raw-sets/021-dragon-fruit/06-portion-package.webp": {
+    "sourceSha256": "d04fc14d1a9a8c21e3848b5658e077e4c1a7fd5f6d8d9b8a7ee03bf9e7ed1a26",
+    "sha256": "c8e2b3d74b3b0b61ca22b3c44664b71644fc4b0440c64ea5dbe4ce6f355bd8ef",
+    "bytes": 314958
+  },
+  "/uploads/catalog/raw-sets/022-peach/08-illustration.webp": {
+    "sourceSha256": "ede7ce6d7458e316176b3f71d9d57aae64f3572dfd59d1a231e38e365e0d529a",
+    "sha256": "7d1b04679cdcf9be241a596d7796f600e984b0c1cdc61eba49a4390b7f261dec",
+    "bytes": 76272
+  },
+  "/uploads/catalog/raw-sets/022-peach/01-main.webp": {
+    "sourceSha256": "a58fa514a9d2114d95e82a7f07dc5d209be63e8c582a94db61c0ef8bc5af8ce1",
+    "sha256": "e56142e535773a39cdc0b753e968118341e2746d6f355c88b5dcdf87973de27e",
+    "bytes": 359846
+  },
+  "/uploads/catalog/raw-sets/022-peach/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "b028ddfc71624cc8eb89cbf61f7f3607b120c5d5448302da92b7a4548d24fb7b",
+    "sha256": "bca9b6e7814b77e0505116692ee2a81b9fee6fd5e3e96d1e2a7e6db21be34d2f",
+    "bytes": 278310
+  },
+  "/uploads/catalog/raw-sets/022-peach/03-thumbnail-farm.webp": {
+    "sourceSha256": "ff7821a64c40cbb1bf972cd666742ee8356eb866b17c2785c653a5f41903cc9e",
+    "sha256": "9c1449a9618b1d16297db625835d5806051255758ae707362777c1666aacc67f",
+    "bytes": 338368
+  },
+  "/uploads/catalog/raw-sets/022-peach/04-thumbnail-bowl.webp": {
+    "sourceSha256": "8f664c4d8c7be6e40398153852d136913f288f8446979588d62fa269940642e7",
+    "sha256": "dd0de9e02d4c2f57b6b7308159b0e30bf3a014bd9e535b1cb674629ff0ebfc80",
+    "bytes": 486910
+  },
+  "/uploads/catalog/raw-sets/022-peach/05-farm-visible-part.webp": {
+    "sourceSha256": "13b18eaa6011b57e0bd69ee3baf6a710ee32f3bc7602179d802c7531a861b642",
+    "sha256": "72a2e0c50497164bd07847c9b98f3c19c78c18fb181e29d6def26b38a931a681",
+    "bytes": 260218
+  },
+  "/uploads/catalog/raw-sets/022-peach/07-farm-card.webp": {
+    "sourceSha256": "b56c1c3d427298be7819b9be4caf5e6bde5740525207dc6ec8a454abda141643",
+    "sha256": "7730d66af2f3485cd450f078d0eee44e5ee0582738fa20259491bf100d1a502f",
+    "bytes": 245300
+  },
+  "/uploads/catalog/raw-sets/022-peach/06-portion-package.webp": {
+    "sourceSha256": "cd636b20ae15974214ad0abe74866a3dcd30dd7d7460d925aefd245b5c570e31",
+    "sha256": "de137f0dfb1a4ad42ca376598a9983c53df9958e234e67d938b2d4a8e958ee33",
+    "bytes": 324474
+  },
+  "/uploads/catalog/raw-sets/023-sweet-potato/01-main.webp": {
+    "sourceSha256": "aa08846f8869a81cd592d6fea9d20207e9da405204d7add9dd1f576e69348935",
+    "sha256": "fa1017d52410f168e835112e9f5239b3af7498488e94e64d40debdf1d0476217",
+    "bytes": 435162
+  },
+  "/uploads/catalog/raw-sets/023-sweet-potato/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "2321cf0b4ff73efd3c7ec41c899b76aebe132ae7375e5baa4e53c050eab8d5cc",
+    "sha256": "36a73136db6690f4599c70ff87b90e0d09422ab3bbdc29cca2cc11fafb6f4a84",
+    "bytes": 536128
+  },
+  "/uploads/catalog/raw-sets/023-sweet-potato/03-thumbnail-farm.webp": {
+    "sourceSha256": "ea430446adeac8a06c1b9a81a30d8db9997364b1321ef71992f18a75afe06612",
+    "sha256": "8b4fc1297ac2318d1633a1e04d51bf52bf0e68d363ba5776be4f42d1182479af",
+    "bytes": 368266
+  },
+  "/uploads/catalog/raw-sets/023-sweet-potato/04-thumbnail-bowl.webp": {
+    "sourceSha256": "e00134e1c0bd8e5bbad2bf1740317f6583fd17b15f2ce97cf238ff6b95578b0e",
+    "sha256": "57b45a50026ecf26d9289a453ddbea3d33c2ea0bf3748ca146cf325a01cb6457",
+    "bytes": 460042
+  },
+  "/uploads/catalog/raw-sets/023-sweet-potato/05-farm-visible-part.webp": {
+    "sourceSha256": "7fd36d72e4c71d7a4d59ce375db236ab30172c8d3ff0e1c83bf139fe80781caf",
+    "sha256": "afb65b263edfed7e6e5725bbee0985861d573f69f838ee0d9d695d8154b7b05b",
+    "bytes": 259374
+  },
+  "/uploads/catalog/raw-sets/023-sweet-potato/07-farm-card.webp": {
+    "sourceSha256": "24fccd88c66bc6838ace2d8178432ebca957ea308c12beccc0ed9e270b7ffaa8",
+    "sha256": "1000d96bc23189d2a1749ecb4f07165d18cc5208b1f023fd0c96873afdce4c62",
+    "bytes": 221920
+  },
+  "/uploads/catalog/raw-sets/023-sweet-potato/08-illustration.webp": {
+    "sourceSha256": "296cbdb4bf7d6cf1feb7043e64c664ef166ce41fdb5141c48def06e2ba83a545",
+    "sha256": "5b11d5d2a9dfed056c45d0e2b9059b300282f493d89476e866e0a50fa3d37445",
+    "bytes": 98944
+  },
+  "/uploads/catalog/raw-sets/023-sweet-potato/06-portion-package.webp": {
+    "sourceSha256": "7829e7eb39a70f197358cdf6f1d47faecb599475d62102bc8a413448bdfa2b40",
+    "sha256": "c4381b5c99c0d8d48c0a2627616bc55a40cb505dc5b8d036fcc10e58e99a44d8",
+    "bytes": 342382
+  },
+  "/uploads/catalog/raw-sets/024-kale/01-main.webp": {
+    "sourceSha256": "bd81aca4e5b93b635e18ad4f5af1ae2334b0eb0e917a6619be8bb1890be45052",
+    "sha256": "48ab65c5d42ff0c6f2108a2e1a2428402837be886065f15ff36c01e0bf19a036",
+    "bytes": 493288
+  },
+  "/uploads/catalog/raw-sets/024-kale/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "3dfb73d066ea75901f875787bf0e840b424155d87a3405410d0c5c983613d3ee",
+    "sha256": "984d0a6b7b29642d8c9d892fee1d6f793f0fd2faa96ef2c85e142951ed81d625",
+    "bytes": 474666
+  },
+  "/uploads/catalog/raw-sets/024-kale/03-thumbnail-farm.webp": {
+    "sourceSha256": "222c06d50ed499b4ecb3141e9cadae41118a5bd02979603e1dd32bb25ef53c4b",
+    "sha256": "8c6c9e1cbc928db53b21ed5d53a7fc3ab48112a48c9892a121447c78b4118e0a",
+    "bytes": 319040
+  },
+  "/uploads/catalog/raw-sets/024-kale/04-thumbnail-bowl.webp": {
+    "sourceSha256": "1529e2585096a44f193296671563c1416637a12e8d5dda33701e18902a41ef18",
+    "sha256": "7a5788e38023c01557e7ee85e5a1d0aac9f8041720d501972a6f2b6a8b7a474b",
+    "bytes": 513612
+  },
+  "/uploads/catalog/raw-sets/024-kale/05-farm-visible-part.webp": {
+    "sourceSha256": "14757b408986debf2a870e379661bc6b795a1c118b798d95cd2239eda978146c",
+    "sha256": "7409f04a1343ecdcd6280d3e648514589bee2793024c3c85d9523636497be6d9",
+    "bytes": 231352
+  },
+  "/uploads/catalog/raw-sets/024-kale/07-farm-card.webp": {
+    "sourceSha256": "b7691a2ded7445bb6312a0fac07ce8f2bb97c9eef6b06138caed231c98d6b126",
+    "sha256": "80f08af43eaab5b32e25bb835f46a24686d012e0a66df6397bc13845d86f41cb",
+    "bytes": 193156
+  },
+  "/uploads/catalog/raw-sets/024-kale/08-illustration.webp": {
+    "sourceSha256": "2e1a66cf332adb753747d1a5a66ce33585c37319f1dd2a1d204187ec636c3911",
+    "sha256": "a546e16549506f238bfa0b8822ec7d0e808f0c20543bfecbb3ad47b32ffe6be1",
+    "bytes": 135264
+  },
+  "/uploads/catalog/raw-sets/024-kale/06-portion-package.webp": {
+    "sourceSha256": "a4c9365f39e1abf5e0498e94ca1b0a5e40684e44cf5484f918345d01a1829fdd",
+    "sha256": "05fad5542d9cf69c0c4ff865a5e33693dcc1b5bb8b8e81c2f8b958780bd96b90",
+    "bytes": 353382
+  },
+  "/uploads/catalog/raw-sets/025-red-chard/01-main.webp": {
+    "sourceSha256": "47674dd8e0bf134afec9525dc0f5afd30429ece1eba7bee8ab94f04342ccea3b",
+    "sha256": "fff49dcfae4d5dd746b2b728bea45d6f6f9a2682c4636ad332065ebd39c7c5f6",
+    "bytes": 505572
+  },
+  "/uploads/catalog/raw-sets/025-red-chard/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "473de9013538b317d23781ea8f1bbf812ec3cefb058e5a58d21730eb6c528694",
+    "sha256": "eaeffd4525c9f2e293041f0bf7e448eab529eb9dfd0798ed62d5afc3c3cd0dfe",
+    "bytes": 457214
+  },
+  "/uploads/catalog/raw-sets/025-red-chard/03-thumbnail-farm.webp": {
+    "sourceSha256": "b383c2cde33c98b329ee9d01b207445d4f050163f1911c8f76dd97ab2ebcd88d",
+    "sha256": "43eaa95b22aee8dbd14a2f3e0ec5cf9e6848c97e8586f7f7ec0690b153a04587",
+    "bytes": 301666
+  },
+  "/uploads/catalog/raw-sets/025-red-chard/04-thumbnail-bowl.webp": {
+    "sourceSha256": "3d920d2574b6d3b6c6c0ffe580a5812fb8b6904aa31d56680064d6d2acf23199",
+    "sha256": "7026bf08f12c7d4371e5eb5efbfca5047020426b1d54b515a0d63f359fe0345a",
+    "bytes": 552378
+  },
+  "/uploads/catalog/raw-sets/025-red-chard/05-farm-visible-part.webp": {
+    "sourceSha256": "e5b5240380271fcb094c64f3385c4a405a764f91406314f91b6c79f47e409142",
+    "sha256": "5110ccf11f4f6df1a643102734e0214787500a44cae940cb9fbfe28894c8da44",
+    "bytes": 259118
+  },
+  "/uploads/catalog/raw-sets/025-red-chard/07-farm-card.webp": {
+    "sourceSha256": "61da14bc128c949eb4254f95f84a81350791fec8a8bddf1171341b8b1026a24b",
+    "sha256": "f5e08e8bf6bd14198995fcafaf389ea01f05813530db19f899c2cb36ee4dc901",
+    "bytes": 229672
+  },
+  "/uploads/catalog/raw-sets/025-red-chard/08-illustration.webp": {
+    "sourceSha256": "d2df027f2dd138a9a6b319ecba23103a51c6fac19a1a3ca783819e710d0af408",
+    "sha256": "6abdb5d1e785fd80312d8fd3ecdc456acbe4a42994253d09f24addc9dd1840bf",
+    "bytes": 114102
+  },
+  "/uploads/catalog/raw-sets/025-red-chard/06-portion-package.webp": {
+    "sourceSha256": "17c6ef29f82598fbc286a3dfbf7f64aee2792f2391941d1d0b7e91ca8e9779e8",
+    "sha256": "5a69d17dccaaf71e0028cbe5a8a7701c2cac44bcf3852eb33196c12b1e05efb1",
+    "bytes": 358800
+  },
+  "/uploads/catalog/raw-sets/026-flower-lettuce/01-main.webp": {
+    "sourceSha256": "79247c53279a974bd7fe06121607a0597eeb3f52b41439b5afd481ecf7b9f1a9",
+    "sha256": "dfb99eb29b16c299b16ec3d98449a9ba1f4ce0a2d68ed7dfee9139c4763482ae",
+    "bytes": 445520
+  },
+  "/uploads/catalog/raw-sets/026-flower-lettuce/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "80f058b53fb7b81870677b9db677e01c23e94e8ea1e09e1503e5676370a69aff",
+    "sha256": "a00c8bc8f25817c03e1636d6489587e44f375ff0a6c7ce01040c3a8746f1e584",
+    "bytes": 410202
+  },
+  "/uploads/catalog/raw-sets/026-flower-lettuce/03-thumbnail-farm.webp": {
+    "sourceSha256": "5704d97a22fcfa4f083f57c5fca3791dbd2d9cd5712123a0f4cf271a9c4e818d",
+    "sha256": "7d440dafc5441a7d064723e9dc920d379cd6203900ce06543e29cd2bd0396266",
+    "bytes": 302058
+  },
+  "/uploads/catalog/raw-sets/026-flower-lettuce/04-thumbnail-bowl.webp": {
+    "sourceSha256": "ed63fafa58e1883a8f2b320f9b9823c27eaa9d90847aebaebac878f052524def",
+    "sha256": "564ae17aa7394ba32c43a977935f5ac9ce0b4e94bcf9359debfb4d76fffcecfb",
+    "bytes": 559352
+  },
+  "/uploads/catalog/raw-sets/026-flower-lettuce/05-farm-visible-part.webp": {
+    "sourceSha256": "c53bb1d52398f18776a4a2d338fe4a90540ddc1e13824252a2bf2fe417361d6c",
+    "sha256": "56d1b3b6d746d2655d66ed1ab3e99d510c59cc9fbc25bd5dc50508a05ad81af7",
+    "bytes": 265264
+  },
+  "/uploads/catalog/raw-sets/026-flower-lettuce/07-farm-card.webp": {
+    "sourceSha256": "5a4b945b432ef48d4a801168ba76b98185cb5c0eea115d055f6bd936b0899a8d",
+    "sha256": "aa9ab79caccea1e0e6bfa0a1b4e93e5a73ffdcda903552be3b2d0f28de0391a2",
+    "bytes": 229602
+  },
+  "/uploads/catalog/raw-sets/026-flower-lettuce/08-illustration.webp": {
+    "sourceSha256": "33d9db4bd19676392c581cdc040ef2b88101e298a8cb7923e59e73c1890937d2",
+    "sha256": "5dfdad9c1f8910385de22b5aa8e1fc5f229cb0bc02231e9bcb6b5b8e0e7683c7",
+    "bytes": 140692
+  },
+  "/uploads/catalog/raw-sets/026-flower-lettuce/06-portion-package.webp": {
+    "sourceSha256": "26619b155375db4a88ca1d738b0e9e771097c9e5dbb98655e1da408bddd46402",
+    "sha256": "057b926c1f59260c936c766c36fb239de647d46e16fd18331be3fcea705b0b5f",
+    "bytes": 318608
+  },
+  "/uploads/catalog/raw-sets/027-napa-cabbage/08-illustration.webp": {
+    "sourceSha256": "af81844b2986fea690e8241ec617db9b049be7b9a004926377fd1b222dc203db",
+    "sha256": "20666424bd9167a49ec616651ef7deee96488a637c235dc2a1ed4d29cfc06b8b",
+    "bytes": 715724
+  },
+  "/uploads/catalog/raw-sets/027-napa-cabbage/01-main.webp": {
+    "sourceSha256": "cecc7e20126f842d7c62f02367091dfadb9f3e4e8873ca6b97f2aba8f9f6aef0",
+    "sha256": "45d759d07f297673c0f1075b2e2344b9ca647ebe20ef329ffcbe5e63e1d25de5",
+    "bytes": 329390
+  },
+  "/uploads/catalog/raw-sets/027-napa-cabbage/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "ebfc9dd9900554c787140932f332875e3681697efd166a63e58af8c292036f45",
+    "sha256": "9c082e283debb7c8586ce96c3dc7843fd45873144b13ad41fc5f778498a464fe",
+    "bytes": 259588
+  },
+  "/uploads/catalog/raw-sets/027-napa-cabbage/03-thumbnail-farm.webp": {
+    "sourceSha256": "1c816e3ebcdfc4ef89d69c53c00ba3c8c6e70ed9fd4501da2a36d2497b1342fe",
+    "sha256": "9a52f4a6c8568839c753468b878084171945e637b5f17df72bcf9e3e0ff585d9",
+    "bytes": 324856
+  },
+  "/uploads/catalog/raw-sets/027-napa-cabbage/04-thumbnail-bowl.webp": {
+    "sourceSha256": "af8d53e7d7b9218140154a253440bb49eb80e430a54200a2376149c60743fd88",
+    "sha256": "379a13877f55ee6bd5e6f8edcf01e62ad1498a386e40817ddf8c677df3b42a8e",
+    "bytes": 401186
+  },
+  "/uploads/catalog/raw-sets/027-napa-cabbage/05-farm-visible-part.webp": {
+    "sourceSha256": "d4d5591325b59e088e95be67f58244f5759b66bd9da07b364285dc2ff48acb13",
+    "sha256": "4907a053021fdf945856852c2b8d1af6505ef03bfe425c717e5922e54f71f8bd",
+    "bytes": 237310
+  },
+  "/uploads/catalog/raw-sets/027-napa-cabbage/07-farm-card.webp": {
+    "sourceSha256": "7d5c658a66197f81cffba2ad6040b4b0daa5349f6596a2dd1fd7fce1fbae5674",
+    "sha256": "55a287fc4915024b550c29a451f1060bc833ab1dbaf429a14907f540fd115942",
+    "bytes": 195000
+  },
+  "/uploads/catalog/raw-sets/027-napa-cabbage/06-portion-package.webp": {
+    "sourceSha256": "f32eadc6f5e7eff3258b7e6b287f455937f6a1ad89d5c94141ce82a99f9e4b58",
+    "sha256": "40e90aaafc34cfa3566de1e5193e2557ce3466483cbbda6092c3084d7d6649b7",
+    "bytes": 220012
+  },
+  "/uploads/catalog/raw-sets/028-golden-kiwi/01-main.webp": {
+    "sourceSha256": "ba264806a47268b42e92257bb3c5de91f7351fb6ef2bd429e34fd44a3f50fcea",
+    "sha256": "abcdbccaa548d57df6488984def7d66b52c946f9c661afb51a132e96411edff7",
+    "bytes": 409498
+  },
+  "/uploads/catalog/raw-sets/028-golden-kiwi/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "b60beb3eecd67edc94e5e398c35b09260d7b4f64b883a1fbffc383deb398be4e",
+    "sha256": "d0acc1ee645d46e19dfcea59cc355e52878ff2298ce1d927bf16fb010cbff48d",
+    "bytes": 357206
+  },
+  "/uploads/catalog/raw-sets/028-golden-kiwi/03-thumbnail-farm.webp": {
+    "sourceSha256": "1422103124b7855c0aa79e28d72af9c5dc1d4ac6da80b6983e7957936de53f46",
+    "sha256": "f3b603c38f7a92cc33485f3e2a691b0dc43c5956123b1efd350a68748fffeba9",
+    "bytes": 289458
+  },
+  "/uploads/catalog/raw-sets/028-golden-kiwi/04-thumbnail-bowl.webp": {
+    "sourceSha256": "203db68851e13dd6e4e6b8dfa449765c0a1fc4aa35fa646c90a0504cfc3f4ad1",
+    "sha256": "91355b1b6ff485b09194c75a039be332d267592876015340bbe8ec30c17f2897",
+    "bytes": 439844
+  },
+  "/uploads/catalog/raw-sets/028-golden-kiwi/05-farm-visible-part.webp": {
+    "sourceSha256": "8e018f47993c78026baf9974ffb8277916a6a653cd691db4f02602a91df623f1",
+    "sha256": "d9c541c4927ddeaf2a2a03faa56df0d12c47c62d98a5c85e1e7ba10656287fd6",
+    "bytes": 284452
+  },
+  "/uploads/catalog/raw-sets/028-golden-kiwi/07-farm-card.webp": {
+    "sourceSha256": "e7d9c720d796cfd0cb3d8c2bcd7b58c773442ac2bc17939f25620e273f7ce207",
+    "sha256": "56ea0c2faab059f775142e48f8b0560b11810490f9e4f3495b8fb21930c5cd56",
+    "bytes": 252938
+  },
+  "/uploads/catalog/raw-sets/028-golden-kiwi/08-illustration.webp": {
+    "sourceSha256": "ba2790ae1c2aac96eca3d431912f5d0abc07d4ca2070ce2d5a4d7322e7e60228",
+    "sha256": "c460da93566b8aa5229ea40548c76ee81da284d133d600a0c83cca2c4300aaa8",
+    "bytes": 117862
+  },
+  "/uploads/catalog/raw-sets/028-golden-kiwi/06-portion-package.webp": {
+    "sourceSha256": "8ea78bcaa1ec87c63d6ab0523432fd71429034e0712791f762c09c630fec45c6",
+    "sha256": "dd4f397ae69fdd8e8f9f4a880a23adeea6aaa6e6797716b5620e0e6d10ad83fe",
+    "bytes": 350072
+  },
+  "/uploads/catalog/raw-sets/029-chicken-breast/01-main.webp": {
+    "sourceSha256": "2bc4a805ffffa71f85da0f2ac8eac999654f5d8f97fb264af50b11e59d3becb4",
+    "sha256": "e5de02c503988fe4bf906d618a84c2953661bbd3e9901e70dfc97fe2cd44ae23",
+    "bytes": 293080
+  },
+  "/uploads/catalog/raw-sets/029-chicken-breast/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "65cee30cf609b61e6d922307abf37c435a2ea31192b7256ae751f031aaadbeb1",
+    "sha256": "3e2cd72fba760d2276ca0c916f4b454730edc91cabdc2266d8adc257a49e74a1",
+    "bytes": 272640
+  },
+  "/uploads/catalog/raw-sets/029-chicken-breast/03-thumbnail-farm.webp": {
+    "sourceSha256": "b7b0d4672c64a9bedf870be606b886fe69c5900ea7fc3c85e5eb2ab41d28ebe3",
+    "sha256": "ef9e4acfe0b08430218a313e39c78c6cdd6313795c4ad9330fe345d59be8bf21",
+    "bytes": 268948
+  },
+  "/uploads/catalog/raw-sets/029-chicken-breast/04-thumbnail-bowl.webp": {
+    "sourceSha256": "a372c5ce8ae2c59dc62827edf8b638b0d5adf5e710c275b392bc782949d06cd9",
+    "sha256": "97b0b5c4db3fb5cacdd04f2dc7581ef195ca58612afb3bf2eae5afc6d2593324",
+    "bytes": 406362
+  },
+  "/uploads/catalog/raw-sets/029-chicken-breast/05-farm-visible-part.webp": {
+    "sourceSha256": "fd47c39e9f25b541576fdbbcfba8495386beef617f37228230f7a2f66301d1ae",
+    "sha256": "cf292cc86094868a913863032a6275a8b9b797d5f8410dd3dcf5d24892331472",
+    "bytes": 288774
+  },
+  "/uploads/catalog/raw-sets/029-chicken-breast/07-farm-card.webp": {
+    "sourceSha256": "5dd971d5604477ed6906203c800e1f51d0147310920dbe9e7adf3b225e772110",
+    "sha256": "91373271d79251aaa74b32951c0b9ea6fc09e0b370c0a863769794aed2ec0973",
+    "bytes": 252720
+  },
+  "/uploads/catalog/raw-sets/029-chicken-breast/08-illustration.webp": {
+    "sourceSha256": "23eb96f3b7ee935d7fab926292c03e41f6dba11634947272650e7210aa66f81e",
+    "sha256": "57e4f585a41ec2d050f3101ac50c0de2fce5629d6299d4cdde0cf89aff4c0de3",
+    "bytes": 82426
+  },
+  "/uploads/catalog/raw-sets/029-chicken-breast/06-portion-package.webp": {
+    "sourceSha256": "db149864a4eb771fe16624f2ad96412c23eb0b1013cc74de74a8aececbf48730",
+    "sha256": "86b30135383bf53c2d8b29704194d542c4085d5e2b5fd3173e23994b2c311777",
+    "bytes": 161334
+  },
+  "/uploads/catalog/raw-sets/030-wild-raspberries/01-main.webp": {
+    "sourceSha256": "76b3333c78e6d1e56342898f3fd5752886ed4a6430d5d01b9e68dfc4f1f62dfa",
+    "sha256": "68dbd1f0a48ee9d3adbc809ff9a75acf801b81a481d23bf44fe38067ccdaa5f5",
+    "bytes": 432224
+  },
+  "/uploads/catalog/raw-sets/030-wild-raspberries/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "754982cc1c09589caef38c7512432ec1693652078d7dab87a3f1e0690a083508",
+    "sha256": "ea6c48cd9f9c1dba6ab19deb2f561961ae2acdc490774838cc12d6e851b8bc58",
+    "bytes": 431762
+  },
+  "/uploads/catalog/raw-sets/030-wild-raspberries/03-thumbnail-farm.webp": {
+    "sourceSha256": "efc8157a1bfb543266d30101a3a6e3a04e8c1996d45a25244b62ac62f048c9b1",
+    "sha256": "f5d4e306c0826782c928ad0db529c09945decca0171e723f95764f7cccce8268",
+    "bytes": 402658
+  },
+  "/uploads/catalog/raw-sets/030-wild-raspberries/04-thumbnail-bowl.webp": {
+    "sourceSha256": "f766b45952c8518b91ec70682f85bc396cc9ca402887c73863f06dcf8de21c1a",
+    "sha256": "d6b65a9bce4f396d6951fb03f9f14b71075b137d0f5c2099192aaf82681f01f3",
+    "bytes": 485972
+  },
+  "/uploads/catalog/raw-sets/030-wild-raspberries/05-farm-visible-part.webp": {
+    "sourceSha256": "85bbc0cee98c09ccb4bdef95fa1965986bd99a8cc01c3d5d09aef49e42aa1a01",
+    "sha256": "c83f4145743695788d15c45ec0877b2fd23978c5533f4d0d8bfadebdc846cde9",
+    "bytes": 248094
+  },
+  "/uploads/catalog/raw-sets/030-wild-raspberries/07-farm-card.webp": {
+    "sourceSha256": "b37ac4b657a9e15e6b19978fa4ed92bde0bcd255112b3a4bd30367e680a8a7d9",
+    "sha256": "43ab034a80991b00123a7c4f1420fd66435007e6990e9e4b99b61c691284adca",
+    "bytes": 225612
+  },
+  "/uploads/catalog/raw-sets/030-wild-raspberries/08-illustration.webp": {
+    "sourceSha256": "13cd556fae184bf4631e89b25df301176347edb321833d7204a08b17d16f3029",
+    "sha256": "856e68434797244c1963abe31224d355f99a154f1d817be1d1907caa4fedc470",
+    "bytes": 133358
+  },
+  "/uploads/catalog/raw-sets/030-wild-raspberries/06-portion-package.webp": {
+    "sourceSha256": "828acb3b0527b701dd747ce53a6181620180dbcc1ff5025c247c808b8da490db",
+    "sha256": "196f6a0d25aeda8a067edb0fac5c36064018c3edddd11407dcbd038f5628bc98",
+    "bytes": 311718
+  },
+  "/uploads/catalog/raw-sets/031-jeju-cutlassfish/01-main.webp": {
+    "sourceSha256": "8883862e66bb5c7727198d6732351cfcd58ba8c85c69ea420e1b592540c4c6cd",
+    "sha256": "2fc9cb1beb8573dee258bbce74e964e971ed5496f71dac90c5ced42b503f83b6",
+    "bytes": 427532
+  },
+  "/uploads/catalog/raw-sets/031-jeju-cutlassfish/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "e25dd956b261c67abe5293bd36e49c028ab19f55f3f99f9689287bbd8d328052",
+    "sha256": "272a241d6953cd7bdf0a8a0ef55b54fca285455fe91d6d24ab1e00b3bc59c63c",
+    "bytes": 452524
+  },
+  "/uploads/catalog/raw-sets/031-jeju-cutlassfish/03-thumbnail-farm.webp": {
+    "sourceSha256": "2fac3c5e785b4825e1bd1b9ae136466f95750134be20340dce227fc9c19d9291",
+    "sha256": "245ed6dfc682086444388d7f266d760b0a726189c0e03cf5655ea9ae702aa585",
+    "bytes": 341428
+  },
+  "/uploads/catalog/raw-sets/031-jeju-cutlassfish/04-thumbnail-bowl.webp": {
+    "sourceSha256": "1fb6b4cd6bebc118d02e94f4dfa7b4f6f1a24aac5328cdb6a8a5278351be49ad",
+    "sha256": "750ece5af47fd213ce17ebf0b95de8bb507891749feca0a82fd9a22f0309b518",
+    "bytes": 650786
+  },
+  "/uploads/catalog/raw-sets/031-jeju-cutlassfish/05-farm-visible-part.webp": {
+    "sourceSha256": "9dba813bedcd38ed47d4de346e93137cf9084f2416e154f68ca6a35d48b3045d",
+    "sha256": "a022ad5022170eb2681810dc91f88319101f2a0121f8d02ba32a4bb6f32a9f0c",
+    "bytes": 251232
+  },
+  "/uploads/catalog/raw-sets/031-jeju-cutlassfish/07-farm-card.webp": {
+    "sourceSha256": "afc6cb5996d78160508be46feb750c84a2a963d711605205c14c32676a6bfd70",
+    "sha256": "adb7fd9a3ee5655332e001a25f6a2aa90bab25071013d18c4a63aab4cb0d013e",
+    "bytes": 215842
+  },
+  "/uploads/catalog/raw-sets/031-jeju-cutlassfish/08-illustration.webp": {
+    "sourceSha256": "226d90a865e34ea780e0c7347305b16f79335f4cdc3d1aaeb3d94018c9273c56",
+    "sha256": "8d2c26525468c2ad3de320fb79d25cf39d0a313e2fd206de360af4f60c3811dc",
+    "bytes": 95674
+  },
+  "/uploads/catalog/raw-sets/031-jeju-cutlassfish/06-portion-package.webp": {
+    "sourceSha256": "e36aa759fd39520b4f342d9f91280f9674d9dbf439c27143be51a513bc98d9e1",
+    "sha256": "7fa2ee82737d908b624bc938d57f77c981f060ffe4325d36a008fda6a0fe86f5",
+    "bytes": 327704
+  },
+  "/uploads/catalog/raw-sets/032-pork-belly/01-main.webp": {
+    "sourceSha256": "b9672bf483ff5e556c719b447301ce2a5b2169c2558379a4e5c40fcc1ec6010d",
+    "sha256": "bc6801db90c22c1eab264e9504fd7d3fe3f241fc7ed0e17f132f11a46105cb45",
+    "bytes": 339462
+  },
+  "/uploads/catalog/raw-sets/032-pork-belly/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "ddd8c489f89b08f014357e934405151f26626e1d5f46628b6546bd62b238dbf8",
+    "sha256": "f7455fc4a640f37d0782a21ec2568acd421a9fc822330ad3e8fbe3ecf062602d",
+    "bytes": 322096
+  },
+  "/uploads/catalog/raw-sets/032-pork-belly/03-thumbnail-farm.webp": {
+    "sourceSha256": "fcaa8e8c6e29203181a45ad185ddcff73556bf96050a5857f46c06661173a98c",
+    "sha256": "d2f89e7223d5d18cb9467bb30a407e7b3c80726bec44aac4504b20e08a1fa1a3",
+    "bytes": 265182
+  },
+  "/uploads/catalog/raw-sets/032-pork-belly/04-thumbnail-bowl.webp": {
+    "sourceSha256": "56857b210bfe5291b161e462528e04388297cc4972fa54666431a7203acb88b7",
+    "sha256": "197d6ef76fbc26c390452482d1912c23db32bc5f23d056f0b966dc038f41e43b",
+    "bytes": 477622
+  },
+  "/uploads/catalog/raw-sets/032-pork-belly/05-farm-visible-part.webp": {
+    "sourceSha256": "ed1d65ddbe4d8eb30b47282143942121d4124162184c0c3e966dadef504419c5",
+    "sha256": "870a3659fd74d6544566eead6f719026f5aa3f01fee23dc1a5d6448c4ed82318",
+    "bytes": 315718
+  },
+  "/uploads/catalog/raw-sets/032-pork-belly/07-farm-card.webp": {
+    "sourceSha256": "615d1fb1021a2b016be26bf406f2a6776655ae312873006a3f7284b44912d956",
+    "sha256": "722e36ae64aeef12fb42c18e067314d8cfb901d642077fbcdaa53b5b262aa269",
+    "bytes": 272858
+  },
+  "/uploads/catalog/raw-sets/032-pork-belly/08-illustration.webp": {
+    "sourceSha256": "49772155933677fb48638fff1f1440988d3fd365f38a8180b2c49803e30c5c6e",
+    "sha256": "9f2f18dbc7a17b35256737709443a665fcde160d99fb82da95c5337a1983adb9",
+    "bytes": 101682
+  },
+  "/uploads/catalog/raw-sets/032-pork-belly/06-portion-package.webp": {
+    "sourceSha256": "76648373924dd6dfe2c36b652f545fb89e8fc87e3eae20a2bd3a31a7d61174a3",
+    "sha256": "0febde34303b3b49ae37a3cc0d693ff56e69c6f616fc25fb90ff831472d8daa9",
+    "bytes": 313880
+  },
+  "/uploads/catalog/raw-sets/033-green-chili/01-main.webp": {
+    "sourceSha256": "5426cffe0de0c546aeb5d0f20948f0d1fc7e65779b088c48962022206f3923ea",
+    "sha256": "46935d8334eb6b221baf121a9d41069aa4ce614fd8f759973f243a62dd2d1ea6",
+    "bytes": 323908
+  },
+  "/uploads/catalog/raw-sets/033-green-chili/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "69c40e630cf966ad6ee33433de17eb1b93d5d6d452da448b9b2386f62df234da",
+    "sha256": "5aa30e7d7ee3a78cf3001a130bc05f69d1e4f3f98448b0f449c0d54606ef55e1",
+    "bytes": 272342
+  },
+  "/uploads/catalog/raw-sets/033-green-chili/03-thumbnail-farm.webp": {
+    "sourceSha256": "0bd74a718eafbec75d36b04c53a9bd3e42cd11d81dfc91d1c8dff7f56c2121ba",
+    "sha256": "939677837430b0c8a7f459259298e04d8a13d8ea765e26e5330f983457cf4e25",
+    "bytes": 377694
+  },
+  "/uploads/catalog/raw-sets/033-green-chili/04-thumbnail-bowl.webp": {
+    "sourceSha256": "1bed32b26e66ca3c438d80c83de6c7b51c4fef9455158fa38f36919f5c01975c",
+    "sha256": "bacd39f4a0b742b3a42b902cf457847c13af86bc5177b0ecca5368c4562b504d",
+    "bytes": 443404
+  },
+  "/uploads/catalog/raw-sets/033-green-chili/05-farm-visible-part.webp": {
+    "sourceSha256": "d45cb97017441b9c46d14bff7adc7e16755f044089250b8af5f2cd9385f3e730",
+    "sha256": "e90faf95239885e0fb889bc1c7d9a6834da87a8331bbea1784fef8cc70544bcf",
+    "bytes": 276412
+  },
+  "/uploads/catalog/raw-sets/033-green-chili/07-farm-card.webp": {
+    "sourceSha256": "0b583f7cc3343e6036ceb37fe05528cbfb2d6787f6586628162d28312f589939",
+    "sha256": "b51137cf6c5f523e809d6bcf0481c1c1424fc207db645c75d6c16c2684e0fc51",
+    "bytes": 257164
+  },
+  "/uploads/catalog/raw-sets/033-green-chili/08-illustration.webp": {
+    "sourceSha256": "1f4c11b65685a83a4152b238e2257de9c449100b7f92b6c2ccd9167e0851cccc",
+    "sha256": "2d0d007585ed25678b927b10a25105c48b6fafd07a9869eb3ae21b014dba3572",
+    "bytes": 70500
+  },
+  "/uploads/catalog/raw-sets/033-green-chili/06-portion-package.webp": {
+    "sourceSha256": "286c2f2ec412f4f578028330aaf59c986fc68a01cf2814bf53ddad074d06a037",
+    "sha256": "c66b6d1d1f5bc0a2aab1a8beac0d20a77b41b7115ecd7ac72ddacd71bcbe4437",
+    "bytes": 233678
+  },
+  "/uploads/catalog/raw-sets/034-red-chili/01-main.webp": {
+    "sourceSha256": "276743a6f64df1c676efd424ca141af57010a969dee41fd53f25eba8e666c5d0",
+    "sha256": "77067513cd91f70df6e358a8ac21c3a058b1c6b784425d9b334959b408cfbf58",
+    "bytes": 330842
+  },
+  "/uploads/catalog/raw-sets/034-red-chili/02-thumbnail-ingredient.webp": {
+    "sourceSha256": "2ec587cdceeea70d7738b19cb390e813ee9adaad2d4a27a2015397d003bdd265",
+    "sha256": "b9acbf0a648cf5b620c40582dda3f4153b25eb5533a4adbc3b56c6d4002d4386",
+    "bytes": 297396
+  },
+  "/uploads/catalog/raw-sets/034-red-chili/03-thumbnail-farm.webp": {
+    "sourceSha256": "f086811e1ddaf7d5f43a53d5501f1b3adb9befede4467d7e395217ba707f3e72",
+    "sha256": "8892f1a3fcea5d25aaf8f99f72eaa9eeea795bb2a1e942bcb4ed5e9dfa7938f2",
+    "bytes": 356890
+  },
+  "/uploads/catalog/raw-sets/034-red-chili/04-thumbnail-bowl.webp": {
+    "sourceSha256": "26d624e0c9a4c71523cb020019915ceee14f589ad960be23de8521c61acd700e",
+    "sha256": "814e30a9112fb0745ee59972a1e6c456c0506b9e89be7b96a218fe82e42a68c5",
+    "bytes": 419562
+  },
+  "/uploads/catalog/raw-sets/034-red-chili/05-farm-visible-part.webp": {
+    "sourceSha256": "ee94f75109fce0fca22d5ce430f18f4ee72d56057c834db3121c5e753b64d149",
+    "sha256": "6dcff818bd070e8c9ba0e65d0f19153df6b8d8e6e26573a4a94822438735c8eb",
+    "bytes": 282984
+  },
+  "/uploads/catalog/raw-sets/034-red-chili/07-farm-card.webp": {
+    "sourceSha256": "16a8bbb848b09790043320d96acd6d6cafbff0340c55f0fe14a78e78cf57845b",
+    "sha256": "ef63104fc7d4151d0e88274430d7c59ba51055b248d6453a4b8007a3b30f357d",
+    "bytes": 265898
+  },
+  "/uploads/catalog/raw-sets/034-red-chili/08-illustration.webp": {
+    "sourceSha256": "392002291049e22f1879d27025cfbed91e8a1ae11489421c758620b61ffa7523",
+    "sha256": "89fc1eb4dc65a9d55a1d61013c637939e1ecf7f75d457a082bf7204d8f69fca9",
+    "bytes": 57974
+  },
+  "/uploads/catalog/raw-sets/034-red-chili/06-portion-package.webp": {
+    "sourceSha256": "bba976f1746d8084e865143aa02fe033e0be93af405726b49a1acc3fcdac72bb",
+    "sha256": "4286c43444b726ac138c870d8fd55d3876c12e479096ad259149d2f247adf34d",
+    "bytes": 252532
+  },
+  "/uploads/catalog/kits/diy-01/00-catalog-cutout.webp": {
+    "sourceSha256": "a1b891f668f11b91afa46247c94f2bf7279979632f83b4149fc370b01055db00",
+    "sha256": "3ef0ecf9ad1d0ac78dca45b7f08c898215a522fd3df6ed824a7c6bb48528e2ea",
+    "bytes": 383772
+  },
+  "/uploads/catalog/kits/diy-01/01-finished-dish.webp": {
+    "sourceSha256": "cb189dad0e6cd76655aacb2aa32df4dd968e5645683c8600b91fc06194357468",
+    "sha256": "1c33905774f84908ff33be1a97341aa2ab3bb93b64f5ae710d40249fac838d0f",
+    "bytes": 351602
+  },
+  "/uploads/catalog/kits/diy-01/02-included-ingredients.webp": {
+    "sourceSha256": "245f71114a20ee1bd79ce46572d0c3331c5cc8638c7cba280596d09df2ca1a77",
+    "sha256": "470d54a9426fde7f31d8210e51f411ce6d2855e0c6385d8397a6cfbc40fddcb1",
+    "bytes": 153760
+  },
+  "/uploads/catalog/kits/diy-01/03-cooking-process.webp": {
+    "sourceSha256": "e4a5fba924fd96b6e63840152cdc535f4a37de1178e18cd2f3f68a8796d0e191",
+    "sha256": "bd2b75a06a813489f9dd26498b27787c7ca730b1f7b24a8ef5865d190a60c768",
+    "bytes": 366452
+  },
+  "/uploads/catalog/kits/diy-01/04-serving.webp": {
+    "sourceSha256": "8a11e09f0e3441de3be49da8976b23d658b6dec1a8ae45769c3885341572ae8d",
+    "sha256": "24dbb335f6149ef94d73fd4fa90020865789b629f96d973461ceb32097ad8ef4",
+    "bytes": 268486
+  },
+  "/uploads/catalog/kits/diy-01/05-recommendation.webp": {
+    "sourceSha256": "2cb3070e78997903426e9da4a3dafa9232866a87478e1e2bd8ca141fd746d587",
+    "sha256": "153281412fde8d97d8468cced1fd24b7229983fb3c7618619be5797bcf12e17b",
+    "bytes": 277058
+  },
+  "/uploads/catalog/kits/diy-01/07-story.webp": {
+    "sourceSha256": "acaf5e461c16bc5bdc10681b6d8418e925f925d1bf3a699626a5d8de27471dd9",
+    "sha256": "cf84b8d25c3631d030716f4a3ac43d007ac9c79b98cdfc820a4ecd281731b09b",
+    "bytes": 285066
+  },
+  "/uploads/catalog/kits/diy-02/01-main.webp": {
+    "sourceSha256": "224530acaa1923ac7feba12d4b89789b96411e2eca66e852c8782db524ea4f99",
+    "sha256": "667eee5dbdf087e5078cd3b16d36ba0ce51fa78ada3c4bd1ff2c22649b0a1b8e",
+    "bytes": 281192
+  },
+  "/uploads/catalog/kits/diy-02/02-included-ingredients.webp": {
+    "sourceSha256": "e42708932a59b9a74d7e631f72ba4d6deabd1d7030805e4e7124c89e25c4e2f5",
+    "sha256": "e663b0caf52a2e4973643207830b1dacf2f6da6be5161edb78d7ef95d34b29b3",
+    "bytes": 168314
+  },
+  "/uploads/catalog/kits/diy-02/03-cooking-process-v2.webp": {
+    "sourceSha256": "0aac615e218761b5074e38a80db97fc0400d7d31502c9aeb3a621924230e9aa3",
+    "sha256": "1cd2967b83eac9d3b78891b658806855ca70a61a7092d7293597b2b444e80838",
+    "bytes": 298248
+  },
+  "/uploads/catalog/kits/diy-02/04-serving.webp": {
+    "sourceSha256": "9ed2c2173ffc7dde1fbb4e447516ab99bbd681442d393bb57ede0629fa116cdb",
+    "sha256": "4e7649409b8bdbc7d50a83b7583ad13516d93cf60b274899083e4b0e87ebc992",
+    "bytes": 325208
+  },
+  "/uploads/catalog/kits/diy-02/05-recommendation.webp": {
+    "sourceSha256": "21d6745039cb5e3ccc460938ed0281608ea73dfdd99c14fd5912112e42c990bc",
+    "sha256": "d9b63e21dc9fa554e51b0769290ca32e301469b6bf8ece359263e440661356a4",
+    "bytes": 375066
+  },
+  "/uploads/catalog/kits/diy-02/07-story.webp": {
+    "sourceSha256": "70658ddb45b56a1b65797457be89d82f782d202d122a49d9c55985fa7c99f68a",
+    "sha256": "9ca49bc41ff1b8b8dfbc901e92084f6801bac9d1c156219c91afab8b4b5eddb8",
+    "bytes": 322876
+  },
+  "/uploads/catalog/kits/diy-02/08-catalog-cutout.webp": {
+    "sourceSha256": "be974530bcca64946ce102e3982d6c716a8f5bd202e162b6c830dcee6418498f",
+    "sha256": "2a0631d4d001d2f4c5180f9f18896a3b1ed7f3db0743952d1157980b971bc060",
+    "bytes": 339014
+  },
+  "/uploads/catalog/kits/diy-03/01-main.webp": {
+    "sourceSha256": "cf018e0261e85dbae56cfbe76c322a28385e4383e566c8706b31d9a62dc26688",
+    "sha256": "c235c708846c08c5d8da8ebdf8bdcc846a769f4101a0246db984a7d0db3d8369",
+    "bytes": 238934
+  },
+  "/uploads/catalog/kits/diy-03/02-included-ingredients.webp": {
+    "sourceSha256": "8932556c843502ab21cb3674e6315ada9272d0a2265161bfc5333f080870440f",
+    "sha256": "5dd98c9e8f797a69be15f8a94748b8cddb4f3a9ab57fe180049e4977a4b9a625",
+    "bytes": 128166
+  },
+  "/uploads/catalog/kits/diy-03/03-cooking-process-v2.webp": {
+    "sourceSha256": "30e0cd9a7557051c9464728b4682409105018bac4746739dfc4974eb3616e5bc",
+    "sha256": "8e35e19457ae0ffd579e8296372068619a3e66e13bb82958b358404db038750a",
+    "bytes": 177678
+  },
+  "/uploads/catalog/kits/diy-03/04-serving.webp": {
+    "sourceSha256": "19dc4875df4076269e56e21e8dc858ef6b96e425ecbe5d6895f1c3adaaae019b",
+    "sha256": "897b590a3559f7c228bfc4df30f0363982e58a08534f8df39a04fff11952bfcc",
+    "bytes": 256424
+  },
+  "/uploads/catalog/kits/diy-03/05-recommendation.webp": {
+    "sourceSha256": "7750af763a5c2649233eb8cb3b191213ea8ae6ade0eb8524c81c2263900e41f7",
+    "sha256": "5db0b179ede71440abfa6a271eb57f876ceb1554d018a62be9a56d7efd2fcc8a",
+    "bytes": 234820
+  },
+  "/uploads/catalog/kits/diy-03/07-story.webp": {
+    "sourceSha256": "0115b781956f50a4119721cb0b4774ac3ab186cbab902a4e16d155db0e9c4e45",
+    "sha256": "c8489ca22b90ff07f6fbcd1030342f4f4efdd525376baa6603db4611076b7c46",
+    "bytes": 290188
+  },
+  "/uploads/catalog/kits/diy-03/08-catalog-cutout.webp": {
+    "sourceSha256": "0a4aee5a46817216eb5e8fb694c20c04c2e7cfa14c366989b12cee03d3a5a748",
+    "sha256": "368c882034f352add1bdae2a311c2c3ead100bcc832e7b4e76033c14cc89cc19",
+    "bytes": 298938
+  },
+  "/uploads/catalog/kits/diy-04/01-main.webp": {
+    "sourceSha256": "3d458ff653c2d263ed76c7c4d509bd2e74c6ff7f53974e109ccbe97d8d250f52",
+    "sha256": "04aab3231bacee53bd82e8132237e7085700c849fde222c52753052c1a3501fe",
+    "bytes": 348750
+  },
+  "/uploads/catalog/kits/diy-04/02-included-ingredients.webp": {
+    "sourceSha256": "a9f8fdcaf1ea8e063464e3199113e09f503dd68c59f8ce904caec2684d21559a",
+    "sha256": "cd6f47e5960616d1224138ceaea70aa93a00982c58ca869c26a377a6bb0a2fd4",
+    "bytes": 171472
+  },
+  "/uploads/catalog/kits/diy-04/03-cooking-process-v2.webp": {
+    "sourceSha256": "4d5cecd9524a8f554e5e4b7ac48f9777d1bed0aacf9f3c46508d1de8be59fa76",
+    "sha256": "f24d53c64026ecabdd509dde58a788638206b71a6e66cbf84530ddff468b8bd8",
+    "bytes": 274812
+  },
+  "/uploads/catalog/kits/diy-04/04-serving.webp": {
+    "sourceSha256": "081e0de9b0d5244e21f8a2c5ea0b7493fe8f54af78300c18623715d3b6b33c63",
+    "sha256": "2d0fca36686e48f39a78f737ea5b0fe98c9a58076d093667c1a57b307346d654",
+    "bytes": 326918
+  },
+  "/uploads/catalog/kits/diy-04/05-recommendation.webp": {
+    "sourceSha256": "fc83b0578d37cba16f71581aaa3204d1fff5dc7316a2d15a8dc7b8a33dc726d3",
+    "sha256": "05d35ab53dc6d68ef64b05f9139e2ed1d44a24c6002334e31d65c7bd1684d321",
+    "bytes": 298190
+  },
+  "/uploads/catalog/kits/diy-04/07-story.webp": {
+    "sourceSha256": "95ffb93701aae7d96c99592977855c428486d24e0c38b3c0e12e799d8b7d4deb",
+    "sha256": "ec36a688af1214cf82147187c0258ef4439533ac52c2d30b5f832af5d5486a7b",
+    "bytes": 314234
+  },
+  "/uploads/catalog/kits/diy-04/08-catalog-cutout.webp": {
+    "sourceSha256": "45a4a1436cf056f66654bea8a0d4a7692921a09fc1f8bc5463eef704a3ffd2bd",
+    "sha256": "3cfa8a2f3ec338aeb9904960c4a4f9ebe1257496e887b5b13be9a7b57583e6c9",
+    "bytes": 373310
+  },
+  "/uploads/catalog/kits/diy-05/01-main.webp": {
+    "sourceSha256": "b6e642495b359f80d70423b4e71fb06f125e8ebf19e47e26371662a831c96f49",
+    "sha256": "ac47b8176cefbb17322fc0a20d7c9965c14f094e481bab2a1f7d99087e7e21e6",
+    "bytes": 257336
+  },
+  "/uploads/catalog/kits/diy-05/02-included-ingredients.webp": {
+    "sourceSha256": "35664bcfe910cd523de966df9eeb2cd3b8a2331954965500c923bc523b2b3040",
+    "sha256": "57fc1909d681642d0d7bb69ee53bbf7fdfa78c575b0797287e52196797124b01",
+    "bytes": 202770
+  },
+  "/uploads/catalog/kits/diy-05/03-cooking-process-v2.webp": {
+    "sourceSha256": "268cbcae0001d07329e6ff4984b6f7b448ef1ae7de83f8ea585b52b088b63fe6",
+    "sha256": "8df063133cef42fb3804957e52d93e581a4bcae29a330f4e0716e308714738e8",
+    "bytes": 190324
+  },
+  "/uploads/catalog/kits/diy-05/04-serving.webp": {
+    "sourceSha256": "b4083bf17e5cebc2a19cca6dde6ed876458cdc766c84c641125ba27f5144f243",
+    "sha256": "42f0e221a64b6bf33f58911840d0ee1600ffce7e3e1a703d11917ae456c36510",
+    "bytes": 252666
+  },
+  "/uploads/catalog/kits/diy-05/05-recommendation.webp": {
+    "sourceSha256": "feca0ed00c9b5e3fee2b6dae66821e65c91d32f6d05f1bd07a3912938b4ed576",
+    "sha256": "fa8bb07921223ddee69fc53094cf1fef2e1bfc1f1a1e1b8caf3e80748795b091",
+    "bytes": 268374
+  },
+  "/uploads/catalog/kits/diy-05/07-story.webp": {
+    "sourceSha256": "c0b3aa6dd564cc0a1438c4e72dea0633fbe664bf36e794925dca416ebda8e77a",
+    "sha256": "af95eae8078d5d7e52ababc324a2c8a44533f48e5aecbf177d6046639eafbea9",
+    "bytes": 267130
+  },
+  "/uploads/catalog/kits/diy-05/08-catalog-cutout.webp": {
+    "sourceSha256": "bfcf24bfb5b8bb845e928190fc3eb7c4552c5bc8fc7bbdc23d2842465a6b7730",
+    "sha256": "5b91d5aef1b85e54e4817b5f4c1b2d141330eabe96c3b9bb7f3f28a2f38c5774",
+    "bytes": 266990
+  },
+  "/uploads/catalog/kits/diy-06/01-main.webp": {
+    "sourceSha256": "c29235eff1b6ff3c2839ae66138389d398c363f1e68374f87836c2e0c692d1ea",
+    "sha256": "cd6f62fdcae01399cc92395f780d38c2d0eb163d5b84b78ef9e58945e6492b45",
+    "bytes": 296130
+  },
+  "/uploads/catalog/kits/diy-06/02-included-ingredients.webp": {
+    "sourceSha256": "f77f96bc26c5bb302bf998b92586f40b5e89e820e006d907adecbf2f21c07929",
+    "sha256": "418d4a7ddc7e76aee26d90b5d7345893b95553dc6d949e3b371503170eeb7489",
+    "bytes": 101262
+  },
+  "/uploads/catalog/kits/diy-06/03-cooking-process-v2.webp": {
+    "sourceSha256": "66309414c839c0f69a15465c88552dfc7cb23c3e9684fd7cc0ceba2a6c64cc82",
+    "sha256": "8a9c305d5d7a3794eaf4195c5f81fb47015f32920e62ea51476320faafe4da28",
+    "bytes": 314608
+  },
+  "/uploads/catalog/kits/diy-06/04-serving.webp": {
+    "sourceSha256": "e7c35457e1b9aea41ca6fa71a66205357fd9f5f4183eafda9d59057fdf409d81",
+    "sha256": "79fe782902af7920ee1a83350f5fbd1f3071337b21d2260e3622b0fa0c5ae68f",
+    "bytes": 247590
+  },
+  "/uploads/catalog/kits/diy-06/05-recommendation.webp": {
+    "sourceSha256": "606c4f89146c7aab8279d494bf66cb365a3c59064d195c6bb790a758d2fefc2a",
+    "sha256": "cf3a0f4401788de037030c945aaa94da1ee8b33cae774022db7f7239b053c46a",
+    "bytes": 274788
+  },
+  "/uploads/catalog/kits/diy-06/07-story.webp": {
+    "sourceSha256": "86c91263a6a4c9518c8d9de18ec3a48da129247dd0891aff99772ff7c637d112",
+    "sha256": "ac869c21733baf1709a187726f1b091beeabe6d04135680b2606295b3f7706d1",
+    "bytes": 208352
+  },
+  "/uploads/catalog/kits/diy-06/08-catalog-cutout.webp": {
+    "sourceSha256": "8ef024ff1f02f290c4ee5d7fcf72880a493250ad74a74c6c2b1aa3aeded9ae78",
+    "sha256": "63ee2d6d947089a9fa93ef56974f088267da5b4d175f00b6f9ef352fa31d9be4",
+    "bytes": 362944
+  },
+  "/uploads/catalog/kits/diy-07/01-main.webp": {
+    "sourceSha256": "d7b2cd7d5a41410857dcb5a4c3c186b42a60600b5d6118426e760f0c18faa97e",
+    "sha256": "df9bee8a3b75906d3e2d746a7112321e1a18e890fa71c6d4459fc4754ca7d98c",
+    "bytes": 336006
+  },
+  "/uploads/catalog/kits/diy-07/02-included-ingredients.webp": {
+    "sourceSha256": "dcebdc800ca32bdde1acc334f59ac6e23529910bc356bf6680c3bbfeb842ad49",
+    "sha256": "f5b0e13c7c928a622e37ac5138c70d31490d5e22790e6cb34133fa6cff1fdf99",
+    "bytes": 186548
+  },
+  "/uploads/catalog/kits/diy-07/03-cooking-process-v2.webp": {
+    "sourceSha256": "cc03d9c153e34b6798c6dc80a096aa9224083136b89277af1cb4af62ac99c3d7",
+    "sha256": "2313e1f80222edbe56ff92543af27eedd49a98a247f8df91e655d0c38e693c2f",
+    "bytes": 275582
+  },
+  "/uploads/catalog/kits/diy-07/04-serving.webp": {
+    "sourceSha256": "394d475f1dcf76497a68c74fccd320c1a6fc09416b298f381d356f1aaa6cfc34",
+    "sha256": "af51d5067470381ea779355e668ce16db2f4ee7795c7e33a3bb43ffd99be48ef",
+    "bytes": 329738
+  },
+  "/uploads/catalog/kits/diy-07/05-recommendation.webp": {
+    "sourceSha256": "b7ef0af2b278ce0b10ab019e7fe5ba765e56ca6d57a675b492501c7feeed1d92",
+    "sha256": "a993da80b349cb04b6007122db9a89dcb04d1e23e39730e69cdd370348fa084b",
+    "bytes": 384014
+  },
+  "/uploads/catalog/kits/diy-07/07-story.webp": {
+    "sourceSha256": "a74438d1cc48bae5f0fc1cba1b3ce882e10ce58d4d0540cda176253579cbc709",
+    "sha256": "072520e908d36036a6130dfc3ffefbbb0ba6728045eaaeb1573408b08b69ddd5",
+    "bytes": 358916
+  },
+  "/uploads/catalog/kits/diy-07/08-catalog-cutout.webp": {
+    "sourceSha256": "681f946b88ef09f7d2d5cc4c834d1f4793420d57a1988714daba25db11ea899b",
+    "sha256": "f850bd014db21feb0351aa881a1f66518f524639db9cc034485d957ae720a54b",
+    "bytes": 287428
+  },
+  "/uploads/catalog/kits/diy-08/01-main.webp": {
+    "sourceSha256": "4133b3a8e6ae37846706b40aa777d58f09d2d9ee6b037dad73aa5c08c29474a8",
+    "sha256": "4d9cc115774baf0ead0c719d825d0da2cd0a06b9c3429175f7f98e17564adff1",
+    "bytes": 372818
+  },
+  "/uploads/catalog/kits/diy-08/02-included-ingredients.webp": {
+    "sourceSha256": "a3185a4ac6c3f24eb532243366f998990c998aa628e2cc0019cb759552fdb043",
+    "sha256": "0c436be6b077ca873b76d778fb38ac1df99570a3d10766d1f6917e83cdfe7a2c",
+    "bytes": 203014
+  },
+  "/uploads/catalog/kits/diy-08/03-cooking-process-v2.webp": {
+    "sourceSha256": "e02821871a7dc4c59e8f05c86eb4c786f4b536f200a3a13a45d1e59796ec85bd",
+    "sha256": "721da2464d20be927340140840ecaf11c96b008870782537e3509240285fef4e",
+    "bytes": 296198
+  },
+  "/uploads/catalog/kits/diy-08/04-serving.webp": {
+    "sourceSha256": "b8e04d51bcf5817d14177af11a6140c654ca156ce9a909b38e50ebad918c2e24",
+    "sha256": "8376f9fc437e728d5729accb8b1e8e40805639eadc6b6eaad6f21e2739b16a99",
+    "bytes": 321672
+  },
+  "/uploads/catalog/kits/diy-08/05-recommendation.webp": {
+    "sourceSha256": "da7a7b66791bd5f04bac85c8f747f5933eb6fa26cbc660f4951ac39f5b22aa63",
+    "sha256": "0cdf1915c7d3d28223c9ff88be0dba81558da0c7cb7832a9d6756e921652e7a1",
+    "bytes": 385626
+  },
+  "/uploads/catalog/kits/diy-08/07-story.webp": {
+    "sourceSha256": "96aefd1921b5bb6539d347e2e6a392eac6ac80acb5c934979217977704943532",
+    "sha256": "d9041c74e8e4210054d770b82088e6262f22e4813842ea86992309a576b4e006",
+    "bytes": 331272
+  },
+  "/uploads/catalog/kits/diy-08/08-catalog-cutout.webp": {
+    "sourceSha256": "38b32763c8fe2527bd5abde819c279550ee7434456bf7f8b9839e72b76be2d49",
+    "sha256": "4921e8cc491b9a661f29bf6d3f5208b89a4e3b14aa6bce7802a4ce289eb1e3b4",
+    "bytes": 358506
+  },
+  "/uploads/catalog/kits/diy-09/01-main.webp": {
+    "sourceSha256": "ad19fce2d28d5779ee913e8d8c003ef6746e3d3df675e8deca07cf169bcae41f",
+    "sha256": "9b201af716078766bc9c3bd8b0b4f85b4d8d611d367afed595808b34ba6b4810",
+    "bytes": 283300
+  },
+  "/uploads/catalog/kits/diy-09/02-included-ingredients.webp": {
+    "sourceSha256": "8e93a5685ae9bf74cdd7e0ecda692b759976c0d569fb72f2142c988fa3da4cd6",
+    "sha256": "dd9554bbc177f1b2dd58b0e78a942f42e201d83a13aa3f44cdb397555d85b093",
+    "bytes": 130974
+  },
+  "/uploads/catalog/kits/diy-09/03-cooking-process-v2.webp": {
+    "sourceSha256": "44315135a9ce2b4e34655c9c5fa2ad4bff3c6bdc5f49e643329ad9f1ddbdbd2f",
+    "sha256": "8a16bae6f5cc4ce05d202d9db1a4fa6d95a67e7667a7d05128e4d4a12a4fd2ff",
+    "bytes": 224064
+  },
+  "/uploads/catalog/kits/diy-09/04-serving.webp": {
+    "sourceSha256": "03e47435d64127c5bc31e9698cef7ffbb3ff65977cf06e9cd374a642b5e1b3f6",
+    "sha256": "ba7fc2ffe2da9e327b0ad0ac10cd9676fd8ec5e5615233ee1a00fe3618d73d26",
+    "bytes": 284598
+  },
+  "/uploads/catalog/kits/diy-09/05-recommendation.webp": {
+    "sourceSha256": "2abac07ea6d0ab9a0ca2b88ce5c541836aea88d8851e3b7c2c21458c8b8ca305",
+    "sha256": "95ad3097b283dbc7880c522c60891db1c1d3133050626b1c532afe3fb0c0d8d8",
+    "bytes": 268920
+  },
+  "/uploads/catalog/kits/diy-09/07-story.webp": {
+    "sourceSha256": "2aa63f5a4895f4a2921d506233bafff320fff5d73e2fe2b0effa6077ccab07a4",
+    "sha256": "365b82180b2c7143482ec5ac578874603cdcb5531dc01fab2e41be4f3966ff99",
+    "bytes": 216780
+  },
+  "/uploads/catalog/kits/diy-09/08-catalog-cutout.webp": {
+    "sourceSha256": "6e3f4456b68bbc216f4249dba1872e487c95ff0111d169f8aa99a27703c014ef",
+    "sha256": "8483a7ce9747cab5d447b7bec858831d67d653a97fc0c009e2de78dd6c7063ac",
+    "bytes": 278138
+  },
+  "/uploads/catalog/kits/diy-10/01-main.webp": {
+    "sourceSha256": "bb4cb6391cdf6006e43dcb28590a0380f84ad94f4438b606f78ee962c34d0df2",
+    "sha256": "9e308e5ed7dc014b113fb161742f363e5bb644311b7c4688db020977773541fb",
+    "bytes": 270198
+  },
+  "/uploads/catalog/kits/diy-10/02-included-ingredients.webp": {
+    "sourceSha256": "4735fc5a468fa9846d0d35c86ca4b170a639a9ba350fec29a992e562307437ed",
+    "sha256": "fff2461d778d782b4ff81ebea271c631367086c5a49be1bb4f564c89f88f445e",
+    "bytes": 225228
+  },
+  "/uploads/catalog/kits/diy-10/03-cooking-process-v2.webp": {
+    "sourceSha256": "cc291dadca9922ae44c09b277e3e55933361d79362d49649de265ed6041599a2",
+    "sha256": "c8d793b60261e44471130cabe1bc51be6b494b954620e80f6869a9514e5c2773",
+    "bytes": 249880
+  },
+  "/uploads/catalog/kits/diy-10/04-serving.webp": {
+    "sourceSha256": "ff253db0572eba361eac636976dec7d07b4484d78bab2a9240ce82319ae11c9c",
+    "sha256": "addc1fc4f71981f1b25551e3fbe9f2016bc92a59ef2c8eafd4eae1573132c894",
+    "bytes": 295460
+  },
+  "/uploads/catalog/kits/diy-10/05-recommendation.webp": {
+    "sourceSha256": "3f4a8c944a90debb155ab1f9f35be4b9f1d6e1c463c0157b798ab83923a6a06d",
+    "sha256": "25c9ed222f493397024a9774f8af960cf661bde13889690dcc3a1aadff8c1301",
+    "bytes": 282134
+  },
+  "/uploads/catalog/kits/diy-10/07-story.webp": {
+    "sourceSha256": "a7dedb32b2b080fa15cb8e088cad022aa113e6e7d1d218a721228ee962a6fa70",
+    "sha256": "8214cb40b12cffff8b3ab39a0f649684f231d92e7c6413d9e135f981d7ee00e0",
+    "bytes": 351706
+  },
+  "/uploads/catalog/kits/diy-10/08-catalog-cutout.webp": {
+    "sourceSha256": "e5c95c28eb8351f78a58be22a19a8a83b38a09b2c0e11cd4f07dac8fe7cf5c83",
+    "sha256": "e69b9794a2a30a5cecdb5ee4bfbb1c1f232d98f214b490a2b15742f06ac92c93",
+    "bytes": 345158
+  },
+  "/uploads/catalog/kits/diy-11/01-main.webp": {
+    "sourceSha256": "bf7a1d726bbf0cebc7fa029282965c652f1c49ddeb81e264af10b66281e06830",
+    "sha256": "83c9b3fd6ed5b4f1958b628cf64834851a1b0681400b396190d7df4f4685afcb",
+    "bytes": 216680
+  },
+  "/uploads/catalog/kits/diy-11/02-included-ingredients.webp": {
+    "sourceSha256": "bec4ce518bb57df6384fb34b6e51e868f646b1bcee4b4f49b1ff50f8f8c440f4",
+    "sha256": "b4d2b3d8d20f434b943446c62456cbe4281080441dd44f9632ae6465645c5bf0",
+    "bytes": 160726
+  },
+  "/uploads/catalog/kits/diy-11/03-cooking-process-v2.webp": {
+    "sourceSha256": "1d4fcf71540d67e3ee45cbb04bf0d9277e16a12c4b63ebad8f627da19a16745f",
+    "sha256": "499ba53e41fe825a71ca4de994259e061137651a8c008cf309a3505c1cb85cf8",
+    "bytes": 153842
+  },
+  "/uploads/catalog/kits/diy-11/04-serving.webp": {
+    "sourceSha256": "dc5a04a795217b764ae96eca1ef99740df6c948240c3fa042eb19bc2f1b34d75",
+    "sha256": "eb4b9efb50e87e40f7ea17f0af08d5a55822507831668a13c38d5aaa4d778acc",
+    "bytes": 210480
+  },
+  "/uploads/catalog/kits/diy-11/05-recommendation.webp": {
+    "sourceSha256": "278a45e485152b844bbc8962e1bc122c34e4636f0c241b52255a637e02c785eb",
+    "sha256": "5f4197f5b3b7a31b12ee706c1d58fb85a5cffe07540ad6a2b6438bbb44f23a38",
+    "bytes": 258738
+  },
+  "/uploads/catalog/kits/diy-11/07-story.webp": {
+    "sourceSha256": "526e63b0a3ad3f4e9ecc8f9d40dab7086a03bb7adb98af7481bf2fc295141e18",
+    "sha256": "339e7f2d6873a655cf36e2301fb63618619e86a3c1f905df2207f0128d799ff7",
+    "bytes": 352592
+  },
+  "/uploads/catalog/kits/diy-11/08-catalog-cutout.webp": {
+    "sourceSha256": "1a8f1162e2885788fcbd448246fc9a63629c586d61387fa038d4af64d6386ad6",
+    "sha256": "0388f4bec889b596d147060c73985941655b786abe1b2fbc87ad43a4a87b5391",
+    "bytes": 310828
+  },
+  "/uploads/catalog/kits/diy-12/01-main.webp": {
+    "sourceSha256": "bf030137927e2a05a03f00b3e3ee0761f8315fc6e3256b4b5ae120b77813faff",
+    "sha256": "2e8d20d562ac044af26d1ec5df6337f75613610bbb4180960ee48940575b7803",
+    "bytes": 292186
+  },
+  "/uploads/catalog/kits/diy-12/02-included-ingredients.webp": {
+    "sourceSha256": "91197f3cc1094d73fae68a0ed24e8202220a7e432245a548f98c09adbce04fc7",
+    "sha256": "097076fe27c018affdef9318075afb1897f24d25935b1cf55cdd8c019b76f4a8",
+    "bytes": 183870
+  },
+  "/uploads/catalog/kits/diy-12/03-cooking-process-v2.webp": {
+    "sourceSha256": "4f44f5fe26ac59859b960ea5263bd86f5152c8586108721220c746d044061262",
+    "sha256": "ec176554977b505ef0eeff5691854fba93039c8051c5877e80388bed1e489dfe",
+    "bytes": 218488
+  },
+  "/uploads/catalog/kits/diy-12/04-serving.webp": {
+    "sourceSha256": "22d054d3d38beb6f69df28314194c908cf45a8cb2097cbe65ce2108d968ee846",
+    "sha256": "4a29a4b7bab4ed3df805889cb5704f569f6dd72abe7a42c645120f717434d49f",
+    "bytes": 334746
+  },
+  "/uploads/catalog/kits/diy-12/05-recommendation.webp": {
+    "sourceSha256": "3632634fc53f4a1afc3cc64190bc69f623450fecc5b2959dec2f485a3d7c8db5",
+    "sha256": "0a5953c79abb40db3cf7cfb2f65e734d03fe0b337bc4c4c75a89b691e88cdbc0",
+    "bytes": 318948
+  },
+  "/uploads/catalog/kits/diy-12/07-story.webp": {
+    "sourceSha256": "d26e7f2d75aea002672499bb23d68c94b755eefd464f243132c70eb3c7a8729c",
+    "sha256": "95c2a7d1e4d6ca361b130ba2159c9934c016ac249ab3321663fa6fc733607c66",
+    "bytes": 309376
+  },
+  "/uploads/catalog/kits/diy-12/08-catalog-cutout.webp": {
+    "sourceSha256": "4b5353454b168666eb3e0a3c198b4afcf80c188512290936585ed7f8ea9f70f3",
+    "sha256": "fcba4ea4746f78a062f3987d84d2d6ddb9b9bbc0ad804f706847231a31daa02e",
+    "bytes": 284026
+  },
+  "/uploads/catalog/kits/diy-13/01-main.webp": {
+    "sourceSha256": "1fcbae3682a6d5ef9ab08b5fe104b385a86b04c260bd5a25088aaf82a3edb6d5",
+    "sha256": "02c2e2ce67f43988536a8f595ddd8b2d21e14da80f2271ce9a5bbf4cc43acacf",
+    "bytes": 374270
+  },
+  "/uploads/catalog/kits/diy-13/02-included-ingredients.webp": {
+    "sourceSha256": "53e714453b6519ce1c750a27764e5d48f1a130ec3fb5d951ca70dd8fef53f487",
+    "sha256": "21fca62bbec86384437ba5fdc2f4d8376ff77d6419501edc8c977521bee1e90c",
+    "bytes": 237184
+  },
+  "/uploads/catalog/kits/diy-13/03-cooking-process-v2.webp": {
+    "sourceSha256": "e7d22c81bde897cfc8404acd5b8bac60acb85019a5f49feef97417dbf7047e37",
+    "sha256": "a18ddf3cb5a52ee16bc812357eba75459c8c4d2f60bd16d0d1a2948c468ed768",
+    "bytes": 205428
+  },
+  "/uploads/catalog/kits/diy-13/04-serving.webp": {
+    "sourceSha256": "24d2dcbf8a61d041bf170f67eb955b202b4f812d6a29275ef9eff684ff2c8c81",
+    "sha256": "1f9c7c7f3c5d70d11ad56635a99a6a37354f9062178b70cd5c8958e273f14973",
+    "bytes": 333454
+  },
+  "/uploads/catalog/kits/diy-13/05-recommendation.webp": {
+    "sourceSha256": "96997b9dfa4bead7ba17f01c03f7a619617e4ed1740f0a7245498a5f8de2404e",
+    "sha256": "4adf5bd5b8f9780aa569eb6cf91a2981828539970be07769790dbd9d42da2397",
+    "bytes": 310578
+  },
+  "/uploads/catalog/kits/diy-13/07-story.webp": {
+    "sourceSha256": "c7bfd1d54436e5fef6e3258a24960f473ce586dc3f8b3dc7a743ab346fa7667a",
+    "sha256": "7887db7422fcb3fee49389bff351637196a7cad30f7ce466dbc9bf747a367f5a",
+    "bytes": 300348
+  },
+  "/uploads/catalog/kits/diy-13/08-catalog-cutout.webp": {
+    "sourceSha256": "6a3accfaebf17decd5d5ae90960b7b1c2a67e05fa81acd331b8817d5727e6979",
+    "sha256": "3921d3d48250e56ed29290e45cfa83acb3d89095b4004d0f3cd4d042af46df50",
+    "bytes": 393780
+  },
+  "/uploads/catalog/kits/diy-14/01-main.webp": {
+    "sourceSha256": "20c56db210f2ad6cfcfdbff1e21c8faf1d7a71662f16af8720f3ba21f3da9565",
+    "sha256": "dc491809aabad3c08a5e48c0dde07258c149dab069d3073ddb592dea04e67965",
+    "bytes": 354446
+  },
+  "/uploads/catalog/kits/diy-14/02-included-ingredients.webp": {
+    "sourceSha256": "e851a61a5f3e798e1adc8f28b630380fe20cce0d922ed2850009d0993169e862",
+    "sha256": "a8883c23e6fb8ae0bf55eca2a815b1ae51f968887792829e4116b6f2dc1c109b",
+    "bytes": 231706
+  },
+  "/uploads/catalog/kits/diy-14/03-cooking-process-v2.webp": {
+    "sourceSha256": "8c713a2d2e2dbc7e880c777595ff1dbb0468aa6d225e8375011f4953335ff0e0",
+    "sha256": "6ce8c97e9f263c9217d3da42aa504ada72bbfcf19d0de9d44f00e784ac6090fa",
+    "bytes": 209984
+  },
+  "/uploads/catalog/kits/diy-14/04-serving.webp": {
+    "sourceSha256": "fe1a10c7560adc04a6002550e5e6bf9816ef1f3bca0ebb823002561210ce2725",
+    "sha256": "7bbbe13da50945faf50b2a75e3f003926799b914947c69f1d1fef4ad52bced28",
+    "bytes": 435322
+  },
+  "/uploads/catalog/kits/diy-14/05-recommendation.webp": {
+    "sourceSha256": "a9d7dbfa46efce04ceca813000aad2f9886c2e5ef868844f40564464609c6f0b",
+    "sha256": "c4f717c4078a5977f31204aadef3656e5300b850553c35727aba31e57921c2c4",
+    "bytes": 424796
+  },
+  "/uploads/catalog/kits/diy-14/07-story.webp": {
+    "sourceSha256": "4f9219db02a1b3c289b6682d887e756d85d4ee0fd61335085ce64a5003f16c3c",
+    "sha256": "c5fbc552b747426bf1a7dde876c64ab84a0501b141a9864eedfe9f4168dc2f52",
+    "bytes": 350384
+  },
+  "/uploads/catalog/kits/diy-14/08-catalog-cutout.webp": {
+    "sourceSha256": "bba91a9aa6054683694479efb16bfdfb7da1273e34c7e4e616aa50428212dbc7",
+    "sha256": "bdef860e7f2a8d986efac9f43fcbabc27b1c217ea5f733f2e1cb0bd41e3e69b9",
+    "bytes": 434772
+  },
+  "/uploads/catalog/kits/diy-15/01-main.webp": {
+    "sourceSha256": "e6ab82f22cd57ac245dc4c382034d0d434aab30703fe7098f7f67613821260ca",
+    "sha256": "bfb161a62a836a5a45620b5552560f02cd357eb210972b0ef781f63e4ceddaa1",
+    "bytes": 330014
+  },
+  "/uploads/catalog/kits/diy-15/02-included-ingredients.webp": {
+    "sourceSha256": "2332cb5e187d17bc4b845110770a21a90d4b1d51cccb150190c5091a9860f71c",
+    "sha256": "ef5ed03d35057c3fbd396408528c09e53e8ff9e86b6e52f21fb0a3ae50539716",
+    "bytes": 253034
+  },
+  "/uploads/catalog/kits/diy-15/03-cooking-process-v2.webp": {
+    "sourceSha256": "21dbd65683ec5c36ce48a233593085a33c10e5c2b1d7d3f21b7150dfc477686c",
+    "sha256": "b497d04518043d5179a7f964308dd5808c078e2ff6282a2cb936cfa2a6bad495",
+    "bytes": 307230
+  },
+  "/uploads/catalog/kits/diy-15/04-serving.webp": {
+    "sourceSha256": "a3afb3cadbe5d3af1fe0ebbdd1b14da3b4dc6f49da26658bfbf8d80d472904d3",
+    "sha256": "37439e8a7a56c11b95db8a1e971e87962f7bf06e309eb0e83df052392b8ab4f4",
+    "bytes": 359960
+  },
+  "/uploads/catalog/kits/diy-15/05-recommendation.webp": {
+    "sourceSha256": "6de2502452679a1a8714b8df1ef4e49a520b98cbb3c9405243fff5a270cc7bd8",
+    "sha256": "5373c1f26a32f9f54ab11fa4b8994a8aeb56374c3cf164772118dcec1e31ae16",
+    "bytes": 313248
+  },
+  "/uploads/catalog/kits/diy-15/07-story.webp": {
+    "sourceSha256": "4aee39bd50717de27659f8d1bd2cbbfc46584612b2ff30a5f1b4eaa84dc12729",
+    "sha256": "0b3c96bbd621a9ac1187d2b33f583919fef2e4373e086fda3ce5fb0688d27cdb",
+    "bytes": 389602
+  },
+  "/uploads/catalog/kits/diy-15/08-catalog-cutout.webp": {
+    "sourceSha256": "6ac7b846a79dc1f65c17e69a21367b5eb33289683e9f714d08dd130f0e4085c3",
+    "sha256": "facc14b8aeba77c65a619ac7c07fb4fba4393e182c328756e7a60aef90b4141f",
+    "bytes": 350196
+  },
+  "/uploads/catalog/kits/diy-16/01-main.webp": {
+    "sourceSha256": "9d74e275247811a02cde360b60e52768a3cc1f0596ffa5877c42ce5d21c7cd94",
+    "sha256": "60b911b49fdb025a7c93eced1b470c6135e3abe59dad59e23a8bcb1ebf206a51",
+    "bytes": 328422
+  },
+  "/uploads/catalog/kits/diy-16/02-included-ingredients.webp": {
+    "sourceSha256": "dd1f5d656de17b4f010c28ec2782379602802d6bbae1860c92933ae9e5bfac7e",
+    "sha256": "62fe1e38500385c75d1b804c4b616b203a7c3201ea49f1c166a40a406596671e",
+    "bytes": 260496
+  },
+  "/uploads/catalog/kits/diy-16/03-cooking-process-v2.webp": {
+    "sourceSha256": "4213ea259e8b19ec4010c05f97209a379dc4ed5a88fb7488216649c9727c116e",
+    "sha256": "4a1ab226fdc278963826294cc07ffc1ae1abea33d4fb4f050b08c69350f06b7f",
+    "bytes": 297228
+  },
+  "/uploads/catalog/kits/diy-16/04-serving.webp": {
+    "sourceSha256": "c0c12af17019e65afcf0c05e44c6cbc6ca4b621901bb3282749653a02082834d",
+    "sha256": "718d8a808ec8cb3f48d49c590f8ed5c82e04b97ae7547fc617a704d642778d24",
+    "bytes": 351952
+  },
+  "/uploads/catalog/kits/diy-16/05-recommendation.webp": {
+    "sourceSha256": "df196ca30d9b39f32d71d2536c37737979f0db29f0ccb77fed7a3bfdcbf30b4f",
+    "sha256": "dab826d5d4f2b40629094076c53329f7931f45d4ad6f71acd898e40e42dbd311",
+    "bytes": 327120
+  },
+  "/uploads/catalog/kits/diy-16/07-story.webp": {
+    "sourceSha256": "e8cbb511de798157117d977fef66d3fe5a28ee0be87904936849f102796a9973",
+    "sha256": "bf965c45fccb5cbfcadd35fe5b414a78c51f2a52c8ab8f60e63b6c40f99edfb2",
+    "bytes": 335968
+  },
+  "/uploads/catalog/kits/diy-16/08-catalog-cutout.webp": {
+    "sourceSha256": "b986a2f76797683f9aaac461b94fd0b2fbd542c01869fb7d5e12c27607c11fcd",
+    "sha256": "a889a8b9d2c57eddc014bde7226ee7cf250af4c68460b234adf1af8a19efacbb",
+    "bytes": 356020
+  },
+  "/uploads/catalog/kits/diy-17/01-main.webp": {
+    "sourceSha256": "274bf19e6f55cccae232fc4a69f40728d4d765556e0eee9a3a59edb95dd21ebb",
+    "sha256": "ffcb1c55321e9ea9e2d7c4b829b177ca3a5d8fa7ea4d6ffe9024b6aa7d44129e",
+    "bytes": 400474
+  },
+  "/uploads/catalog/kits/diy-17/02-included-ingredients.webp": {
+    "sourceSha256": "4f5f9717666ac3b584b293ba476d6e0fa31fe4e4942f365dc53387986e1f31ab",
+    "sha256": "106adae54b9dc280412b79f95445076a62a881b92a6e96289413baa75e96c98c",
+    "bytes": 253270
+  },
+  "/uploads/catalog/kits/diy-17/03-cooking-process-v2.webp": {
+    "sourceSha256": "20501fe07d05f10c011369f23f79856540188ba2b5c2798438bf0295c2f6434d",
+    "sha256": "95d6c53a60a57aa19c5d8843f1e0da8093ee7ad6ecc94ee7ceeddb194b0092ac",
+    "bytes": 308560
+  },
+  "/uploads/catalog/kits/diy-17/04-serving.webp": {
+    "sourceSha256": "dfc7b1f953cacf78f93dbfa86922d74423c3ff3399b07deb366240eef0df9432",
+    "sha256": "5ca7c81e5ae7f591e0801b64ceeddcac93f610b83117f41a7e32d1ec1067530a",
+    "bytes": 351516
+  },
+  "/uploads/catalog/kits/diy-17/05-recommendation.webp": {
+    "sourceSha256": "cadbc0748c04b8254afc822157e1a2ad583b2723cbf78e01c15b2be8bdeb1829",
+    "sha256": "afad5b80cc6bf0801237e7816a1b965a1626011e543082074754ee4e8aabf3b8",
+    "bytes": 329462
+  },
+  "/uploads/catalog/kits/diy-17/07-story.webp": {
+    "sourceSha256": "c96b013706917075b5559c5bf5f21e0ab39ea9e0460f5a48b24d9b68db80a68f",
+    "sha256": "956bebb348c6ebd77e34d63ca78a53ef2faaa035f680d4973a078c5853e91ac2",
+    "bytes": 321294
+  },
+  "/uploads/catalog/kits/diy-17/08-catalog-cutout.webp": {
+    "sourceSha256": "0deb12a08154192e4b04e5c154c126689125cf7eae72f713af27539892faa26b",
+    "sha256": "fbab2d88ca35422d3fd1dc97093d65ec643097ca761ae036a858c69f9f9169d2",
+    "bytes": 412700
+  },
+  "/uploads/catalog/kits/diy-18/01-main.webp": {
+    "sourceSha256": "7367d0e5a5789a7b11fb3cea74c94a2bca2aef68dc040372bc5bbc27bf3f0a35",
+    "sha256": "f4c0e197e0f2c11fbe4e0b08f8494677b5fdd98e00af397d4952990f93a75eb3",
+    "bytes": 336258
+  },
+  "/uploads/catalog/kits/diy-18/02-included-ingredients.webp": {
+    "sourceSha256": "0b83d83030b143db79f3b841754c11f1c2e37ea4479c574e3328113468ba2141",
+    "sha256": "9b9481204fe67dbde7cbe1c9583f8690eda54c79fc9bedea4432f211cb22685f",
+    "bytes": 181416
+  },
+  "/uploads/catalog/kits/diy-18/03-cooking-process-v2.webp": {
+    "sourceSha256": "ed03e299123ce759e9680df75c408ea7ec977cbfb4017bd496dca9142a1f5a0f",
+    "sha256": "0ec4c7692d64f1639e686c004683929f679825fb836691a170851b3833ae7594",
+    "bytes": 284758
+  },
+  "/uploads/catalog/kits/diy-18/04-serving.webp": {
+    "sourceSha256": "94cd95a965a9ab6b0bf234c66f3a7f286c5299d498b2e17474b21504634a7b46",
+    "sha256": "dbd60d18698be124778afbcef6ca8cd5d186f9de919ce46d0804beb318ec6a8c",
+    "bytes": 390698
+  },
+  "/uploads/catalog/kits/diy-18/05-recommendation.webp": {
+    "sourceSha256": "95702f8604839c98566e5b4d1b18f7bc56231c4d97113b0595c15b68de9deff6",
+    "sha256": "b522186f08ea0d5b9ad5c4fda5753a91e4310896a49fecc57ca9ac9d80319126",
+    "bytes": 396186
+  },
+  "/uploads/catalog/kits/diy-18/07-story.webp": {
+    "sourceSha256": "d0e0c3b6c54d0a1409cd339041cab0eb3127c4ad825463e65e7b1c6a0b37fdb3",
+    "sha256": "c96ac4103065aa140bc1135b098e644644340a8fc30eebe4a0d429d01851afb5",
+    "bytes": 357530
+  },
+  "/uploads/catalog/kits/diy-18/08-catalog-cutout.webp": {
+    "sourceSha256": "3acd3bdc945531fe64bd30be8cbec9a0bd25ff3378e23efff28c49deb1f4e4fe",
+    "sha256": "2d1b52b617e841656ec78b861fc6f764f1f48a77924522a96787b6f6f5112e79",
+    "bytes": 286304
+  },
+  "/uploads/catalog/kits/diy-19/01-main.webp": {
+    "sourceSha256": "8c65d74c99224c60c9754021dc67d52da670e9f7538544ab260ee2f3343cb607",
+    "sha256": "02f45b7e06fa93110aa3d5aaa98c3314b7513fe72c77f014b911731a68f89c47",
+    "bytes": 352468
+  },
+  "/uploads/catalog/kits/diy-19/02-included-ingredients.webp": {
+    "sourceSha256": "b52bb5bef27fcc36792a8821358217047b1a9d8fe7d25bc9071b84106eaab594",
+    "sha256": "3a76bf695b8978c2a939c2f7cf8ae8e99733a1e141e6e510eb777eab1ff90aeb",
+    "bytes": 143570
+  },
+  "/uploads/catalog/kits/diy-19/03-cooking-process-v2.webp": {
+    "sourceSha256": "7139365685d9c09e564fdb6e30eb85e4124298f0764b3cf1b95df767d04e681d",
+    "sha256": "229c1dd376eb25097a8ec44a9ebc0ec12f43388548d5bad9f8668f0d6b86fc8f",
+    "bytes": 196730
+  },
+  "/uploads/catalog/kits/diy-19/04-serving.webp": {
+    "sourceSha256": "5e6ed46a0ec73ce541535a8386780d9d065e54d98d9689dab320b33c235dc0f5",
+    "sha256": "c367070ca48ef239a968fb26063b594d8aa60818963f211962b755dbebfbd328",
+    "bytes": 314028
+  },
+  "/uploads/catalog/kits/diy-19/05-recommendation.webp": {
+    "sourceSha256": "85309b9f6966d03171c611a624fe4d14651670b1ad9a894b98b85a47fa16f55d",
+    "sha256": "75357cd6b81955e714c3d256c8f552bc9b2a3135721251818f65133e150a9c1f",
+    "bytes": 296614
+  },
+  "/uploads/catalog/kits/diy-19/07-story.webp": {
+    "sourceSha256": "9ff41c81beee004304b74c0608b47dcb11147957ec17c1b8b5ed851b71affa41",
+    "sha256": "0ff1891c48da242e2bbabe354844d33976867e05ed8ad260cb4b11a33daa86b0",
+    "bytes": 342004
+  },
+  "/uploads/catalog/kits/diy-19/08-catalog-cutout.webp": {
+    "sourceSha256": "17a252243c44d4de4323dbb31f22be1556d84bb42566654e9af1251f0706b900",
+    "sha256": "36fe1fad6eae8e8d44efb490208b4e30ecd764cf92396361c272fa511947b2ec",
+    "bytes": 254776
+  },
+  "/uploads/catalog/kits/diy-21/01-main.webp": {
+    "sourceSha256": "528d937c94af6a91f0efd994b8d6ec6dfdea8a4ffdf7cb6f7fae9289969768be",
+    "sha256": "dab14a07947d48c44f96db378ed796dfa804713c8cfe65177e647fea9a2e6745",
+    "bytes": 320126
+  },
+  "/uploads/catalog/kits/diy-21/02-included-ingredients.webp": {
+    "sourceSha256": "bfe49924b5ea283ed21451e5ded860a0506026607f550b88b6a4c9df902798ff",
+    "sha256": "209d261f4505302376d2ef1fc2a1a2531044ed35c28f00da8b93cc2aed23ed79",
+    "bytes": 117910
+  },
+  "/uploads/catalog/kits/diy-21/03-cooking-process-v2.webp": {
+    "sourceSha256": "b2bea15aa39ca429c241579395771cc95a74ae0b31269eccefc9ea11b9f09bb4",
+    "sha256": "a1ac10336a42aff7c69fa794929a46db5ee0233d9cdded6acfe47f6e6c636fdb",
+    "bytes": 221556
+  },
+  "/uploads/catalog/kits/diy-21/04-serving.webp": {
+    "sourceSha256": "c87abc73fda20df3c1ed0063159c167004ca4de82288e8acc5fe1abdd06204e4",
+    "sha256": "83b0c46b6bc8f04366dc50a57bc72711093f3c7133307512bec35bc98d5d7eb3",
+    "bytes": 245368
+  },
+  "/uploads/catalog/kits/diy-21/05-recommendation.webp": {
+    "sourceSha256": "906ec34d5940cd5d81cb81a0a1078565ee60dcec37c8f103dac27e0595ee1c04",
+    "sha256": "5073edded205520b58642f78d4089e33b3ac5eca98e3a1e8352d95da2fd41c21",
+    "bytes": 309950
+  },
+  "/uploads/catalog/kits/diy-21/07-story.webp": {
+    "sourceSha256": "c1cb1d33b3e663ec32a08bf2ab0a443d02a1afa049266afcbd1d037f3c67175b",
+    "sha256": "4d92d8ed31d177c63acc27c901b56d146e8debbe29fa4a3b20c43ed0e18e1461",
+    "bytes": 277614
+  },
+  "/uploads/catalog/kits/diy-21/08-catalog-cutout.webp": {
+    "sourceSha256": "4de52e62bb3f57d7b91b37708476a65409a48e51a14eaf2b33180320000be51d",
+    "sha256": "3f21608c31eef7264bab8152caa228344689538be15ec9ab92de1163828c11e4",
+    "bytes": 345590
+  },
+  "/uploads/catalog/kits/diy-23/01-main.webp": {
+    "sourceSha256": "b034cbd9dd7c7819a14111bc1c4d7e9de7210db0552e9bcd7bf76f9bb989ee80",
+    "sha256": "c22c48a8238103854bce9fed63a203059f432bd7bb9067c140b32478eaa1f63d",
+    "bytes": 311134
+  },
+  "/uploads/catalog/kits/diy-23/02-included-ingredients.webp": {
+    "sourceSha256": "efda76b7e913e990ec50e677fa1dfcc378ea7c93c8a0e422f4a95428b10246b8",
+    "sha256": "f1cfe637098229d249ce4337db42e0aa3dc42f3b266c53e6219421de591200e9",
+    "bytes": 198318
+  },
+  "/uploads/catalog/kits/diy-23/03-cooking-process-v2.webp": {
+    "sourceSha256": "c1cf3133d0479a8a938ebfbd9ea5951b4a33967aae552329160a3f9e7c8edfe7",
+    "sha256": "52dba9177b09865b8286b04dfa55b7b7d839770850e2ad7d9aff7f8ad830b74a",
+    "bytes": 260606
+  },
+  "/uploads/catalog/kits/diy-23/04-serving.webp": {
+    "sourceSha256": "8fd2dafe985bbdda46263f72d0813f8831905f2792be2075f3c4cb9d8b29bbe4",
+    "sha256": "52d653a048fa6a1dc6ed3be934de104b1ee9ba0683fa8e647f1e6abda5da79a8",
+    "bytes": 288956
+  },
+  "/uploads/catalog/kits/diy-23/05-recommendation.webp": {
+    "sourceSha256": "a857d49d366e11f7f8583913156003d6013b9dee9e95250a1e6f1ac2e8e305a2",
+    "sha256": "2ea2c7496fefec774e9c14258af484b481016f414a0e3fd26ba2f461a10d0705",
+    "bytes": 309872
+  },
+  "/uploads/catalog/kits/diy-23/07-story.webp": {
+    "sourceSha256": "40fbe76e989cadba28e628611c16c49c46e218e19acffe54d843edff90bfc953",
+    "sha256": "f1cd464ed0bc342c18b7fcaa63b6fd620b67540a367e48ea1821def595803f36",
+    "bytes": 287130
+  },
+  "/uploads/catalog/kits/diy-23/08-catalog-cutout.webp": {
+    "sourceSha256": "f90161bd11737e73f9d2c3ec9137099c42a9829c483a89dbc0b8b9fee4b1c350",
+    "sha256": "d5259d9a6c6c0eb285ebf709cb7cc9f28dc08e65a73fe35f6c18e597c591be3b",
+    "bytes": 309734
+  },
+  "/uploads/catalog/kits/diy-24/01-main.webp": {
+    "sourceSha256": "3ab1e9cac6e2199ebf812bd7bf5e243b02a661725dff7c0cda9be023dd358e41",
+    "sha256": "4ca4d4a4f19039634ac549e385d8470beb6b573eab6d3a9b1a06a850b0bcce3e",
+    "bytes": 285960
+  },
+  "/uploads/catalog/kits/diy-24/02-included-ingredients.webp": {
+    "sourceSha256": "2004017d408b86fb0581ff02aa806175aff2ba9930383f39489d64631515872b",
+    "sha256": "eea3dd3501b7329efaea8b2ec415b5e93d2991f77e916cfec48200488bf94586",
+    "bytes": 184654
+  },
+  "/uploads/catalog/kits/diy-24/03-cooking-process-v2.webp": {
+    "sourceSha256": "53e1e7d8e22cf856b255374aff8bb8486a4a4e70e184001c7c12175da4f29f36",
+    "sha256": "2b191fa43f6fe4e3efed0dbf8d1c65c57ac104b211be0fa959d65ae6e8d1d55a",
+    "bytes": 252644
+  },
+  "/uploads/catalog/kits/diy-24/04-serving.webp": {
+    "sourceSha256": "7622274c0fb33a03b13be4726b989667ce7e46063bb78497d5ae44eef8930d3e",
+    "sha256": "e209c26045bb31d49208555a02b6e78306e362d75142870f0f717885c1ad31bf",
+    "bytes": 305848
+  },
+  "/uploads/catalog/kits/diy-24/05-recommendation.webp": {
+    "sourceSha256": "5559e52cfaf78f797d0cd255ca08eaa85d113d1413d891d1fedad0e2bccba857",
+    "sha256": "7a8c412d4a30969c4835721e51712e95b21f0498bece423d9949a83592b4cde7",
+    "bytes": 307712
+  },
+  "/uploads/catalog/kits/diy-24/07-story.webp": {
+    "sourceSha256": "f00d5a186b59c6c1f6a341169a6a3f88e1259f83c4133a5b6f013da7b4556a22",
+    "sha256": "120505489b877b15b87a284153deb34afdf2ab703f96f231847261e87cf13120",
+    "bytes": 297178
+  },
+  "/uploads/catalog/kits/diy-24/08-catalog-cutout-v2.webp": {
+    "sourceSha256": "e87eccc608f48f2fbd0e66d0ee694ac4d085f2bbec5496d1b6a53e4c274b50d8",
+    "sha256": "1871d987147e68465fe1cb0284fbb96b802a3bef26b2b7cde0160aaa6736f629",
+    "bytes": 308096
+  }
+}

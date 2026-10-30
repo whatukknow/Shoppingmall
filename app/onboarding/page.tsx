@@ -2,7 +2,7 @@ import { BirthDetailsStep } from '@/domains/home/onboarding/react/BirthDetailsSt
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: '한 끼 사주 | Little Portions',
+  title: 'Food fortune | Little Portions',
 };
 
 export default function OnboardingPage() {

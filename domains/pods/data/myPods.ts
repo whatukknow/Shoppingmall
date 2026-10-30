@@ -37,16 +37,16 @@ export function getMyPodView(app: MyPodApplication): {
   actions: MyPodAction[];
 } {
   const detail: MyPodAction = {
-    label: '상세 보기',
+    label: 'View details',
     href: `/pods/product/${app.productId}`,
   };
 
   if (app.paymentEligibility === 'ready') {
     return {
-      statusLabel: '매칭 완료 · 결제 가능',
+      statusLabel: 'Group full · Ready to pay',
       actions: [
         {
-          label: '결제하기',
+          label: 'Pay now',
           primary: true,
           pay: true,
         },
@@ -55,18 +55,18 @@ export function getMyPodView(app: MyPodApplication): {
   }
   if (app.podStatus === 'recruiting') {
     return {
-      statusLabel: '모집 중 · 내 신청 대기',
-      actions: [detail, { label: '내 신청 취소', cancel: true }],
+      statusLabel: 'Open · Waiting for members',
+      actions: [detail, { label: 'Leave group', cancel: true }],
     };
   }
   if (app.paymentEligibility === 'paid') {
-    return { statusLabel: '결제 완료', actions: [detail] };
+    return { statusLabel: 'Paid', actions: [detail] };
   }
   if (app.paymentEligibility === 'expired') {
-    return { statusLabel: '결제 기한 만료', actions: [detail] };
+    return { statusLabel: 'Payment deadline passed', actions: [detail] };
   }
   if (app.podStatus === 'closed') {
-    return { statusLabel: '모집 마감', actions: [detail] };
+    return { statusLabel: 'Group closed', actions: [detail] };
   }
-  return { statusLabel: '모집 취소', actions: [detail] };
+  return { statusLabel: 'Group cancelled', actions: [detail] };
 }

@@ -152,7 +152,7 @@ export default function PaymentPage({
     }
 
     if (orderItems.length === 0) {
-      setSubmitNotice('결제할 팟을 다시 선택해 주세요.');
+      setSubmitNotice('Please select your buying groups again.');
       return;
     }
 
@@ -160,11 +160,11 @@ export default function PaymentPage({
     const nextPaymentErrors: PaymentErrors = {};
 
     if (!paymentMethod) {
-      nextPaymentErrors.paymentMethod = '결제수단을 선택해 주세요.';
+      nextPaymentErrors.paymentMethod = 'Choose a payment method.';
     }
 
     if (!privacyConsent) {
-      nextPaymentErrors.privacyConsent = '필수 동의 항목을 확인해 주세요.';
+      nextPaymentErrors.privacyConsent = 'Please accept the required consent.';
     }
 
     setErrors(nextErrors);
@@ -206,7 +206,7 @@ export default function PaymentPage({
 
     if (!saved) {
       setSubmitNotice(
-        '선택한 팟을 저장하지 못했어요. 브라우저 저장 설정을 확인해 주세요.',
+        'Could not save your selected groups. Check your browser storage settings.',
       );
       return;
     }
@@ -248,8 +248,8 @@ export default function PaymentPage({
 
       setSubmitNotice(
         code === 'USER_CANCEL'
-          ? '결제를 취소했어요. 다시 시도해 주세요.'
-          : '결제창을 열지 못했어요. 잠시 후 다시 시도해 주세요.',
+          ? 'Payment was cancelled. Please try again.'
+          : 'Could not open checkout. Please try again shortly.',
       );
     } finally {
       setIsPaying(false);
@@ -260,12 +260,12 @@ export default function PaymentPage({
   return (
     <main className="mx-auto w-full max-w-[1260px] px-6 py-10">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold">선택한 팟의 주문 내용을 확인해요</h1>
-        <p className="mt-2">배송 정보를 입력해 주세요.</p>
+        <h1 className="text-3xl font-bold">Review your shared order</h1>
+        <p className="mt-2">Enter your delivery details.</p>
       </header>
 
       {!orderLoaded ? (
-        <p role="status">선택한 팟을 불러오는 중입니다.</p>
+        <p role="status">Loading your selected groups.</p>
       ) : (
         <form
           noValidate

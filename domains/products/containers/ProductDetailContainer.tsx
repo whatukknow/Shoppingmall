@@ -4,6 +4,10 @@ import { notFound } from 'next/navigation';
 
 import { ApiError } from '@/shared/lib/client';
 import { getProductDetail } from '@/domains/products/products.api';
+import {
+  localizeProductDetail,
+  translateProductText,
+} from '@/domains/products/product-copy.en';
 import { getProductPods } from '@/domains/pods/pods.api';
 import type { ListResponse } from '@/shared/lib/api.types';
 import type { Pod } from '@/domains/pods/pods.types';
@@ -24,10 +28,11 @@ export default async function ProductDetailContainer({
   let detail;
   let podList: ListResponse<Pod>;
   try {
-    [detail, podList] = await Promise.all([
-      getProductDetail(id),
-      getProductPods(id, { status: 'open' }),
-    ]);
+    detail = await getProductDetail(id);
+    podList =
+      detail.isPurchasable === false
+        ? { list: [], total: 0, limit: 0, offset: 0 }
+        : await getProductPods(detail.id, { status: 'open' });
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
       notFound();
@@ -35,11 +40,13 @@ export default async function ProductDetailContainer({
     throw error;
   }
 
+  detail = localizeProductDetail(detail);
+
   const pods: LivePod[] = podList.list.map((pod) => ({
     id: pod.id,
-    title: `${pod.productName} · ${pod.optionLabel}`,
-    cropName: pod.productName,
-    description: pod.deadlineLabel,
+    title: `${translateProductText(pod.productName)} · ${translateProductText(pod.optionLabel)}`,
+    cropName: translateProductText(pod.productName),
+    description: translateProductText(pod.deadlineLabel),
     status: 'recruiting',
     applicantCount: pod.currentCount,
     capacity: pod.targetCount,
@@ -48,6 +55,8 @@ export default async function ProductDetailContainer({
   // 응답의 description(문자열)은 현재 표시 위치가 없어 매핑하지 않습니다.
   const product: ProductDetail = {
     id: detail.id,
+    catalogId: detail.catalogId,
+    isPurchasable: detail.isPurchasable,
     name: detail.name,
     category: detail.category,
     images: detail.images,

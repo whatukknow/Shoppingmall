@@ -4,8 +4,8 @@ import { PolicyDraftPage } from '@/shared/components/PolicyDraftPage';
 export default function TermsPage() {
   return (
     <PolicyDraftPage
-      title="이용약관"
-      description="서비스 이용약관이 이곳에 표시됩니다."
+      title="Terms of service"
+      description="The terms of service will appear here."
     />
   );
 }

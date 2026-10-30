@@ -8,8 +8,8 @@ const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
 // 이메일 칸 검사 (로그인·회원가입 공통)
 const checkEmail = (email: string) => {
-  if (!email.trim()) return '이메일을 입력해 주세요.';
-  if (!isEmail(email)) return '이메일 형식을 확인해 주세요.';
+  if (!email.trim()) return 'Enter your email.';
+  if (!isEmail(email)) return 'Enter a valid email address.';
   return undefined;
 };
 
@@ -20,7 +20,7 @@ export function validateLogin(values: LoginValues): FieldErrors<LoginValues> {
   const emailError = checkEmail(values.email);
   if (emailError) errors.email = emailError;
 
-  if (!values.password) errors.password = '비밀번호를 입력해 주세요.';
+  if (!values.password) errors.password = 'Enter your password.';
 
   return errors;
 }
@@ -31,26 +31,27 @@ export function validateSignup(
 ): FieldErrors<SignupValues> {
   const errors: FieldErrors<SignupValues> = {};
 
-  if (!values.name.trim()) errors.name = '이름을 입력해 주세요.';
+  if (!values.name.trim()) errors.name = 'Enter your name.';
 
   const emailError = checkEmail(values.email);
   if (emailError) errors.email = emailError;
 
   if (!values.password) {
-    errors.password = '비밀번호를 입력해 주세요.';
+    errors.password = 'Enter your password.';
   } else if (values.password.length < PASSWORD_MIN_LENGTH) {
-    errors.password = `비밀번호는 ${PASSWORD_MIN_LENGTH}자 이상 입력해 주세요.`;
+    errors.password = `Use at least ${PASSWORD_MIN_LENGTH} characters for your password.`;
   }
 
   if (!values.passwordConfirm) {
-    errors.passwordConfirm = '비밀번호를 한 번 더 입력해 주세요.';
+    errors.passwordConfirm = 'Confirm your password.';
   } else if (values.password !== values.passwordConfirm) {
-    errors.passwordConfirm = '비밀번호가 서로 달라요.';
+    errors.passwordConfirm = 'Passwords do not match.';
   }
 
-  if (!values.agreeTerms) errors.agreeTerms = '이용약관 확인이 필요해요.';
+  if (!values.agreeTerms)
+    errors.agreeTerms = 'Please accept the terms of service.';
   if (!values.agreePrivacy)
-    errors.agreePrivacy = '개인정보 안내 확인이 필요해요.';
+    errors.agreePrivacy = 'Please accept the privacy policy.';
   // agreeNotification(알림 수신)은 선택이라 검사하지 않음
 
   return errors;

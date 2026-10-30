@@ -15,7 +15,7 @@ type MyPodCancelContainerProps = {
 // 내 신청 취소 외곽선 버튼 — ProfileView 의 actionOutline 버튼 스타일
 export default function MyPodCancelContainer({
   podId,
-  label = '내 신청 취소',
+  label = 'Leave group',
 }: MyPodCancelContainerProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition(); // 비동기 대기 중 중복 클릭 차단
@@ -41,7 +41,7 @@ export default function MyPodCancelContainer({
       disabled={isPending}
       aria-busy={isPending}
     >
-      {isPending ? '취소 중…' : label}
+      {isPending ? 'Leaving…' : label}
     </Button>
   );
 }

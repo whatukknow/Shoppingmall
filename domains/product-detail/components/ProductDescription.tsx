@@ -10,10 +10,10 @@ export default function ProductDescription({
 }: ProductDescriptionProps) {
   return (
     <section id="product-description" className="scroll-mt-24 space-y-10">
-      <h2 className="text-2xl font-bold">상품 설명</h2>
+      <h2 className="text-2xl font-bold">Product details</h2>
 
       <section aria-labelledby="crop-story-heading">
-        <h3 id="crop-story-heading">작물 이야기</h3>
+        <h3 id="crop-story-heading">From the farm</h3>
 
         {/* 외부에서 전달받은 농장 이미지 URL이 있을 때만 표시합니다. */}
         {description?.imageUrl?.trim() && (
@@ -23,47 +23,57 @@ export default function ProductDescription({
             src={description.imageUrl.trim()}
             alt={
               description.farmName
-                ? `${description.farmName} 농장 풍경`
-                : '작물 재배 농장 풍경'
+                ? `${description.farmName} farm landscape`
+                : 'The farm where it grows'
             }
             loading="lazy"
             decoding="async"
             className="my-4 block h-auto w-full"
           />
         )}
-        <p>{description?.farmName ?? '농장 정보 준비 중'}</p>
-        <p>{description?.farmInfo ?? '농장 소개 준비 중'}</p>
+        <p>{description?.farmName ?? 'Farm details coming soon'}</p>
+        <p>{description?.farmInfo ?? 'Farm story coming soon'}</p>
       </section>
 
       <section aria-labelledby="product-details-heading">
         <h3 id="product-details-heading" className="text-lg font-bold">
-          알아두면 좋은 정보
+          Good to know
         </h3>
 
         <dl className="mt-4">
           <div className="grid grid-cols-[120px_1fr] gap-4 border-b py-3">
-            <dt>구성·내용량</dt>
-            <dd>{description?.basicInfo?.contentGuide ?? '정보 준비 중'}</dd>
+            <dt>Contents and quantity</dt>
+            <dd>
+              {description?.basicInfo?.contentGuide ?? 'Details coming soon'}
+            </dd>
           </div>
 
           <div className="grid grid-cols-[120px_1fr] gap-4 border-b py-3">
-            <dt>원재료</dt>
-            <dd>{description?.basicInfo?.ingredients ?? '정보 준비 중'}</dd>
+            <dt>Ingredients</dt>
+            <dd>
+              {description?.basicInfo?.ingredients ?? 'Details coming soon'}
+            </dd>
           </div>
 
           <div className="grid grid-cols-[120px_1fr] gap-4 border-b py-3">
-            <dt>알레르기</dt>
-            <dd>{description?.basicInfo?.allergyInfo ?? '정보 준비 중'}</dd>
+            <dt>Allergens</dt>
+            <dd>
+              {description?.basicInfo?.allergyInfo ?? 'Details coming soon'}
+            </dd>
           </div>
 
           <div className="grid grid-cols-[120px_1fr] gap-4 border-b py-3">
-            <dt>보관 방법</dt>
-            <dd>{description?.basicInfo?.storageMethod ?? '정보 준비 중'}</dd>
+            <dt>Storage</dt>
+            <dd>
+              {description?.basicInfo?.storageMethod ?? 'Details coming soon'}
+            </dd>
           </div>
 
           <div className="grid grid-cols-[120px_1fr] gap-4 border-b py-3">
-            <dt>배송 안내</dt>
-            <dd>{description?.basicInfo?.shippingInfo ?? '정보 준비 중'}</dd>
+            <dt>Delivery</dt>
+            <dd>
+              {description?.basicInfo?.shippingInfo ?? 'Details coming soon'}
+            </dd>
           </div>
         </dl>
 
@@ -73,7 +83,7 @@ export default function ProductDescription({
       </section>
       <section aria-labelledby="product-tips-heading">
         <h3 id="product-tips-heading" className="text-lg font-bold">
-          나의 식탁에 담는 방법
+          Ideas for your table
         </h3>
 
         {description && description.tips.length > 0 ? (
@@ -102,7 +112,7 @@ export default function ProductDescription({
           </ol>
         ) : (
           <p className="text-muted-foreground mt-4 text-sm">
-            활용 팁을 준비하고 있습니다.
+            Serving ideas coming soon.
           </p>
         )}
       </section>

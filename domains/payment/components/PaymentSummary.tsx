@@ -30,28 +30,28 @@ export default function PaymentSummary({
       className="rounded-xl border border-current/15 bg-white/40 p-5"
     >
       <h2 id="payment-summary-title" className="text-2xl font-bold">
-        결제 요약
+        Order summary
       </h2>
 
       <dl className="mt-6 space-y-3 text-sm">
         <div className="flex justify-between gap-4">
-          <dt>상품 금액</dt>
-          <dd>{subtotal.toLocaleString('ko-KR')}원</dd>
+          <dt>Subtotal</dt>
+          <dd>{subtotal.toLocaleString('en-US')} KRW</dd>
         </div>
 
         <div className="flex justify-between gap-4">
-          <dt>배송비</dt>
-          <dd>{shippingFee.toLocaleString('ko-KR')}원</dd>
+          <dt>Delivery fee</dt>
+          <dd>{shippingFee.toLocaleString('en-US')} KRW</dd>
         </div>
 
         <div className="flex justify-between gap-4">
-          <dt>할인 금액</dt>
-          <dd>-{discount.toLocaleString('ko-KR')}원</dd>
+          <dt>Discount</dt>
+          <dd>-{discount.toLocaleString('en-US')} KRW</dd>
         </div>
 
         <div className="flex justify-between gap-4 border-t border-current/15 pt-4 text-lg font-bold">
-          <dt>총 결제 금액</dt>
-          <dd>{total.toLocaleString('ko-KR')}원</dd>
+          <dt>Total</dt>
+          <dd>{total.toLocaleString('en-US')} KRW</dd>
         </div>
       </dl>
 
@@ -62,7 +62,7 @@ export default function PaymentSummary({
             checked={privacyConsent}
             onChange={(event) => onPrivacyConsentChange(event.target.checked)}
           />
-          <span>전체 동의</span>
+          <span>Agree to all</span>
         </label>
 
         <label className="mt-3 flex cursor-pointer items-start gap-2 text-sm">
@@ -75,7 +75,10 @@ export default function PaymentSummary({
             aria-describedby={privacyError ? 'privacyConsent-error' : undefined}
             className="mt-1"
           />
-          <span>개인정보 수집·이용 동의 (필수)</span>
+          <span>
+            I consent to the collection and use of personal information
+            (required)
+          </span>
         </label>
 
         {privacyError && (
@@ -97,12 +100,12 @@ export default function PaymentSummary({
         className="w-full"
       >
         {isPaying
-          ? '결제창을 준비하고 있습니다…'
-          : `${total.toLocaleString('ko-KR')}원 결제하기`}
+          ? 'Preparing checkout…'
+          : `Pay ${total.toLocaleString('en-US')} KRW`}
       </Button>
 
       <p className="mt-3 text-xs">
-        결제하기를 누르면 토스 결제창으로 연결됩니다.
+        Continue to Toss Payments to complete your purchase.
       </p>
     </section>
   );

@@ -4,26 +4,26 @@ import { useId, useRef, useState, type KeyboardEvent } from 'react';
 
 const flows = {
   general: {
-    label: '일반 장보기',
+    label: 'Typical shopping',
     steps: [
-      ['특가 배너', '할인과 광고에서 장보기를 시작해요.'],
-      ['검색', '먹을 식재료를 직접 검색해요.'],
-      ['상품 목록', '여러 상품을 둘러보고 비교해요.'],
-      ['상품 상세', '용량과 가격을 확인해요.'],
-      ['옵션·수량', '원하는 옵션과 수량을 골라요.'],
-      ['장바구니', '선택한 상품을 담아요.'],
-      ['회원·최소금액', '회원 조건과 무료배송 기준을 확인해요.'],
-      ['결제', '주소와 결제 정보를 입력해요.'],
+      ['Promotions', 'Start with discounts and ads.'],
+      ['Search', 'Search for the ingredients you want.'],
+      ['Products', 'Browse and compare products.'],
+      ['Product details', 'Check pack sizes and prices.'],
+      ['Options', 'Choose your options and quantity.'],
+      ['Cart', 'Add your chosen products.'],
+      ['Minimums', 'Check membership requirements and delivery thresholds.'],
+      ['Payment', 'Enter delivery and payment details.'],
     ],
   },
   little: {
     label: 'Little Portions',
     steps: [
-      ['메인', '한 접시와 식재료 이야기를 만나요.'],
-      ['AI 취향 설문', '세 가지 질문으로 내 취향을 찾아요.'],
-      ['추천 음식', '어울리는 식재료와 한 끼 키트를 발견해요.'],
-      ['상품 상세', '소분 단위와 팟 모집 조건을 확인해요.'],
-      ['소분 신청', '함께 나눌 팟에 참여해요.'],
+      ['Discover', 'Discover meals and ingredient stories.'],
+      ['Taste quiz', 'Explore your taste in three questions.'],
+      ['Food picks', 'Discover matching ingredients and meal kits.'],
+      ['Product details', 'Check portions and group requirements.'],
+      ['Join a group', 'Join a group to share an order.'],
     ],
   },
 };
@@ -54,7 +54,11 @@ export function MobileShoppingFlow() {
 
   return (
     <div className="mobileFlow">
-      <div className="flowTabs" role="tablist" aria-label="장보기 흐름 선택">
+      <div
+        className="flowTabs"
+        role="tablist"
+        aria-label="Choose a shopping journey"
+      >
         {flowKeys.map((key, index) => (
           <button
             key={key}
@@ -71,7 +75,7 @@ export function MobileShoppingFlow() {
             onKeyDown={(event) => handleKeyDown(event, index)}
           >
             {flows[key].label}
-            <small>{flows[key].steps.length}단계</small>
+            <small>{flows[key].steps.length} steps</small>
           </button>
         ))}
       </div>

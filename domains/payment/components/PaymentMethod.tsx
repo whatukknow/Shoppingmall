@@ -22,13 +22,13 @@ type PaymentOption = {
 const paymentOptions: PaymentOption[] = [
   {
     value: 'card',
-    label: '신용카드',
+    label: 'Credit card',
     logo: null,
     color: 'bg-white text-[#601025]',
   },
   {
     value: 'tosspay',
-    label: '토스페이',
+    label: 'Toss Pay',
     logo: '/images/payment/tosspay.png',
     color: 'bg-white text-[#601025]',
   },
@@ -42,7 +42,7 @@ export default function PaymentMethod({
   return (
     <fieldset className="min-w-0">
       <legend className="mb-6 w-full border-b border-current/15 pb-3 text-2xl font-bold">
-        결제 수단
+        Payment method
       </legend>
 
       <div className="grid grid-cols-[repeat(2,140px)] gap-3">

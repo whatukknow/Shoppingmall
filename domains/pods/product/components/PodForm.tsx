@@ -22,22 +22,22 @@ export default function PodForm({
 }: PodFormProps): React.JSX.Element {
   return (
     <div className="flex flex-col gap-6">
-      <h2 className="text-2xl font-bold">맞는 팟이 없다면</h2>
+      <h2 className="text-2xl font-bold">Can’t find a group?</h2>
       {/* 데스크톱에서는 왼쪽 상품 안내 높이만큼 띄워 두 카드의 상단을 맞춥니다. */}
       <div className="flex flex-col gap-5 border-y border-[#e0ded6] p-5 min-[1260px]:mt-11 sm:p-6">
         <div className="text-[13px] leading-6 text-[#77766f]">
-          <p>새 팟을 신청할 수 있어요.</p>
-          <p>생성자가 신청을 취소해 도 팟 자체는 유지돼요.</p>
+          <p>Start a new buying group.</p>
+          <p>The group stays open even if its creator leaves.</p>
         </div>
         <FormField
-          label="목표 인원"
+          label="Group size"
           value={values.targetCount}
           error={errors.targetCount}
           disabled={isPending}
           onChange={(event) => onChange('targetCount', event.target.value)}
         />
         <FormField
-          label="마감 기한"
+          label="Deadline"
           value={values.deadline}
           error={errors.deadline}
           disabled={isPending}
@@ -51,13 +51,13 @@ export default function PodForm({
           aria-busy={isPending || undefined}
           onClick={onSubmit}
         >
-          {isPending ? '새 팟 신청 중…' : '새 팟 신청'}
+          {isPending ? 'Creating group…' : 'Create a group'}
         </Button>
         <Link
           href="/mypage/pods"
           className="group/button hover:bg-primary/5 inline-flex min-h-12 w-full shrink-0 items-center justify-center gap-2 rounded-none border border-[#650f20] bg-transparent bg-clip-padding px-4 py-3 text-sm font-medium whitespace-normal whitespace-nowrap text-[#650f20] transition-all outline-none select-none"
         >
-          내 신청 팟 보기
+          My buying groups
         </Link>
       </div>
     </div>

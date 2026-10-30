@@ -63,10 +63,10 @@ describe('getMyPodView', () => {
     const view = getMyPodView(
       makeApp({ paymentEligibility: 'ready', podStatus: 'matched' }),
     );
-    assert.equal(view.statusLabel, '매칭 완료 · 결제 가능');
+    assert.equal(view.statusLabel, 'Group full · Ready to pay');
     assert.deepEqual(view.actions, [
       {
-        label: '결제하기',
+        label: 'Pay now',
         primary: true,
         pay: true,
       },
@@ -75,10 +75,10 @@ describe('getMyPodView', () => {
 
   it('모집 중이면 모집 중 · 내 신청 대기 + 상세 보기/내 신청 취소', () => {
     const view = getMyPodView(makeApp());
-    assert.equal(view.statusLabel, '모집 중 · 내 신청 대기');
+    assert.equal(view.statusLabel, 'Open · Waiting for members');
     assert.deepEqual(view.actions, [
-      { label: '상세 보기', href: '/pods/product/product-1' },
-      { label: '내 신청 취소', cancel: true },
+      { label: 'View details', href: '/pods/product/product-1' },
+      { label: 'Leave group', cancel: true },
     ]);
   });
 
@@ -86,9 +86,9 @@ describe('getMyPodView', () => {
     const view = getMyPodView(
       makeApp({ paymentEligibility: 'paid', podStatus: 'matched' }),
     );
-    assert.equal(view.statusLabel, '결제 완료');
+    assert.equal(view.statusLabel, 'Paid');
     assert.deepEqual(view.actions, [
-      { label: '상세 보기', href: '/pods/product/product-1' },
+      { label: 'View details', href: '/pods/product/product-1' },
     ]);
   });
 
@@ -96,25 +96,25 @@ describe('getMyPodView', () => {
     const view = getMyPodView(
       makeApp({ paymentEligibility: 'expired', podStatus: 'matched' }),
     );
-    assert.equal(view.statusLabel, '결제 기한 만료');
+    assert.equal(view.statusLabel, 'Payment deadline passed');
     assert.deepEqual(view.actions, [
-      { label: '상세 보기', href: '/pods/product/product-1' },
+      { label: 'View details', href: '/pods/product/product-1' },
     ]);
   });
 
   it('모집 마감이면 모집 마감 + 상세 보기만', () => {
     const view = getMyPodView(makeApp({ podStatus: 'closed' }));
-    assert.equal(view.statusLabel, '모집 마감');
+    assert.equal(view.statusLabel, 'Group closed');
     assert.deepEqual(view.actions, [
-      { label: '상세 보기', href: '/pods/product/product-1' },
+      { label: 'View details', href: '/pods/product/product-1' },
     ]);
   });
 
   it('모집 취소면 모집 취소 + 상세 보기만', () => {
     const view = getMyPodView(makeApp({ podStatus: 'cancelled' }));
-    assert.equal(view.statusLabel, '모집 취소');
+    assert.equal(view.statusLabel, 'Group cancelled');
     assert.deepEqual(view.actions, [
-      { label: '상세 보기', href: '/pods/product/product-1' },
+      { label: 'View details', href: '/pods/product/product-1' },
     ]);
   });
 });

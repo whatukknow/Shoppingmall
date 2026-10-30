@@ -38,7 +38,7 @@ async function PodPageParams({
     <div className="mx-auto w-full max-w-[1260px] px-6 py-10 text-[#242821]">
       <div className="grid grid-cols-1 items-start gap-8 min-[1260px]:grid-cols-[minmax(0,1fr)_320px]">
         <div className="flex min-w-0 flex-col gap-3">
-          <h1 className="text-3xl font-bold">함께할 팟을 골라요</h1>
+          <h1 className="text-3xl font-bold">Find your buying group</h1>
           <Suspense
             fallback={
               <div className="h-5 w-56 animate-pulse rounded bg-[#e0ded6]" />

@@ -1,3 +1,4 @@
+import { foodLabel } from '@/shared/lib/food-label';
 import Link from 'next/link';
 import { cn } from '@/shared/utils/cn';
 import type { MyPodApplication } from '../../auth/users.types';
@@ -58,7 +59,7 @@ function ActionItem({ action, podId }: ActionItemProps) {
 // 내 신청 팟 카드 한 장 — ProfileView 섹션 상자 스타일(border p-6)의 가로 배치
 export function MyPodCard({ application }: MyPodCardProps) {
   const view = getMyPodView(application);
-  const price = application.unitPrice.toLocaleString('ko-KR');
+  const price = application.unitPrice.toLocaleString('en-US');
 
   return (
     <article className="border-foreground/20 flex flex-col gap-4 border p-6 md:flex-row md:items-center">
@@ -73,7 +74,7 @@ export function MyPodCard({ application }: MyPodCardProps) {
           />
         ) : (
           <div className="bg-primary/5 text-foreground/50 flex size-full items-center justify-center text-sm">
-            이미지 준비 중
+            Image coming soon
           </div>
         )}
       </div>
@@ -81,11 +82,13 @@ export function MyPodCard({ application }: MyPodCardProps) {
       {/* 가운데 정보 */}
       <div className="flex min-w-0 flex-1 flex-col gap-1">
         <h3 className="text-lg font-bold">
-          {application.productName} · {application.optionLabel}
+          {foodLabel(application.productName)} ·{' '}
+          {foodLabel(application.optionLabel)}
         </h3>
         <p className="text-sm">{view.statusLabel}</p>
         <p className="text-muted-foreground text-sm">
-          {application.optionLabel} · {application.quantity}개 · {price}원
+          {foodLabel(application.optionLabel)} · {application.quantity} items ·{' '}
+          {price} KRW
         </p>
       </div>
 

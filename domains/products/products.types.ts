@@ -5,7 +5,7 @@ export type ProductListItem = {
   imageUrl: string;
   description: string;
   category: string;
-  price: number;
+  price: number | null;
 };
 
 /** 상품 목록 정렬 기준입니다. latest 는 최신 등록순입니다. */
@@ -30,12 +30,14 @@ export type ProductDetailTip = {
 
 /** 상품 상세 응답 본문입니다. */
 export type ProductDetailResponse = {
+  catalogId?: string;
+  isPurchasable?: boolean;
   id: string;
   name: string;
   category: string;
   images: string[];
   farmName: string;
-  price: number;
+  price: number | null;
   unit: string;
   discountRate: number;
   description: string;

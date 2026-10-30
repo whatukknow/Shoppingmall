@@ -1,5 +1,8 @@
 'use client';
 
+import { foodLabel } from '@/shared/lib/food-label';
+import { CatalogTasteImage } from './CatalogTasteImage';
+
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { TasteFrame } from './TasteFrame';
@@ -108,12 +111,12 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
       const left = remaining();
       setToast(
         quote.n
-          ? `크레딧 +${quote.n} · 오늘 ${left.day} 남음 (주 ${left.week})`
+          ? `+${quote.n} credits · ${left.day} left today (${left.week} this week)`
           : quote.why === 'same'
-            ? '이미 크레딧을 받은 결과예요 · 답을 바꾸면 새로 적립'
+            ? 'Credits already collected · Change your answers to earn again'
             : quote.why === 'day'
-              ? '오늘 적립 한도 8 도달 · 내일 다시'
-              : '이번 주 적립 한도 20 도달',
+              ? 'Daily limit of 8 reached · Try tomorrow'
+              : 'Weekly limit of 20 reached',
       );
       timer.current = setTimeout(() => setModal(true), 1000);
     });
@@ -142,7 +145,7 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
           );
         } catch {
           setBusy(false);
-          setToast('취향을 저장하지 못했어요. 다시 시도해 주세요.');
+          setToast('Could not save your preferences. Please try again.');
           return;
         }
         setBusy(false);
@@ -150,14 +153,14 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
       sessionStorage.setItem('little-portions:onboarding-complete', 'yes');
       router.push('/#share-products');
     } catch {
-      setToast('추천 상품을 열지 못했어요. 다시 시도해 주세요.');
+      setToast('Could not open your picks. Please try again.');
     }
   };
   const pool = element.go.concat(['sparkle', 'sparkle', element.e]);
   const kitMatches = result.kit[2] === result.z.el;
   const kitCopy = kitMatches
-    ? `${result.kit[2]}(${element.h})의 키트 · ${result.kit[3].includes(sunday) ? `${SUN_W[sunday]}에 딱 맞아요` : '한 접시로 끝나요'}`
-    : `${SUN_W[sunday]}에 맞춘 구성`;
+    ? `${foodLabel(result.kit[2])} meal kit · ${result.kit[3].includes(sunday) ? SUN_W[sunday] : 'One easy meal'}`
+    : `Picked for ${SUN_W[sunday]}`;
 
   return (
     <TasteFrame
@@ -173,7 +176,7 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
                 disabled={busy}
                 onClick={onRestart}
               >
-                다시 하기
+                Start again
               </button>
               <button
                 className="btn"
@@ -181,7 +184,7 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
                 disabled={busy}
                 onClick={start}
               >
-                메인에서 추천 확인
+                See my picks
               </button>
             </div>
           </div>
@@ -200,10 +203,10 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
                 <div className="sh">
                   <PixelIcon name="sparkle" />
                   <h2 id="shT">
-                    식운 추천을 메인 화면에서 확인할까요?
+                    Show these picks on your home page?
                     <small>
-                      추천 품목은 메인 첫 번째 블록 &apos;AI가 추천하는 당신의
-                      장바구니&apos;에 반영돼요
+                      Your picks will appear in &apos;Picked for your
+                      taste&apos; on the home page.
                     </small>
                   </h2>
                 </div>
@@ -216,10 +219,9 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
                   >
                     <PixelIcon name={result.z.ae} />
                     <div>
-                      <b>이 취향을 메인 화면에 반영</b>
+                      <b>Use these preferences on my home page</b>
                       <small>
-                        메인 첫 번째 블록 &apos;AI가 추천하는 당신의
-                        장바구니&apos;에서 보여줘요.
+                        Show my picks in &apos;Picked for your taste&apos;.
                       </small>
                     </div>
                     <i className="ck" aria-hidden="true" />
@@ -227,25 +229,25 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
                 </div>
                 <label className="nickin">
                   <span>
-                    닉네임{' '}
+                    Nickname{' '}
                     <small style={{ fontWeight: 500, color: 'var(--muted)' }}>
-                      결과 화면에서만 사용해요
+                      Used on your results screen
                     </small>
                   </span>
                   <input
                     className="in"
                     maxLength={10}
-                    placeholder="예) 늦잠러"
+                    placeholder="e.g. Sleepyhead"
                     autoComplete="off"
                     value={nickname}
                     onChange={(event) => setNickname(event.target.value)}
                   />
                 </label>
                 <p className="what">
-                  <b>체크 시 전달</b> 추천 품목 이름
+                  <b>When selected:</b> recommended product names
                   <br />
-                  <b>목적</b> 메인 첫 번째 블록 &apos;AI가 추천하는 당신의
-                  장바구니&apos; 구성 · <b>보관</b> 브라우저 세션 동안만 유지
+                  <b>Purpose:</b> personalize &apos;Picked for your taste&apos;
+                  · <b>Storage:</b> this browser session
                   <br />
                 </p>
                 <button
@@ -255,7 +257,7 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
                   disabled={busy}
                   onClick={complete}
                 >
-                  추천 상품 보기
+                  See my picks
                 </button>
               </div>
             </div>
@@ -269,7 +271,7 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
       {loading ? (
         <section className="load on" aria-live="polite">
           <PixelIcon name={loadingIcon} />
-          <p>식운을 읽고 있어요</p>
+          <p>Finding your food fortune</p>
         </section>
       ) : (
         <section className="step on" id="res">
@@ -293,16 +295,16 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
                   <PixelIcon className="elb" name={element.e} />
                 </div>
                 <span className="chip">
-                  {result.z.animal}띠 · {result.z.el}({element.h})의 기운
+                  {foodLabel(result.z.animal)} · {foodLabel(result.z.el)} energy
                 </span>
                 <h2>
-                  {answers.nick ? `${answers.nick}님의` : '당신의'} 이번 주는{' '}
+                  {answers.nick ? `${answers.nick}’s` : 'Your'} week:{' '}
                   {element.t}
                 </h2>
                 <p>{element.copy}</p>
                 <div className="goes">
                   {element.go.map((name, index) => (
-                    <PixelIcon
+                    <CatalogTasteImage
                       key={name}
                       title={name}
                       style={{ animationDelay: `${700 + index * 80}ms` }}
@@ -311,13 +313,13 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
                   ))}
                 </div>
                 <span className="goes-l">
-                  {result.z.el}({element.h})과 어울리는 식재료
+                  Ingredients for {foodLabel(result.z.el)} energy
                 </span>
               </div>
               <div className="sec walk-sec">
                 <h3>
-                  오늘의 장보기{' '}
-                  <small>메인에서 추천 확인을 누르면 출발해요</small>
+                  Your shopping trip{' '}
+                  <small>Select “See my picks” to begin</small>
                 </h3>
                 <ShoppingWalk
                   ref={walk}
@@ -331,7 +333,7 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
               </div>
               <div className="sec">
                 <h3>
-                  이번 주 행운의 원물 <small>1인분 소분</small>
+                  This week’s lucky ingredients <small>Single portions</small>
                 </h3>
                 <div className="items">
                   {result.items.map((product: string[], index: number) => (
@@ -340,21 +342,21 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
                       key={product[0]}
                       style={{ animationDelay: `${1150 + index * 110}ms` }}
                     >
-                      <PixelIcon name={product[0]} />
-                      <b>{product[0]}</b>
+                      <CatalogTasteImage name={product[0]} />
+                      <b>{foodLabel(product[0])}</b>
                     </div>
                   ))}
                 </div>
               </div>
               <div className="sec">
                 <h3>
-                  이번 주 키트 <small>한 번에 담기</small>
+                  This week’s meal kit <small>Add it all at once</small>
                 </h3>
                 <div>
                   <div className="kit" style={{ animationDelay: '1500ms' }}>
-                    <PixelIcon name={result.kit[0]} />
+                    <CatalogTasteImage name={result.kit[0]} />
                     <div>
-                      <b>{result.kit[0]}</b>
+                      <b>{foodLabel(result.kit[0])}</b>
                       <small>{kitCopy}</small>
                     </div>
                   </div>
@@ -363,40 +365,40 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
               {result.split && (
                 <div className="sec">
                   <h3>
-                    나눠사기 <small>4명이 모이면 결제</small>
+                    Share a pack <small>Payment opens at 4 members</small>
                   </h3>
                   <div className="split">
-                    <PixelIcon name="cheese" />
-                    <span>파르미지아노 1kg</span>
+                    <CatalogTasteImage name={result.items[0][0]} />
+                    <span>{foodLabel(result.items[0][0])} shared pack</span>
                     <span className="m">
                       <i />
                     </span>
-                    <span>3/4명</span>
+                    <span>3/4 members</span>
                   </div>
                 </div>
               )}
               <div className="sec">
                 <p className="why">
-                  <b>
-                    {result.z.el}({element.h})의 기운
-                  </b>
-                  에 어울리는 재료 중 <b>{SUN_W[sunday]}</b>에 맞는 것으로
-                  골랐어요.{' '}
+                  <b>{foodLabel(result.z.el)} energy</b>
+                  with ingredients picked for <b>{SUN_W[sunday]}</b>.{' '}
                   {answers.fridge === 'sauce' ? (
                     <>
-                      소스는 충분하니 <b>소스는 빼고 메인 재료만</b> 골랐어요.
+                      You have sauces, so we picked{' '}
+                      <b>main ingredients instead</b>.
                     </>
                   ) : answers.fridge === 'banchan' ? (
                     <>
-                      반찬이 있으니 <b>메인 하나만 더</b>하면 돼요.
+                      You have side dishes, so <b>just add a main</b>.
                     </>
                   ) : answers.fridge === 'wilted' ? (
                     <>
-                      시드는 채소가 있으니 <b>새 채소는 빼고</b> 골랐어요.
+                      Use your vegetables first; <b>no extra produce</b> in
+                      these picks.
                     </>
                   ) : (
                     <>
-                      냉장고가 비어 있어 <b>기본 원물부터</b> 골랐어요.
+                      Your fridge is empty, so we started with{' '}
+                      <b>the essentials</b>.
                     </>
                   )}
                 </p>
@@ -404,9 +406,9 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
             </div>
           </div>
           <p className="foot">
-            식운은 재미로 보는 콘텐츠예요
+            Food fortunes are just for fun
             <br />
-            추천은 일요일 아침과 냉장고 답변을 함께 반영했어요
+            Your picks also reflect your Sunday plans and what’s in your fridge
           </p>
         </section>
       )}
@@ -441,7 +443,7 @@ export function ResultStep() {
     <TasteFrame step={3} loading>
       <section className="load on" aria-live="polite">
         <PixelIcon name="crystal" />
-        <p>식운을 읽고 있어요</p>
+        <p>Finding your food fortune</p>
       </section>
     </TasteFrame>
   );

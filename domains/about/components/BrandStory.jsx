@@ -17,17 +17,17 @@ export default function BrandStory() {
       <div id="brand-story-top">
         <section className="storySection intro">
           <div className="eb storySectionLabel font-sans">
-            {'작게 나누는 좋은 식탁'}
+            {'Small portions. A better table.'}
           </div>
           <h1>
-            {'혼자 먹는 식탁에도,'}
+            {'A table for one'}
             <br />
-            {'충분한 선택이 필요하니까.'}
+            {'deserves more choice.'}
           </h1>
           <p>
-            {'필요한 만큼 고르고, 함께 신선함을 나누는 일.'}
+            {'Choose just enough. Share the freshness.'}
             <br />
-            {'Little portions는 한 사람의 식탁에서 시작합니다.'}
+            {'Little Portions starts with a table for one.'}
           </p>
           <div className="heroWords word">
             {'A LITTLE.'}
@@ -35,27 +35,31 @@ export default function BrandStory() {
             <span>{'TOGETHER.'}</span>
           </div>
           <a className="readMore" href="#people">
-            {'우리의 이야기 ↓'}
+            {'Our story ↓'}
           </a>
         </section>
         <section className="storySection split" id="people">
           <div>
             <div className="eb storySectionLabel font-sans">
-              {'01 / 달라진 생활'}
+              {'01 / The way we live'}
             </div>
             <h2>
-              {'혼자 사는 삶에 맞는'}
+              {'Groceries that fit'}
               <br />
-              {'장보기가 필요합니다.'}
+              {'a life of your own.'}
             </h2>
             <p>
-              {'서로 다른 하루, 저마다의 한 끼.'}
+              {'Different days. Different meals.'}
               <br />
-              {'우리는 그 식탁의 크기에 맞추고 싶습니다.'}
+              {'We want shopping to fit your table.'}
             </p>
           </div>
           <div className="stat">
-            <div className="ring" role="img" aria-label="제공 수치 36.6퍼센트">
+            <div
+              className="ring"
+              role="img"
+              aria-label="Provided planning figure: 36.6 percent"
+            >
               <svg viewBox="0 0 240 240">
                 <circle
                   cx="120"
@@ -82,7 +86,9 @@ export default function BrandStory() {
                 <span>{'%'}</span>
               </div>
             </div>
-            <span className="lab">{'1인 가구 비중 · 제공 수치'}</span>
+            <span className="lab">
+              {'Single-person households · provided figure'}
+            </span>
           </div>
         </section>
         <section className="storySection portion split">
@@ -193,161 +199,171 @@ export default function BrandStory() {
               <i style={{ '--j': '98' }}></i>
               <i style={{ '--j': '99' }}></i>
             </div>
-            <span className="lab">{'1인 가구의 1인용 용량 선호'}</span>
+            <span className="lab">
+              {'Preference for single portions among people living alone'}
+            </span>
           </div>
           <div>
             <div className="eb storySectionLabel font-sans">
-              {'02 / 나에게 알맞은 양'}
+              {'02 / Just the right amount'}
             </div>
             <h2>
-              {'많이 사는 것보다,'}
+              {'The joy of finishing a meal,'}
               <br />
-              {'남김없이 먹는 기쁨.'}
+              {'without the leftovers.'}
             </h2>
             <p>
-              {'한 봉지를 다 먹을 걱정보다'}
+              {'Less worry about finishing a whole pack.'}
               <br />
-              {'오늘 먹을 한 접시를 생각할 수 있도록.'}
+              {'More thought for today’s plate.'}
               <br />
-              {'우리가 생각하는 기본 단위는 한 사람의 분량입니다.'}
+              {'Our starting point is a portion for one.'}
             </p>
             <div className="portionService">
-              <strong>한 사람의 분량으로, 함께 나눠요.</strong>
-              <p>필요한 식재료를 고르고 함께 나눌 팟에 참여해요.</p>
-              <Link href="/products">함께 나눌 상품 보기 →</Link>
+              <strong>Share a pack. Enjoy your portion.</strong>
+              <p>Pick your ingredients and join a group to share an order.</p>
+              <Link href="/products">Explore shared orders →</Link>
             </div>
           </div>
         </section>
         <section className="storySection shoppingBarriers">
           <div className="eb storySectionLabel font-sans">
-            03 / 장보기 앞에서
+            03 / The barriers to buying less
           </div>
           <h2>
-            조금만 사고 싶은데,
+            You only need a little.
             <br />
-            넘어야 할 문턱은 큽니다.
+            Why does it take so much?
           </h2>
           <div className="painPair">
             <article className="pn">
-              <span className="kwb">고르기 어렵다</span>
+              <span className="kwb">Too much to choose from</span>
               <div className="big painMetric" data-count="61.5">
                 61.5<span>%</span>
               </div>
-              <span className="lab">상품을 찾을 때 검색부터 시작</span>
+              <span className="lab">Shopping starts with a search</span>
               <p>
-                무엇을 먹을지 정하지 못한 날에도,
+                Even when you don’t know what to eat,
                 <br />
-                이제 내 취향에서 장보기를 시작해요.
+                start with your taste.
               </p>
             </article>
             <article className="pn">
-              <span className="kwb">배송비 문턱</span>
+              <span className="kwb">Delivery thresholds</span>
               <div className="price painMetric">
-                <b>1.4만</b>
+                <b>₩14k</b>
                 <span>vs</span>
-                <b>4만</b>
+                <b>₩40k</b>
               </div>
-              <span className="lab">1회 장보기 / 무료배송 문턱</span>
+              <span className="lab">Per shop / free-delivery threshold</span>
               <p>
-                무료배송을 위해 더 담는 대신,
+                Instead of buying more for free delivery,
                 <br />
-                필요한 양을 함께 나눌 수 있다면.
+                what if we shared just what we need?
               </p>
             </article>
           </div>
           <div className="serviceAnswers">
             <article className="serviceAnswer">
-              <div className="eb">취향으로 발견하기</div>
-              <h3>AI가 추천하는 당신의 장바구니</h3>
+              <div className="eb">Discover through taste</div>
+              <h3>Picked for your taste</h3>
               <p>
-                한 끼 사주의 세 가지 질문에 답하고,
+                Answer three playful food fortune questions
                 <br />
-                나에게 어울리는 식재료와 한 끼 키트를 발견해요.
+                to discover ingredients and meal kits that fit your day.
               </p>
-              <Link href="/onboarding">내 취향 추천 보기 →</Link>
+              <Link href="/onboarding">Find my food picks →</Link>
             </article>
             <article className="serviceAnswer">
-              <div className="eb">필요한 만큼 나누기</div>
-              <h3>함께 나누는 소분마켓</h3>
+              <div className="eb">Share just enough</div>
+              <h3>A market for smaller portions</h3>
               <p>
-                혼자 사기엔 많은 식재료도 필요한 양만큼.
+                Get your share of ingredients sold in larger packs.
                 <br />
-                함께 나눌 소분팟을 찾아 장보기 부담을 덜어요.
+                Join a buying group and make your next shop a little lighter.
               </p>
-              <Link href="/products">소분마켓 둘러보기 →</Link>
+              <Link href="/products">Explore the market →</Link>
             </article>
           </div>
         </section>
         <section className="storySection funnelSection slide" id="together">
           <div className="eb storySectionLabel font-sans">
-            {'04 / 그래서, Little portions'}
+            {'04 / Meet Little Portions'}
           </div>
           <h2>
-            {'검색에서 취향으로.'}
+            {'From searching to discovering.'}
             <br />
-            {'장바구니에서 소분 신청으로.'}
+            {'From filling a cart to sharing a pack.'}
           </h2>
           <p>
-            {'나에게 맞는 한 끼를 발견하고, 필요한 만큼 신청하는 흐름.'}
+            {'Discover your next meal and order just what you need.'}
             <br />
-            {'작은 선택이 더 자연스럽게 이어지도록 생각했습니다.'}
+            {'We designed a flow that makes smaller choices feel natural.'}
           </p>
-          <div className="graphicHint">{'장보기 흐름을 비교해보세요'}</div>
+          <div className="graphicHint">{'Compare the shopping journeys'}</div>
           <MobileShoppingFlow />
           <div className="s3wrap">
             <div
               className="scene3d"
               id="f3d"
               role="img"
-              aria-label="위: 국내 이커머스 공통 흐름 8단계(특가 배너, 검색, 상품 목록, 상품 상세, 옵션·수량, 장바구니, 회원·최소금액, 결제). 아래: Little Portions 5단계(메인, AI 취향 설문, 추천 음식, 상품 상세, 소분 신청)."
+              aria-label="Top: a typical Korean ecommerce journey in eight steps, from promotions to payment. Bottom: the proposed Little Portions journey in five steps, from discovery to joining a group."
             >
               <svg id="f3svg" aria-hidden="true"></svg>
               <div id="f3cards"></div>
               <div className="ctr c1">
                 <b>{'8'}</b>
-                <span>{'단계 · 국내 이커머스'}</span>
+                <span>{'steps · Typical ecommerce'}</span>
               </div>
               <div className="ctr c2">
                 <b>{'5'}</b>
-                <span>{'단계 · Little Portions'}</span>
+                <span>{'steps · Little Portions'}</span>
               </div>
-              <span className="hint">{'카드에 마우스를 올리면 단계 설명'}</span>
+              <span className="hint">{'Hover over a card for details'}</span>
               <button type="button" className="rp" id="f3rp">
-                {'↻ 다시 재생 (R)'}
+                {'↻ Replay (R)'}
               </button>
             </div>
           </div>
           <p className="graphicNote">
-            {'그래픽의 단계 비교와 이탈 표현은 데모데이의 UX 기획 가설입니다.'}
+            {
+              'The journey comparison and drop-off animation illustrate a UX hypothesis, not measured results.'
+            }
           </p>
         </section>
         <section className="storySection scale">
           <div className="eb storySectionLabel font-sans">
-            {'05 / 작은 식탁이 모이면'}
+            {'05 / Small tables add up'}
           </div>
           <h2>
-            {'한 사람의 장보기는'}
+            {'Shopping for one'}
             <br />
-            {'작은 이야기가 아닙니다.'}
+            {'is a bigger story.'}
           </h2>
           <div className="marketStats">
             <div>
               <div className="big">
-                {'약 '}
+                {'Approx. '}
                 <b data-count="195">{'195'}</b>
-                <span>{'만 명'}</span>
+                <span>{'× 10,000 people'}</span>
               </div>
-              <span className="lab">{'2030 온라인 장보기 1인 가구수'}</span>
-              <p>{'우리가 떠올리는 사람들의 생활.'}</p>
+              <span className="lab">
+                {
+                  'People in their 20s–30s living alone who shop for groceries online'
+                }
+              </span>
+              <p>{'The everyday lives we design for.'}</p>
             </div>
             <div>
               <div className="big">
-                {'약 '}
+                {'Approx. '}
                 <b data-count="22">{'22'}</b>
-                <span>{'조 원'}</span>
+                <span>{'trillion KRW'}</span>
               </div>
-              <span className="lab">{'1인 가구 연간 식료품 지출'}</span>
-              <p>{'매일의 식탁을 만드는 수많은 선택.'}</p>
+              <span className="lab">
+                {'Annual grocery spending by single-person households'}
+              </span>
+              <p>{'Countless choices that shape everyday meals.'}</p>
             </div>
           </div>
         </section>
@@ -356,26 +372,26 @@ export default function BrandStory() {
             {'JUST ENOUGH, ALWAYS FRESH'}
           </div>
           <h2>
-            {'장보기의 크기를'}
+            {'Groceries sized'}
             <br />
-            {'당신의 식탁에 맞춥니다.'}
+            {'for your table.'}
           </h2>
-          <p>{'필요한 만큼, 함께 신선하게.'}</p>
+          <p>{'Just enough. Fresh together.'}</p>
           <a href="#brand-story-top" className="storyButton">
-            {'Little portions의 이야기 다시 보기 ↑'}
+            {'Back to our story ↑'}
           </a>
           <div className="word endLogo">{'Little portions'}</div>
         </section>
       </div>
       <aside className="storySources">
-        <strong>{'브랜드 이야기 · 디자인 시안'}</strong>
+        <strong>{'Our story · Design prototype'}</strong>
         <p>
           {
-            '제공된 데모데이 자료의 그래픽과 움직임을 활용했습니다. 수치는 사용자 제공 기획값입니다.'
+            'Graphics and animations are based on the supplied demo day materials. Figures are provided planning assumptions.'
           }
           <br />
           {
-            '36.6%의 분모(인구/가구)와 기준 연도, 각 조사의 범위·출처는 실제 게시 전 확인이 필요합니다. 약 195만 명·약 22조 원은 기획상 추정값이며 무료배송 문턱은 비교 기준입니다.'
+            'The basis and reference year for 36.6%, and the scope and sources of each survey, need verification before publication. Approximately 1.95 million people and KRW 22 trillion are planning estimates. The free-delivery threshold is a comparison benchmark.'
           }
         </p>
       </aside>

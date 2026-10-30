@@ -24,7 +24,7 @@ function parseNumber(
   if (raw === null) return fallback;
   const value = Number(raw);
   if (!Number.isFinite(value) || value < 0) {
-    return { status: 400, message: `잘못된 ${name} 파라미터입니다: ${raw}` };
+    return { status: 400, message: `Invalid ${name} parameter: ${raw}` };
   }
   return value;
 }
@@ -73,7 +73,8 @@ export async function GET(request: Request): Promise<Response> {
     return Response.json(
       {
         error: {
-          message: '결제 내역을 불러오지 못했어요. 잠시 후 다시 시도해 주세요.',
+          message:
+            'Could not load your payment history. Please try again shortly.',
         },
       },
       { status: 500 },

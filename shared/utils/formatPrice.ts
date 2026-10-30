@@ -1,3 +1,8 @@
-export function formatPrice(price: number): string {
-  return new Intl.NumberFormat('ko-KR').format(price) + '원';
+export function formatPrice(price: number | null): string {
+  if (price === null) return 'Price to be confirmed';
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'KRW',
+    maximumFractionDigits: 0,
+  }).format(price);
 }
