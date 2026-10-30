@@ -304,9 +304,9 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
                 <p>{element.copy}</p>
                 <div className="goes">
                   {element.go.map((name, index) => (
-                    <CatalogTasteImage
+                    <PixelIcon
                       key={name}
-                      title={name}
+                      title={foodLabel(name)}
                       style={{ animationDelay: `${700 + index * 80}ms` }}
                       name={name}
                     />
