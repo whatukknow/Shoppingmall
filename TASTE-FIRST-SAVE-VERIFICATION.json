@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-10-31 00:48 KST",
+  "application": "local PR144 production build",
+  "accountSetup": "사용자가 새 테스트 계정 가입·로그인을 직접 완료",
+  "before": {
+    "authenticated": true,
+    "hasTasteProfile": false,
+    "tasteProfileHttpStatus": 404,
+    "homeMode": "needs-taste",
+    "recommendationProductLinks": []
+  },
+  "fixture": {
+    "nickname": "QA-First",
+    "birthYear": 1991,
+    "birthMonth": 5,
+    "birthDay": 9,
+    "gender": "n",
+    "sunday": "c",
+    "fridge": "empty",
+    "synthetic": true
+  },
+  "save": {
+    "method": "PUT",
+    "path": "/api/users/me/taste-profile",
+    "httpStatus": 200,
+    "initialProfileAbsent": true
+  },
+  "after": {
+    "hasTasteProfile": true,
+    "newRecommendationApiIds": ["raw-19", "raw-08", "raw-29", "diy-09"],
+    "homeIds": ["raw-19", "raw-08", "raw-29", "diy-09"],
+    "reloadIds": ["raw-19", "raw-08", "raw-29", "diy-09"],
+    "allFourImagesLoaded": true
+  },
+  "columnEvidence": {
+    "table": "taste_profiles",
+    "column": "recommended_product_ids",
+    "sameColumnWriteAndFreshSelectVerifiedInSource": true,
+    "rawDatabaseConsoleRowInspected": false
+  },
+  "limits": [
+    "검증 대상은 로컬 PR 빌드와 실제 Supabase 회원 세션이다.",
+    "운영 서버 배포·실제 iOS·로그아웃 후 재로그인은 이번 최초 저장 검사의 범위가 아니다."
+  ]
+}

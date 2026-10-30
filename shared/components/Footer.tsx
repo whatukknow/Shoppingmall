@@ -94,7 +94,11 @@ function BrandInformation({
                     value ? 'text-foreground/70' : 'text-muted-foreground'
                   }
                 >
-                  {value?.trim() || 'To be confirmed'}
+                  {label === 'Customer support' && value?.trim() ? (
+                    <a href={`mailto:${value.trim()}`}>{value.trim()}</a>
+                  ) : (
+                    value?.trim() || 'To be confirmed'
+                  )}
                 </dd>
               </div>
             ))}
