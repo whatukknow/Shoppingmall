@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 
 import { useSelectedPodIds } from '@/shared/hooks/useSelectedPodIds';
 
@@ -12,7 +12,10 @@ import PaymentSummary from '@/domains/payment/components/PaymentSummary';
 import { saveSelectedPodIds } from '@/domains/payment/data/payment.session';
 import { validateDelivery } from '@/domains/payment/data/payment.validation';
 import { createPendingOrderAction } from '@/domains/payment/payment.actions';
-import { requestTossPayment } from '@/domains/payment/pg-toss/requestTossPayment';
+import {
+  requestTossPayment,
+  validateTossPaymentClientKey,
+} from '@/domains/payment/pg-toss/requestTossPayment';
 
 import type {
   DeliveryInfos,
@@ -53,6 +56,17 @@ export default function PaymentPage({
 
   const [submitNotice, setSubmitNotice] = useState('');
   const [isPaying, setIsPaying] = useState(false); // 결제 버튼 중복 클릭 방지
+  const paymentInFlight = useRef(false); // 같은 렌더 안에서 연속 submit도 차단
+  const mounted = useRef(false);
+  const paymentAbort = useRef<AbortController | null>(null);
+
+  useEffect(() => {
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+      paymentAbort.current?.abort();
+    };
+  }, []);
 
   // 2. 저장된 팟 목록 확인
   const selectedIds = useSelectedPodIds();
@@ -143,13 +157,24 @@ export default function PaymentPage({
   }
 
   // 6. 제출: 입력 검사 → 팟 저장 → 가주문 생성 → 토스 결제창 열기
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitNotice('');
+    return beginCheckout(paymentMethod);
+  }
 
-    if (!orderLoaded || isPaying) {
+  function handleTossPayCheckout() {
+    if (paymentInFlight.current) return;
+    handlePaymentMethodChange('tosspay');
+    // state 반영을 기다리지 않고 클릭한 수단을 명시한다. 취소 후 재클릭도 실행된다.
+    return beginCheckout('tosspay');
+  }
+
+  async function beginCheckout(selectedMethod: PaymentMethods) {
+    if (!mounted.current || !orderLoaded || paymentInFlight.current) {
       return;
     }
+
+    setSubmitNotice('');
 
     if (orderItems.length === 0) {
       setSubmitNotice('Please select your buying groups again.');
@@ -159,7 +184,7 @@ export default function PaymentPage({
     const nextErrors = validateDelivery(delivery);
     const nextPaymentErrors: PaymentErrors = {};
 
-    if (!paymentMethod) {
+    if (!selectedMethod) {
       nextPaymentErrors.paymentMethod = 'Choose a payment method.';
     }
 
@@ -212,18 +237,27 @@ export default function PaymentPage({
     }
 
     // 결제 수단은 위에서 검사했으므로 빈 값이 아님
-    if (!paymentMethod) {
+    if (!selectedMethod) {
       return;
     }
 
+    paymentInFlight.current = true;
+    paymentAbort.current?.abort();
+    const controller = new AbortController();
+    paymentAbort.current = controller;
     setIsPaying(true);
 
     try {
+      // 기존 payment()용 ck 키나 미설정 키로 가주문을 먼저 만들지 않는다.
+      validateTossPaymentClientKey();
+
       // (1) 서버에 가주문 생성 → orderId, 서버가 계산한 금액 받기
       const order = await createPendingOrderAction(
         orderItems.map((item) => item.podId),
         delivery,
       );
+
+      if (!mounted.current || controller.signal.aborted) return;
 
       if (!order.success) {
         setSubmitNotice(order.message);
@@ -231,28 +265,40 @@ export default function PaymentPage({
       }
 
       // (2) 토스 결제창 열기 → 성공/실패 시 토스가 해당 URL로 이동시킴
-      await requestTossPayment({
-        method: paymentMethod,
-        orderId: order.orderId,
-        orderName: order.orderName,
-        amount: order.amount,
-        customerName: delivery.recipientName.trim(),
-        customerMobilePhone: delivery.recipientPhone,
-      });
+      // 창의 수단을 미리 선택하지 못하므로 실제 이벤트 수단과 라디오를 비교한다.
+      // render 완료 후에도 취소/오류/페이지 이탈까지 await와 버튼 잠금을 유지한다.
+      await requestTossPayment(
+        {
+          method: selectedMethod,
+          orderId: order.orderId,
+          orderName: order.orderName,
+          amount: order.amount,
+          customerName: delivery.recipientName.trim(),
+          customerMobilePhone: delivery.recipientPhone,
+        },
+        { signal: controller.signal },
+      );
     } catch (error) {
-      // PC 에서 결제창을 닫으면 여기로 옴 (USER_CANCEL)
+      if (!mounted.current || controller.signal.aborted) return;
+
       const code =
         typeof error === 'object' && error !== null && 'code' in error
           ? String(error.code)
           : '';
 
       setSubmitNotice(
-        code === 'USER_CANCEL'
+        code === 'USER_CANCEL' || code === 'PAY_PROCESS_CANCELED'
           ? 'Payment was cancelled. Please try again.'
-          : 'Could not open checkout. Please try again shortly.',
+          : code === 'PAYMENT_METHOD_MISMATCH'
+            ? 'Choose the same card or TossPay method in checkout as on this page.'
+            : 'Could not open checkout. Please try again shortly.',
       );
     } finally {
-      setIsPaying(false);
+      if (paymentAbort.current === controller) {
+        paymentAbort.current = null;
+        paymentInFlight.current = false;
+        if (mounted.current) setIsPaying(false);
+      }
     }
   }
 
@@ -289,6 +335,8 @@ export default function PaymentPage({
               value={paymentMethod}
               error={paymentErrors.paymentMethod}
               onChange={handlePaymentMethodChange}
+              onTossPay={handleTossPayCheckout}
+              disabled={isPaying || orderItems.length === 0}
             />
           </div>
 

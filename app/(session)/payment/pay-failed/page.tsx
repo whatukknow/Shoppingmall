@@ -33,8 +33,14 @@ async function PaymentFailureContent({ searchParams }: PageProps) {
     typeof params.message === 'string' ? params.message.trim() : '';
 
   // URL의 문구는 안내용입니다. 주문의 실제 결제 상태를 변경하지 않습니다.
-  const failMessage =
-    message || 'Could not confirm payment. Please check your order status.';
+  const mayRetryPayment = [
+    'PAY_PROCESS_CANCELED',
+    'PAY_PROCESS_ABORTED',
+    'USER_CANCEL',
+  ].includes(code);
+  const failMessage = mayRetryPayment
+    ? message || 'Payment was canceled before completion.'
+    : 'Payment status could not be verified. Do not make another payment. Check your order status or contact customer support.';
 
   return (
     <>
@@ -53,8 +59,11 @@ async function PaymentFailureContent({ searchParams }: PageProps) {
               Error code: {code}
             </p>
           )}
-          <Link href="/payment" className="mt-4 inline-block text-sm underline">
-            Back to order details
+          <Link
+            href={mayRetryPayment ? '/payment' : '/mypage'}
+            className="mt-4 inline-block text-sm underline"
+          >
+            {mayRetryPayment ? 'Back to order details' : 'Check order status'}
           </Link>
         </div>
       </section>
@@ -66,7 +75,17 @@ async function PaymentFailureContent({ searchParams }: PageProps) {
           </p>
         }
       >
-        <FailureOrderContent />
+        {mayRetryPayment ? (
+          <FailureOrderContent />
+        ) : (
+          <PaymentResultPage
+            status="recovery"
+            items={[]}
+            orderItems={[]}
+            recoveryMessage={failMessage}
+            recoveryHref="/mypage"
+          />
+        )}
       </Suspense>
     </>
   );

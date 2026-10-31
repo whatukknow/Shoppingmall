@@ -11,12 +11,14 @@ import { useSelectedPodIds } from '@/shared/hooks/useSelectedPodIds';
 import type { PaymentOrderItem } from '../data/payment.types';
 
 type PaymentResultPageProps = {
-  status: 'success' | 'failed';
+  status: 'success' | 'failed' | 'recovery';
   items: PaymentOrderItem[];
   orderItems?: PaymentOrderItem[];
   receiptUrl?: string | null;
   paidAmount?: number;
   orderShippingFee?: number;
+  recoveryMessage?: string;
+  recoveryHref?: string;
 };
 
 export default function PaymentResultPage({
@@ -26,6 +28,8 @@ export default function PaymentResultPage({
   receiptUrl,
   paidAmount,
   orderShippingFee,
+  recoveryMessage,
+  recoveryHref,
 }: PaymentResultPageProps) {
   // 훅은 컴포넌트 함수 안에서 호출
   const selectedIds = useSelectedPodIds();
@@ -49,7 +53,7 @@ export default function PaymentResultPage({
   }
 
   // 결과 주소로 직접 들어왔거나 임시 저장 정보가 없는 경우
-  if (items.length === 0) {
+  if (items.length === 0 && status !== 'recovery') {
     return (
       <main className="mx-auto max-w-[900px] px-6 py-16">
         <h1 className="text-2xl font-bold">No order details to show.</h1>
@@ -61,6 +65,7 @@ export default function PaymentResultPage({
   }
 
   const isSuccess = status === 'success';
+  const isRecovery = status === 'recovery';
 
   const subtotal = items.reduce(
     (sum, item) => sum + item.unitPrice * item.quantity,
@@ -77,7 +82,9 @@ export default function PaymentResultPage({
       <p className="mb-8 text-center text-sm">
         {isSuccess
           ? 'Your payment status has been confirmed.'
-          : 'Payment has not been completed.'}
+          : isRecovery
+            ? 'Please check this payment before making another payment.'
+            : 'Payment has not been completed.'}
       </p>
 
       <header className="mb-12 text-center">
@@ -89,48 +96,63 @@ export default function PaymentResultPage({
         </span>
 
         <h1 className="text-3xl font-bold">
-          {isSuccess ? 'Payment complete!' : 'Payment failed.'}
+          {isSuccess
+            ? 'Payment complete!'
+            : isRecovery
+              ? 'Payment status needs checking.'
+              : 'Payment failed.'}
         </h1>
 
         <p className="mt-4 leading-7">
           {isSuccess
             ? 'Fresh ingredients, grown with care, are on their way to your table.'
-            : 'Your selected groups are saved. Check your payment details and try again.'}
+            : isRecovery
+              ? recoveryMessage ||
+                'Do not make another payment. Check your order status or contact customer support.'
+              : 'Your selected groups are saved. Check your payment details and try again.'}
         </p>
       </header>
       <div className="flex flex-col gap-10">
-        <PaymentOrderItems items={items} />
+        {items.length > 0 && (
+          <>
+            <PaymentOrderItems items={items} />
 
-        <section
-          aria-labelledby="result-amount-title"
-          className="rounded-xl border border-current/15 bg-white/40 p-6"
-        >
-          <h2 id="result-amount-title" className="mb-6 text-2xl font-bold">
-            {isSuccess ? 'Payment details' : 'Amount due'}
-          </h2>
+            <section
+              aria-labelledby="result-amount-title"
+              className="rounded-xl border border-current/15 bg-white/40 p-6"
+            >
+              <h2 id="result-amount-title" className="mb-6 text-2xl font-bold">
+                {isSuccess
+                  ? 'Payment details'
+                  : isRecovery
+                    ? 'Order amount'
+                    : 'Amount due'}
+              </h2>
 
-          <dl className="space-y-3">
-            <div className="flex justify-between gap-4">
-              <dt>Subtotal</dt>
-              <dd>{subtotal.toLocaleString('en-US')} KRW</dd>
-            </div>
+              <dl className="space-y-3">
+                <div className="flex justify-between gap-4">
+                  <dt>Subtotal</dt>
+                  <dd>{subtotal.toLocaleString('en-US')} KRW</dd>
+                </div>
 
-            <div className="flex justify-between gap-4">
-              <dt>Delivery fee</dt>
-              <dd>{shippingFee.toLocaleString('en-US')} KRW</dd>
-            </div>
+                <div className="flex justify-between gap-4">
+                  <dt>Delivery fee</dt>
+                  <dd>{shippingFee.toLocaleString('en-US')} KRW</dd>
+                </div>
 
-            <div className="flex justify-between gap-4">
-              <dt>Discount</dt>
-              <dd>-{discount.toLocaleString('en-US')} KRW</dd>
-            </div>
+                <div className="flex justify-between gap-4">
+                  <dt>Discount</dt>
+                  <dd>-{discount.toLocaleString('en-US')} KRW</dd>
+                </div>
 
-            <div className="flex justify-between gap-4 border-t border-current/15 pt-4 text-xl font-bold">
-              <dt>{isSuccess ? 'Total' : 'Total due'}</dt>
-              <dd>{total.toLocaleString('en-US')} KRW</dd>
-            </div>
-          </dl>
-        </section>
+                <div className="flex justify-between gap-4 border-t border-current/15 pt-4 text-xl font-bold">
+                  <dt>{isSuccess || isRecovery ? 'Total' : 'Total due'}</dt>
+                  <dd>{total.toLocaleString('en-US')} KRW</dd>
+                </div>
+              </dl>
+            </section>
+          </>
+        )}
 
         <div className="flex flex-wrap justify-center gap-3">
           {isSuccess && receiptUrl?.startsWith('https://') && (
@@ -143,7 +165,15 @@ export default function PaymentResultPage({
               View receipt
             </a>
           )}
-          {!isSuccess && (
+          {isRecovery && recoveryHref && (
+            <a
+              href={recoveryHref}
+              className="flex min-h-12 items-center justify-center rounded-none bg-[#601025] px-8 font-bold text-white"
+            >
+              Check payment status
+            </a>
+          )}
+          {!isSuccess && !isRecovery && (
             <Link
               href="/payment"
               className="flex min-h-12 items-center justify-center rounded-none bg-[#601025] px-8 font-bold text-white"

@@ -74,10 +74,10 @@ async function resolveUserId(
   return data.user.id;
 }
 
-/** rpc 오류 메시지 접두 코드 → 사용자 메시지 매핑 (원문은 console.error 에만) */
+/** Map RPC error prefixes to safe messages without logging raw errors. */
 function mapOrderRpcError(origin: unknown, tag: string): Error {
   const e = origin as { code?: string; message?: string };
-  console.error(`${tag} 실패`, e?.code ?? '', e?.message ?? '');
+  console.error(`${tag} 실패`);
   const prefix = (e?.message ?? '').split(':')[0]?.trim() ?? '';
   if (prefix === 'NOT_PAYMENT_READY') {
     return new Error(NOT_PAYMENT_READY_MESSAGE);
@@ -336,14 +336,9 @@ export async function markOrderPaid(
       { p_order_id: orderId, p_payment_key: paymentKey },
       '주문 PAID 반영',
     );
-  } catch (e) {
-    // 수동 정산 추적용 기록 — 결제는 이미 완료된 상태다
-    console.error(
-      '주문 PAID 반영 실패(수동 정산 확인 필요)',
-      orderId,
-      paymentKey.slice(0, 8),
-      e,
-    );
+  } catch {
+    // Provider approval requires reconciliation; do not log keys or raw errors.
+    console.error('주문 PAID 반영 실패(수동 정산 확인 필요)');
     throw new Error('주문 PAID 반영 실패');
   }
 }
