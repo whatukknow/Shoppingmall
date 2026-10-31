@@ -1,13 +1,14 @@
 'use client';
 
 import { foodLabel } from '@/shared/lib/food-label';
+import { recommendConfigured } from '@/domains/admin/recommend';
 
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { TasteFrame } from './TasteFrame';
 import { useTaste } from './TasteProvider';
 import { hasBirthDetails, tasteRoutes } from './answers';
-import { recommend, EL, SUN_W } from './recommendation';
+import { EL, SUN_W } from './recommendation';
 import { PixelIcon } from './PixelIcon';
 import { saveTasteProfile } from '@/domains/auth/users.api';
 import { buildTasteProfile, tasteRecommendationIds } from './tasteProfile';
@@ -15,7 +16,7 @@ import { trackTasteProfileSaved } from '@/shared/lib/analytics/client';
 import { ShoppingWalk, type ShoppingWalkHandle } from './ShoppingWalk';
 
 function ResultContent({ onRestart }: { onRestart: () => void }) {
-  const { answers, remaining } = useTaste();
+  const { answers, remaining, config } = useTaste();
   const [loading, setLoading] = useState(true);
   const [loadingIcon, setLoadingIcon] = useState('crystal');
   const [busy, setBusy] = useState(false);
@@ -29,8 +30,13 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const completing = useRef(false);
   const trackedProfile = useRef<string | null>(null);
-  const result = recommend(answers);
-  const element = EL[result.z.el as keyof typeof EL];
+  const result = recommendConfigured(answers, config);
+  const code = result.z.el as keyof typeof EL;
+  const element = {
+    ...EL[code],
+    t: config.profiles[code].title,
+    copy: config.profiles[code].copy,
+  };
   const sunday = answers.sun ?? 'b';
 
   useEffect(() => {
