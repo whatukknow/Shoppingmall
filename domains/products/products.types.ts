@@ -32,6 +32,7 @@ export type ProductDetailTip = {
 export type ProductDetailResponse = {
   catalogId?: string;
   isPurchasable?: boolean;
+  isSample?: boolean;
   id: string;
   name: string;
   category: string;

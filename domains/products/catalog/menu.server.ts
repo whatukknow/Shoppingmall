@@ -1,40 +1,18 @@
 import { createServerClient } from '@/shared/lib/supabase/server';
 import { getProductDetail as getOperationalDetail } from '../products.server';
 import { catalogImages, findCatalogProduct } from './catalog';
-import {
-  catalogIdForRow,
-  menuDetail,
-  menuList,
-  type MenuBinding,
-} from './menu';
+import { menuDetail, menuList } from './menu';
+import { approvedPriceBindings, type PriceRow } from './pricing';
+import type { SupabaseClient } from '@supabase/supabase-js';
+import type { Database } from '@/shared/lib/supabase/database.types';
 import type { ProductSort } from '../products.types';
 
-type OperationalRow = {
-  id: string;
-  name: string | null;
-  details: unknown;
-  is_active: boolean | null;
-  portion_price: number | null;
-};
-async function bindings() {
-  const client = createServerClient();
+async function bindings(client: SupabaseClient<Database>) {
   const { data, error } = await client
     .from('products')
     .select('id,name,details,is_active,portion_price');
   if (error) throw error;
-  const result: MenuBinding[] = [];
-  for (const row of (data ?? []) as OperationalRow[]) {
-    const catalogId = catalogIdForRow(row);
-    // Ambiguous duplicate rows must be bound explicitly before enabling purchases.
-    if (catalogId)
-      result.push({
-        catalogId,
-        productId: row.id,
-        active: row.is_active === true,
-        price: row.portion_price,
-      });
-  }
-  return result;
+  return approvedPriceBindings((data ?? []) as PriceRow[]);
 }
 export async function listMenuProducts(
   options: {
@@ -43,8 +21,9 @@ export async function listMenuProducts(
     limit?: number;
     offset?: number;
   } = {},
+  client: SupabaseClient<Database> = createServerClient(),
 ) {
-  return menuList(await bindings(), options);
+  return menuList(await bindings(client), options);
 }
 export async function listMenuRecommendations(limit: number) {
   const result = await listMenuProducts();
@@ -62,8 +41,11 @@ export async function listMenuRecommendations(limit: number) {
     }));
   return { list, total: result.total, limit: list.length, offset: 0 };
 }
-export async function getMenuProductDetail(id: string) {
-  const allBindings = await bindings();
+export async function getMenuProductDetail(
+  id: string,
+  client: SupabaseClient<Database> = createServerClient(),
+) {
+  const allBindings = await bindings(client);
   const canonical =
     findCatalogProduct(id) ??
     findCatalogProduct(
@@ -71,14 +53,21 @@ export async function getMenuProductDetail(id: string) {
     );
   // Keep historical operational URLs while applying the same activity/price checks
   // to both canonical and bound IDs. Existing IDs are never rewritten in the DB.
-  if (!canonical) return getOperationalDetail(id);
+  if (!canonical) {
+    const operational = await getOperationalDetail(id, client);
+    return operational
+      ? { ...operational, price: null, isPurchasable: false }
+      : null;
+  }
   const matches = allBindings.filter((b) => b.catalogId === canonical.id);
   if (matches.length !== 1) return menuDetail(canonical.id, null);
   const binding = matches[0];
-  const operational = await getOperationalDetail(binding.productId);
+  const operational = await getOperationalDetail(binding.productId, client);
   return menuDetail(
     canonical.id,
-    operational ? { ...operational, price: binding.price } : null,
+    operational
+      ? { ...operational, price: binding.price, isSample: true }
+      : null,
     binding.active && binding.price !== null && binding.price > 0,
   );
 }

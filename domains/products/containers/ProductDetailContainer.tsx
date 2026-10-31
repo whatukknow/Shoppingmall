@@ -65,7 +65,7 @@ export default async function ProductDetailContainer({
     discountRate: detail.discountRate,
     farmName: detail.farmName,
     unit: detail.unit,
-    isSample: false,
+    isSample: detail.isSample ?? false,
 
     description: {
       farmName: detail.farmName,

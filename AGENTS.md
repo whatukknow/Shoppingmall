@@ -17,6 +17,12 @@
 - 변경은 GitHub 이슈 → 작업 브랜치 → PR → 바로 독립 테스트·검증 및 Claude Code 교차검토 → 수정·재검증 → 사람 머지 순서로 진행한다. 자동 머지·머지 전 배포 금지. 실행하지 못한 검토는 미검증이다.
 - 프로젝트 대화·검토 전달은 한국어를 사용한다. 기존 영문 제품 UI는 별도 변경 지시 없이 번역하지 않는다.
 
+## 승인된 시연 가격 연결 — 2026-10-31
+
+- 기존 56개 카탈로그와 디자인을 유지한다. 기존 네 상품의 DB ID를 재사용하고 나머지 52개는 기존 products 테이블의 카탈로그 ID 행에 연결한다.
+- 가격은 DB portion_price에서 읽는다. 신규 시연 행은 정확한 ID/이름, details.catalogId와 시연 버전을 검증하며 유사 이름 매칭은 하지 않는다.
+- 승인 가격·출처는 domains/products/data/demo-prices-2026-10-31.json, 저장·검증·운영 범위는 PRODUCT-PRICING.md를 따른다.
+
 ## Shared context source
 
 - Canonical shared context: https://github.com/axfehlerlee/my-ai-context/blob/main/AI_CONTEXT.md (project display name: `paos`; main dot: `에요`). Read the relevant current sections when project context or all-agent sharing is required; do not substitute local memory for this source.
