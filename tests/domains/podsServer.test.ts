@@ -3,9 +3,29 @@ import { describe, it } from 'node:test';
 import { listPods, listProductPods } from '../../domains/pods/pods.server';
 import type { Database } from '../../shared/lib/supabase/database.types';
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { raw, kits } from '../../domains/products/catalog/catalog';
 
 type PodRow = Database['public']['Tables']['pods']['Row'];
 type UploadRow = Database['public']['Tables']['uploads']['Row'];
+
+describe('buying-group cutout image mapping', () => {
+  it('uses raw06 for every crop and existing cutouts for all DIY kits', async () => {
+    for (const item of [...raw, ...kits]) {
+      const row = {
+        ...pod({ id: `group-${item.id}`, product_id: item.id }),
+        products: { name: item.name, gid: null },
+      };
+      const { client } = makeFakeClient((req) => ({
+        data: req.table === 'pods' ? [row] : [],
+        count: 1,
+      }));
+      const result = await listProductPods(item.id, {}, client);
+      const expected =
+        'tasteFinderImage' in item ? item.tasteFinderImage : item.catalogImage;
+      assert.equal(result.list[0].imageUrl, expected, item.id);
+    }
+  });
+});
 
 function pod(overrides: Partial<PodRow> & { id: string }): PodRow {
   return {

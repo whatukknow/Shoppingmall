@@ -4,6 +4,7 @@ import {
   findCatalogProduct,
 } from '@/domains/products/catalog/catalog';
 import { tasteRecommendationIds } from '@/domains/home/onboarding/react/tasteProfile';
+import { podCutoutImage } from '@/domains/products/catalog/pod-images';
 import { AuthApiError } from '@/domains/auth/auth.server';
 import { createServerClient } from '@/shared/lib/supabase/server';
 import { fetchHeadImages } from '@/domains/products/products.server';
@@ -310,7 +311,11 @@ function toMyPodApplication(
     productId: row.product_id ?? '',
     productName: product?.name ?? '',
     optionLabel: product?.portion_label ?? '',
-    imageUrl: images.get(gid) ?? '',
+    imageUrl: podCutoutImage(
+      pod?.product_id ?? row.product_id ?? '',
+      product?.name ?? '',
+      images.get(gid) ?? '',
+    ),
     quantity: 1,
     unitPrice: product?.portion_price ?? 0,
     status: row.status === 'accepted' ? 'accepted' : 'pending',

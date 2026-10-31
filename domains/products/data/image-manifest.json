@@ -29,11 +29,6 @@
     "sha256": "231c2ab0ac18b9cf9b8d42ccdcf4c918b3a7342eda6ae72e45d70e5903ca042a",
     "bytes": 258152
   },
-  "/uploads/catalog/raw-sets/001-korean-melon/07-farm-card.webp": {
-    "sourceSha256": "0b596a2702e19d3a164378f763f2e1f9268eb246b7ab2d3bedf3f9f72630a886",
-    "sha256": "ca389cc53ccaf811ece79e50b4b134496e4e6d6ad5618342885b99a1eb04a663",
-    "bytes": 241148
-  },
   "/uploads/catalog/raw-sets/001-korean-melon/06-portion-package.webp": {
     "sourceSha256": "93b232ad5ee6556003e26f269566c8860d43b648edb404fff0f0d9befe0b3209",
     "sha256": "9d037f79b038c204b29edae61b6993c4c3a4b6e3c72b293410dfdbf8ceaf2c14",
@@ -68,11 +63,6 @@
     "sourceSha256": "4c3d2caa3c567b10610f084c9d990a87f6e0be348894c9e7345503eba8c35297",
     "sha256": "51cbda47d25dd44892363396ea28e63d8c7106df860a46476b66df251957dd71",
     "bytes": 223516
-  },
-  "/uploads/catalog/raw-sets/002-ripe-tomato/07-farm-card.webp": {
-    "sourceSha256": "e4a2b1b474b4607e54396e6d5d31d657129e4094234bb070f1fba128d286a99e",
-    "sha256": "7eb049d993cfc2f8d3b956014e2f1b62198aa0d8e7af154aefa7ce4cb5fcc3ef",
-    "bytes": 219648
   },
   "/uploads/catalog/raw-sets/002-ripe-tomato/06-portion-package.webp": {
     "sourceSha256": "ef971365ea761d7645fa6def645378eb2015098290aaac6d566b48b5b930b762",
@@ -109,11 +99,6 @@
     "sha256": "f9e8c2c99fb3724b97160b017d74cbbde34b6a6777b9625c84bdd16a2b25b03f",
     "bytes": 244658
   },
-  "/uploads/catalog/raw-sets/003-muskmelon/07-farm-card.webp": {
-    "sourceSha256": "722dbac781eb6621a3ec2e9ba5fca14c2a8a04b34198167dcb6e4c320b2bd79b",
-    "sha256": "881c4dd924b9b9645583bc16efe5885b3d6262ab651a97e0f70c0310a4b96fdd",
-    "bytes": 239244
-  },
   "/uploads/catalog/raw-sets/003-muskmelon/06-portion-package.webp": {
     "sourceSha256": "4b1b7aa1ed583050be463b52b32120a4bc20912bd4155268676c2016b36f6dc9",
     "sha256": "e0bd68c2dafc8bd557e2a451b0115581906f75afa51f1fc535e2a49745781a09",
@@ -148,11 +133,6 @@
     "sourceSha256": "52a78b1944fa072c7366192a2c1898cf679ac1a28e63845e58c9d41a01dc9d46",
     "sha256": "c9b6bc337534da0d856a8e139508e248521011dc17a318745c83f68b68c32b93",
     "bytes": 247456
-  },
-  "/uploads/catalog/raw-sets/004-kabocha/07-farm-card.webp": {
-    "sourceSha256": "90c646efe30cbdab183ef62aa2a352c47b10d73f1adeb3599a6777276a28ca89",
-    "sha256": "d7b20f660c22784c547db50f106f6cf8a1a4a3418e6bb5f588f6fcb26fcb2364",
-    "bytes": 220222
   },
   "/uploads/catalog/raw-sets/004-kabocha/06-portion-package.webp": {
     "sourceSha256": "d8911b9efba2425335061ee17ab781fc4098d4e27bf6a543e0dcb7122e21e25f",
@@ -189,11 +169,6 @@
     "sha256": "c72908c0c69edaa284ba106ecb2a25da8f4df70fcf3554c2c261217ff5bdf6f2",
     "bytes": 242834
   },
-  "/uploads/catalog/raw-sets/005-red-potato/07-farm-card.webp": {
-    "sourceSha256": "0e52b37d021ae639eb54784880d9a6bb499517da937a5bf6d882ced81eabdde6",
-    "sha256": "77c8aa1393d410fb1d17c27ed79f49d3ddb03a09eed2e1cc75912e4acb7d9a09",
-    "bytes": 227916
-  },
   "/uploads/catalog/raw-sets/005-red-potato/06-portion-package.webp": {
     "sourceSha256": "550cf0a9acec08a159649a11ec18eb2f1208a1cab114865881fd215852cf4914",
     "sha256": "d114f5d5adabb39e3dc9b86e311ba6ff7e8b672331cffd3a27b2e69605d58df0",
@@ -228,11 +203,6 @@
     "sourceSha256": "f98a0a6a287d6f765cf1daa796092b2826222b8a1447b1f1dc7eeae33c4e3c9e",
     "sha256": "67a78f963504bde46338fb15422beb913c737c2b27680590af66d5aee784908a",
     "bytes": 301576
-  },
-  "/uploads/catalog/raw-sets/006-red-grapes/07-farm-card.webp": {
-    "sourceSha256": "771f9734ecd4d0cb1a94f504ef535ec146b4b067387c01420c8beefcbb8929aa",
-    "sha256": "afd6da27dc0fddc32badb5312769d1ed252568f4fc7e8449e4fd9ebc18ffa05c",
-    "bytes": 239210
   },
   "/uploads/catalog/raw-sets/006-red-grapes/06-portion-package.webp": {
     "sourceSha256": "3fc04c26551047f34bb125722ef5fe5b62956efdc7d5654f46fd6e4558df307b",
@@ -269,11 +239,6 @@
     "sha256": "62b2bbac28e715b4b80bc73756dc9e0cac90da132f07e84c4b6eab0a134400e8",
     "bytes": 283784
   },
-  "/uploads/catalog/raw-sets/007-seolhyang-strawberry/07-farm-card.webp": {
-    "sourceSha256": "92f1df9382805eb5a330789af57a26657b583c59ccfaa4d33535372473377435",
-    "sha256": "f4ce4131f1b7fca8fc0778aa0760382a911bb9d0e36c6b9cff320e4d52a2dafc",
-    "bytes": 267102
-  },
   "/uploads/catalog/raw-sets/007-seolhyang-strawberry/06-portion-package.webp": {
     "sourceSha256": "388aec3911af72465a845f357830e969be4b28df1162f0cb1dc025ab18ea84c0",
     "sha256": "ec20976065153571c39ded288d0215e0d0d42212b7340ad579c532286ddcb16a",
@@ -308,11 +273,6 @@
     "sourceSha256": "4355a889124e21a2077eb7c51346e16c5dc640ddb33fdb32fff5a50da970de60",
     "sha256": "2e4cba2565b1cbd544b9ded88eab45d389cb928254a9785151eabd0b2a663c29",
     "bytes": 247072
-  },
-  "/uploads/catalog/raw-sets/008-onion/07-farm-card.webp": {
-    "sourceSha256": "bd8d3ec0272953402faa31463ffd25cd400a4b5cb8afc3276b3494a87b074b5c",
-    "sha256": "8ef905a2e51280164af4a4397ea2ce6fc3f30ef3a74d74b2ec154bfe94b78c46",
-    "bytes": 225592
   },
   "/uploads/catalog/raw-sets/008-onion/06-portion-package.webp": {
     "sourceSha256": "9df0c64bee7050d7540fb6d686858118e9fd0d58a86cee4d349931a01ccffca5",
@@ -349,11 +309,6 @@
     "sha256": "f09e3f20861c2d7478b69ab3ad72f2f7204bfb99e36147630200d3e01330bd87",
     "bytes": 237168
   },
-  "/uploads/catalog/raw-sets/009-cabbage/07-farm-card.webp": {
-    "sourceSha256": "1c7beb8fb84ab936fdbbe0ccd25f98cd61fb08b59d1a2ae9981d5877aa492f6c",
-    "sha256": "e85a2fff91a61935d3313a5bbd6008f7e792230e87c1ff4f841eeed2aa8a7315",
-    "bytes": 199244
-  },
   "/uploads/catalog/raw-sets/009-cabbage/06-portion-package.webp": {
     "sourceSha256": "30923648198b1b2aba3371265cdbc7354f975bc62008d767a7e57eae2420747a",
     "sha256": "317a8cd4a1c0856a08c52cb50d463e1565adf772cb11fa2e05d7d9c87dc38743",
@@ -388,11 +343,6 @@
     "sourceSha256": "14a7c0de6219785dfe665b5ea394543611c8c3f1d3fcc7878ec046a87265a81a",
     "sha256": "1223cffeb22d3ce7c36f513c7f8abba9e45a9d0cad3224b76869b63bc165c6b1",
     "bytes": 250614
-  },
-  "/uploads/catalog/raw-sets/010-scallion/07-farm-card.webp": {
-    "sourceSha256": "47c5bedef1affe718f4855b201181339a6e4ccee2601b33a3ca563724f4b8025",
-    "sha256": "3df1705d5217f49647fb7a74d084eb53a68161669a6c80625fbbac474a842769",
-    "bytes": 231396
   },
   "/uploads/catalog/raw-sets/010-scallion/06-portion-package.webp": {
     "sourceSha256": "02222e15f6192ae06feba85062bfb5dfa919dab4012498dc315f676fd975b87a",
@@ -429,11 +379,6 @@
     "sha256": "5cd666a5e28337d9df8cf7de1fb078acc27437cef14e617cfdd49de750a0c709",
     "bytes": 223402
   },
-  "/uploads/catalog/raw-sets/011-green-peas/07-farm-card.webp": {
-    "sourceSha256": "658b9ad527d7e40d5c3d314a0861aa08bdbcb6da93ac1a871ede2f2de02da328",
-    "sha256": "afadbad904e9e0f877e9a7181c769af93cec4a703c10e7c94ec4e7c80f7625d9",
-    "bytes": 200626
-  },
   "/uploads/catalog/raw-sets/011-green-peas/06-portion-package.webp": {
     "sourceSha256": "cef4dd515d3eb7adccbe6b8e2426289fe6d05b92df6a59724f1f90b766f00802",
     "sha256": "77b41a35d5778cb6ada67a01422ff20b5c6ff28c1aea1c157f7b1b01586dca17",
@@ -468,11 +413,6 @@
     "sourceSha256": "b3f503f5c37502cee429ef61624833a76deff5386eeb70bb02fbfff6b4d168b3",
     "sha256": "0e2e369e133952a251231e122cabc55aa4df3c57908b16975d6b2e1a0d88879d",
     "bytes": 270946
-  },
-  "/uploads/catalog/raw-sets/012-brussels-sprouts/07-farm-card.webp": {
-    "sourceSha256": "ad752a56430e9e951dc76f71ded733261b07ef09ad96de20074ecc0740d2f14f",
-    "sha256": "ca069c99fa6ee1957b2244233cf80ec9be62fabac8b5fed1cb999bb9a0dd9634",
-    "bytes": 239544
   },
   "/uploads/catalog/raw-sets/012-brussels-sprouts/06-portion-package.webp": {
     "sourceSha256": "d94ff582ba1724f6580cd3a261962bee729530ae122af34a9e4d073a85bef28e",
@@ -509,11 +449,6 @@
     "sha256": "3fd8a8879e3c1caf584a40e1e8df83a0b0d439280eb272325645cd9f45057706",
     "bytes": 322762
   },
-  "/uploads/catalog/raw-sets/013-apple/07-farm-card.webp": {
-    "sourceSha256": "a0c84b5f5bd07417ebbfe88c3696217767a6544903cfd14f629bccb8ba4fca13",
-    "sha256": "e5f0521be2ae056a76471c805ad0cdd67b23a574f548b331d976f25c6151900f",
-    "bytes": 287120
-  },
   "/uploads/catalog/raw-sets/013-apple/06-portion-package.webp": {
     "sourceSha256": "6eae96d42ee6fc6336373aea8c6a4d5644301ba7932e09e09b4ae66bf98213be",
     "sha256": "c26f55ca681144e04354e12d629d60952e47c4da57fe259d06401f9072203519",
@@ -548,11 +483,6 @@
     "sourceSha256": "80bc88b64d3d17c038a3b91e19041cbc6d25e7d39bfa2c9b81ee9ccfb157dc1a",
     "sha256": "ed2f93a4afe6aecedcfa08f55456a13188f89bd3402b38136cd3d05dbba17e57",
     "bytes": 226260
-  },
-  "/uploads/catalog/raw-sets/014-mandarin/07-farm-card.webp": {
-    "sourceSha256": "0cb9990ac65e25339340fd30ac43032860fc15afeb2f14cbeb6fda0a812cab5d",
-    "sha256": "2c373741d6d218b9998b6b6851739d4770627a5f5aec4e76a57f654d83c5b0ac",
-    "bytes": 204570
   },
   "/uploads/catalog/raw-sets/014-mandarin/06-portion-package.webp": {
     "sourceSha256": "1dc7bb45a757320a8ceb3b43c903cbd57394830047a8a53c9c550e32466c183f",
@@ -589,11 +519,6 @@
     "sha256": "e91aacf26f13a97a5c0a5804c3468b94c3129b5a30764954e2fafc57212ccf7b",
     "bytes": 254258
   },
-  "/uploads/catalog/raw-sets/015-watermelon/07-farm-card.webp": {
-    "sourceSha256": "e2129c5c693982c197c80e96cbaea3fb612eccec31fc06d2503d50682f39fec5",
-    "sha256": "49741add9f1028cbdb884625da024eab7438d4f2d0513a568b8f557c34a747f2",
-    "bytes": 227070
-  },
   "/uploads/catalog/raw-sets/015-watermelon/06-portion-package.webp": {
     "sourceSha256": "ee51687e5574a1403059ae18cf3bf7fc05d37aef2dca1ab68c840ad37d21f2fb",
     "sha256": "1f45bdb486f9108fd9bdce32f4f8ade0c9d6797838fdad7547e40c87c3ede9ff",
@@ -628,11 +553,6 @@
     "sourceSha256": "d173e699dba51ee854240718f22da279eb3629d52dfaa128ce47d30143de2ef7",
     "sha256": "96a8dfa0d11182501744c22e5baf758c925e8a54b72683d460c1385846941ae7",
     "bytes": 253682
-  },
-  "/uploads/catalog/raw-sets/016-beef-steak/07-farm-card.webp": {
-    "sourceSha256": "dedd5bf460f742d1ecfdb8cbf799d340aa92b825955e2b62b028c828ffb7d5a8",
-    "sha256": "f27ad8e0ec04b438357207a6cb1ac07f91c6919ec295a83dcf1d1eabe78133ba",
-    "bytes": 220410
   },
   "/uploads/catalog/raw-sets/016-beef-steak/06-portion-package.webp": {
     "sourceSha256": "ea8008664d2362a84bb2791455c97c573cff0cfa424868e85a106e970432efd0",
@@ -669,11 +589,6 @@
     "sha256": "801cc57c01b4d90249ba409a78798adfe3c477e7df29139260a3c3205d26afd2",
     "bytes": 299324
   },
-  "/uploads/catalog/raw-sets/017-eggs/07-farm-card.webp": {
-    "sourceSha256": "e9ca59c1523ba36c83029ce3fa8b647014bbc616c5ee026f816366a63e024a91",
-    "sha256": "976b41d3cab1694ee0e764279ad8b540a5d33d66fef317133d262fa7ccadc5de",
-    "bytes": 260978
-  },
   "/uploads/catalog/raw-sets/017-eggs/06-portion-package.webp": {
     "sourceSha256": "df4cd3c7484b045769bf4ec294b708339c5a45b9f6ae89f9f7fd0e806e4a445b",
     "sha256": "9af5520c8f15aec289d622b278276825fcebdfa8093d56a6e8929eaf728ec1ca",
@@ -708,11 +623,6 @@
     "sourceSha256": "405581579afe576eb3861975b32b5d1e74fc91c3d33049244ae3166e9169b988",
     "sha256": "32fbc5a01cf76756610e569224c9e2d0749a14cb707b4c7245d2eccf91c47b76",
     "bytes": 256280
-  },
-  "/uploads/catalog/raw-sets/018-pork-neck/07-farm-card.webp": {
-    "sourceSha256": "21931ec23d92789063a999b72338c2241bcfa15d978a978ef1d62649f5f2d1bd",
-    "sha256": "6ede9247fa47aece63cd1950f1749e3b46613f6fe091665db308787b98246f4b",
-    "bytes": 223416
   },
   "/uploads/catalog/raw-sets/018-pork-neck/06-portion-package.webp": {
     "sourceSha256": "ebb0046e0752c8e3c2813eaa4407335fedf993063b28c0978f53402f4007cbca",
@@ -749,11 +659,6 @@
     "sha256": "d4c4e9f6da5a89e89ca187509f2d5c372dea1293de147df83733d441a4f46af2",
     "bytes": 264042
   },
-  "/uploads/catalog/raw-sets/019-chicken-drumsticks/07-farm-card.webp": {
-    "sourceSha256": "ad7434db2ee4acaaa09874a6785061da5b238034cd10be2561db4a0082135911",
-    "sha256": "9ebf6cd43eb088e2ec21cb56b56f0af5251246d33bed6f56a6c6057e9ccb2ff2",
-    "bytes": 223674
-  },
   "/uploads/catalog/raw-sets/019-chicken-drumsticks/06-portion-package.webp": {
     "sourceSha256": "759f1d5d08895ff539af4e3ec585c1231c85ce6a97a9b28fd22364b332773448",
     "sha256": "5a663e61f31207988d8b45e172f10210349ef8dd2cc71633a21fd9cb4258041b",
@@ -788,11 +693,6 @@
     "sourceSha256": "8a39178cd9976dd0f0e8959df568433db9623f864ff6d96e3ddb53061229e7a0",
     "sha256": "b94d0baf11a56646ca60b947af4267b8866fc8d1ffd5d26e7491994e1e163449",
     "bytes": 264816
-  },
-  "/uploads/catalog/raw-sets/020-blueberries/07-farm-card.webp": {
-    "sourceSha256": "acae0698802ba07673057b90685b1a4435d6bad4c25010770bd40da6712af5b8",
-    "sha256": "d297c55d9e4493373214f584a65a1ed4c0f6249388dcd14b258d6c87407e9698",
-    "bytes": 221190
   },
   "/uploads/catalog/raw-sets/020-blueberries/06-portion-package.webp": {
     "sourceSha256": "2f2af4cc3fdd731d1a3bcc9bce4b1b5a2558c2221c549d3dbac0a886f4c4ffd8",
@@ -829,11 +729,6 @@
     "sha256": "2b84a2392e48007c65e51c01d391bad58424a4541c39cec1e7557445368b7bd4",
     "bytes": 200932
   },
-  "/uploads/catalog/raw-sets/021-dragon-fruit/07-farm-card.webp": {
-    "sourceSha256": "1269cab5e84ca4966538dd2dbe17d19cad9d8725a60ba192984a2ee48190b495",
-    "sha256": "328d9f25c1f07616c9dedb1917936cca2ba8dfb565d9e5b09cbd2fad603c125d",
-    "bytes": 207658
-  },
   "/uploads/catalog/raw-sets/021-dragon-fruit/06-portion-package.webp": {
     "sourceSha256": "d04fc14d1a9a8c21e3848b5658e077e4c1a7fd5f6d8d9b8a7ee03bf9e7ed1a26",
     "sha256": "c8e2b3d74b3b0b61ca22b3c44664b71644fc4b0440c64ea5dbe4ce6f355bd8ef",
@@ -869,11 +764,6 @@
     "sha256": "72a2e0c50497164bd07847c9b98f3c19c78c18fb181e29d6def26b38a931a681",
     "bytes": 260218
   },
-  "/uploads/catalog/raw-sets/022-peach/07-farm-card.webp": {
-    "sourceSha256": "b56c1c3d427298be7819b9be4caf5e6bde5740525207dc6ec8a454abda141643",
-    "sha256": "7730d66af2f3485cd450f078d0eee44e5ee0582738fa20259491bf100d1a502f",
-    "bytes": 245300
-  },
   "/uploads/catalog/raw-sets/022-peach/06-portion-package.webp": {
     "sourceSha256": "cd636b20ae15974214ad0abe74866a3dcd30dd7d7460d925aefd245b5c570e31",
     "sha256": "de137f0dfb1a4ad42ca376598a9983c53df9958e234e67d938b2d4a8e958ee33",
@@ -903,11 +793,6 @@
     "sourceSha256": "7fd36d72e4c71d7a4d59ce375db236ab30172c8d3ff0e1c83bf139fe80781caf",
     "sha256": "afb65b263edfed7e6e5725bbee0985861d573f69f838ee0d9d695d8154b7b05b",
     "bytes": 259374
-  },
-  "/uploads/catalog/raw-sets/023-sweet-potato/07-farm-card.webp": {
-    "sourceSha256": "24fccd88c66bc6838ace2d8178432ebca957ea308c12beccc0ed9e270b7ffaa8",
-    "sha256": "1000d96bc23189d2a1749ecb4f07165d18cc5208b1f023fd0c96873afdce4c62",
-    "bytes": 221920
   },
   "/uploads/catalog/raw-sets/023-sweet-potato/08-illustration.webp": {
     "sourceSha256": "296cbdb4bf7d6cf1feb7043e64c664ef166ce41fdb5141c48def06e2ba83a545",
@@ -944,11 +829,6 @@
     "sha256": "7409f04a1343ecdcd6280d3e648514589bee2793024c3c85d9523636497be6d9",
     "bytes": 231352
   },
-  "/uploads/catalog/raw-sets/024-kale/07-farm-card.webp": {
-    "sourceSha256": "b7691a2ded7445bb6312a0fac07ce8f2bb97c9eef6b06138caed231c98d6b126",
-    "sha256": "80f08af43eaab5b32e25bb835f46a24686d012e0a66df6397bc13845d86f41cb",
-    "bytes": 193156
-  },
   "/uploads/catalog/raw-sets/024-kale/08-illustration.webp": {
     "sourceSha256": "2e1a66cf332adb753747d1a5a66ce33585c37319f1dd2a1d204187ec636c3911",
     "sha256": "a546e16549506f238bfa0b8822ec7d0e808f0c20543bfecbb3ad47b32ffe6be1",
@@ -984,11 +864,6 @@
     "sha256": "5110ccf11f4f6df1a643102734e0214787500a44cae940cb9fbfe28894c8da44",
     "bytes": 259118
   },
-  "/uploads/catalog/raw-sets/025-red-chard/07-farm-card.webp": {
-    "sourceSha256": "61da14bc128c949eb4254f95f84a81350791fec8a8bddf1171341b8b1026a24b",
-    "sha256": "f5e08e8bf6bd14198995fcafaf389ea01f05813530db19f899c2cb36ee4dc901",
-    "bytes": 229672
-  },
   "/uploads/catalog/raw-sets/025-red-chard/08-illustration.webp": {
     "sourceSha256": "d2df027f2dd138a9a6b319ecba23103a51c6fac19a1a3ca783819e710d0af408",
     "sha256": "6abdb5d1e785fd80312d8fd3ecdc456acbe4a42994253d09f24addc9dd1840bf",
@@ -1023,11 +898,6 @@
     "sourceSha256": "c53bb1d52398f18776a4a2d338fe4a90540ddc1e13824252a2bf2fe417361d6c",
     "sha256": "56d1b3b6d746d2655d66ed1ab3e99d510c59cc9fbc25bd5dc50508a05ad81af7",
     "bytes": 265264
-  },
-  "/uploads/catalog/raw-sets/026-flower-lettuce/07-farm-card.webp": {
-    "sourceSha256": "5a4b945b432ef48d4a801168ba76b98185cb5c0eea115d055f6bd936b0899a8d",
-    "sha256": "aa9ab79caccea1e0e6bfa0a1b4e93e5a73ffdcda903552be3b2d0f28de0391a2",
-    "bytes": 229602
   },
   "/uploads/catalog/raw-sets/026-flower-lettuce/08-illustration.webp": {
     "sourceSha256": "33d9db4bd19676392c581cdc040ef2b88101e298a8cb7923e59e73c1890937d2",
@@ -1069,11 +939,6 @@
     "sha256": "4907a053021fdf945856852c2b8d1af6505ef03bfe425c717e5922e54f71f8bd",
     "bytes": 237310
   },
-  "/uploads/catalog/raw-sets/027-napa-cabbage/07-farm-card.webp": {
-    "sourceSha256": "7d5c658a66197f81cffba2ad6040b4b0daa5349f6596a2dd1fd7fce1fbae5674",
-    "sha256": "55a287fc4915024b550c29a451f1060bc833ab1dbaf429a14907f540fd115942",
-    "bytes": 195000
-  },
   "/uploads/catalog/raw-sets/027-napa-cabbage/06-portion-package.webp": {
     "sourceSha256": "f32eadc6f5e7eff3258b7e6b287f455937f6a1ad89d5c94141ce82a99f9e4b58",
     "sha256": "40e90aaafc34cfa3566de1e5193e2557ce3466483cbbda6092c3084d7d6649b7",
@@ -1103,11 +968,6 @@
     "sourceSha256": "8e018f47993c78026baf9974ffb8277916a6a653cd691db4f02602a91df623f1",
     "sha256": "d9c541c4927ddeaf2a2a03faa56df0d12c47c62d98a5c85e1e7ba10656287fd6",
     "bytes": 284452
-  },
-  "/uploads/catalog/raw-sets/028-golden-kiwi/07-farm-card.webp": {
-    "sourceSha256": "e7d9c720d796cfd0cb3d8c2bcd7b58c773442ac2bc17939f25620e273f7ce207",
-    "sha256": "56ea0c2faab059f775142e48f8b0560b11810490f9e4f3495b8fb21930c5cd56",
-    "bytes": 252938
   },
   "/uploads/catalog/raw-sets/028-golden-kiwi/08-illustration.webp": {
     "sourceSha256": "ba2790ae1c2aac96eca3d431912f5d0abc07d4ca2070ce2d5a4d7322e7e60228",
@@ -1144,11 +1004,6 @@
     "sha256": "cf292cc86094868a913863032a6275a8b9b797d5f8410dd3dcf5d24892331472",
     "bytes": 288774
   },
-  "/uploads/catalog/raw-sets/029-chicken-breast/07-farm-card.webp": {
-    "sourceSha256": "5dd971d5604477ed6906203c800e1f51d0147310920dbe9e7adf3b225e772110",
-    "sha256": "91373271d79251aaa74b32951c0b9ea6fc09e0b370c0a863769794aed2ec0973",
-    "bytes": 252720
-  },
   "/uploads/catalog/raw-sets/029-chicken-breast/08-illustration.webp": {
     "sourceSha256": "23eb96f3b7ee935d7fab926292c03e41f6dba11634947272650e7210aa66f81e",
     "sha256": "57e4f585a41ec2d050f3101ac50c0de2fce5629d6299d4cdde0cf89aff4c0de3",
@@ -1183,11 +1038,6 @@
     "sourceSha256": "85bbc0cee98c09ccb4bdef95fa1965986bd99a8cc01c3d5d09aef49e42aa1a01",
     "sha256": "c83f4145743695788d15c45ec0877b2fd23978c5533f4d0d8bfadebdc846cde9",
     "bytes": 248094
-  },
-  "/uploads/catalog/raw-sets/030-wild-raspberries/07-farm-card.webp": {
-    "sourceSha256": "b37ac4b657a9e15e6b19978fa4ed92bde0bcd255112b3a4bd30367e680a8a7d9",
-    "sha256": "43ab034a80991b00123a7c4f1420fd66435007e6990e9e4b99b61c691284adca",
-    "bytes": 225612
   },
   "/uploads/catalog/raw-sets/030-wild-raspberries/08-illustration.webp": {
     "sourceSha256": "13cd556fae184bf4631e89b25df301176347edb321833d7204a08b17d16f3029",
@@ -1224,11 +1074,6 @@
     "sha256": "a022ad5022170eb2681810dc91f88319101f2a0121f8d02ba32a4bb6f32a9f0c",
     "bytes": 251232
   },
-  "/uploads/catalog/raw-sets/031-jeju-cutlassfish/07-farm-card.webp": {
-    "sourceSha256": "afc6cb5996d78160508be46feb750c84a2a963d711605205c14c32676a6bfd70",
-    "sha256": "adb7fd9a3ee5655332e001a25f6a2aa90bab25071013d18c4a63aab4cb0d013e",
-    "bytes": 215842
-  },
   "/uploads/catalog/raw-sets/031-jeju-cutlassfish/08-illustration.webp": {
     "sourceSha256": "226d90a865e34ea780e0c7347305b16f79335f4cdc3d1aaeb3d94018c9273c56",
     "sha256": "8d2c26525468c2ad3de320fb79d25cf39d0a313e2fd206de360af4f60c3811dc",
@@ -1263,11 +1108,6 @@
     "sourceSha256": "ed1d65ddbe4d8eb30b47282143942121d4124162184c0c3e966dadef504419c5",
     "sha256": "870a3659fd74d6544566eead6f719026f5aa3f01fee23dc1a5d6448c4ed82318",
     "bytes": 315718
-  },
-  "/uploads/catalog/raw-sets/032-pork-belly/07-farm-card.webp": {
-    "sourceSha256": "615d1fb1021a2b016be26bf406f2a6776655ae312873006a3f7284b44912d956",
-    "sha256": "722e36ae64aeef12fb42c18e067314d8cfb901d642077fbcdaa53b5b262aa269",
-    "bytes": 272858
   },
   "/uploads/catalog/raw-sets/032-pork-belly/08-illustration.webp": {
     "sourceSha256": "49772155933677fb48638fff1f1440988d3fd365f38a8180b2c49803e30c5c6e",
@@ -1304,11 +1144,6 @@
     "sha256": "e90faf95239885e0fb889bc1c7d9a6834da87a8331bbea1784fef8cc70544bcf",
     "bytes": 276412
   },
-  "/uploads/catalog/raw-sets/033-green-chili/07-farm-card.webp": {
-    "sourceSha256": "0b583f7cc3343e6036ceb37fe05528cbfb2d6787f6586628162d28312f589939",
-    "sha256": "b51137cf6c5f523e809d6bcf0481c1c1424fc207db645c75d6c16c2684e0fc51",
-    "bytes": 257164
-  },
   "/uploads/catalog/raw-sets/033-green-chili/08-illustration.webp": {
     "sourceSha256": "1f4c11b65685a83a4152b238e2257de9c449100b7f92b6c2ccd9167e0851cccc",
     "sha256": "2d0d007585ed25678b927b10a25105c48b6fafd07a9869eb3ae21b014dba3572",
@@ -1343,11 +1178,6 @@
     "sourceSha256": "ee94f75109fce0fca22d5ce430f18f4ee72d56057c834db3121c5e753b64d149",
     "sha256": "6dcff818bd070e8c9ba0e65d0f19153df6b8d8e6e26573a4a94822438735c8eb",
     "bytes": 282984
-  },
-  "/uploads/catalog/raw-sets/034-red-chili/07-farm-card.webp": {
-    "sourceSha256": "16a8bbb848b09790043320d96acd6d6cafbff0340c55f0fe14a78e78cf57845b",
-    "sha256": "ef63104fc7d4151d0e88274430d7c59ba51055b248d6453a4b8007a3b30f357d",
-    "bytes": 265898
   },
   "/uploads/catalog/raw-sets/034-red-chili/08-illustration.webp": {
     "sourceSha256": "392002291049e22f1879d27025cfbed91e8a1ae11489421c758620b61ffa7523",
@@ -2332,5 +2162,175 @@
     "sha256": "34cb5a379a12ab389bba38ed80d860903cf660249c738d2e08911576f15b329d",
     "bytes": 1358278,
     "method": "reviewed-local-outline-alpha-lossless"
+  },
+  "/uploads/catalog/raw-sets/001-korean-melon/07-farm-card-en.webp": {
+    "sourceSha256": "aaa8c3c1f9c81cfe332fede223ca0fddca7c2055afb0ef85af8ca7d0f2de219d",
+    "sha256": "3c10f0ef60f50d1000f0303aa502a9a9bd8f8cef150ea23112c37ed8f93d29b2",
+    "bytes": 241652
+  },
+  "/uploads/catalog/raw-sets/002-ripe-tomato/07-farm-card-en.webp": {
+    "sourceSha256": "929c941b33e4cc9a080ead267788b822c6a1e5ec8f4caa1ded07192969913d23",
+    "sha256": "67734266ee015b5ca0918fa5458f22b64f5d743d6b4caba30c3938f27baf0462",
+    "bytes": 268276
+  },
+  "/uploads/catalog/raw-sets/003-muskmelon/07-farm-card-en.webp": {
+    "sourceSha256": "be57a1f67d80e5c8cbe9b706d0df93524a8f9cce133f0bc0d33aaf4ef1292f42",
+    "sha256": "476be74d5b8dd9dad428245652ffa311b91e8bc9f381b408da36d98ebeaf1272",
+    "bytes": 240980
+  },
+  "/uploads/catalog/raw-sets/004-kabocha/07-farm-card-en.webp": {
+    "sourceSha256": "e2428764361c13753f1de6da19505fa1852530ba24eaed00f9b87883d5a74990",
+    "sha256": "7fc33b84c246eefe306102c4f9ca4849fe203c0a54d6a279ef7829d74d43f329",
+    "bytes": 214402
+  },
+  "/uploads/catalog/raw-sets/005-red-potato/07-farm-card-en.webp": {
+    "sourceSha256": "4cdb8d10da6122e2f70d6380afe371aaa1ee7471d31e88fa2cca8721a360b67d",
+    "sha256": "867afdcf76525e156bbbe097fcc2d4400be054d8fd553e87a8f7d33ca3cf1028",
+    "bytes": 253534
+  },
+  "/uploads/catalog/raw-sets/006-red-grapes/07-farm-card-en.webp": {
+    "sourceSha256": "39ad2fb576257572d6bd736fb9992e4a8175fcf1415e625394127f8e56f60a38",
+    "sha256": "6758f4ae0f601997d1aa834adf60e79b509589ee74351d4f0e7282c44582d0dd",
+    "bytes": 239194
+  },
+  "/uploads/catalog/raw-sets/007-seolhyang-strawberry/07-farm-card-en.webp": {
+    "sourceSha256": "1c8eb16117a8cb177601c73062f493427faa83587a312c9a006720ae2d8374e9",
+    "sha256": "df0af75929caafc2ffc21d3b7e2942709b01d1b901d6fd77ea00cb6bd74a6c7f",
+    "bytes": 225322
+  },
+  "/uploads/catalog/raw-sets/008-onion/07-farm-card-en.webp": {
+    "sourceSha256": "f3a0ad55720e3da4d4e90ef0c54cc5a6e60edb75d6130fd77ff4a6f524154ea1",
+    "sha256": "ad3b65050f5b9690cf7d3d9891d3dac5ce8dd5799f6a4bd232aec9f675b582e2",
+    "bytes": 219288
+  },
+  "/uploads/catalog/raw-sets/009-cabbage/07-farm-card-en.webp": {
+    "sourceSha256": "fe6e0c0038d68842de520719fca16a781710d77c2101caf1f5e9a890b0d500dc",
+    "sha256": "63b2de6c44279681bb641441c5a03d4db1add125caaa590cbac8c15eb33d7e55",
+    "bytes": 223546
+  },
+  "/uploads/catalog/raw-sets/010-scallion/07-farm-card-en.webp": {
+    "sourceSha256": "cf7b06db593a1c10c562e92d592af09f3163000f481ec8cedcebdfedab362e1c",
+    "sha256": "53c091720e213e8774eeb885cea6d723640381dac27bf89f21145dcf532a30b4",
+    "bytes": 229160
+  },
+  "/uploads/catalog/raw-sets/011-green-peas/07-farm-card-en.webp": {
+    "sourceSha256": "f9c67da67ece3752d2968431cf654ee7f6f0158adece46a7e9def5d4982ed9af",
+    "sha256": "941afd9a0311e04f246820cf1951563b21f040018e331c954441d1761da95fea",
+    "bytes": 235552
+  },
+  "/uploads/catalog/raw-sets/012-brussels-sprouts/07-farm-card-en.webp": {
+    "sourceSha256": "2fa2796040fe186c35fd9b9d8180a4c25db3adffd57a572a82445706339f569b",
+    "sha256": "a873092f44906f25aedcab888931325ff80b779b49c7c61ea8b322ae7911f440",
+    "bytes": 247316
+  },
+  "/uploads/catalog/raw-sets/013-apple/07-farm-card-en.webp": {
+    "sourceSha256": "f000241e9901755e2898504bc4cf4e2a52483b163c237868b175759ecb7571e1",
+    "sha256": "e5835d29de2ec32d6abcad5bada9d2301bbb3a224837e21603ee6175637a27ca",
+    "bytes": 269446
+  },
+  "/uploads/catalog/raw-sets/014-mandarin/07-farm-card-en.webp": {
+    "sourceSha256": "1fcd541679045deb03abf3ad83e3c4e6b0f4f86e0ff732db41ac208746ce5945",
+    "sha256": "1f0c2558725ca9e813790ffd209e13aa37304b08f02d30eee99fb233e66ad3f8",
+    "bytes": 263164
+  },
+  "/uploads/catalog/raw-sets/015-watermelon/07-farm-card-en.webp": {
+    "sourceSha256": "7c64914f8b1c422259bbc58768933f8c74a085611352137299a5be96cfa2892a",
+    "sha256": "61e581650fd227efd15a484d744ba3b9a77b14add80250f7dcda94a9a7451011",
+    "bytes": 210050
+  },
+  "/uploads/catalog/raw-sets/016-beef-steak/07-farm-card-en.webp": {
+    "sourceSha256": "ce25ca844cdb8048878e8fe6d3f3f418a4d10b32a95c91cf2e7fa2f2eaedf40f",
+    "sha256": "bc2ac524cc541f9d17eab957b3e9ed4fde7d37f81a4c75fa34c5fa221337f15e",
+    "bytes": 258498
+  },
+  "/uploads/catalog/raw-sets/017-eggs/07-farm-card-en.webp": {
+    "sourceSha256": "27fdc4e0363e4395a2d11463da29c3cd00be09cd7006f5fad3f4d2dfed026611",
+    "sha256": "eabbb258e63308efc6201095e37602cb42d05b730c87d84cb24e1536f4682cef",
+    "bytes": 281238
+  },
+  "/uploads/catalog/raw-sets/018-pork-neck/07-farm-card-en.webp": {
+    "sourceSha256": "f4c572e2bd1980736d6851ce82f0739b7977ce4e35b26b128a254c1b7760626b",
+    "sha256": "e7b80704206f5b354feb53004a5f0a6101bdf333ddc0e5ba4344f655dce44e56",
+    "bytes": 268502
+  },
+  "/uploads/catalog/raw-sets/019-chicken-drumsticks/07-farm-card-en.webp": {
+    "sourceSha256": "4a4981fa097d6eaeaa9fb8b09d1207d3c7b14bc326749339bb4dde62814d92c0",
+    "sha256": "2c0004611c5f957c4599308d1056edad189840ddd5422d265a071a7206a54541",
+    "bytes": 240084
+  },
+  "/uploads/catalog/raw-sets/020-blueberries/07-farm-card-en.webp": {
+    "sourceSha256": "0fa265ba232600b14d3c244d1896641340cad5f4dcd757ec8d8386749ac008e2",
+    "sha256": "65bbfafd04a47c1749b2779dbff133469d64fa44ce675f5758db599b303ce641",
+    "bytes": 275290
+  },
+  "/uploads/catalog/raw-sets/021-dragon-fruit/07-farm-card-en.webp": {
+    "sourceSha256": "2da0ab5a702ebb8a46e8959877954f11452e3183fe56c3c6c8a66614d3c35dd7",
+    "sha256": "363537656618c9f66710597c398b3c602c4aad7f74f3493c75d7473a5e63af00",
+    "bytes": 197148
+  },
+  "/uploads/catalog/raw-sets/022-peach/07-farm-card-en.webp": {
+    "sourceSha256": "27e0d97a11ff4ecd051881114ba69d83661ed6a878724ced59211f3573a00d35",
+    "sha256": "2bed739490a71a007be72de4e26e02dd1367ee478d1abc435dc8b78c9f1863c1",
+    "bytes": 252882
+  },
+  "/uploads/catalog/raw-sets/023-sweet-potato/07-farm-card-en.webp": {
+    "sourceSha256": "f738f06d28034ea0e2873c504472f679f308806c4c7a0dac51d68ab3947f95a6",
+    "sha256": "8b30f7d90bf5611b4d282e1b7d214947912922f1e205589cbe175827025c2cae",
+    "bytes": 234600
+  },
+  "/uploads/catalog/raw-sets/024-kale/07-farm-card-en.webp": {
+    "sourceSha256": "daae3ada0a81c649d60d7a8ca3cfe849091be05e55cb99a73bbdecdbdeb8a6c7",
+    "sha256": "d5d31ec50063cf9345fa1d9308825c0ccd1528a9460dff7660a46e378925b3c1",
+    "bytes": 261980
+  },
+  "/uploads/catalog/raw-sets/025-red-chard/07-farm-card-en.webp": {
+    "sourceSha256": "0082fadeba9fa1039d0e758931b059cb4044181bdbff8e0aa3b5f6686e88e9c7",
+    "sha256": "c63af419574663ecc402bf2534da0863f68003eb236c1ba2551481ab818091ab",
+    "bytes": 214854
+  },
+  "/uploads/catalog/raw-sets/026-flower-lettuce/07-farm-card-en.webp": {
+    "sourceSha256": "2325e28b28311b910e2a088efe6bab786a18317b295e528fd8ca1bd324f14a06",
+    "sha256": "3bda1493fa70562a25efa91c3bb3444a38f4c0105790e5607ac12e9edabd6506",
+    "bytes": 217430
+  },
+  "/uploads/catalog/raw-sets/027-napa-cabbage/07-farm-card-en.webp": {
+    "sourceSha256": "0774033308a8c6fac136b13aebfc15fb5d7baa93c8a202b74b29f96be6540bb5",
+    "sha256": "7fc076119f883275b22f90339686964190a96c8851ff6c9b6f0fa1060d426dcc",
+    "bytes": 232046
+  },
+  "/uploads/catalog/raw-sets/028-golden-kiwi/07-farm-card-en.webp": {
+    "sourceSha256": "6cae80dac6b202e9d7b63bf6aae500c147521ccb424b05f21619a98246a5b4e8",
+    "sha256": "b10d5638d3cb41575fda044ff33684424d5dd205a44de9b7ca80e60253b87337",
+    "bytes": 251348
+  },
+  "/uploads/catalog/raw-sets/029-chicken-breast/07-farm-card-en.webp": {
+    "sourceSha256": "eefc76ae7f29a4a59a657af267d69cefcba9227dab242e73279b1dce220ea0b8",
+    "sha256": "4e7780440a5e7979ebb98564bc4ca66cab98b8ed612caf69c2c746959d12ab4b",
+    "bytes": 223368
+  },
+  "/uploads/catalog/raw-sets/030-wild-raspberries/07-farm-card-en.webp": {
+    "sourceSha256": "53c761331e69e31fdab07ffae5c9eb0185871d431944c1429ca0815b0c9aa3f2",
+    "sha256": "76b4719ac95468eab029ed2ac50305a132a745acba04dc31863f18e33b6f9b51",
+    "bytes": 262750
+  },
+  "/uploads/catalog/raw-sets/031-jeju-cutlassfish/07-farm-card-en.webp": {
+    "sourceSha256": "289fc3b5d1e1e3d193f84d7fb7d3ad4e634f2bfd90ffabb29fece5aacf36d4db",
+    "sha256": "8c6cc3bf8be0727577650a32710c743ac14f5112c218cddb0473598c96ae10c1",
+    "bytes": 209528
+  },
+  "/uploads/catalog/raw-sets/032-pork-belly/07-farm-card-en.webp": {
+    "sourceSha256": "d138a682f4a2cd8c9480bfb7dd5fea4f63af7eea9f01f976f3d23cad6112109d",
+    "sha256": "da23ddc64bd7ca86b9b78a204f8837677e35c5444f287a601493aeebedd94c41",
+    "bytes": 241088
+  },
+  "/uploads/catalog/raw-sets/033-green-chili/07-farm-card-en.webp": {
+    "sourceSha256": "e8b93f38446d5569a9d1bcea08c7c6bf13d6124d5e2254f6def19d0cd5645ce8",
+    "sha256": "017669e7bb40259da73fd0103ef15cd6e51d9ffc3f2eee29a31a4b53a6f1f353",
+    "bytes": 235432
+  },
+  "/uploads/catalog/raw-sets/034-red-chili/07-farm-card-en.webp": {
+    "sourceSha256": "f55578444c6570d52871dad6cb3c747b3f687e9bc66aa12e32788f0ef4b4d382",
+    "sha256": "a55f08ed38b8d9de761245db44535cf4bd3b4ce883826b34822f413235f3a0d8",
+    "bytes": 250418
   }
 }

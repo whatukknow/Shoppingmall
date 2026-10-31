@@ -148,6 +148,7 @@ describe('Shared raw / DIY menu', () => {
       id: 'prd_001',
       price: 1900,
       unit: '1개',
+      farmName: 'Old operational farm label',
     };
     const detail = menuDetail('raw-13', fixture, true)!;
     assert.equal(detail.id, 'prd_001');
@@ -155,6 +156,18 @@ describe('Shared raw / DIY menu', () => {
     assert.equal(detail.price, 1900);
     assert.equal(detail.unit, '1개');
     assert.equal(detail.isPurchasable, true);
+    assert.equal(detail.farmName, 'Orchard & Oak (demo farm story)');
+    assert.equal(
+      detail.farmImageUrl,
+      raw.find((p) => p.id === 'raw-13')!.farmCardImage,
+    );
+  });
+  it('preserves the operational farm label for DIY details', () => {
+    const fixture = {
+      ...menuDetail('diy-01', null)!,
+      farmName: 'Existing kit label',
+    };
+    assert.equal(menuDetail('diy-01', fixture)!.farmName, 'Existing kit label');
   });
   it('recommendations across every Sunday/fridge/element choice stay within the shared menu', () => {
     for (let year = 1990; year < 2000; year++)
