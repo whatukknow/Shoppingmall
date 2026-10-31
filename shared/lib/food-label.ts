@@ -2,6 +2,55 @@ import catalogLabels from './catalog-labels.en.json';
 
 /** English display labels. Keep source names unchanged for recommendations and sprite lookup. */
 const foodLabels: Readonly<Record<string, string>> = {
+  // Legacy operational aliases; display-only translation.
+  체리: 'Cherries',
+  딸기: 'Strawberries',
+  라즈베리: 'Raspberries',
+  청사과: 'Green apples',
+  바나나: 'Bananas',
+  귤: 'Mandarins',
+  단감: 'Sweet persimmons',
+  자두: 'Plums',
+  오디: 'Mulberries',
+  토마토: 'Tomatoes',
+  비트: 'Beetroot',
+  라디치오: 'Radicchio',
+  '버터헤드 레터스': 'Butterhead lettuce',
+  레터스: 'Lettuce',
+  알배추: 'Baby napa cabbage',
+  그린빈: 'Green beans',
+  옥수수: 'Corn',
+  가지: 'Eggplant',
+  팽이버섯: 'Enoki mushrooms',
+  새송이버섯: 'King oyster mushrooms',
+  새송이: 'King oyster mushrooms',
+  양송이버섯: 'Button mushrooms',
+  '손질 고등어': 'Prepared mackerel',
+  고등어: 'Mackerel',
+  '백미 소포장': 'Small white rice pack',
+  백미: 'White rice',
+  '찹쌀 소포장': 'Small glutinous rice pack',
+  찹쌀: 'Glutinous rice',
+  '흑미 소포장': 'Small black rice pack',
+  흑미: 'Black rice',
+  마스카르포네: 'Mascarpone',
+  치즈: 'Cheese',
+  생크림: 'Cream',
+  버터: 'Butter',
+  '토마토 파스타 키트': 'Tomato pasta kit',
+  '버섯 크림 파스타 키트': 'Creamy mushroom pasta kit',
+  '브런치 케이크 키트': 'Brunch cake kit',
+  '피크닉 과일 바구니': 'Picnic fruit basket',
+  '그린 샐러드 키트': 'Green salad kit',
+  '홈 포카치아 키트': 'Bake-at-home focaccia kit',
+  '바질 페스토': 'Basil pesto',
+  페스토: 'Pesto',
+  파스타: 'Pasta',
+  소스: 'Sauce',
+  생지: 'Dough',
+  손질: 'Prepared',
+  '기존 레시피 1회분의 포함 재료만':
+    'Included ingredients for one recipe batch',
   목: 'Wood',
   화: 'Fire',
   토: 'Earth',
@@ -211,6 +260,12 @@ const foodLabels: Readonly<Record<string, string>> = {
   청정닭농장: 'Cheongjeong Chicken Farm',
 };
 
+function countLabel(amount: string, singular: string, plural: string) {
+  const [numerator, denominator = '1'] = amount.split('/');
+  const count = Number(numerator) / Number(denominator);
+  return `${amount} ${count <= 1 ? singular : plural}`;
+}
+
 export function foodLabel(name: string): string {
   const catalogLabel = (catalogLabels as Record<string, string>)[name];
   if (catalogLabel) return catalogLabel;
@@ -220,7 +275,7 @@ export function foodLabel(name: string): string {
     ...catalogLabels,
   };
   const prefix = Object.keys(labels)
-    .filter((key) => key.length > 1)
+    .filter((key) => key.length > 1 || ['귤', '밤', '무', '배'].includes(key))
     .sort((a, b) => b.length - a.length)
     .find((key) => name.startsWith(key + ' '));
   if (prefix) name = labels[prefix] + name.slice(prefix.length);
@@ -229,12 +284,36 @@ export function foodLabel(name: string): string {
     name
       .replace(/소분/g, 'shared pack')
       .replace(/(\d+)입/g, '$1 pieces')
-      .replace(/약 /g, 'approx. ')
-      .replace(/(\d+)개/g, '$1 pieces')
-      .replace(/(\d+)팩/g, '$1 pack')
-      .replace(/(\d+)구/g, '$1 eggs')
-      .replace(/(\d+)포기/g, '$1 head')
-      .replace(/(\d+)다발/g, '$1 bunch')
+      .replace(/약\s*/g, 'approx. ')
+      .replace(/(\d+(?:\/\d+)?)개/g, (_match, amount: string) =>
+        countLabel(amount, 'piece', 'pieces'),
+      )
+      .replace(/(\d+(?:\/\d+)?)팩/g, (_match, amount: string) =>
+        countLabel(amount, 'pack', 'packs'),
+      )
+      .replace(/(\d+(?:\/\d+)?)구/g, (_match, amount: string) =>
+        countLabel(amount, 'egg', 'eggs'),
+      )
+      .replace(/(\d+(?:\/\d+)?)포기/g, (_match, amount: string) =>
+        countLabel(amount, 'head', 'heads'),
+      )
+      .replace(/(\d+(?:\/\d+)?)다발/g, (_match, amount: string) =>
+        countLabel(amount, 'bunch', 'bunches'),
+      )
       .replace(/(\d+)통/g, '$1 whole')
+      .replace(/(\d+(?:\/\d+)?)장/g, (_match, amount: string) =>
+        countLabel(amount, 'slice', 'slices'),
+      )
+      .replace(/(\d+(?:\/\d+)?)조각/g, (_match, amount: string) =>
+        countLabel(amount, 'piece', 'pieces'),
+      )
+      .replace(/(\d+(?:\/\d+)?)봉/g, (_match, amount: string) =>
+        countLabel(amount, 'bag', 'bags'),
+      )
+      .replace(/(\d+(?:\/\d+)?)인분/g, (_match, amount: string) =>
+        countLabel(amount, 'serving', 'servings'),
+      )
+      .replace(/키트/g, 'kit')
+      .replace(/바구니/g, 'basket')
   );
 }

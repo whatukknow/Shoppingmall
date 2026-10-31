@@ -9,12 +9,18 @@ import {
   type ReactNode,
   type SetStateAction,
 } from 'react';
+import {
+  defaultTasteConfig,
+  type TasteConfig,
+} from '@/domains/admin/taste-config';
 import { initialAnswers, type TasteAnswers } from './answers';
 import { CreditLedger } from './creditLedger';
 import type { HomeProduct } from '../../data/homeProducts';
 
 type TasteState = {
   products: HomeProduct[];
+  config: TasteConfig;
+  tasteRevision: number;
   answers: TasteAnswers;
   setAnswers: Dispatch<SetStateAction<TasteAnswers>>;
   cart: string[];
@@ -31,10 +37,16 @@ const TasteContext = createContext<TasteState | undefined>(undefined);
 export function TasteProvider({
   children,
   products,
+  config = defaultTasteConfig,
+  tasteRevision = 0,
 }: {
   children: ReactNode;
   products: HomeProduct[];
+  config?: TasteConfig;
+  tasteRevision?: number;
 }) {
+  const [sessionConfig] = useState(() => structuredClone(config));
+  const [sessionRevision] = useState(tasteRevision);
   const [answers, setAnswers] = useState<TasteAnswers>(initialAnswers);
   const [cart, setCart] = useState<string[]>([]);
   const [credits, setCredits] = useState(0);
@@ -58,6 +70,8 @@ export function TasteProvider({
     <TasteContext.Provider
       value={{
         products,
+        config: sessionConfig,
+        tasteRevision: sessionRevision,
         answers,
         setAnswers,
         cart,
