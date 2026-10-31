@@ -246,13 +246,32 @@ export async function readTasteSettings(
   };
 }
 export async function publishedTasteConfig(client?: SupabaseClient<Database>) {
-  if (!client && !process.env.SUPABASE_SECRET_KEY)
-    return { config: structuredClone(defaultTasteConfig), revision: 0 };
-  const settings = await readTasteSettings(client ?? createAdminClient());
-  return {
-    config: settings.published ?? structuredClone(defaultTasteConfig),
-    revision: settings.publishedRevision ?? 0,
-  };
+  const fallback = () => ({
+    config: structuredClone(defaultTasteConfig),
+    revision: 0,
+  });
+  if (!client && !process.env.SUPABASE_SECRET_KEY) return fallback();
+  // Public onboarding must never depend on private draft/history validity.
+  try {
+    const { data, error } = await configClient(client ?? createAdminClient())
+      .from('admin_taste_config')
+      .select('published,published_revision')
+      .eq('id', 'current')
+      .maybeSingle();
+    if (error) throw new Error('Published settings unavailable');
+    if (!data?.published) return fallback();
+    return {
+      config: parseTasteConfig(data.published),
+      revision: parseRevision(data.published_revision),
+    };
+  } catch {
+    // Preserve the original survey during a settings outage or invalid publication.
+    // Admin reads/writes still report errors; this never publishes or repairs data.
+    console.warn(
+      'Published taste settings unavailable; using default experience.',
+    );
+    return fallback();
+  }
 }
 export async function changeTasteSettings(
   userId: string,

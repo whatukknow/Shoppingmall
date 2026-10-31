@@ -120,7 +120,12 @@ function Fields({
               <textarea
                 rows={key === 'copy' ? 3 : 2}
                 maxLength={
-                  key === 'copy' ? 500 : key === 'description' ? 200 : 200
+                  key === 'copy'
+                    ? 500
+                    : key === 'title' &&
+                        (path[0] === 'profiles' || path.includes('choices'))
+                      ? 100
+                      : 200
                 }
                 value={String(item)}
                 onChange={(event) => onChange(next, event.target.value)}
@@ -595,9 +600,12 @@ export function AdminConsole() {
                     {tab === 'Recommendations' && (
                       <>
                         <p>
-                          Prefer up to three ingredients and one meal kit per
-                          profile. Leave a slot empty to use the matching
-                          engine. Unavailable products cannot be published.
+                          Set an ordered preference list with up to three
+                          ingredients and one meal kit per profile. An empty
+                          selection removes that preference and moves later
+                          entries up. The engine fills remaining
+                          recommendations. Products must be available when
+                          published.
                         </p>
                         {ELEMENTS.map((code) => (
                           <fieldset key={code} className="lp-admin-fieldset">

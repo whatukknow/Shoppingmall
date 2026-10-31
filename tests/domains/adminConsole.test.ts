@@ -337,6 +337,31 @@ describe('service-only persistence and optimistic concurrency', () => {
     assert.equal(result.revision, 2);
     assert.notEqual(result.config.questions.sunday.title, 'Private draft');
   });
+  it('reads published columns only and isolates malformed private drafts', async () => {
+    const current = { ...row(), draft: { invalid: true }, history: 'invalid' };
+    const calls: { table: string; operation: string; value?: unknown }[] = [];
+    const result = await publishedTasteConfig(fakeClient([ok(current)], calls));
+    assert.equal(result.revision, 2);
+    assert.deepEqual(result.config, row().published);
+    assert.equal(
+      calls.find((call) => call.operation === 'select')?.value,
+      'published,published_revision',
+    );
+  });
+  it('keeps the default survey available when published settings are unavailable', async () => {
+    for (const response of [
+      ok(null),
+      { data: null, error: { code: '503' } },
+      ok({ published: { invalid: true }, published_revision: 9 }),
+    ]) {
+      const result = await publishedTasteConfig(fakeClient([response]));
+      assert.deepEqual(result, { config: defaultTasteConfig, revision: 0 });
+    }
+    await assert.rejects(
+      readTasteSettings(fakeClient([{ data: null, error: { code: '503' } }])),
+      hasStatus(503),
+    );
+  });
   it('keeps live configuration unchanged when saving a draft', async () => {
     const current = row(),
       draft = structuredClone(defaultTasteConfig);
