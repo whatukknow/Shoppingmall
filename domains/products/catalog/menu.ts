@@ -115,6 +115,7 @@ export function menuDetail(
         }))
       : (operational?.tips ?? []),
     isPurchasable: purchasable,
+    isSample: operational?.isSample ?? false,
   };
 }
 export { catalogIdForRow };

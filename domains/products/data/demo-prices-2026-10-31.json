@@ -1,0 +1,1233 @@
+{
+  "status": "user_approved_saved_to_products",
+  "checked_at": "2026-10-31T09:26:28.567320+09:00",
+  "currency": "KRW",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "한국물가정보 과일류, 2026년 10월 3주차",
+      "url": "https://www.kpi.or.kr/www/life/info_detail.asp?CateCode=L001007&DateCode=2026103"
+    },
+    {
+      "id": "S2",
+      "title": "컬리 머스크멜론 1.6kg 9,900원, 페이지 표시값",
+      "url": "https://www.kurly.com/goods/1000196104"
+    },
+    {
+      "id": "S3",
+      "title": "공영쇼핑 홍감자 5kg 24,605원, 검색 결과 참고/현재 구매가능 여부 미확인",
+      "url": "https://www.gongyoungshop.kr/goods/selectGoodsDetail.do?prdId=11916927"
+    },
+    {
+      "id": "S4",
+      "title": "농협몰 방울양배추 300g 5,980원, 검색 결과만 확인/본문 접근 불가",
+      "url": "https://www.nonghyupmall.com/BC14010R/viewDetail.nh?chanC=1102&wrsC=4002683579"
+    },
+    {
+      "id": "S5",
+      "title": "컬리 제주 목살 300g 11,900원, 페이지 표시값",
+      "url": "https://www.kurly.com/goods/1002040321"
+    },
+    {
+      "id": "S6",
+      "title": "컬리 칠레산 생블루베리, 100g당 7,192원, 페이지 표시값",
+      "url": "https://www.kurly.com/goods/5031882"
+    },
+    {
+      "id": "S7",
+      "title": "컬리 친환경 케일 100g당 2,990원, 페이지 표시값",
+      "url": "https://www.kurly.com/goods/5001072"
+    },
+    {
+      "id": "S8",
+      "title": "파라도 적근대 2kg 7,880원, 품절 페이지 표시값",
+      "url": "https://www.parado.co.kr/product/적근대-2kg-1박스/445/category/1/display/5/"
+    },
+    {
+      "id": "S9",
+      "title": "SSG 산딸기 250g 12,800원, 품절 페이지 표시값",
+      "url": "https://www.ssg.com/item/itemView.ssg?itemId=2097001164365"
+    },
+    {
+      "id": "S10",
+      "title": "한국물가정보 수산물, 2026년 10월 3주차",
+      "url": "https://www.kpi.or.kr/www/life/info_detail.asp?CateCode=L001004&DateCode=2026103"
+    },
+    {
+      "id": "S11",
+      "title": "한국물가정보 축산물, 2026년 10월 3주차",
+      "url": "https://www.kpi.or.kr/www/life/info_detail.asp?CateCode=L001003&DateCode=2026103"
+    }
+  ],
+  "products": [
+    {
+      "catalog_id": "raw-01",
+      "name": "참외",
+      "kind": "raw",
+      "portion_amount": 1,
+      "portion_unit": "개",
+      "portion_label": "1개(약 300g)",
+      "demo_price_krw": 2900,
+      "basis_status": "추정",
+      "basis": "품목별 판매가격 미확인",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-01"
+    },
+    {
+      "catalog_id": "raw-02",
+      "name": "완숙 토마토",
+      "kind": "raw",
+      "portion_amount": 250,
+      "portion_unit": "g",
+      "portion_label": "250g",
+      "demo_price_krw": 1900,
+      "basis_status": "참고·추정",
+      "basis": "S1: 토마토 5kg 12,000원; 완숙 여부 미확인, 소포장 가격 제안",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-02"
+    },
+    {
+      "catalog_id": "raw-03",
+      "name": "머스크멜론",
+      "kind": "raw",
+      "portion_amount": 400,
+      "portion_unit": "g",
+      "portion_label": "1/4통(약 400g)",
+      "demo_price_krw": 2900,
+      "basis_status": "참고·추정",
+      "basis": "S2: 1.6kg 9,900원 → 400g 2,475원; 소분 후 반올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-03"
+    },
+    {
+      "catalog_id": "raw-04",
+      "name": "단호박",
+      "kind": "raw",
+      "portion_amount": 250,
+      "portion_unit": "g",
+      "portion_label": "250g",
+      "demo_price_krw": 1900,
+      "basis_status": "추정",
+      "basis": "품목별 판매가격 미확인",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-04"
+    },
+    {
+      "catalog_id": "raw-05",
+      "name": "홍감자",
+      "kind": "raw",
+      "portion_amount": 300,
+      "portion_unit": "g",
+      "portion_label": "300g",
+      "demo_price_krw": 1900,
+      "basis_status": "참고·추정",
+      "basis": "S3: 홍감자 5kg 24,605원 → 300g 약 1,476원; 소포장 가산",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-05"
+    },
+    {
+      "catalog_id": "raw-06",
+      "name": "적포도",
+      "kind": "raw",
+      "portion_amount": 200,
+      "portion_unit": "g",
+      "portion_label": "200g",
+      "demo_price_krw": 2900,
+      "basis_status": "추정",
+      "basis": "품목별 판매가격 미확인",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-06"
+    },
+    {
+      "catalog_id": "raw-07",
+      "name": "설향 딸기",
+      "kind": "raw",
+      "portion_amount": 150,
+      "portion_unit": "g",
+      "portion_label": "150g",
+      "demo_price_krw": 4500,
+      "basis_status": "추정",
+      "basis": "설향 품종 현재 판매가격 미확인; 기존 DB 일반 딸기와 동일시하지 않음",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-07"
+    },
+    {
+      "catalog_id": "raw-08",
+      "name": "양파",
+      "kind": "raw",
+      "portion_amount": 200,
+      "portion_unit": "g",
+      "portion_label": "200g",
+      "demo_price_krw": 900,
+      "basis_status": "추정",
+      "basis": "품목별 판매가격 미확인",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-08"
+    },
+    {
+      "catalog_id": "raw-09",
+      "name": "양배추",
+      "kind": "raw",
+      "portion_amount": 300,
+      "portion_unit": "g",
+      "portion_label": "300g",
+      "demo_price_krw": 900,
+      "basis_status": "추정",
+      "basis": "품목별 판매가격 미확인",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-09"
+    },
+    {
+      "catalog_id": "raw-10",
+      "name": "대파",
+      "kind": "raw",
+      "portion_amount": 100,
+      "portion_unit": "g",
+      "portion_label": "100g",
+      "demo_price_krw": 900,
+      "basis_status": "추정",
+      "basis": "품목별 판매가격 미확인",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-10"
+    },
+    {
+      "catalog_id": "raw-11",
+      "name": "완두콩",
+      "kind": "raw",
+      "portion_amount": 100,
+      "portion_unit": "g",
+      "portion_label": "100g",
+      "demo_price_krw": 1900,
+      "basis_status": "추정",
+      "basis": "생과/냉동 상태 미확정",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-11"
+    },
+    {
+      "catalog_id": "raw-12",
+      "name": "방울양배추",
+      "kind": "raw",
+      "portion_amount": 100,
+      "portion_unit": "g",
+      "portion_label": "100g",
+      "demo_price_krw": 2200,
+      "basis_status": "검색 참고·추정",
+      "basis": "S4: 300g 5,980원 검색 결과; 본문 접근 불가, 현재 판매 여부 미확인",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-12"
+    },
+    {
+      "catalog_id": "raw-13",
+      "name": "사과",
+      "kind": "raw",
+      "portion_amount": 1,
+      "portion_unit": "개",
+      "portion_label": "1개",
+      "demo_price_krw": 1900,
+      "basis_status": "기존 유지",
+      "basis": "기존 승인 prd_001 가격 유지; 시장가격이라고 주장하지 않음",
+      "confirmed_db_product_id": "prd_001",
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "prd_001"
+    },
+    {
+      "catalog_id": "raw-14",
+      "name": "감귤",
+      "kind": "raw",
+      "portion_amount": 300,
+      "portion_unit": "g",
+      "portion_label": "300g",
+      "demo_price_krw": 2500,
+      "basis_status": "추정",
+      "basis": "품목별 중량 기준 현재가 미확인; 기존 DB 귤에 자동 연결하지 않음",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-14"
+    },
+    {
+      "catalog_id": "raw-15",
+      "name": "수박",
+      "kind": "raw",
+      "portion_amount": 500,
+      "portion_unit": "g",
+      "portion_label": "500g",
+      "demo_price_krw": 1900,
+      "basis_status": "참고·추정",
+      "basis": "S1: 수박 6kg 15,000원, 가식부 수율 미확인; 손질 중량 가격은 제안",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-15"
+    },
+    {
+      "catalog_id": "raw-16",
+      "name": "스테이크용 고기",
+      "kind": "raw",
+      "portion_amount": 200,
+      "portion_unit": "g",
+      "portion_label": "200g",
+      "demo_price_krw": 9900,
+      "basis_status": "추정",
+      "basis": "축종·부위·등급 미정. 시연 가정은 수입 소고기 구이용; 실제 상품 사양 확정 아님",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-16"
+    },
+    {
+      "catalog_id": "raw-17",
+      "name": "계란",
+      "kind": "raw",
+      "portion_amount": 4,
+      "portion_unit": "개",
+      "portion_label": "4구",
+      "demo_price_krw": 2000,
+      "basis_status": "추정",
+      "basis": "왕란 1판 자료는 판당 수량 미확인으로 환산에 사용하지 않음",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-17"
+    },
+    {
+      "catalog_id": "raw-18",
+      "name": "돼지목살",
+      "kind": "raw",
+      "portion_amount": 200,
+      "portion_unit": "g",
+      "portion_label": "200g",
+      "demo_price_krw": 7900,
+      "basis_status": "참고·추정",
+      "basis": "S5: 제주산 목살 300g 11,900원 → 200g 약 7,933원, 7,900원 제안",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-18"
+    },
+    {
+      "catalog_id": "raw-19",
+      "name": "닭다리",
+      "kind": "raw",
+      "portion_amount": 300,
+      "portion_unit": "g",
+      "portion_label": "300g",
+      "demo_price_krw": 3900,
+      "basis_status": "추정",
+      "basis": "통닭과 부위육 가격을 동일시하지 않음; 부위별 현재가 미확인",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-19"
+    },
+    {
+      "catalog_id": "raw-20",
+      "name": "블루베리",
+      "kind": "raw",
+      "portion_amount": 100,
+      "portion_unit": "g",
+      "portion_label": "100g",
+      "demo_price_krw": 6900,
+      "basis_status": "참고·추정",
+      "basis": "S6: 칠레산 생블루베리 125g 8,990원, 100g 약 7,192원 참고; 동일 원산지 확정 아님",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-20"
+    },
+    {
+      "catalog_id": "raw-21",
+      "name": "용과",
+      "kind": "raw",
+      "portion_amount": 1,
+      "portion_unit": "개",
+      "portion_label": "1개",
+      "demo_price_krw": 3500,
+      "basis_status": "기존 유지",
+      "basis": "기존 승인 prd_006 가격 유지; 시장가격이라고 주장하지 않음",
+      "confirmed_db_product_id": "prd_006",
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "prd_006"
+    },
+    {
+      "catalog_id": "raw-22",
+      "name": "복숭아",
+      "kind": "raw",
+      "portion_amount": 1,
+      "portion_unit": "개",
+      "portion_label": "1개",
+      "demo_price_krw": 2900,
+      "basis_status": "기존 유지",
+      "basis": "기존 승인 prd_005 가격 유지; 계절·재고는 미확인",
+      "confirmed_db_product_id": "prd_005",
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "prd_005"
+    },
+    {
+      "catalog_id": "raw-23",
+      "name": "고구마",
+      "kind": "raw",
+      "portion_amount": 300,
+      "portion_unit": "g",
+      "portion_label": "300g",
+      "demo_price_krw": 1900,
+      "basis_status": "추정",
+      "basis": "품목별 판매가격 미확인",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-23"
+    },
+    {
+      "catalog_id": "raw-24",
+      "name": "케일",
+      "kind": "raw",
+      "portion_amount": 50,
+      "portion_unit": "g",
+      "portion_label": "50g",
+      "demo_price_krw": 1800,
+      "basis_status": "기존 유지",
+      "basis": "기존 승인 prd_018 유지. S7: 친환경 케일 100g 2,990원 참고, 인증 동일성 미확인",
+      "confirmed_db_product_id": "prd_018",
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "prd_018"
+    },
+    {
+      "catalog_id": "raw-25",
+      "name": "적근대",
+      "kind": "raw",
+      "portion_amount": 100,
+      "portion_unit": "g",
+      "portion_label": "100g",
+      "demo_price_krw": 1200,
+      "basis_status": "참고·추정",
+      "basis": "S8: 적근대 2kg 7,880원, 품절 표시. 100g 394원은 대용량 기준; 소포장 제안 1,200원",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-25"
+    },
+    {
+      "catalog_id": "raw-26",
+      "name": "꽃상추",
+      "kind": "raw",
+      "portion_amount": 100,
+      "portion_unit": "g",
+      "portion_label": "100g",
+      "demo_price_krw": 1900,
+      "basis_status": "추정",
+      "basis": "꽃상추 가격 미확인; 버터헤드 레터스로 대체하지 않음",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-26"
+    },
+    {
+      "catalog_id": "raw-27",
+      "name": "배추",
+      "kind": "raw",
+      "portion_amount": 300,
+      "portion_unit": "g",
+      "portion_label": "300g",
+      "demo_price_krw": 1500,
+      "basis_status": "추정",
+      "basis": "손질 소분 단위 가정; 알배추와 동일 상품 아님",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-27"
+    },
+    {
+      "catalog_id": "raw-28",
+      "name": "골든키위",
+      "kind": "raw",
+      "portion_amount": 2,
+      "portion_unit": "개",
+      "portion_label": "2개(약 250g)",
+      "demo_price_krw": 3900,
+      "basis_status": "추정",
+      "basis": "품종·크기별 현재 판매가격 미확인",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-28"
+    },
+    {
+      "catalog_id": "raw-29",
+      "name": "닭가슴살",
+      "kind": "raw",
+      "portion_amount": 200,
+      "portion_unit": "g",
+      "portion_label": "200g",
+      "demo_price_krw": 2900,
+      "basis_status": "추정",
+      "basis": "부위별 현재 판매가격 미확인",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-29"
+    },
+    {
+      "catalog_id": "raw-30",
+      "name": "산딸기",
+      "kind": "raw",
+      "portion_amount": 60,
+      "portion_unit": "g",
+      "portion_label": "60g",
+      "demo_price_krw": 3500,
+      "basis_status": "참고·추정",
+      "basis": "S9: 산딸기 250g 12,800원 → 60g 3,072원; 품절 표시, 현재 구매가능 가격 아님",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-30"
+    },
+    {
+      "catalog_id": "raw-31",
+      "name": "제주도 갈치",
+      "kind": "raw",
+      "portion_amount": 150,
+      "portion_unit": "g",
+      "portion_label": "손질 150g",
+      "demo_price_krw": 5900,
+      "basis_status": "추정",
+      "basis": "S10: 갈치 500g 25,000원은 10월3주 생갈치 일반가격. 제주산 손질 소포장과 동일 사양 아님",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-31"
+    },
+    {
+      "catalog_id": "raw-32",
+      "name": "돼지삼겹살",
+      "kind": "raw",
+      "portion_amount": 200,
+      "portion_unit": "g",
+      "portion_label": "200g",
+      "demo_price_krw": 5900,
+      "basis_status": "참고·추정",
+      "basis": "S11: 삼겹살 600g 15,000원 → 200g 5,000원, 소포장 가산; 10월3주 참고",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-32"
+    },
+    {
+      "catalog_id": "raw-33",
+      "name": "청고추",
+      "kind": "raw",
+      "portion_amount": 50,
+      "portion_unit": "g",
+      "portion_label": "50g",
+      "demo_price_krw": 900,
+      "basis_status": "추정",
+      "basis": "청양고추 품종으로 단정하지 않음; 현재가 미확인",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-33"
+    },
+    {
+      "catalog_id": "raw-34",
+      "name": "홍고추",
+      "kind": "raw",
+      "portion_amount": 50,
+      "portion_unit": "g",
+      "portion_label": "50g",
+      "demo_price_krw": 1200,
+      "basis_status": "추정",
+      "basis": "품목별 판매가격 미확인",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "raw-34"
+    },
+    {
+      "catalog_id": "diy-01",
+      "name": "브리오슈 프렌치토스트",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "계란 1개 + 설향 딸기 80g",
+      "included_ingredients": [
+        {
+          "name": "계란",
+          "amount": 1,
+          "unit": "개",
+          "productId": "raw-17",
+          "sourceName": "달걀"
+        },
+        {
+          "name": "설향 딸기",
+          "amount": 80,
+          "unit": "g",
+          "productId": "raw-07",
+          "sourceName": "딸기"
+        }
+      ],
+      "bring_your_own": ["버터", "설탕", "브리오슈", "우유"],
+      "ingredient_reference_krw": 2900.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 3200,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-01"
+    },
+    {
+      "catalog_id": "diy-02",
+      "name": "토마토 라구 파스타",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "완숙 토마토 180g + 양파 50g",
+      "included_ingredients": [
+        {
+          "name": "완숙 토마토",
+          "amount": 180,
+          "unit": "g",
+          "productId": "raw-02",
+          "sourceName": "토마토"
+        },
+        {
+          "name": "양파",
+          "amount": 50,
+          "unit": "g",
+          "productId": "raw-08",
+          "sourceName": "양파"
+        }
+      ],
+      "bring_your_own": [
+        "올리브오일",
+        "소금",
+        "후추",
+        "건파스타면",
+        "다진 소고기",
+        "마늘"
+      ],
+      "ingredient_reference_krw": 1593.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 1900,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-02"
+    },
+    {
+      "catalog_id": "diy-03",
+      "name": "와플 브런치",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "계란 1개 + 블루베리 50g",
+      "included_ingredients": [
+        {
+          "name": "계란",
+          "amount": 1,
+          "unit": "개",
+          "productId": "raw-17",
+          "sourceName": "달걀"
+        },
+        {
+          "name": "블루베리",
+          "amount": 50,
+          "unit": "g",
+          "productId": "raw-20",
+          "sourceName": "블루베리"
+        }
+      ],
+      "bring_your_own": ["버터", "시럽", "와플믹스", "우유"],
+      "ingredient_reference_krw": 3950.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 4300,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-03"
+    },
+    {
+      "catalog_id": "diy-04",
+      "name": "새우와 구운 채소",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "단호박 120g + 양파 50g",
+      "included_ingredients": [
+        {
+          "name": "단호박",
+          "amount": 120,
+          "unit": "g",
+          "productId": "raw-04",
+          "sourceName": "단호박"
+        },
+        {
+          "name": "양파",
+          "amount": 50,
+          "unit": "g",
+          "productId": "raw-08",
+          "sourceName": "양파"
+        }
+      ],
+      "bring_your_own": ["식용유", "소금", "후추", "새우살", "파프리카"],
+      "ingredient_reference_krw": 1137.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 1500,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-04"
+    },
+    {
+      "catalog_id": "diy-05",
+      "name": "딸기 크림 케이크",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "설향 딸기 70g",
+      "included_ingredients": [
+        {
+          "name": "설향 딸기",
+          "amount": 70,
+          "unit": "g",
+          "productId": "raw-07",
+          "sourceName": "딸기"
+        }
+      ],
+      "bring_your_own": ["설탕", "케이크 시트", "무가당 생크림"],
+      "ingredient_reference_krw": 2100.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 2400,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-05"
+    },
+    {
+      "catalog_id": "diy-06",
+      "name": "햄 프렌치토스트",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "계란 1개",
+      "included_ingredients": [
+        {
+          "name": "계란",
+          "amount": 1,
+          "unit": "개",
+          "productId": "raw-17",
+          "sourceName": "달걀"
+        }
+      ],
+      "bring_your_own": ["버터", "소금", "식빵", "햄", "우유"],
+      "ingredient_reference_krw": 500.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 800,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-06"
+    },
+    {
+      "catalog_id": "diy-07",
+      "name": "햄·달걀 바게트",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "계란 1개 + 꽃상추 25g",
+      "included_ingredients": [
+        {
+          "name": "계란",
+          "amount": 1,
+          "unit": "개",
+          "productId": "raw-17",
+          "sourceName": "달걀"
+        },
+        {
+          "name": "꽃상추",
+          "amount": 25,
+          "unit": "g",
+          "productId": "raw-26",
+          "sourceName": "잎채소"
+        }
+      ],
+      "bring_your_own": ["마요네즈", "머스터드", "바게트", "햄"],
+      "ingredient_reference_krw": 975.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 1300,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-07"
+    },
+    {
+      "catalog_id": "diy-08",
+      "name": "토마토 리가토니",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "완숙 토마토 180g + 양파 40g",
+      "included_ingredients": [
+        {
+          "name": "완숙 토마토",
+          "amount": 180,
+          "unit": "g",
+          "productId": "raw-02",
+          "sourceName": "토마토"
+        },
+        {
+          "name": "양파",
+          "amount": 40,
+          "unit": "g",
+          "productId": "raw-08",
+          "sourceName": "양파"
+        }
+      ],
+      "bring_your_own": [
+        "올리브오일",
+        "소금",
+        "후추",
+        "건리가토니면",
+        "마늘",
+        "경성 치즈"
+      ],
+      "ingredient_reference_krw": 1548.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 1900,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-08"
+    },
+    {
+      "catalog_id": "diy-09",
+      "name": "버섯 크림 파스타",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "양파 40g",
+      "included_ingredients": [
+        {
+          "name": "양파",
+          "amount": 40,
+          "unit": "g",
+          "productId": "raw-08",
+          "sourceName": "양파"
+        }
+      ],
+      "bring_your_own": [
+        "버터",
+        "소금",
+        "후추",
+        "건파스타면",
+        "버섯",
+        "무가당 생크림",
+        "우유"
+      ],
+      "ingredient_reference_krw": 180.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 500,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-09"
+    },
+    {
+      "catalog_id": "diy-10",
+      "name": "피크닉 베이글 샌드위치",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "꽃상추 25g",
+      "included_ingredients": [
+        {
+          "name": "꽃상추",
+          "amount": 25,
+          "unit": "g",
+          "productId": "raw-26",
+          "sourceName": "잎채소"
+        }
+      ],
+      "bring_your_own": ["소금", "후추", "베이글", "크림치즈", "오이"],
+      "ingredient_reference_krw": 475.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 800,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-10"
+    },
+    {
+      "catalog_id": "diy-11",
+      "name": "에그 샌드위치",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "계란 2개",
+      "included_ingredients": [
+        {
+          "name": "계란",
+          "amount": 2,
+          "unit": "개",
+          "productId": "raw-17",
+          "sourceName": "달걀"
+        }
+      ],
+      "bring_your_own": ["마요네즈", "소금", "후추", "식빵", "오이"],
+      "ingredient_reference_krw": 1000.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 1300,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-11"
+    },
+    {
+      "catalog_id": "diy-12",
+      "name": "토마토 치즈 샐러드",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "완숙 토마토 180g",
+      "included_ingredients": [
+        {
+          "name": "완숙 토마토",
+          "amount": 180,
+          "unit": "g",
+          "productId": "raw-02",
+          "sourceName": "토마토"
+        }
+      ],
+      "bring_your_own": ["올리브오일", "소금", "후추", "모차렐라", "바질"],
+      "ingredient_reference_krw": 1368.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 1700,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-12"
+    },
+    {
+      "catalog_id": "diy-13",
+      "name": "청포도 치즈 샐러드",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "꽃상추 80g",
+      "included_ingredients": [
+        {
+          "name": "꽃상추",
+          "amount": 80,
+          "unit": "g",
+          "productId": "raw-26",
+          "sourceName": "잎채소"
+        }
+      ],
+      "bring_your_own": ["올리브오일", "식초", "청포도", "치즈", "견과류"],
+      "ingredient_reference_krw": 1520.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 1900,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-13"
+    },
+    {
+      "catalog_id": "diy-14",
+      "name": "바질페스토 그린 샐러드",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "꽃상추 100g",
+      "included_ingredients": [
+        {
+          "name": "꽃상추",
+          "amount": 100,
+          "unit": "g",
+          "productId": "raw-26",
+          "sourceName": "잎채소"
+        }
+      ],
+      "bring_your_own": [
+        "올리브오일",
+        "소금",
+        "오이",
+        "바질",
+        "견과류",
+        "경성 치즈"
+      ],
+      "ingredient_reference_krw": 1900.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 2200,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-14"
+    },
+    {
+      "catalog_id": "diy-15",
+      "name": "새우·달걀 브런치",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "계란 2개 + 완숙 토마토 100g + 꽃상추 40g",
+      "included_ingredients": [
+        {
+          "name": "계란",
+          "amount": 2,
+          "unit": "개",
+          "productId": "raw-17",
+          "sourceName": "달걀"
+        },
+        {
+          "name": "완숙 토마토",
+          "amount": 100,
+          "unit": "g",
+          "productId": "raw-02",
+          "sourceName": "토마토"
+        },
+        {
+          "name": "꽃상추",
+          "amount": 40,
+          "unit": "g",
+          "productId": "raw-26",
+          "sourceName": "잎채소"
+        }
+      ],
+      "bring_your_own": ["식용유", "소금", "후추", "새우살"],
+      "ingredient_reference_krw": 2520.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 2900,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-15"
+    },
+    {
+      "catalog_id": "diy-16",
+      "name": "청어알 메밀 비빔면",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "꽃상추 30g",
+      "included_ingredients": [
+        {
+          "name": "꽃상추",
+          "amount": 30,
+          "unit": "g",
+          "productId": "raw-26",
+          "sourceName": "잎채소"
+        }
+      ],
+      "bring_your_own": [
+        "간장",
+        "식초",
+        "설탕",
+        "참기름",
+        "건메밀면",
+        "청어알 제품",
+        "오이"
+      ],
+      "ingredient_reference_krw": 570.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 900,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-16"
+    },
+    {
+      "catalog_id": "diy-17",
+      "name": "타코 샐러드",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "꽃상추 80g + 완숙 토마토 100g + 양파 30g",
+      "included_ingredients": [
+        {
+          "name": "꽃상추",
+          "amount": 80,
+          "unit": "g",
+          "productId": "raw-26",
+          "sourceName": "잎채소"
+        },
+        {
+          "name": "완숙 토마토",
+          "amount": 100,
+          "unit": "g",
+          "productId": "raw-02",
+          "sourceName": "토마토"
+        },
+        {
+          "name": "양파",
+          "amount": 30,
+          "unit": "g",
+          "productId": "raw-08",
+          "sourceName": "양파"
+        }
+      ],
+      "bring_your_own": [
+        "식용유",
+        "소금",
+        "후추",
+        "타코 시즈닝",
+        "다진 소고기",
+        "토르티야"
+      ],
+      "ingredient_reference_krw": 2415.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 2800,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-17"
+    },
+    {
+      "catalog_id": "diy-18",
+      "name": "토마토 뇨키",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "완숙 토마토 150g + 양파 40g",
+      "included_ingredients": [
+        {
+          "name": "완숙 토마토",
+          "amount": 150,
+          "unit": "g",
+          "productId": "raw-02",
+          "sourceName": "토마토"
+        },
+        {
+          "name": "양파",
+          "amount": 40,
+          "unit": "g",
+          "productId": "raw-08",
+          "sourceName": "양파"
+        }
+      ],
+      "bring_your_own": ["올리브오일", "소금", "후추", "뇨키", "마늘", "치즈"],
+      "ingredient_reference_krw": 1320.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 1700,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-18"
+    },
+    {
+      "catalog_id": "diy-19",
+      "name": "달걀 치즈 파스타",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "계란 1개",
+      "included_ingredients": [
+        {
+          "name": "계란",
+          "amount": 1,
+          "unit": "개",
+          "productId": "raw-17",
+          "sourceName": "달걀"
+        }
+      ],
+      "bring_your_own": ["소금", "후추", "건파스타면", "경성 치즈", "베이컨"],
+      "ingredient_reference_krw": 500.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 800,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-19"
+    },
+    {
+      "catalog_id": "diy-21",
+      "name": "베이글 아침 식탁",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "계란 1개",
+      "included_ingredients": [
+        {
+          "name": "계란",
+          "amount": 1,
+          "unit": "개",
+          "productId": "raw-17",
+          "sourceName": "달걀"
+        }
+      ],
+      "bring_your_own": ["식용유", "소금", "베이글", "크림치즈", "제철 과일"],
+      "ingredient_reference_krw": 500.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 800,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-21"
+    },
+    {
+      "catalog_id": "diy-23",
+      "name": "피크닉 샌드위치 박스",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "계란 1개 + 꽃상추 25g",
+      "included_ingredients": [
+        {
+          "name": "계란",
+          "amount": 1,
+          "unit": "개",
+          "productId": "raw-17",
+          "sourceName": "달걀"
+        },
+        {
+          "name": "꽃상추",
+          "amount": 25,
+          "unit": "g",
+          "productId": "raw-26",
+          "sourceName": "잎채소"
+        }
+      ],
+      "bring_your_own": ["마요네즈", "머스터드", "식빵", "햄", "제철 과일"],
+      "ingredient_reference_krw": 975.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 1300,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-23"
+    },
+    {
+      "catalog_id": "diy-24",
+      "name": "토마토 바질 한 접시",
+      "kind": "kit",
+      "portion_label": "기존 레시피 1회분의 포함 재료만",
+      "included_label": "완숙 토마토 120g",
+      "included_ingredients": [
+        {
+          "name": "완숙 토마토",
+          "amount": 120,
+          "unit": "g",
+          "productId": "raw-02",
+          "sourceName": "토마토"
+        }
+      ],
+      "bring_your_own": [
+        "올리브오일",
+        "소금",
+        "후추",
+        "바게트",
+        "바질",
+        "모차렐라"
+      ],
+      "ingredient_reference_krw": 912.0,
+      "demo_handling_krw": 300,
+      "demo_price_krw": 1300,
+      "basis_status": "계산·추정",
+      "basis": "포함 재료의 제안 단가 비례합 + 시연용 취급비 300원, 100원 단위 올림",
+      "confirmed_db_product_id": null,
+      "db_connection_status": "저장 및 연결 확인",
+      "db_product_id": "diy-24"
+    }
+  ],
+  "applied_at": "2026-10-31T09:30:28.026261+09:00",
+  "verification": {
+    "inserted": 52,
+    "original_rows_preserved": 52,
+    "table_total": 104,
+    "site_products": 56,
+    "all_prices_match": true
+  }
+}

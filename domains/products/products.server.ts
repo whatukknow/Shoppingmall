@@ -175,6 +175,7 @@ export async function listRandomProducts(
 export async function getProductDetail(
   id: string,
   client: SupabaseClient<Database> = createServerClient(),
+  acceptRow?: (row: ProductsRow) => boolean,
 ): Promise<ProductDetailResponse | null> {
   const { data: row, error } = await client
     .from('products')
@@ -187,6 +188,8 @@ export async function getProductDetail(
   const productRow = row as ProductsRow & {
     categories: { category: string | null } | null;
   };
+  // Revalidate the row used for the detail, before images or purchase links.
+  if (acceptRow && !acceptRow(productRow)) return null;
 
   const detailImages = await fetchDetailImages(client, productRow.gid ?? '');
   // 대표 이미지를 맨 앞에 두되 중복은 제거하고, 없으면 상세 이미지로 대체
