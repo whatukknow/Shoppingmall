@@ -95,7 +95,14 @@ function BrandInformation({
                   }
                 >
                   {label === 'Customer support' && value?.trim() ? (
-                    <a href={`mailto:${value.trim()}`}>{value.trim()}</a>
+                    <a
+                      href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(value.trim())}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      referrerPolicy="no-referrer"
+                    >
+                      {value.trim()}
+                    </a>
                   ) : (
                     value?.trim() || 'To be confirmed'
                   )}
