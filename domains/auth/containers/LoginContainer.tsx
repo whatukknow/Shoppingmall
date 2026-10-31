@@ -1,14 +1,19 @@
 'use client'; // 입력값 기억과 클릭 처리를 하는 경계
 
-import { useState, useTransition } from 'react';
+import { useRef, useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import { AUTH_PREVIEW_SESSION_KEY } from '@/domains/auth/data/authPreviewSession';
-import { signIn } from '@/domains/auth/auth.api';
+import {
+  consumeSignupAttemptToken,
+  readSignupAttemptToken,
+  signIn,
+} from '@/domains/auth/auth.api';
 import { LoginForm } from '@/domains/auth/components/LoginForm';
 import { hasErrors, validateLogin } from '@/domains/auth/auth.validate';
 import { withNext } from '@/domains/auth/auth.redirect';
 import type { FieldErrors, LoginValues } from '@/domains/auth/auth.types';
 import { ApiError } from '@/shared/lib/client';
+import { trackSignUp } from '@/shared/lib/analytics/client';
 
 const LOGIN_MISMATCH_MESSAGE = 'Incorrect email or password.';
 const LOGIN_UNKNOWN_MESSAGE = 'Could not log in. Please try again shortly.';
@@ -27,6 +32,7 @@ type LoginContainerProps = {
 
 export default function LoginContainer({ redirectTo }: LoginContainerProps) {
   const router = useRouter();
+  const submitting = useRef(false);
 
   // 입력값과 오류를 기억
   const [values, setValues] = useState<LoginValues>({
@@ -46,20 +52,33 @@ export default function LoginContainer({ redirectTo }: LoginContainerProps) {
 
   // 로그인 버튼을 눌렀을 때
   const handleSubmit = () => {
+    if (submitting.current) return;
     setFormError(null); // 재제출을 시작하면 이전 실패 안내는 지움
     const nextErrors = validateLogin(values);
     setErrors(nextErrors);
     if (hasErrors(nextErrors)) return; // 오류가 있으면 여기서 멈춤
 
+    submitting.current = true;
     startTransition(async () => {
       try {
+        const signupAttemptToken = readSignupAttemptToken();
         const response = await signIn({
           email: values.email,
           password: values.password,
+          ...(signupAttemptToken ? { signupAttemptToken } : {}),
         });
 
-        // TODO(session): 로그인 응답(response.data)을 세션 쿠키·캐시에 저장 — Supabase 도입 시 proxy.ts(프로젝트 루트)에서 쿠키로 사용자 확인
-        void response; // 세션 구현 전까지 응답 미사용
+        if (
+          signupAttemptToken &&
+          response.data.signUpAnalyticsEligible === true &&
+          consumeSignupAttemptToken(signupAttemptToken)
+        ) {
+          try {
+            trackSignUp();
+          } catch {
+            // 분석 전송 장애가 인증 완료와 이동을 막지 않게 한다.
+          }
+        }
 
         // 시안용 로그인 상태를 기록
         try {
@@ -72,6 +91,8 @@ export default function LoginContainer({ redirectTo }: LoginContainerProps) {
         router.refresh(); // 레이아웃 서버 데이터(MastHead 로그인 상태) 갱신
       } catch (error) {
         setFormError(loginErrorMessage(error));
+      } finally {
+        submitting.current = false;
       }
     });
   };

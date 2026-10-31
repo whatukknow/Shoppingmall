@@ -10,7 +10,8 @@ import { hasBirthDetails, tasteRoutes } from './answers';
 import { recommend, EL, SUN_W } from './recommendation';
 import { PixelIcon } from './PixelIcon';
 import { saveTasteProfile } from '@/domains/auth/users.api';
-import { buildTasteProfile } from './tasteProfile';
+import { buildTasteProfile, tasteRecommendationIds } from './tasteProfile';
+import { trackTasteProfileSaved } from '@/shared/lib/analytics/client';
 import { ShoppingWalk, type ShoppingWalkHandle } from './ShoppingWalk';
 
 function ResultContent({ onRestart }: { onRestart: () => void }) {
@@ -26,6 +27,8 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
   const burst = useRef<HTMLDivElement>(null);
   const modalButton = useRef<HTMLButtonElement>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const completing = useRef(false);
+  const trackedProfile = useRef<string | null>(null);
   const result = recommend(answers);
   const element = EL[result.z.el as keyof typeof EL];
   const sunday = answers.sun ?? 'b';
@@ -118,18 +121,34 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
     });
   };
   const complete = async () => {
+    if (completing.current) return;
+    completing.current = true;
     try {
       if (preference) {
         setBusy(true);
         try {
-          await saveTasteProfile(
-            buildTasteProfile({
-              answers,
-              result,
-              nickname,
-              consent: true,
-            }),
-          );
+          const profile = buildTasteProfile({
+            answers,
+            result,
+            nickname,
+            consent: true,
+          });
+          await saveTasteProfile(profile);
+          // 같은 저장 결과에서 이동만 재시도하면 완료 이벤트를 반복하지 않는다.
+          const profileKey = JSON.stringify(profile);
+          if (trackedProfile.current !== profileKey) {
+            trackedProfile.current = profileKey;
+            try {
+              trackTasteProfileSaved({
+                recommendationCount: tasteRecommendationIds(
+                  profile.items,
+                  profile.kit,
+                ).length,
+              });
+            } catch {
+              // 분석 실패가 저장 완료 이후 이동을 막지 않게 한다.
+            }
+          }
         } catch {
           setBusy(false);
           setToast('Could not save your preferences. Please try again.');
@@ -143,6 +162,8 @@ function ResultContent({ onRestart }: { onRestart: () => void }) {
       window.location.assign('/#share-products');
     } catch {
       setToast('Could not open your picks. Please try again.');
+    } finally {
+      completing.current = false;
     }
   };
   const pool = element.go.concat(['sparkle', 'sparkle', element.e]);
