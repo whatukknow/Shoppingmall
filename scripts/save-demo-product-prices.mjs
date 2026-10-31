@@ -56,9 +56,13 @@ for (const p of proposal.products) {
     assert.ok(
       current.name === p.name &&
         current.details?.catalogId === p.catalog_id &&
-        current.details?.demoPricing?.version === '2026-10-31-v1' &&
-        current.portion_price === p.demo_price_krw,
+        current.details?.demoPricing?.version === '2026-10-31-v1',
       `ID collision: ${p.catalog_id}`,
+    );
+    assert.equal(
+      current.portion_price,
+      p.demo_price_krw,
+      `Existing demo price differs from approved seed; no overwrite: ${p.catalog_id}`,
     );
     continue;
   }
@@ -143,36 +147,51 @@ if (apply && inserts.length) {
   const { error } = await db.from('products').insert(inserts);
   if (error)
     throw new Error(`Product insert failed: ${error.code} ${error.message}`);
-  const { data: after, error: afterError } = await db
-    .from('products')
-    .select('*');
-  if (afterError) throw new Error(`Readback failed: ${afterError.code}`);
-  for (const original of before)
-    assert.deepEqual(
-      after.find((r) => r.id === original.id),
-      original,
-    );
-  for (const expected of inserts) {
-    const actual = after.find((r) => r.id === expected.id);
-    for (const key of Object.keys(expected)) {
-      if (key === 'created_at') {
-        assert.equal(
-          Date.parse(actual?.[key]),
-          Date.parse(expected[key]),
-          `${expected.id}.${key}`,
-        );
-      } else {
-        assert.deepEqual(actual?.[key], expected[key], `${expected.id}.${key}`);
+  console.log(JSON.stringify({ writeCommitted: true, saved: inserts.length }));
+  let verificationStage = 'READBACK_SELECT';
+  try {
+    const { data: after, error: afterError } = await db
+      .from('products')
+      .select('*');
+    if (afterError) throw new Error(`Readback failed: ${afterError.code}`);
+    verificationStage = 'EXISTING_ROWS_COMPARE';
+    for (const original of before)
+      assert.deepEqual(
+        after.find((r) => r.id === original.id),
+        original,
+      );
+    verificationStage = 'INSERTED_ROWS_COMPARE';
+    for (const expected of inserts) {
+      const actual = after.find((r) => r.id === expected.id);
+      for (const key of Object.keys(expected)) {
+        if (key === 'created_at') {
+          assert.equal(
+            Date.parse(actual?.[key]),
+            Date.parse(expected[key]),
+            `${expected.id}.${key}`,
+          );
+        } else {
+          assert.deepEqual(
+            actual?.[key],
+            expected[key],
+            `${expected.id}.${key}`,
+          );
+        }
       }
     }
+    verificationStage = 'ROW_COUNT_COMPARE';
+    assert.equal(after.length, before.length + inserts.length);
+    console.log(
+      JSON.stringify({
+        saved: inserts.length,
+        totalRows: after.length,
+        allOriginalRowsUnchanged: true,
+        readback: 'passed',
+      }),
+    );
+  } catch {
+    throw new Error(
+      `Product insert committed, but readback verification failed (${verificationStage}). No rollback was performed. Inspect the database before retrying.`,
+    );
   }
-  assert.equal(after.length, before.length + inserts.length);
-  console.log(
-    JSON.stringify({
-      saved: inserts.length,
-      totalRows: after.length,
-      allOriginalRowsUnchanged: true,
-      readback: 'passed',
-    }),
-  );
 }

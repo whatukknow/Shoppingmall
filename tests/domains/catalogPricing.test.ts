@@ -32,9 +32,14 @@ const approved: PriceRow[] = [
   { id: 'prd_018', name: '케일', portion_price: 1800, is_active: true },
 ];
 
-function client(rows: PriceRow[]) {
+function client(
+  rows: PriceRow[],
+  detailRows: PriceRow[] = rows,
+  onRead?: (table: string) => void,
+) {
   return {
     from(table: string) {
+      onRead?.(table);
       let id: string | undefined;
       const query = {
         select() {
@@ -52,7 +57,7 @@ function client(rows: PriceRow[]) {
         },
         async maybeSingle() {
           return {
-            data: rows.find((row) => row.id === id) ?? null,
+            data: detailRows.find((row) => row.id === id) ?? null,
             error: null,
           };
         },
@@ -69,6 +74,52 @@ function client(rows: PriceRow[]) {
 }
 
 describe('approved catalog pricing', () => {
+  it('uses the latest detail price rather than the earlier list snapshot', async () => {
+    for (const id of ['raw-13', 'prd_001']) {
+      const detail = await getMenuProductDetail(
+        id,
+        client(approved, [{ ...approved[0], portion_price: 2500 }]),
+      );
+      assert.equal(detail?.price, 2500);
+      assert.equal(detail?.isPurchasable, true);
+      assert.equal(detail?.id, 'prd_001');
+    }
+  });
+
+  it('holds purchase links when the detail row disappears, becomes inactive or invalid, or changes identity', async () => {
+    const changedRows: PriceRow[][] = [
+      [],
+      [{ ...approved[0], is_active: false }],
+      [{ ...approved[0], portion_price: null }],
+      [{ ...approved[0], portion_price: 0 }],
+      [{ ...approved[0], name: '다른 상품' }],
+    ];
+    for (const id of ['raw-13', 'prd_001'])
+      for (const rows of changedRows) {
+        const reads: string[] = [];
+        const detail = await getMenuProductDetail(
+          id,
+          client(approved, rows, (table) => reads.push(table)),
+        );
+        assert.equal(detail?.price, null);
+        assert.equal(detail?.isPurchasable, false);
+        assert.ok(!reads.includes('uploads'));
+      }
+    const kit = demoRows.find((row) => row.id === 'diy-09')!;
+    for (const details of [
+      null,
+      { catalogId: 'diy-08', demoPricing: { version: '2026-10-31-v1' } },
+    ]) {
+      const reads: string[] = [];
+      const detail = await getMenuProductDetail(
+        'diy-09',
+        client(demoRows, [{ ...kit, details }], (table) => reads.push(table)),
+      );
+      assert.equal(detail?.isPurchasable, false);
+      assert.equal(detail?.price, null);
+      assert.ok(!reads.includes('uploads'));
+    }
+  });
   it('shows all 56 approved demo prices without changing catalog order or identities', async () => {
     const result = await listMenuProducts({}, client(demoRows));
     assert.equal(result.total, 56);

@@ -62,12 +62,17 @@ export async function getMenuProductDetail(
   const matches = allBindings.filter((b) => b.catalogId === canonical.id);
   if (matches.length !== 1) return menuDetail(canonical.id, null);
   const binding = matches[0];
-  const operational = await getOperationalDetail(binding.productId, client);
+  const operational = await getOperationalDetail(
+    binding.productId,
+    client,
+    (row) => {
+      const latest = approvedPriceBindings([row])[0];
+      return latest?.catalogId === canonical.id && latest.price !== null;
+    },
+  );
   return menuDetail(
     canonical.id,
-    operational
-      ? { ...operational, price: binding.price, isSample: true }
-      : null,
-    binding.active && binding.price !== null && binding.price > 0,
+    operational ? { ...operational, isSample: true } : null,
+    operational !== null,
   );
 }
