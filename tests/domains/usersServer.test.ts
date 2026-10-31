@@ -4,7 +4,11 @@ import {
 } from '../../domains/home/onboarding/react/tasteProfile';
 import { recommend } from '../../domains/home/onboarding/react/recommendation';
 import { toTasteProfileRequest } from '../../domains/auth/users.api';
-import { catalogImages } from '../../domains/products/catalog/catalog';
+import {
+  catalogImages,
+  raw,
+  kits,
+} from '../../domains/products/catalog/catalog';
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import {
@@ -1282,6 +1286,54 @@ describe('getPaymentItems', () => {
       authErrorForGuest,
     );
     await assert.rejects(getPaymentItems(client), expect401);
+  });
+});
+
+describe('my buying-group cutout image mapping', () => {
+  it('uses the correct existing raw06 or DIY cutout for all 56 catalog items', async () => {
+    const catalog = [...raw, ...kits];
+    const apps = catalog.map((item, index) => ({
+      ...application({
+        id: index + 1,
+        product_id: item.id,
+        requested_pod_id: `group-${item.id}`,
+      }),
+      pods: {
+        ...pod({ id: `group-${item.id}`, product_id: item.id }),
+        products: {
+          name: item.name,
+          gid: null,
+          portion_label: '검증용 1팩',
+          portion_price: 1900,
+        },
+      },
+    }));
+    const parts = apps.map((app, index) =>
+      participant({
+        id: index + 1,
+        application_id: app.id,
+        pod_id: app.requested_pod_id,
+        is_active: true,
+      }),
+    );
+    const { client } = makeFakeClient((req) => ({
+      data:
+        req.table === 'pod_applications'
+          ? apps
+          : req.table === 'pod_participants'
+            ? parts
+            : [],
+    }));
+    const result = await listMyPodApplications({}, client);
+    assert.equal(result.total, 56);
+    result.list.forEach((app, index) => {
+      const item = catalog[index];
+      assert.equal(
+        app.imageUrl,
+        'tasteFinderImage' in item ? item.tasteFinderImage : item.catalogImage,
+        item.id,
+      );
+    });
   });
 });
 

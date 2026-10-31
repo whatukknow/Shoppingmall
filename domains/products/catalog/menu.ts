@@ -77,7 +77,8 @@ export function menuDetail(
     name: p.name,
     category: kit ? `DIY kits · ${foodLabel(p.category)}` : p.category,
     images: images.gallery,
-    farmName: operational?.farmName ?? '',
+    // Raw farm stories are explicitly fictional catalog demos, including the label.
+    farmName: kit ? (operational?.farmName ?? '') : p.farmName,
     price: operational?.price ?? null,
     unit: operational?.unit || 'Pack contents and quantities to be confirmed',
     discountRate: operational?.discountRate ?? 0,

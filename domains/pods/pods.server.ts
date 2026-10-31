@@ -4,6 +4,7 @@ import { toListResponse, toRange } from '@/shared/lib/mapper.utils';
 import type { ListResponse } from '@/shared/lib/api.types';
 import { toPod, toPodSummary } from './pods.mapper';
 import { fetchHeadImages } from '@/domains/products/products.server';
+import { podCutoutImage } from '@/domains/products/catalog/pod-images';
 import type { Pod, PodSort, PodSummary } from './pods.types';
 import type { Database } from '@/shared/lib/supabase/database.types';
 
@@ -197,7 +198,11 @@ export async function listProductPods(
     toPod(
       row,
       row.products?.name ?? '',
-      images.get(row.products?.gid ?? '') ?? '',
+      podCutoutImage(
+        row.product_id ?? '',
+        row.products?.name ?? '',
+        images.get(row.products?.gid ?? '') ?? '',
+      ),
     ),
   );
   for (const item of items) {
