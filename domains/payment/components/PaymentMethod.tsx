@@ -10,6 +10,8 @@ type PaymentMethodProps = {
   value: PaymentMethods;
   error: PaymentErrors['paymentMethod'];
   onChange: (value: PaymentMethods) => void;
+  onTossPay: () => void;
+  disabled?: boolean;
 };
 
 type PaymentOption = {
@@ -38,6 +40,8 @@ export default function PaymentMethod({
   value,
   error,
   onChange,
+  onTossPay,
+  disabled = false,
 }: PaymentMethodProps) {
   return (
     <fieldset className="min-w-0">
@@ -46,36 +50,70 @@ export default function PaymentMethod({
       </legend>
 
       <div className="grid grid-cols-[repeat(2,140px)] gap-3">
-        {paymentOptions.map((option) => (
-          <label key={option.value} className="min-w-0 cursor-pointer">
-            <input
-              id={`paymentMethod-${option.value}`}
-              type="radio"
-              name="paymentMethod"
-              value={option.value}
-              checked={value === option.value}
-              onChange={() => onChange(option.value)}
+        {paymentOptions.map((option) =>
+          option.value === 'tosspay' ? (
+            <button
+              key={option.value}
+              id="paymentMethod-tosspay"
+              type="button"
+              disabled={disabled}
+              aria-pressed={value === 'tosspay'}
               aria-describedby={error ? 'paymentMethod-error' : undefined}
-              className="peer sr-only"
-            />
-
-            <span
-              className={`payment-method-option flex h-16 items-center justify-center rounded-none border border-black/15 px-4 py-3 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 ${option.color}`}
+              onClick={onTossPay}
+              className="min-w-0 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
             >
-              {option.logo ? (
+              <span
+                className={`payment-method-option flex h-16 items-center justify-center rounded-none border border-black/15 px-4 py-3 ${option.color}`}
+                style={
+                  value === 'tosspay'
+                    ? {
+                        borderColor: '#0064ff',
+                        boxShadow: 'inset 0 0 0 1px #0064ff',
+                      }
+                    : undefined
+                }
+              >
                 <Image
-                  src={option.logo}
+                  src={option.logo!}
                   alt={option.label}
                   width={360}
                   height={270}
                   className="payment-method-logo"
                 />
-              ) : (
-                <span className="font-medium">{option.label}</span>
-              )}
-            </span>
-          </label>
-        ))}
+              </span>
+            </button>
+          ) : (
+            <label key={option.value} className="min-w-0 cursor-pointer">
+              <input
+                id={`paymentMethod-${option.value}`}
+                type="radio"
+                name="paymentMethod"
+                value={option.value}
+                checked={value === option.value}
+                disabled={disabled}
+                onChange={() => onChange(option.value)}
+                aria-describedby={error ? 'paymentMethod-error' : undefined}
+                className="peer sr-only"
+              />
+
+              <span
+                className={`payment-method-option flex h-16 items-center justify-center rounded-none border border-black/15 px-4 py-3 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 ${option.color}`}
+              >
+                {option.logo ? (
+                  <Image
+                    src={option.logo}
+                    alt={option.label}
+                    width={360}
+                    height={270}
+                    className="payment-method-logo"
+                  />
+                ) : (
+                  <span className="font-medium">{option.label}</span>
+                )}
+              </span>
+            </label>
+          ),
+        )}
       </div>
 
       {error && (

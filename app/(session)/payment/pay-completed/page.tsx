@@ -18,17 +18,38 @@ export default async function Page({ searchParams }: PageProps) {
     typeof amount !== 'string' ||
     !/^\d+$/.test(amount)
   ) {
-    redirect('/payment');
+    return (
+      <PaymentResultPage
+        status="recovery"
+        items={[]}
+        orderItems={[]}
+        recoveryMessage="Payment details are missing. Check your order status or contact customer support before making another payment."
+      />
+    );
   }
   const value = Number(amount);
-  if (!Number.isSafeInteger(value) || value <= 0) redirect('/payment');
-
-  const result = await confirmPaymentAction({
+  if (!Number.isSafeInteger(value) || value <= 0) {
+    return (
+      <PaymentResultPage
+        status="recovery"
+        items={[]}
+        orderItems={[]}
+        recoveryMessage="The payment amount could not be verified. Contact customer support before making another payment."
+      />
+    );
+  }
+  const recoveryHref = `/payment/pay-completed?${new URLSearchParams({
     paymentKey,
     orderId,
-    amount: value,
-  });
-  if (!result.success) {
+    amount,
+    recovery: '1',
+  }).toString()}`;
+  const result = await confirmPaymentAction(
+    { paymentKey, orderId, amount: value },
+    undefined,
+    { reconcileOnly: query.recovery === '1' },
+  );
+  if (!result.success && !result.recoveryRequired) {
     const failure = new URLSearchParams({
       code: result.code,
       message: result.message,
@@ -36,8 +57,29 @@ export default async function Page({ searchParams }: PageProps) {
     });
     redirect(`/payment/pay-failed?${failure.toString()}`);
   }
-  const order = await findOrder(orderId);
-  if (!order || order.status !== 'PAID' || !order.items) redirect('/payment');
+  const order = await findOrder(orderId).catch(() => null);
+  if (
+    !result.success ||
+    !order ||
+    order.status !== 'PAID' ||
+    !order.items?.length
+  ) {
+    return (
+      <PaymentResultPage
+        status="recovery"
+        items={order?.items ?? []}
+        orderItems={order?.items ?? []}
+        paidAmount={order?.amount}
+        orderShippingFee={order?.shippingFee}
+        recoveryMessage={
+          !result.success
+            ? result.message
+            : 'The payment was approved, but your order details could not be loaded. Check this payment again or contact customer support. Do not make another payment.'
+        }
+        recoveryHref={recoveryHref}
+      />
+    );
+  }
   return (
     <PaymentResultPage
       status="success"

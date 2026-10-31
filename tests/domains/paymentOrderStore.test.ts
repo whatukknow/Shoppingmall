@@ -518,7 +518,6 @@ describe('markOrderPaid (rpc_mark_order_paid)', () => {
 
 import {
   ALREADY_PAID_PARTICIPANT_MESSAGE,
-  CONFIRM_RECHECK_MESSAGE,
   hasBlockedParticipants,
 } from '../../domains/payment/data/payment.order-store';
 
@@ -805,9 +804,12 @@ describe('confirmPaymentAction 이중결제 차단', () => {
     const original = globalThis.fetch;
     process.env.TOSS_SECRET_KEY = 'sk_test_lookup';
     let fetchCalls = 0;
-    globalThis.fetch = (async () => {
+    globalThis.fetch = (async (_url, init) => {
       fetchCalls += 1;
-      const outcome = fetchImpl();
+      const outcome =
+        init?.method === 'GET'
+          ? { status: 404, json: { code: 'NOT_FOUND_PAYMENT' } }
+          : fetchImpl();
       return {
         ok: outcome.status < 400,
         status: outcome.status,
@@ -840,7 +842,7 @@ describe('confirmPaymentAction 이중결제 차단', () => {
     },
   });
 
-  it('토스 승인 호출 전 차단: 다른 주문으로 결제된 참여자가 있으면 fetch 없이 실패 응답', async () => {
+  it('토스 승인 전 차단: 다른 주문으로 결제된 참여자는 조회만 하고 승인하지 않는다', async () => {
     const { clients } = orderClientsV2(pendingOrderRow(), {
       podParticipants: () => ({
         data: podParticipantsRow({
@@ -857,10 +859,10 @@ describe('confirmPaymentAction 이중결제 차단', () => {
       !result.success && result.message,
       ALREADY_PAID_PARTICIPANT_MESSAGE,
     );
-    assert.equal(fetchCalls, 0, '토스 승인 API 를 호출하지 않아야 한다');
+    assert.equal(fetchCalls, 1, '결제 조회만 하고 승인 API 는 호출하지 않는다');
   });
 
-  it('토스 승인 호출 전 차단: 비활성 참여자가 있으면 fetch 없이 실패 응답', async () => {
+  it('토스 승인 전 차단: 비활성 참여자는 조회만 하고 승인하지 않는다', async () => {
     const { clients } = orderClientsV2(pendingOrderRow(), {
       podParticipants: () => ({
         data: podParticipantsRow({ is_active: false }),
@@ -874,7 +876,7 @@ describe('confirmPaymentAction 이중결제 차단', () => {
       !result.success && result.message,
       ALREADY_PAID_PARTICIPANT_MESSAGE,
     );
-    assert.equal(fetchCalls, 0);
+    assert.equal(fetchCalls, 1);
   });
 
   it('확정 직전 재검사에서 차단: rpc_mark_order_paid 미호출 + 고객센터 안내 실패 응답', async () => {
@@ -898,8 +900,9 @@ describe('confirmPaymentAction 이중결제 차단', () => {
         confirmPaymentAction(input, clients),
       );
       assert.equal(result.success, false);
-      assert.equal(!result.success && result.message, CONFIRM_RECHECK_MESSAGE);
-      assert.equal(fetchCalls, 1, '토스 승인 1회 후 확정 단계에서 차단');
+      assert.equal(!result.success && result.code, 'CONFLICT_AT_CONFIRM');
+      assert.equal(!result.success && result.recoveryRequired, true);
+      assert.equal(fetchCalls, 2, '조회 1회와 승인 1회 후 확정 단계에서 차단');
       assert.equal(
         adminRpcRequests.filter((r) => r.fn === 'rpc_mark_order_paid').length,
         0,
@@ -907,8 +910,8 @@ describe('confirmPaymentAction 이중결제 차단', () => {
       );
       assert.equal(
         errors.some((args) => args.some((a) => String(a).includes('tgen_fre'))),
-        true,
-        '차단 로그에 결제 키 앞 8자를 기록한다',
+        false,
+        '차단 로그에 결제 키 조각을 남기지 않는다',
       );
       assert.equal(
         errors.some((args) =>
@@ -946,7 +949,7 @@ describe('confirmPaymentAction 이중결제 차단', () => {
     );
     assert.equal(result.success, true);
     assert.equal(result.success && result.receiptUrl, 'https://receipt.toss/2');
-    assert.equal(fetchCalls, 1);
+    assert.equal(fetchCalls, 2);
     assert.equal(adminRpcRequests.length, 1);
     assert.equal(adminRpcRequests[0].fn, 'rpc_mark_order_paid');
   });
@@ -1068,13 +1071,21 @@ describe('confirmPaymentAction', () => {
   }
 
   async function withTossFetch<T>(
-    impl: () => Promise<{ status: number; json: unknown } | Error>,
+    impl: (request: {
+      method: string;
+      index: number;
+    }) => Promise<{ status: number; json: unknown } | Error>,
     fn: () => Promise<T>,
   ): Promise<T> {
     const original = globalThis.fetch;
-    process.env.TOSS_SECRET_KEY = 'sk_test_lookup';
-    globalThis.fetch = (async () => {
-      const outcome = await impl();
+    const originalSecret = process.env.TOSS_SECRET_KEY;
+    process.env.TOSS_SECRET_KEY = 'test_gsk_synthetic';
+    let index = 0;
+    globalThis.fetch = (async (_url, init) => {
+      const outcome = await impl({
+        method: init?.method ?? 'GET',
+        index: index++,
+      });
       if (outcome instanceof Error) throw outcome;
       return {
         ok: outcome.status < 400,
@@ -1086,6 +1097,8 @@ describe('confirmPaymentAction', () => {
       return await fn();
     } finally {
       globalThis.fetch = original;
+      if (originalSecret === undefined) delete process.env.TOSS_SECRET_KEY;
+      else process.env.TOSS_SECRET_KEY = originalSecret;
     }
   }
 
@@ -1121,7 +1134,7 @@ describe('confirmPaymentAction', () => {
     assert.equal(!result.success && result.code, 'PAYMENT_MISMATCH');
   });
 
-  it('PENDING 주문 승인 후 rpc 실패하면 1회 재시도하고 성공 계열 응답을 유지한다', async () => {
+  it('PENDING 승인 조회 후 rpc 1회 실패·재시도 성공이면 완료한다', async () => {
     const errors: unknown[][] = [];
     const originalError = console.error;
     console.error = (...args: unknown[]) => void errors.push(args);
@@ -1162,8 +1175,8 @@ describe('confirmPaymentAction', () => {
       assert.equal(attempts, 2, 'markOrderPaid 1회 재시도');
       assert.equal(
         errors.some((args) => args.some((a) => String(a).includes('tgen_new'))),
-        true,
-        '재시도 실패 시 paymentKey 앞 8자 기록 필요',
+        false,
+        '재시도 실패 시 paymentKey 조각을 기록하지 않는다',
       );
       // 성공한 2차 시도는 admin rpc 로 기록된다
       assert.equal(adminRpcRequests.length, 1);
@@ -1176,10 +1189,13 @@ describe('confirmPaymentAction', () => {
   it('PENDING 주문에 토스 승인·대조가 정상 동작하면 success 를 반환한다', async () => {
     const { clients, adminRpcRequests } = orderClients(pendingOrderRow());
     const result = await withTossFetch(
-      async () => ({
-        status: 200,
-        json: { ...tossStubResponse(), paymentKey: 'tgen_freshkey' },
-      }),
+      async ({ method }) =>
+        method === 'GET'
+          ? { status: 404, json: { code: 'NOT_FOUND_PAYMENT' } }
+          : {
+              status: 200,
+              json: { ...tossStubResponse(), paymentKey: 'tgen_freshkey' },
+            },
       () =>
         confirmPaymentAction(
           {
@@ -1194,5 +1210,244 @@ describe('confirmPaymentAction', () => {
     assert.equal(result.success && result.receiptUrl, 'https://receipt.toss/1');
     assert.equal(adminRpcRequests.length, 1);
     assert.equal(adminRpcRequests[0].fn, 'rpc_mark_order_paid');
+  });
+
+  const validInput = {
+    paymentKey: PAID_KEY,
+    orderId: 'ord_1a2b3c4d5e6f',
+    amount: 14800,
+  };
+
+  it('PENDING + provider DONE reconciles with GET only, without confirm POST', async () => {
+    const { clients, adminRpcRequests } = orderClients(pendingOrderRow());
+    const methods: string[] = [];
+    const result = await withTossFetch(
+      async ({ method }) => {
+        methods.push(method);
+        return { status: 200, json: tossStubResponse() };
+      },
+      () => confirmPaymentAction(validInput, clients),
+    );
+    assert.equal(result.success, true);
+    assert.deepEqual(methods, ['GET']);
+    assert.equal(adminRpcRequests.length, 1);
+  });
+
+  for (const status of ['READY', 'IN_PROGRESS']) {
+    it(`valid ${status} lookup permits the first confirmation`, async () => {
+      const { clients } = orderClients(pendingOrderRow());
+      const methods: string[] = [];
+      const result = await withTossFetch(
+        async ({ method }) => {
+          methods.push(method);
+          return {
+            status: 200,
+            json: tossStubResponse({
+              status: method === 'GET' ? status : 'DONE',
+            }),
+          };
+        },
+        () => confirmPaymentAction(validInput, clients),
+      );
+      assert.equal(result.success, true);
+      assert.deepEqual(methods, ['GET', 'POST']);
+    });
+  }
+
+  for (const failure of [
+    { name: 'timeout', outcome: new Error('synthetic timeout') },
+    {
+      name: 'authentication error',
+      outcome: { status: 401, json: { code: 'UNAUTHORIZED_KEY' } },
+    },
+    {
+      name: 'server error',
+      outcome: { status: 503, json: { code: 'PROVIDER_DOWN' } },
+    },
+    {
+      name: 'unrecognized 404',
+      outcome: { status: 404, json: { code: 'UNKNOWN_RESOURCE' } },
+    },
+    {
+      name: 'malformed response',
+      outcome: { status: 200, json: { status: 'DONE' } },
+    },
+  ]) {
+    it(`uncertain lookup ${failure.name} does not confirm or offer a fresh retry`, async () => {
+      const { clients, adminRpcRequests } = orderClients(pendingOrderRow());
+      const methods: string[] = [];
+      const result = await withTossFetch(
+        async ({ method }) => {
+          methods.push(method);
+          return failure.outcome;
+        },
+        () => confirmPaymentAction(validInput, clients),
+      );
+      assert.equal(result.success, false);
+      assert.equal(!result.success && result.recoveryRequired, true);
+      assert.deepEqual(methods, ['GET']);
+      assert.equal(adminRpcRequests.length, 0);
+    });
+  }
+
+  for (const amount of [undefined, NaN, 0, -1, 14801]) {
+    it(`invalid or mismatched callback amount ${String(amount)} is rejected before provider calls`, async () => {
+      const { clients, adminRpcRequests } = orderClients(pendingOrderRow());
+      let requests = 0;
+      const result = await withTossFetch(
+        async () => {
+          requests += 1;
+          return { status: 200, json: tossStubResponse() };
+        },
+        () =>
+          confirmPaymentAction(
+            { ...validInput, amount: amount as number },
+            clients,
+          ),
+      );
+      assert.equal(result.success, false);
+      assert.equal(requests, 0);
+      assert.equal(adminRpcRequests.length, 0);
+    });
+  }
+
+  for (const overrides of [
+    { paymentKey: 'synthetic_wrong_payment_key' },
+    { orderId: 'synthetic_wrong_order' },
+    { totalAmount: 14801 },
+  ]) {
+    it(`lookup identity mismatch ${Object.keys(overrides)[0]} cannot complete or confirm`, async () => {
+      const { clients, adminRpcRequests } = orderClients(pendingOrderRow());
+      const methods: string[] = [];
+      const result = await withTossFetch(
+        async ({ method }) => {
+          methods.push(method);
+          return { status: 200, json: tossStubResponse(overrides) };
+        },
+        () => confirmPaymentAction(validInput, clients),
+      );
+      assert.equal(!result.success && result.code, 'PAYMENT_MISMATCH');
+      assert.equal(!result.success && result.recoveryRequired, true);
+      assert.deepEqual(methods, ['GET']);
+      assert.equal(adminRpcRequests.length, 0);
+    });
+  }
+
+  it('PAID reload also requires the exact paymentKey from the provider', async () => {
+    const { clients } = orderClients(paidRow());
+    const result = await withTossFetch(
+      async () => ({
+        status: 200,
+        json: tossStubResponse({ paymentKey: 'synthetic_wrong_payment_key' }),
+      }),
+      () => confirmPaymentAction(validInput, clients),
+    );
+    assert.equal(!result.success && result.code, 'PAYMENT_MISMATCH');
+  });
+
+  it('two DB-mark failures return explicit reconciliation-required, never success', async () => {
+    const { clients, adminRpcRequests } = orderClients(
+      pendingOrderRow(),
+      (request) => {
+        request.result.error = {
+          code: 'SYNTHETIC_DB_FAILURE',
+          message: `db failed ${PAID_KEY}`,
+        };
+      },
+    );
+    const errors: unknown[][] = [];
+    const originalError = console.error;
+    console.error = (...args: unknown[]) => void errors.push(args);
+    try {
+      const result = await withTossFetch(
+        async () => ({ status: 200, json: tossStubResponse() }),
+        () => confirmPaymentAction(validInput, clients),
+      );
+      assert.equal(
+        !result.success && result.code,
+        'ORDER_RECONCILIATION_REQUIRED',
+      );
+      assert.equal(!result.success && result.recoveryRequired, true);
+      assert.equal(adminRpcRequests.length, 2);
+      assert.equal(JSON.stringify(errors).includes(PAID_KEY), false);
+      assert.equal(
+        JSON.stringify(errors).includes(PAID_KEY.slice(0, 8)),
+        false,
+      );
+    } finally {
+      console.error = originalError;
+    }
+  });
+
+  for (const outcome of [
+    new Error('synthetic timeout'),
+    { status: 503, json: { code: 'PROVIDER_DOWN' } },
+  ]) {
+    it(`uncertain confirm ${outcome instanceof Error ? 'timeout' : '5xx'} rechecks once and does not offer fresh payment`, async () => {
+      const { clients, adminRpcRequests } = orderClients(pendingOrderRow());
+      const methods: string[] = [];
+      const result = await withTossFetch(
+        async ({ method }) => {
+          methods.push(method);
+          return method === 'GET'
+            ? { status: 404, json: { code: 'NOT_FOUND_PAYMENT' } }
+            : outcome;
+        },
+        () => confirmPaymentAction(validInput, clients),
+      );
+      assert.equal(!result.success && result.recoveryRequired, true);
+      assert.deepEqual(methods, ['GET', 'POST', 'GET']);
+      assert.equal(adminRpcRequests.length, 0);
+    });
+  }
+
+  it('a lost confirmation response recovers from authoritative DONE lookup', async () => {
+    const { clients, adminRpcRequests } = orderClients(pendingOrderRow());
+    const methods: string[] = [];
+    const result = await withTossFetch(
+      async ({ method, index }) => {
+        methods.push(method);
+        if (index === 0)
+          return { status: 404, json: { code: 'NOT_FOUND_PAYMENT' } };
+        if (method === 'POST') return new Error('synthetic lost response');
+        return { status: 200, json: tossStubResponse() };
+      },
+      () => confirmPaymentAction(validInput, clients),
+    );
+    assert.equal(result.success, true);
+    assert.deepEqual(methods, ['GET', 'POST', 'GET']);
+    assert.equal(adminRpcRequests.length, 1);
+  });
+
+  it('already-processed confirmation recovers with lookup rather than another confirm POST', async () => {
+    const { clients } = orderClients(pendingOrderRow());
+    const methods: string[] = [];
+    const result = await withTossFetch(
+      async ({ method, index }) => {
+        methods.push(method);
+        if (index === 0)
+          return { status: 404, json: { code: 'NOT_FOUND_PAYMENT' } };
+        return method === 'POST'
+          ? { status: 400, json: { code: 'ALREADY_PROCESSED_PAYMENT' } }
+          : { status: 200, json: tossStubResponse() };
+      },
+      () => confirmPaymentAction(validInput, clients),
+    );
+    assert.equal(result.success, true);
+    assert.deepEqual(methods, ['GET', 'POST', 'GET']);
+  });
+
+  it('status-check recovery never submits confirmation even if lookup is not found', async () => {
+    const { clients } = orderClients(pendingOrderRow());
+    const methods: string[] = [];
+    const result = await withTossFetch(
+      async ({ method }) => {
+        methods.push(method);
+        return { status: 404, json: { code: 'NOT_FOUND_PAYMENT' } };
+      },
+      () => confirmPaymentAction(validInput, clients, { reconcileOnly: true }),
+    );
+    assert.equal(!result.success && result.recoveryRequired, true);
+    assert.deepEqual(methods, ['GET']);
   });
 });

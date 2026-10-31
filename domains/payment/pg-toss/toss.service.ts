@@ -31,23 +31,92 @@ export function formatOrderName(productNames: string[]): string {
   return `${productNames[0]} 외 ${productNames.length - 1}건`;
 }
 
-// 토스 결제 승인 API 호출
+export type TossPaymentResult =
+  | { ok: true; data: TossConfirmResponse }
+  | { ok: false; code: string; message: string; recoveryRequired: true };
+
+export type TossLookupResult =
+  | { state: 'found'; data: TossConfirmResponse }
+  | { state: 'not-found' }
+  | { state: 'uncertain'; code: string; message: string };
+
+const STATUS_CHECK_MESSAGE =
+  'Payment status could not be verified. Check this payment again before making another payment. If the issue continues, contact customer support.';
+
+function isPaymentResponse(value: unknown): value is TossConfirmResponse {
+  if (!value || typeof value !== 'object') return false;
+  const payment = value as Partial<TossConfirmResponse>;
+  return (
+    typeof payment.status === 'string' &&
+    typeof payment.orderId === 'string' &&
+    typeof payment.paymentKey === 'string' &&
+    Number.isSafeInteger(payment.totalAmount) &&
+    (payment.totalAmount ?? 0) > 0
+  );
+}
+
+/** Only the paymentKey lookup is supported with NEW gsk payment-window keys. */
+export async function requestTossPaymentLookup(
+  paymentKey: string,
+): Promise<TossLookupResult> {
+  const secretKey = process.env.TOSS_SECRET_KEY;
+  if (!secretKey) {
+    return {
+      state: 'uncertain',
+      code: 'MISSING_SECRET_KEY',
+      message: STATUS_CHECK_MESSAGE,
+    };
+  }
+  try {
+    const response = await fetch(
+      `https://api.tosspayments.com/v1/payments/${encodeURIComponent(paymentKey)}`,
+      {
+        method: 'GET',
+        headers: { Authorization: encodeTossBasicAuth(secretKey) },
+        cache: 'no-store',
+        signal: AbortSignal.timeout(15000),
+      },
+    );
+    const json: unknown = await response.json();
+    if (
+      response.status === 404 &&
+      json &&
+      typeof json === 'object' &&
+      'code' in json &&
+      json.code === 'NOT_FOUND_PAYMENT'
+    ) {
+      return { state: 'not-found' };
+    }
+    if (!response.ok || !isPaymentResponse(json)) {
+      return {
+        state: 'uncertain',
+        code: 'TOSS_LOOKUP_UNAVAILABLE',
+        message: STATUS_CHECK_MESSAGE,
+      };
+    }
+    return { state: 'found', data: json };
+  } catch {
+    return {
+      state: 'uncertain',
+      code: 'TOSS_LOOKUP_UNAVAILABLE',
+      message: STATUS_CHECK_MESSAGE,
+    };
+  }
+}
+
+// A timeout, malformed response, or provider error cannot prove non-payment.
 export async function requestTossPaymentConfirm(
   input: ConfirmPaymentInput,
-): Promise<
-  | { ok: true; data: TossConfirmResponse }
-  | { ok: false; code: string; message: string }
-> {
+): Promise<TossPaymentResult> {
   const secretKey = process.env.TOSS_SECRET_KEY;
-
   if (!secretKey) {
     return {
       ok: false,
       code: 'MISSING_SECRET_KEY',
-      message: '.env.local 에 TOSS_SECRET_KEY 가 없습니다.',
+      message: STATUS_CHECK_MESSAGE,
+      recoveryRequired: true,
     };
   }
-
   try {
     const response = await fetch(TOSS_CONFIRM_URL, {
       method: 'POST',
@@ -59,40 +128,44 @@ export async function requestTossPaymentConfirm(
       cache: 'no-store',
       signal: AbortSignal.timeout(15000),
     });
-
-    const json = await response.json();
-
+    const json: unknown = await response.json();
     if (!response.ok) {
       return {
         ok: false,
-        code: json.code ?? 'TOSS_CONFIRM_FAILED',
-        message: json.message ?? 'Payment authorization failed.',
+        code: 'TOSS_CONFIRM_UNAVAILABLE',
+        message: STATUS_CHECK_MESSAGE,
+        recoveryRequired: true,
       };
     }
-
-    if (
-      !json ||
-      typeof json !== 'object' ||
-      typeof json.status !== 'string' ||
-      typeof json.orderId !== 'string' ||
-      typeof json.paymentKey !== 'string' ||
-      typeof json.totalAmount !== 'number'
-    ) {
+    if (!isPaymentResponse(json)) {
       return {
         ok: false,
         code: 'INVALID_RESPONSE',
-        message: 'Could not verify the payment authorization response.',
+        message: STATUS_CHECK_MESSAGE,
+        recoveryRequired: true,
       };
     }
-    return { ok: true, data: json as TossConfirmResponse };
+    return { ok: true, data: json };
   } catch {
     return {
       ok: false,
       code: 'CONFIRM_UNAVAILABLE',
-      message:
-        'Could not confirm authorization. Check your order status before trying another payment.',
+      message: STATUS_CHECK_MESSAGE,
+      recoveryRequired: true,
     };
   }
+}
+
+/** Bind authoritative provider details to the callback and the stored total. */
+export function matchesTossPayment(
+  payment: TossConfirmResponse,
+  input: ConfirmPaymentInput,
+): boolean {
+  return (
+    payment.paymentKey === input.paymentKey &&
+    payment.orderId === input.orderId &&
+    payment.totalAmount === input.amount
+  );
 }
 
 // 승인 전 저장된 주문과 토스 콜백 값 대조 (순수 함수 → 단위 테스트 가능)
