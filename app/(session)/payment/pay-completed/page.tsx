@@ -2,6 +2,8 @@ import { redirect } from 'next/navigation';
 import PaymentResultPage from '@/domains/payment/components/PaymentResultPage';
 import { confirmPaymentAction } from '@/domains/payment/payment.actions';
 import { findOrder } from '@/domains/payment/data/payment.order-store';
+import PurchaseAnalytics from '@/domains/payment/components/PurchaseAnalytics';
+import { buildPurchaseAnalytics } from '@/domains/payment/analytics/purchase';
 
 type PageProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -81,13 +83,16 @@ export default async function Page({ searchParams }: PageProps) {
     );
   }
   return (
-    <PaymentResultPage
-      status="success"
-      items={order.items}
-      orderItems={order.items}
-      receiptUrl={result.receiptUrl}
-      paidAmount={order.amount}
-      orderShippingFee={order.shippingFee}
-    />
+    <>
+      <PaymentResultPage
+        status="success"
+        items={order.items}
+        orderItems={order.items}
+        receiptUrl={result.receiptUrl}
+        paidAmount={order.amount}
+        orderShippingFee={order.shippingFee}
+      />
+      <PurchaseAnalytics purchase={buildPurchaseAnalytics(orderId, order)} />
+    </>
   );
 }

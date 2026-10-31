@@ -6,6 +6,7 @@ import type { Metadata, Viewport } from 'next';
 import Footer from '@/shared/components/Footer';
 import { MastHead } from '@/shared/components/MastHead';
 import { ButterBackground } from '@/shared/components/ButterBackground';
+import { AnalyticsProvider } from '@/shared/components/AnalyticsProvider';
 import MastHeadWithUser from './_lib/masthead-user';
 
 export const viewport: Viewport = {
@@ -40,6 +41,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       className={`${notoSansKr.variable} ${bbhHegarty.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <Suspense fallback={null}>
+          <AnalyticsProvider />
+        </Suspense>
         <Suspense fallback={null}>
           <Suspense
             fallback={

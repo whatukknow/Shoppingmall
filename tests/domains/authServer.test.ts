@@ -12,6 +12,10 @@ import {
 } from '../../domains/auth/auth.server';
 import type { Database } from '../../shared/lib/supabase/database.types';
 import type { SupabaseClient } from '@supabase/supabase-js';
+import {
+  isSignupAttemptToken,
+  SIGNUP_ATTEMPT_METADATA_KEY,
+} from '../../domains/auth/auth.types';
 
 type ProfilesRow = Database['public']['Tables']['profiles']['Row'];
 type OrdersRow = Database['public']['Tables']['orders']['Row'];
@@ -87,6 +91,12 @@ type AuthUser = {
   email: string;
   user_metadata?: Record<string, unknown>;
   created_at?: string;
+  identities?: {
+    id: string;
+    user_id: string;
+    identity_id: string;
+    provider: string;
+  }[];
 };
 
 /** DB 쿼리 기록용 요청 */
@@ -100,7 +110,7 @@ type DbRequest = {
 /** auth + from 쿼리를 흉내 내는 가짜 Supabase 클라이언트 */
 function makeFakeClient(options: {
   auth: AuthBehavior;
-  signupUser?: AuthUser;
+  signupUser?: AuthUser | ((metadata: Record<string, unknown>) => AuthUser);
   getUserUser?: AuthUser | null;
   getUserError?: { code?: string; message: string; status?: number } | null;
   profiles?: ProfilesRow[];
@@ -162,11 +172,21 @@ function makeFakeClient(options: {
         };
       }
       const a = options.auth;
+      const signupUser =
+        typeof options.signupUser === 'function'
+          ? options.signupUser(body.options?.data ?? {})
+          : options.signupUser;
       if (a.kind === 'noSession') {
-        return { data: { user: a.user, session: null }, error: null };
+        return {
+          data: { user: signupUser ?? a.user, session: null },
+          error: null,
+        };
       }
       if (a.kind === 'ok') {
-        return { data: { user: a.user, session: a.session }, error: null };
+        return {
+          data: { user: signupUser ?? a.user, session: a.session },
+          error: null,
+        };
       }
       return { data: { user: null, session: null }, error: null };
     },
@@ -486,7 +506,13 @@ describe('auth.server signUp', () => {
     assert.ok(body);
     assert.equal(body.email, 'user@example.com');
     assert.equal(body.password, 'password123');
-    assert.deepEqual(body.options?.data, {
+    assert.ok(
+      isSignupAttemptToken(body.options?.data?.[SIGNUP_ATTEMPT_METADATA_KEY]),
+    );
+    const { [SIGNUP_ATTEMPT_METADATA_KEY]: _token, ...metadata } =
+      body.options?.data ?? {};
+    assert.ok(_token);
+    assert.deepEqual(metadata, {
       name: '정은',
       termsVersion: '2026-10',
       privacyVersion: '2026-10',
@@ -749,6 +775,190 @@ describe('auth.server signUp', () => {
       assert.notEqual(e.message, 'raw secret failure');
       return true;
     });
+  });
+});
+
+describe('가입 분석 표식의 인증 완료 경계', () => {
+  const identity = {
+    id: authUser.id,
+    user_id: authUser.id,
+    identity_id: 'synthetic-identity',
+    provider: 'email',
+  };
+
+  it('신규·기존 은닉·미확인 재전송·알 수 없는 성공 모두 동일한 공개 응답 형태를 유지한다', async () => {
+    const shapes: string[][] = [];
+    for (const kind of ['new', 'obfuscated', 'resend', 'unknown']) {
+      const client = makeFakeClient({
+        ...signedInOptions,
+        signupUser(metadata) {
+          if (kind === 'unknown') return authUser;
+          return {
+            ...authUser,
+            user_metadata:
+              kind === 'resend'
+                ? { [SIGNUP_ATTEMPT_METADATA_KEY]: 'old-attempt' }
+                : metadata,
+            identities: kind === 'obfuscated' ? [] : [identity],
+          };
+        },
+      });
+      const response = await signUp(signupRequest, client);
+      assert.ok(isSignupAttemptToken(response.signupAttemptToken));
+      assert.equal(
+        response.signupAttemptToken,
+        client._lastSignUpBody()?.options?.data?.[SIGNUP_ATTEMPT_METADATA_KEY],
+      );
+      assert.equal('signUpAnalyticsEligible' in response, false);
+      shapes.push(Object.keys(response).sort());
+    }
+    shapes.forEach((shape) => assert.deepEqual(shape, shapes[0]));
+  });
+
+  it('이 요청에서 생성된 표식과 실제 이메일 identity가 인증 후 일치할 때만 승인한다', async () => {
+    const createdUser: AuthUser = { ...authUser, identities: [identity] };
+    const client = makeFakeClient({
+      ...signedInOptions,
+      auth: { kind: 'ok', user: createdUser, session: authSession },
+      signupUser(metadata) {
+        createdUser.user_metadata = metadata;
+        return createdUser;
+      },
+    });
+    const signup = await signUp(signupRequest, client);
+    const response = await signIn(
+      {
+        email: signupRequest.email,
+        password: signupRequest.password,
+        signupAttemptToken: signup.signupAttemptToken,
+      },
+      client,
+    );
+    assert.equal(response.signUpAnalyticsEligible, true);
+    assert.deepEqual(client._lastSignInBody(), {
+      email: signupRequest.email,
+      password: signupRequest.password,
+    });
+    assert.equal(
+      client._requests.length,
+      3,
+      '기존 로그인 정보 조회 외 추가 쿼리 없음',
+    );
+  });
+
+  it('기존 계정 은닉 응답의 요청 메타데이터가 실제 인증 계정의 표식으로 쓰이지 않는다', async () => {
+    const existing: AuthUser = {
+      ...authUser,
+      user_metadata: { [SIGNUP_ATTEMPT_METADATA_KEY]: crypto.randomUUID() },
+      identities: [identity],
+    };
+    const client = makeFakeClient({
+      ...signedInOptions,
+      auth: { kind: 'ok', user: existing, session: authSession },
+      signupUser: (metadata) => ({
+        ...authUser,
+        id: 'obfuscated-id',
+        user_metadata: metadata,
+        identities: [],
+      }),
+    });
+    const signup = await signUp(signupRequest, client);
+    const response = await signIn(
+      {
+        email: signupRequest.email,
+        password: signupRequest.password,
+        signupAttemptToken: signup.signupAttemptToken,
+      },
+      client,
+    );
+    assert.equal(response.signUpAnalyticsEligible, undefined);
+    assert.equal(response.id, existing.id);
+  });
+
+  it('미확인 기존 가입의 재전송은 새 요청 표식과 일치하지 않는다', async () => {
+    const existing: AuthUser = {
+      ...authUser,
+      user_metadata: { [SIGNUP_ATTEMPT_METADATA_KEY]: crypto.randomUUID() },
+      identities: [identity],
+    };
+    const client = makeFakeClient({
+      ...signedInOptions,
+      auth: { kind: 'ok', user: existing, session: authSession },
+    });
+    const signup = await signUp(signupRequest, client);
+    const response = await signIn(
+      {
+        email: signupRequest.email,
+        password: signupRequest.password,
+        signupAttemptToken: signup.signupAttemptToken,
+      },
+      client,
+    );
+    assert.equal(response.signUpAnalyticsEligible, undefined);
+  });
+
+  it('표식/identity가 없거나 형식·소유자가 다르면 정상 로그인은 유지하고 분석은 보류한다', async () => {
+    const token = crypto.randomUUID();
+    const fixtures: {
+      token?: unknown;
+      metadata?: Record<string, unknown>;
+      identities?: AuthUser['identities'];
+    }[] = [
+      {},
+      {
+        token: 'malformed',
+        metadata: { [SIGNUP_ATTEMPT_METADATA_KEY]: 'malformed' },
+        identities: [identity],
+      },
+      { token, identities: [identity] },
+      { token, metadata: { [SIGNUP_ATTEMPT_METADATA_KEY]: token } },
+      {
+        token,
+        metadata: { [SIGNUP_ATTEMPT_METADATA_KEY]: token },
+        identities: [],
+      },
+      {
+        token,
+        metadata: { [SIGNUP_ATTEMPT_METADATA_KEY]: token },
+        identities: [
+          null as unknown as NonNullable<AuthUser['identities']>[number],
+        ],
+      },
+      {
+        token,
+        metadata: { [SIGNUP_ATTEMPT_METADATA_KEY]: token },
+        identities: [{ ...identity, user_id: 'someone-else' }],
+      },
+      {
+        token,
+        metadata: { [SIGNUP_ATTEMPT_METADATA_KEY]: token },
+        identities: [{ ...identity, provider: 'github' }],
+      },
+    ];
+    for (const fixture of fixtures) {
+      const client = makeFakeClient({
+        ...signedInOptions,
+        auth: {
+          kind: 'ok',
+          user: {
+            ...authUser,
+            user_metadata: fixture.metadata,
+            identities: fixture.identities,
+          },
+          session: authSession,
+        },
+      });
+      const response = await signIn(
+        {
+          email: signupRequest.email,
+          password: signupRequest.password,
+          signupAttemptToken: fixture.token as string | undefined,
+        },
+        client,
+      );
+      assert.equal(response.id, authUser.id);
+      assert.equal(response.signUpAnalyticsEligible, undefined);
+    }
   });
 });
 

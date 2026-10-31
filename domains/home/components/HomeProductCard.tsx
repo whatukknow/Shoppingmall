@@ -1,6 +1,7 @@
 import { foodLabel } from '@/shared/lib/food-label';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { MouseEventHandler } from 'react';
 import type { HomeCardItem } from '../home.types';
 
 /** 홈 캐러셀에서 재사용하는 상품 카드입니다. */
@@ -8,10 +9,12 @@ export function HomeProductCard({
   product,
   href,
   rank,
+  onClick,
 }: {
   product: HomeCardItem;
   href: string; // 카드를 눌렀을 때 이동할 주소
   rank?: number;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
 }) {
   const cardContent = (
     <>
@@ -46,6 +49,7 @@ export function HomeProductCard({
   return (
     <Link
       href={href}
+      onClick={onClick}
       className="block min-w-0 transition-opacity hover:opacity-75"
     >
       {cardContent}

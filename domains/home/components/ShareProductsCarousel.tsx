@@ -5,6 +5,7 @@ import { TasteFinderPromptCard } from './TasteFinderPromptCard';
 import type { HomeRecommendationMode } from '../data/homeRecommendations';
 import type { HomeCardItem } from '../home.types';
 import { HomeProductCard } from './HomeProductCard';
+import { trackRecommendationClick } from '@/shared/lib/analytics/client';
 
 /** 추천 모드에 맞는 상품 목록과 취향 유도 카드를 보여줍니다. */
 export function ShareProductsCarousel({
@@ -53,10 +54,22 @@ export function ShareProductsCarousel({
               ariaLabel={
                 showAiCopy ? 'Personalized food picks' : 'Today’s product picks'
               }
-              renderItem={(product) => (
+              renderItem={(product, index) => (
                 <HomeProductCard
                   product={product}
                   href={`/products/${encodeURIComponent(product.id)}`}
+                  onClick={() => {
+                    try {
+                      trackRecommendationClick({
+                        itemId: product.id,
+                        itemName: product.name,
+                        index,
+                        source: mode === 'ai' ? 'personalized' : 'random',
+                      });
+                    } catch {
+                      // 분석 실패와 관계없이 Link의 기본 이동을 유지한다.
+                    }
+                  }}
                 />
               )}
             />

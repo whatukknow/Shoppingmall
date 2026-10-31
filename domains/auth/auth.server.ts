@@ -2,6 +2,7 @@ import { createServerClient } from '@/shared/lib/supabase/server';
 import {
   AuthSessionMissingError,
   type SupabaseClient,
+  type User as SupabaseAuthUser,
 } from '@supabase/supabase-js';
 import type { Database } from '@/shared/lib/supabase/database.types';
 import { toUser } from './users.mapper';
@@ -14,6 +15,10 @@ import type {
   SignUpResponse,
 } from './auth.types';
 import type { User } from './users.types';
+import {
+  isSignupAttemptToken,
+  SIGNUP_ATTEMPT_METADATA_KEY,
+} from './auth.types';
 
 type ProfilesRow = Database['public']['Tables']['profiles']['Row'];
 type OrdersRow = Database['public']['Tables']['orders']['Row'];
@@ -148,6 +153,29 @@ function assertValidLogin(body: SignInRequest): void {
   }
 }
 
+/** 신규 가입 요청의 비개인 표식을 인증된 본인의 실제 이메일 identity에 연결한다.
+ * 메타데이터는 분석 용도이며 인증·인가 결정이나 공개 계정 유무 응답에 쓰지 않는다.
+ */
+function matchesSignupAttempt(user: SupabaseAuthUser, token: unknown): boolean {
+  return (
+    isSignupAttemptToken(token) &&
+    typeof user.id === 'string' &&
+    user.id.length > 0 &&
+    user.user_metadata?.[SIGNUP_ATTEMPT_METADATA_KEY] === token &&
+    Array.isArray(user.identities) &&
+    user.identities.some(
+      (identity) =>
+        identity !== null &&
+        typeof identity === 'object' &&
+        identity.provider === 'email' &&
+        identity.user_id === user.id &&
+        identity.id === user.id &&
+        typeof identity.identity_id === 'string' &&
+        identity.identity_id.length > 0,
+    )
+  );
+}
+
 /** POST auth/signin — 이메일·비밀번호 로그인 */
 export async function signIn(
   body: SignInRequest,
@@ -188,6 +216,9 @@ export async function signIn(
     hasTasteProfile,
     expiresAt: sessionExpiresAt(data.session),
     requestId: crypto.randomUUID(),
+    ...(matchesSignupAttempt(data.user, body.signupAttemptToken)
+      ? { signUpAnalyticsEligible: true as const }
+      : {}),
   };
 }
 
@@ -228,6 +259,7 @@ export async function signUp(
   client: SupabaseClient<Database> = createServerClient(),
 ): Promise<SignUpResponse> {
   assertValidSignup(body);
+  const signupAttemptToken = crypto.randomUUID();
 
   const { data, error } = await client.auth.signUp({
     email: body.email,
@@ -240,6 +272,7 @@ export async function signUp(
         agreeTerms: body.agreeTerms,
         agreePrivacy: body.agreePrivacy,
         agreeNotification: body.agreeNotification,
+        [SIGNUP_ATTEMPT_METADATA_KEY]: signupAttemptToken,
       },
     },
   });
@@ -257,6 +290,8 @@ export async function signUp(
     agreeTerms: body.agreeTerms,
     agreePrivacy: body.agreePrivacy,
     agreeNotification: body.agreeNotification,
+    // 신규/기존/확인메일 재전송 모두 같은 형태로 반환해 공개 계정 판별을 막는다.
+    signupAttemptToken,
   };
 }
 

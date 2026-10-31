@@ -21,6 +21,7 @@ export type SignupValues = {
 export type SignInRequest = {
   email: string;
   password: string;
+  signupAttemptToken?: string; // 같은 탭에서 완료한 가입 흐름의 비개인 분석 표식
 };
 
 // 로그인 API 응답
@@ -32,6 +33,7 @@ export type SignInResponse = {
   hasTasteProfile: boolean; // 취향 프로필 등록 여부
   expiresAt: string; // 세션 만료 시각 (ISO 문자열)
   requestId: string;
+  signUpAnalyticsEligible?: true; // 인증된 본인의 가입 흐름만 분석에 연결
 };
 
 // 로그아웃 API 응답
@@ -62,7 +64,20 @@ export type SignUpResponse = {
   agreeTerms: boolean;
   agreePrivacy: boolean;
   agreeNotification: boolean;
+  signupAttemptToken: string; // 성공 응답 모두에 동일한 형식으로 발급, 기존 계정 여부 아님
 };
+
+export const SIGNUP_ATTEMPT_METADATA_KEY = 'analytics_signup_attempt';
+
+/** 분석 표식 형식만 확인한다. 인증·권한 판정에 사용하지 않는다. */
+export function isSignupAttemptToken(value: unknown): value is string {
+  return (
+    typeof value === 'string' &&
+    /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+      value,
+    )
+  );
+}
 
 // 약관 버전 상수
 export const TERMS_VERSION = '2026-10'; // 이용약관 버전
