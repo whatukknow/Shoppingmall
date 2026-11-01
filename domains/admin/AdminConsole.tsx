@@ -418,6 +418,9 @@ export function AdminConsole() {
                 {page === 'Overview' && summary && (
                   <>
                     <p>Current totals from the connected database.</p>
+                    <Link href="/admin/operations" className="lp-admin-button">
+                      Open sales, orders & buying groups ↗
+                    </Link>
                     <div className="lp-admin-metrics">
                       {[
                         ['Products', summary.products],
