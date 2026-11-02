@@ -10,6 +10,7 @@ import { NavigationAction, type NavigationTarget } from './NavigationAction';
 export type MastHeadProps = {
   variant?: 'brand' | 'header';
   user?: { name: string } | null;
+  adminHref?: '/admin';
   login?: NavigationTarget;
   account?: NavigationTarget;
   navigation?: MainNavigationProps;
@@ -19,6 +20,7 @@ export type MastHeadProps = {
 export function MastHead({
   variant = 'brand',
   user = null,
+  adminHref,
   login,
   account,
   navigation,
@@ -75,6 +77,14 @@ export function MastHead({
           className={`order-3 w-full flex-none px-0 py-0 sm:order-none sm:mx-0 sm:w-auto ${isHome ? 'text-white' : ''}`}
         />
         <div className="ml-auto flex min-w-0 items-center gap-1 sm:gap-4">
+          {user && adminHref && (
+            <NavigationAction
+              label="Admin console"
+              target={{ href: adminHref }}
+              current={pathname === '/admin'}
+              className="text-xs whitespace-nowrap sm:text-sm"
+            />
+          )}
           <NavigationAction
             label={user ? user.name : 'Log in'}
             target={user ? account : loginTarget}

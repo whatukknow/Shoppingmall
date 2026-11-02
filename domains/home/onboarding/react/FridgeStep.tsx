@@ -9,7 +9,7 @@ import { TasteFrame } from './TasteFrame';
 import { hasBirthDetails, tasteRoutes, type FridgeAnswer } from './answers';
 
 export function FridgeStep() {
-  const { answers, setAnswers } = useTaste();
+  const { answers, setAnswers, config } = useTaste();
   const router = useRouter();
   const pathname = usePathname();
   useEffect(() => {
@@ -25,10 +25,22 @@ export function FridgeStep() {
           <span className="k">
             <i className="pf">STEP 3</i>Your fridge
           </span>
-          <h1>What’s in your fridge?</h1>
+          <h1>{config.questions.fridge.title}</h1>
         </div>
         <ChoiceGrid<FridgeAnswer>
-          options={FRI}
+          options={
+            Object.fromEntries(
+              Object.entries(FRI).map(([key, choice]) => [
+                key,
+                {
+                  ...choice,
+                  t: config.questions.fridge.choices[key as FridgeAnswer].title,
+                  d: config.questions.fridge.choices[key as FridgeAnswer]
+                    .description,
+                },
+              ]),
+            ) as typeof FRI
+          }
           selected={answers.fridge}
           onSelect={(fridge) =>
             setAnswers((current) => ({ ...current, fridge }))

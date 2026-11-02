@@ -254,3 +254,6 @@ export function recommend(S) {
     split: fz === 'empty' || sun === 'c' || sun === 'n',
   };
 }
+
+// Stable tuples reused by the configurable engine; the default algorithm stays intact.
+export const RECOMMENDATION_PRODUCTS = P;

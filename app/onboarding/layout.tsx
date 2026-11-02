@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { publishedTasteConfig } from '@/domains/admin/admin.server';
 import { Press_Start_2P } from 'next/font/google';
 import { getHomeProducts } from '@/domains/home/home.api';
 import { getMe } from '@/domains/auth/users.api';
@@ -29,9 +30,16 @@ export default async function OnboardingLayout({
     }
     throw error;
   }
+  const tasteSettings = await publishedTasteConfig();
   return (
     <div className={pixelFont.variable}>
-      <TasteProvider products={shareProducts}>{children}</TasteProvider>
+      <TasteProvider
+        products={shareProducts}
+        config={tasteSettings.config}
+        tasteRevision={tasteSettings.revision}
+      >
+        {children}
+      </TasteProvider>
     </div>
   );
 }

@@ -20,6 +20,8 @@ import { HomeProductCard } from '../../domains/home/components/HomeProductCard';
 import { ProductCarousel } from '../../domains/home/components/ProductCarousel';
 import * as answersModule from '../../domains/home/onboarding/react/answers';
 import * as recommendation from '../../domains/home/onboarding/react/recommendation';
+import { defaultTasteConfig } from '../../domains/admin/taste-config';
+import { recommendConfigured } from '../../domains/admin/recommend';
 import * as tasteProfile from '../../domains/home/onboarding/react/tasteProfile';
 import type { HomeCardItem } from '../../domains/home/home.types';
 
@@ -396,11 +398,14 @@ function tasteHarness(
     'domains/home/onboarding/react/ResultStep.tsx',
     {
       '@/shared/lib/food-label': { foodLabel: (value: string) => value },
+      '@/domains/admin/recommend': { recommendConfigured },
       'next/navigation': {},
       './TasteFrame': { TasteFrame: 'taste-frame' },
       './TasteProvider': {
         useTaste: () => ({
           answers: fixtureAnswers,
+          config: defaultTasteConfig,
+          tasteRevision: 0,
           remaining: () => ({ day: 0, week: 0 }),
         }),
       },

@@ -9,7 +9,7 @@ import { hasBirthDetails, tasteRoutes, type SundayAnswer } from './answers';
 import { useEffect } from 'react';
 
 export function SundayStep() {
-  const { answers, setAnswers } = useTaste();
+  const { answers, setAnswers, config } = useTaste();
   const router = useRouter();
   const pathname = usePathname();
   useEffect(() => {
@@ -25,13 +25,32 @@ export function SundayStep() {
             <i className="pf">STEP 2</i>Sunday morning
           </span>
           <h1>
-            This Sunday morning,
-            <br />
-            what’s your plan?
+            {config.questions.sunday.title ===
+            'This Sunday morning, what’s your plan?' ? (
+              <>
+                This Sunday morning,
+                <br />
+                what’s your plan?
+              </>
+            ) : (
+              config.questions.sunday.title
+            )}
           </h1>
         </div>
         <ChoiceGrid<SundayAnswer>
-          options={SUN}
+          options={
+            Object.fromEntries(
+              Object.entries(SUN).map(([key, choice]) => [
+                key,
+                {
+                  ...choice,
+                  t: config.questions.sunday.choices[key as SundayAnswer].title,
+                  d: config.questions.sunday.choices[key as SundayAnswer]
+                    .description,
+                },
+              ]),
+            ) as typeof SUN
+          }
           selected={answers.sun}
           onSelect={(sun) => setAnswers((current) => ({ ...current, sun }))}
           onAdvance={next}
